@@ -1,6 +1,6 @@
 ## About The Project
 "MathWorld" is the working title of an educational math game. At the moment, the prosject consists of 'movie room' presenting
-selected methods for elementary calculations.
+selected methods for elementary calculations. You can check out the movie room [here](https://sindrsh.itch.io/videoroom)
 
 ## Built With
 * [Godet (GDScript)](https://godotengine.org/)
@@ -18,5 +18,3 @@ language. It is not necessary to compile the files, so a text editor is suffient
 Sindre Sogge Heggen - sindre.heggen@gmail.com
 
 [The project's discord channel](https://discord.com/channels/938334993191686174/1020401566060134440)
-
-[Video room on itch.io](https://sindrsh.itch.io/videoroom)
