@@ -17,4 +17,4 @@ language. It is not necessary to compile the files, so a text editor is suffient
 
 Sindre Sogge Heggen - sindre.heggen@gmail.com
 
-.[The project's discord channel](https://discord.com/channels/938334993191686174/1020401566060134440)
+[The project's discord channel](https://discord.com/channels/938334993191686174/1020401566060134440)
