@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/frame4_no.mp3-518dfdd1f208b5b40e5e6b6cb121a2b4.mp3str"
+
+[deps]
+
+source_file="res://vid134min87/audio/frame4_no.mp3"
+dest_files=[ "res://.import/frame4_no.mp3-518dfdd1f208b5b40e5e6b6cb121a2b4.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

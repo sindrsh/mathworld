@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/frame9_no.mp3-eca7595bb186fcd219129a8b8614dddf.mp3str"
+
+[deps]
+
+source_file="res://vid72div4/audio/frame9_no.mp3"
+dest_files=[ "res://.import/frame9_no.mp3-eca7595bb186fcd219129a8b8614dddf.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

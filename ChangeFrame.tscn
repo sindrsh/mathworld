@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/prev_frame.png" type="Texture" id=1]
+
+[node name="ChangeFrame" type="TextureButton"]
+show_behind_parent = true
+margin_right = 70.0
+margin_bottom = 70.0
+texture_normal = ExtResource( 1 )

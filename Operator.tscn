@@ -1,0 +1,57 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://assets/plus_.png" type="Texture" id=1]
+[ext_resource path="res://assets/times_.png" type="Texture" id=2]
+[ext_resource path="res://assets/divided_.png" type="Texture" id=3]
+[ext_resource path="res://assets/equals_.png" type="Texture" id=4]
+[ext_resource path="res://assets/minus_.png" type="Texture" id=5]
+[ext_resource path="res://assets/dot_.png" type="Texture" id=6]
+[ext_resource path="res://assets/comma_.png" type="Texture" id=7]
+[ext_resource path="res://assets/times_g.png" type="Texture" id=8]
+[ext_resource path="res://assets/minus_g.png" type="Texture" id=9]
+[ext_resource path="res://assets/plus_g.png" type="Texture" id=10]
+[ext_resource path="res://assets/plus_b.png" type="Texture" id=11]
+[ext_resource path="res://assets/times_b.png" type="Texture" id=12]
+[ext_resource path="res://assets/divided_g.png" type="Texture" id=13]
+[ext_resource path="res://assets/dot_g.png" type="Texture" id=14]
+[ext_resource path="res://assets/comma_g.png" type="Texture" id=15]
+[ext_resource path="res://assets/equals_r.png" type="Texture" id=16]
+[ext_resource path="res://assets/equals_b.png" type="Texture" id=17]
+[ext_resource path="res://assets/comma_r.png" type="Texture" id=18]
+[ext_resource path="res://assets/dot_b.png" type="Texture" id=19]
+[ext_resource path="res://assets/minus_r.png" type="Texture" id=20]
+[ext_resource path="res://assets/divided_r.png" type="Texture" id=21]
+[ext_resource path="res://assets/minus_b.png" type="Texture" id=22]
+[ext_resource path="res://assets/plus_r.png" type="Texture" id=23]
+[ext_resource path="res://assets/dot_r.png" type="Texture" id=24]
+[ext_resource path="res://assets/times_r.png" type="Texture" id=25]
+[ext_resource path="res://assets/equals_g.png" type="Texture" id=26]
+[ext_resource path="res://assets/comma_b.png" type="Texture" id=27]
+[ext_resource path="res://assets/divided_b.png" type="Texture" id=28]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 1 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "black",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 26 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "combine",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 11 ), ExtResource( 22 ), ExtResource( 12 ), ExtResource( 28 ), ExtResource( 19 ), ExtResource( 27 ) ],
+"loop": true,
+"name": "result",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 23 ), ExtResource( 20 ), ExtResource( 25 ), ExtResource( 21 ), ExtResource( 24 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "select",
+"speed": 5.0
+} ]
+
+[node name="Operator" type="AnimatedSprite"]
+frames = SubResource( 1 )
+animation = "result"

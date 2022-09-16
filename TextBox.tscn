@@ -1,0 +1,9 @@
+[gd_scene format=2]
+
+[node name="TextBox" type="ColorRect"]
+show_behind_parent = true
+margin_right = 200.0
+margin_bottom = 200.0
+color = Color( 0.0980392, 0.337255, 0.192157, 1 )
+
+[node name="Text" type="Sprite" parent="."]

@@ -1,0 +1,84 @@
+[gd_scene load_steps=52 format=2]
+
+[ext_resource path="res://assets/six_.png" type="Texture" id=1]
+[ext_resource path="res://assets/seven_.png" type="Texture" id=2]
+[ext_resource path="res://assets/one_.png" type="Texture" id=3]
+[ext_resource path="res://assets/zero_r.png" type="Texture" id=4]
+[ext_resource path="res://assets/nine_.png" type="Texture" id=5]
+[ext_resource path="res://assets/five_.png" type="Texture" id=6]
+[ext_resource path="res://assets/eight_.png" type="Texture" id=7]
+[ext_resource path="res://assets/four_.png" type="Texture" id=8]
+[ext_resource path="res://assets/four_r.png" type="Texture" id=9]
+[ext_resource path="res://assets/seven_c.png" type="Texture" id=10]
+[ext_resource path="res://assets/one_b.png" type="Texture" id=11]
+[ext_resource path="res://assets/three_.png" type="Texture" id=12]
+[ext_resource path="res://assets/eight_b.png" type="Texture" id=13]
+[ext_resource path="res://assets/nine_b.png" type="Texture" id=14]
+[ext_resource path="res://assets/nine_r.png" type="Texture" id=15]
+[ext_resource path="res://assets/four_b.png" type="Texture" id=16]
+[ext_resource path="res://assets/five_r.png" type="Texture" id=17]
+[ext_resource path="res://assets/zero_b.png" type="Texture" id=18]
+[ext_resource path="res://assets/three_r.png" type="Texture" id=19]
+[ext_resource path="res://assets/six_r.png" type="Texture" id=20]
+[ext_resource path="res://assets/zero_c.png" type="Texture" id=21]
+[ext_resource path="res://assets/zero_.png" type="Texture" id=22]
+[ext_resource path="res://assets/nine_c.png" type="Texture" id=23]
+[ext_resource path="res://assets/six_c.png" type="Texture" id=24]
+[ext_resource path="res://assets/six_b.png" type="Texture" id=25]
+[ext_resource path="res://assets/two_b.png" type="Texture" id=26]
+[ext_resource path="res://assets/five_c.png" type="Texture" id=27]
+[ext_resource path="res://assets/three_b.png" type="Texture" id=28]
+[ext_resource path="res://assets/one_c.png" type="Texture" id=29]
+[ext_resource path="res://assets/five_b.png" type="Texture" id=30]
+[ext_resource path="res://assets/seven_b.png" type="Texture" id=31]
+[ext_resource path="res://assets/two_r.png" type="Texture" id=32]
+[ext_resource path="res://assets/eight_c.png" type="Texture" id=33]
+[ext_resource path="res://assets/four_c.png" type="Texture" id=34]
+[ext_resource path="res://assets/eight_r.png" type="Texture" id=35]
+[ext_resource path="res://assets/three_c.png" type="Texture" id=36]
+[ext_resource path="res://assets/one_r.png" type="Texture" id=37]
+[ext_resource path="res://assets/two_c.png" type="Texture" id=38]
+[ext_resource path="res://assets/two_.png" type="Texture" id=39]
+[ext_resource path="res://assets/seven_r.png" type="Texture" id=40]
+[ext_resource path="res://assets/eight_g.png" type="Texture" id=41]
+[ext_resource path="res://assets/nine_g.png" type="Texture" id=42]
+[ext_resource path="res://assets/five_g.png" type="Texture" id=43]
+[ext_resource path="res://assets/two_g.png" type="Texture" id=44]
+[ext_resource path="res://assets/zero_g.png" type="Texture" id=45]
+[ext_resource path="res://assets/seven_g.png" type="Texture" id=46]
+[ext_resource path="res://assets/one_g.png" type="Texture" id=47]
+[ext_resource path="res://assets/four_g.png" type="Texture" id=48]
+[ext_resource path="res://assets/six_g.png" type="Texture" id=49]
+[ext_resource path="res://assets/three_g.png" type="Texture" id=50]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 22 ), ExtResource( 3 ), ExtResource( 39 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 7 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "black",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 45 ), ExtResource( 47 ), ExtResource( 44 ), ExtResource( 50 ), ExtResource( 48 ), ExtResource( 43 ), ExtResource( 49 ), ExtResource( 46 ), ExtResource( 41 ), ExtResource( 42 ) ],
+"loop": true,
+"name": "combine",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 37 ), ExtResource( 32 ), ExtResource( 19 ), ExtResource( 9 ), ExtResource( 17 ), ExtResource( 20 ), ExtResource( 40 ), ExtResource( 35 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "red",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 11 ), ExtResource( 26 ), ExtResource( 28 ), ExtResource( 16 ), ExtResource( 30 ), ExtResource( 25 ), ExtResource( 31 ), ExtResource( 13 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "result",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 29 ), ExtResource( 38 ), ExtResource( 36 ), ExtResource( 34 ), ExtResource( 27 ), ExtResource( 24 ), ExtResource( 10 ), ExtResource( 33 ), ExtResource( 23 ) ],
+"loop": true,
+"name": "select",
+"speed": 5.0
+} ]
+
+[node name="Int" type="AnimatedSprite"]
+frames = SubResource( 1 )
+animation = "black"
