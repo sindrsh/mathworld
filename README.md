@@ -1,5 +1,5 @@
 ## About The Project
-"MathWorld" is the working title of an educational math game. At the moment it includes a "movie room" presenting
+"MathWorld" is the working title of an educational math game. At the moment it includes a 'movie room' presenting
 selected methods for elementary calculations.
 
 ## Built With
