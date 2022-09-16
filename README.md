@@ -3,7 +3,7 @@
 selected methods for elementary calculations. You can check out the movie room on [itch.io](https://sindrsh.itch.io/videoroom).
 
 ## Built With
-* [Godet (GDScript)](https://godotengine.org/)
+* [Godot (GDScript)](https://godotengine.org/)
 * [LaTeX](https://www.latex-project.org/)
 * [Asymptote](https://asymptote.sourceforge.io/)
 
