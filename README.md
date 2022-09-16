@@ -9,12 +9,10 @@ selected methods for elementary calculations. You can check out the movie room o
 
 ## Contributing
 The project is (hopefully) structured in a way that invites others to expand the number of languages offered.
-The "vid-" folders contains the folders "text" and "audio". 
-
-In "text" you will find .asy files named "frameX_languageabbrv.". Copy the respective files for one of the languages present, and edit them into your 
+* The "vid-" folders contains the folders "text" and "audio". 
+* In "text" you will find .asy files named "frameX_languageabbrv.". Copy the respective files for one of the languages present, and edit them into your 
 language. It is not necessary to compile the files, so a text editor is suffient.
-
-In "audio" you can add your .mp3-files for each frame.
+* In "audio" you can add your .mp3-files for each frame.
 
 <!-- CONTACT -->
 ## Contact
