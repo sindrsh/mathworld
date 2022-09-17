@@ -213,7 +213,7 @@ func _ready():
 	lang_choice = lang_choice_scene.instance()
 	
 	textbox = textbox_scene.instance()
-	textbox.rect_size = Vector2(750,450)
+	textbox.rect_size = Vector2(750,500)
 	textbox.color = Color(1,1, 0.8, 1)
 	textbox.rect_position = Vector2(100,400)
 	textbox.visible = false
@@ -250,4 +250,3 @@ func _ready():
 	assert(slideshow_choice.connect("pressed", self, "_on_slideshow_pressed") == 0)
 	assert(textbox_choice.connect("pressed", self, "_on_textbox_pressed") == 0)
 	assert(audio_player.connect("finished", self, "_on_audio_finished") == 0)
-	assert(lang_choice.get_popup().connect("index_pressed", self, "_on_lang_change") == 0)
