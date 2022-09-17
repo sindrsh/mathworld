@@ -1,6 +1,5 @@
 ## About The Project
-"MathWorld" is the working title of an educational math game. At the moment, the project consists of 'movie room' presenting
-selected methods for elementary calculations. You can check out the movie room on [itch.io](https://sindrsh.itch.io/videoroom).
+"MathWorld" is the working title of an educational math game. At the moment, the project consists of 'video room' presenting videos on selected methods for elementary calculations. You can check out the movie room on [itch.io](https://sindrsh.itch.io/videoroom).
 
 ## Built With
 * [Godot (GDScript)](https://godotengine.org/)
