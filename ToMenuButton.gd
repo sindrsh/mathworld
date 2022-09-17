@@ -3,8 +3,12 @@ extends "res://MenuButton.gd"
 func _on_pressed():
 	if get_tree().change_scene("res://VideoMenu.tscn") != OK:
 		print("Node 'VideoMenu not found'")
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var lang = PlayerVariables.menu_lang[PlayerVariables.current_lang]
+	text = lang.menu
 	font.size = 28
 	assert(connect("pressed", self, "_on_pressed") == 0)
 
