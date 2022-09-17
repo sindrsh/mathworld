@@ -14,6 +14,10 @@ config/name="MovieRoom"
 run/main_scene="res://VideoMenu.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+PlayerVariables="*res://autoloads/PlayerVariables.gd"
+
 [display]
 
 window/size/width=1920

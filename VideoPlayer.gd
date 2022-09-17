@@ -12,8 +12,7 @@ var audio_player = AudioStreamPlayer.new()
 var textbox_scene = preload("res://TextBox.tscn")
 var lang_choice_scene = preload("res://LangButton.tscn")
 
-var langs = ["no", "en", "ukr"]
-var language = langs[0] setget set_language
+var language = PlayerVariables.langs[0] setget set_language
 var x_sep = 50
 var op_sep = 70
 var y_sep = 150
@@ -167,7 +166,7 @@ func _on_audio_finished():
 		shift_frame(forwards)
 
 func _on_lang_selection(index):
-	set_language(langs[index])
+	set_language(PlayerVariables.langs[index])
 	lang_choice.icon.set_current_frame(index) 
 
 
@@ -243,6 +242,7 @@ func _ready():
 	add_child(textbox)
 	add_child(textbox_choice)
 	add_child(lang_choice)
+	
 	
 	# connect signals
 	assert(next_frame.connect("pressed", self, "_on_next_pressed") == 0)
