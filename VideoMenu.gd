@@ -2,6 +2,7 @@ extends Node2D
 
 var video_button_scene = preload("res://VideoMenuButton.tscn")
 var line_scene = preload("res://SepLine.tscn")
+var lang_choice_scene = preload("res://LangButton.tscn")
 
 var x_sep = 350
 var y_sep = 150
@@ -25,6 +26,9 @@ var x_line2
 var x_line3
 var x_line4
 
+var lang_choice
+
+
 func _ready():
 	sub_scene1 = video_button_scene.instance()
 	sub_scene2 = video_button_scene.instance()
@@ -38,6 +42,8 @@ func _ready():
 	div_scene2 = video_button_scene.instance()
 	
 	y_line = line_scene.instance()
+	
+	lang_choice = lang_choice_scene.instance()
 
 	add_child(sub_scene1)
 	add_child(sub_scene2)
@@ -52,41 +58,56 @@ func _ready():
 	
 	add_child(y_line)
 	
+	add_child(lang_choice)
+	
+	
 	sub_scene1.scene = "res://vid134min87/vid134min87.tscn"
-	sub_scene1.text = "Eksempel 1"
 	sub_scene1.rect_position = Vector2(400,100)
 
 	sub_scene2.scene = "res://vid801min512/vid801min512.tscn"
-	sub_scene2.text = "Eksempel 2"
 	sub_scene2.rect_position = sub_scene1.rect_position + Vector2(x_sep, 0)
 
 	sub_scene3.scene = "res://vid204_6min93_7/vid204_6min93_7.tscn"
-	sub_scene3.text = "Eksempel 3"
 	sub_scene3.rect_position = sub_scene2.rect_position + Vector2(x_sep, 0)
 	
 	
 	vid10mul_int.scene = "res://vid10mul_int/vid10mul_int.tscn"
-	vid10mul_int.text = "Eksempel 1"
 	vid10mul_int.rect_position = Vector2(400,250)
 	
 	vid10mul_int_b.scene = "res://vid10mul_int_b/vid10mul_int_b.tscn"
-	vid10mul_int_b.text = "Eksempel 2"
 	vid10mul_int_b.rect_position = vid10mul_int.rect_position + Vector2(x_sep, 0)
 		
 	mul_scene1.scene = "res://vid26mul3/vid26mul3.tscn"
-	mul_scene1.text = "Eksempel 3"
 	mul_scene1.rect_position = vid10mul_int_b.rect_position + Vector2(x_sep, 0)
 	
 	div_scene1.scene = "res://vid72div4/vid72div4.tscn"
-	div_scene1.text = "Eksempel 1"
 	div_scene1.rect_position = Vector2(400,400)
 
 	div_scene2.scene = "res://vid718div2/vid718div2.tscn"
-	div_scene2.text = "Eksempel 2"
 	div_scene2.rect_position = div_scene1.rect_position + Vector2(x_sep, 0)
 	
-
+	lang_choice.rect_position = Vector2(1600, 22)
 	
+	
+	_on_lang_change()
+	
+	
+
+
+func _on_lang_change():
+	var lang = PlayerVariables.menu_lang[PlayerVariables.current_lang]
+	
+	sub_scene1.text = lang.eg + " 1"
+	sub_scene2.text = lang.eg + " 2"
+	sub_scene3.text = lang.eg + " 3"
+	
+	vid10mul_int.text = lang.eg + " 1"
+	vid10mul_int_b.text = lang.eg + " 2"
+	
+	mul_scene1.text = lang.eg + " 3"
+	div_scene1.text = lang.eg + " 1"
+	div_scene2.text = lang.eg + " 2"
+
 
 func _draw():
 	var table_col = Color(0, 0, 0)

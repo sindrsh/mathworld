@@ -12,7 +12,6 @@ var audio_player = AudioStreamPlayer.new()
 var textbox_scene = preload("res://TextBox.tscn")
 var lang_choice_scene = preload("res://LangButton.tscn")
 
-var language = PlayerVariables.langs[0] setget set_language
 var x_sep = 50
 var op_sep = 70
 var y_sep = 150
@@ -38,6 +37,7 @@ var streams = []
 var texts = []
 var top_bar
 var textbox
+var to_menu
 
 var frame = 0
 var frame_max setget set_frame_max
@@ -161,13 +161,10 @@ func _on_textbox_pressed():
 	else:
 		textbox_choice.get_node("On_or_off").frame = OFF
 
+
 func _on_audio_finished():
 	if slideshow_on and frame != frame_max-1:
 		shift_frame(forwards)
-
-func _on_lang_selection(index):
-	set_language(PlayerVariables.langs[index])
-	lang_choice.icon.set_current_frame(index) 
 
 
 # make list of callable frame functions		
@@ -176,8 +173,9 @@ func mk_frame_func_list():
 		var f = funcref(self, "frame"+String(i))
 		frame_func_list.append(f)
 
-func set_language(selected_language):
-	language = selected_language
+func _on_lang_change():
+	var lang = PlayerVariables.menu_lang[PlayerVariables.current_lang]
+	to_menu.text = lang.menu
 	streams = []
 	texts = []
 	mk_streams_and_texts()
@@ -187,6 +185,7 @@ func set_frame_max(new_frame_max):
 	mk_streams_and_texts()
 
 func mk_streams_and_texts():
+	var language = PlayerVariables.current_lang
 	for i in range(frame_max):
 		var audio_string = "res://" + self.get_name() + "/audio/frame" + String(i) +"_"+ language + ".mp3"
 		if ResourceLoader.exists(audio_string):
@@ -230,7 +229,7 @@ func _ready():
 	textbox_choice.rect_position = Vector2(200,20)
 	lang_choice.rect_position = Vector2(1600, 22)
 	
-	
+	to_menu = to_menu_scene.instance()
 	
 	add_child(top_bar)
 	add_child(next_frame)
@@ -238,7 +237,7 @@ func _ready():
 	add_child(audio_choice)
 	add_child(slideshow_choice)
 	add_child(audio_player)
-	add_child(to_menu_scene.instance())
+	add_child(to_menu)
 	add_child(textbox)
 	add_child(textbox_choice)
 	add_child(lang_choice)
@@ -248,7 +247,7 @@ func _ready():
 	assert(next_frame.connect("pressed", self, "_on_next_pressed") == 0)
 	assert(prev_frame.connect("pressed", self, "_on_prev_pressed") == 0)
 	assert(audio_choice.connect("pressed", self, "_on_audio_pressed") == 0)
-	assert(slideshow_choice.connect("pressed", self, "_on_slideshow_pressed") == 0)	
+	assert(slideshow_choice.connect("pressed", self, "_on_slideshow_pressed") == 0)
 	assert(textbox_choice.connect("pressed", self, "_on_textbox_pressed") == 0)
 	assert(audio_player.connect("finished", self, "_on_audio_finished") == 0)
-	assert(lang_choice.get_popup().connect("index_pressed", self, "_on_lang_selection") == 0)	
+	assert(lang_choice.get_popup().connect("index_pressed", self, "_on_lang_change") == 0)
