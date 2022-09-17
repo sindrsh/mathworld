@@ -1,4 +1,5 @@
 import "../../assets/textbox" as textbox;
+import "../../assets/textbox_latin" as latin;
 
 lb("Vi starter med å føre opp 87");
 lb("i det som skal bli en tabell.");
