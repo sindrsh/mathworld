@@ -71,7 +71,7 @@ func frame7():
 func _ready():
 	y_line_sep = y_line_sep + 2*comma_sep
 	frame = 0
-	frame_max = 8
+	set_frame_max(8)
 	
 	a = mk_number("204", "6", pos0)
 	minus = mk_operator(2,a[-1].position+Vector2(op_sep,0))

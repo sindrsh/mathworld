@@ -91,7 +91,7 @@ func frame9():
 
 func _ready():
 	frame = 0
-	frame_max = 10
+	set_frame_max(10)
 	
 	a = mk_number("801", null, pos0)
 	minus = mk_operator(2,a[-1].position+Vector2(op_sep,0))
@@ -138,13 +138,6 @@ func _ready():
 	y += y_sep
 	line5 = mk_number("289", null, Vector2(x2-2*x_sep, y)) 
 	
-	for i in range(frame_max):
-		if ResourceLoader.exists("res://ad1/audio/frame" + String(i) + ".mp3"):
-			var audio_clip = load("res://ad1/audio/frame" + String(i) + ".mp3")
-			audio_clip.loop = false
-			streams.append(audio_clip)
-			
-		else: streams.append(null)
 	mk_frame_func_list()
 	update()
 	

@@ -2,5 +2,5 @@
 
 [ext_resource path="res://vid801min512/vid801min512.gd" type="Script" id=1]
 
-[node name="vid801min572" type="Node2D"]
+[node name="vid801min512" type="Node2D"]
 script = ExtResource( 1 )

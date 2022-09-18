@@ -23,8 +23,10 @@ var line3
 
 func _ready():
 	frame = 0
-	frame_max = 6
+	set_frame_max(6)
 
+	textbox.rect_size = Vector2(500, 200)
+	
 	a = mk_number("26", null, pos0)
 	times0 = mk_operator(3,a[-1].position+Vector2(op_sep,0))
 	b = mk_number("3", null, times0.position + Vector2(op_sep, 0))

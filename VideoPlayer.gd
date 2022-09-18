@@ -69,7 +69,7 @@ func shift_frame(forward):
 		if audio_player.stream != null:
 			if not audio_player.is_playing(): audio_player.play()
 	
-	if textbox_on: textbox.get_node("Text").texture = texts[frame]
+	if textbox_on && not texts.empty(): textbox.get_node("Text").texture = texts[frame]
 
 
 func mk_operator(int_frame, pos):
@@ -214,8 +214,8 @@ func _ready():
 	
 	textbox = textbox_scene.instance()
 	textbox.rect_size = Vector2(750,500)
-	textbox.color = Color(1,1, 0.8, 1)
 	textbox.rect_position = Vector2(100,400)
+	textbox.color = Color(1,1, 0.8, 1)	
 	textbox.visible = false
 	textbox.get_node("Text").centered = false
 	textbox.get_node("Text").position = Vector2(10,10)	

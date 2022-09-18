@@ -58,6 +58,7 @@ var line3
 
 
 func _ready():
+	set_frame_max(13)
 	var font = DynamicFont.new()
 	font.font_data = load("res://assets/fonts/OpenSans.ttf")
 	font.size = 65
@@ -66,7 +67,8 @@ func _ready():
 	title.add_color_override("font_color", Color(0, 0, 0))
 	title.text = "Å gange med 10, 100 og 1000"
 	title.rect_position = Vector2(500, 150) 
-	add_child(title)
+	# add_child(title)
+	
 	num_scale = 0.7
 	x_sep = 0.7*x_sep
 	op_sep = 0.5*op_sep
@@ -74,8 +76,10 @@ func _ready():
 	
 	y_line_sep = 600
 	
+	textbox.rect_size = Vector2(800,200)
+	textbox.rect_position = Vector2(560,800)
+	
 	pos0 = Vector2(150, 350)
-	frame_max = 16
 
 	a0 = mk_number("5", null, pos0)
 	times0 = mk_operator(3,a0[-1].position+Vector2(op_sep,0))
@@ -141,29 +145,26 @@ func frame0():
 	pass
 
 func frame1():
-	pass
-
-func frame2():
 	times0.visible = true
 	equals0.visible = true	
 	show_on_screen(a0)
 	show_on_screen(b0)	
 	show_on_screen(c0)	
 
-func frame3():
+func frame2():
 	b0[-1].animation = "select"
 	change_color(c0, "combine")
 	c0[-1].animation = "select"
 	change_color(a0, "combine")
 	
-func frame4():
+func frame3():
 	times0b.visible = true
 	equals0b.visible = true
 	show_on_screen(a0b)
 	show_on_screen(b0b)	
 	show_on_screen(c0b)	
 
-func frame5():
+func frame4():
 	times0c.visible = true
 	equals0c.visible = true
 	show_on_screen(a0c)
@@ -172,18 +173,14 @@ func frame5():
 	
 		
 
-func frame6():
+func frame5():
 	times1.visible = true
 	equals1.visible = true
 	show_on_screen(a1)
-	show_on_screen(b1)	
+	show_on_screen(b1)
+	show_on_screen(c1)			
 
-func frame7():
-	show_on_screen(a1)
-	show_on_screen(b1)	
-	show_on_screen(c1)	
-
-func frame8():
+func frame6():
 	b1[-1].animation = "select"
 	b1[-2].animation = "select"
 	change_color(c1, "combine")
@@ -191,30 +188,28 @@ func frame8():
 	c1[-2].animation = "select"	
 	change_color(a1, "combine")	
 	
-func frame9():
+func frame7():
 	times1b.visible = true
 	equals1b.visible = true
 	show_on_screen(a1b)
 	show_on_screen(b1b)	
 	show_on_screen(c1b)		
 	
-func frame10():
+func frame8():
 	times1c.visible = true
 	equals1c.visible = true
 	show_on_screen(a1c)
 	show_on_screen(b1c)	
 	show_on_screen(c1c)		
 
-func frame11():
+func frame9():
 	times2.visible = true
 	equals2.visible = true
 	show_on_screen(a2)
 	show_on_screen(b2)	
+	show_on_screen(c2)		
 
-func frame12():
-	show_on_screen(c2)	
-
-func frame13():
+func frame10():
 	b2[-1].animation = "select"
 	b2[-2].animation = "select"
 	b2[-3].animation = "select"	
@@ -224,26 +219,16 @@ func frame13():
 	c2[-3].animation = "select"	
 	change_color(a2, "combine")	
 
-func frame14():
+func frame11():
 	times2b.visible = true
 	equals2b.visible = true
 	show_on_screen(a2b)
 	show_on_screen(b2b)	
 	show_on_screen(c2b)			
 
-func frame15():
+func frame12():
 	times2c.visible = true
 	equals2c.visible = true
 	show_on_screen(a2c)
 	show_on_screen(b2c)	
 	show_on_screen(c2c)			
-	
-""""	
-
-func frame10():
-	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-"""

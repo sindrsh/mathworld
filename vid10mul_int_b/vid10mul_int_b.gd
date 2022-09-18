@@ -45,12 +45,15 @@ var line3
 
 
 func _ready():
+	set_frame_max(9)	
 
 	y_line_sep = 900
 	y_sep = 200
+
+	textbox.rect_size = Vector2(800,200)
+	textbox.rect_position = Vector2(560,800)
 	
 	pos0 = Vector2(200, pos0.y+60)
-	frame_max = 11
 
 	a0 = mk_number("7", null, pos0)
 	times0 = mk_operator(3,a0[-1].position+Vector2(op_sep,0))
@@ -97,52 +100,40 @@ func frame0():
 
 func frame1():
 	times0.visible = true
-	equals0.visible = true
-	show_on_screen(a0)
-	show_on_screen(b0)	
-
-func frame2():
-	times0.visible = true
 	equals0.visible = true	
 	show_on_screen(a0)
 	show_on_screen(b0)	
 	show_on_screen(c0)	
 
-func frame3():
+func frame2():
 	change_color(b0, "combine")
 	b0[-1].animation = "select"
 	change_color(c0, "result")
 	c0[-1].animation = "select"
 	change_color(a0, "combine")
 	
-func frame4():
+func frame3():
 	times0b.visible = true
 	equals0b.visible = true
 	show_on_screen(a0b)
 	show_on_screen(b0b)	
 	show_on_screen(c0b)	
 
-func frame5():
+func frame4():
 	times0c.visible = true
 	equals0c.visible = true
 	show_on_screen(a0c)
 	show_on_screen(b0c)	
 	show_on_screen(c0c)			
 	
-		
-
-func frame6():
+func frame5():
 	times1.visible = true
 	equals1.visible = true
 	show_on_screen(a1)
-	show_on_screen(b1)	
+	show_on_screen(b1)
+	show_on_screen(c1)
 
-func frame7():
-	show_on_screen(a1)
-	show_on_screen(b1)	
-	show_on_screen(c1)	
-
-func frame8():
+func frame6():
 	change_color(b1, "combine")
 	b1[-1].animation = "select"
 	b1[-2].animation = "select"
@@ -151,14 +142,14 @@ func frame8():
 	c1[-2].animation = "select"	
 	change_color(a1, "combine")	
 	
-func frame9():
+func frame7():
 	times1b.visible = true
 	equals1b.visible = true
 	show_on_screen(a1b)
 	show_on_screen(b1b)	
 	show_on_screen(c1b)		
 	
-func frame10():
+func frame8():
 	times1c.visible = true
 	equals1c.visible = true
 	show_on_screen(a1c)
