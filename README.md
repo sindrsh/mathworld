@@ -13,6 +13,15 @@ The project is (hopefully) structured in a way that invites others to expand the
 language. It is not necessary to compile the files, so a text editor is suffient.
 * In "audio" you can add your .mp3-files for each frame.
 
+## Outline 
+Some aliens, let's call them mathlings, land with their spaceship on an unpopulated planet.
+The only equipment they have brought is a math library (including the videoroom)
+They start building their world by playing math related minigames, giving them resources.
+When topics of math are successfully completed, new territory can be discovered.
+There will be farms where the mathlings can harvest by performing elementary calculations. This to
+enhance practice on topics where a lot of repetiotion is needed both to learn and preserve the skills.
+
+
 <!-- CONTACT -->
 ## Contact
 
