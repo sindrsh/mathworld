@@ -67,7 +67,7 @@ func _ready():
 	y += y_sep
 	line3_a = mk_number("9", null, Vector2(x1, y)) 
 	line3_b = mk_number("18", null, Vector2(x2, y)) 	
-	line3_c = mk_number("58", null, Vector2(x3+x_sep, y)) 
+	line3_c = mk_number("718", null, Vector2(x3, y)) 
 	
 	y += y_sep
 	line4 = mk_number("359", null, Vector2(x1-2*x_sep, y)) 
