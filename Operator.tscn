@@ -54,4 +54,4 @@ animations = [ {
 
 [node name="Operator" type="AnimatedSprite"]
 frames = SubResource( 1 )
-animation = "result"
+animation = "black"
