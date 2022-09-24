@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/House In a Forest Loop.ogg-8c77f91e8a606d81e7767afe1308408f.oggstr"
+
+[deps]
+
+source_file="res://minigames/falling_decimals/assets/House In a Forest Loop.ogg"
+dest_files=[ "res://.import/House In a Forest Loop.ogg-8c77f91e8a606d81e7767afe1308408f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

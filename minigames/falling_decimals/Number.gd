@@ -1,19 +1,28 @@
-extends Area2D
+extends Node2D
+
+signal selected
 
 var num_scene = preload("res://Int.tscn")
 var op_scene = preload("res://Operator.tscn")
 
+var value
+var speed = Vector2(2000, 430)
+var tick
+var find_tick = false
+
 var x_sep = 20
-var op_sep = 70
 var comma_sep = 5
 var comma_sep2 = 10
 var comma_y = 10
 var num_scale = 0.5
-var pos = Vector2(100,100)
+var num_pos = Vector2(100,100)
+
+var hovered = false
+var is_exiting = false
+
 
 # NOTE: mk_operator and mk_number should be made a generic autoload function
 # as VideoPlayer.gd also use these functions
-
 func mk_operator(int_frame, pos):
 	var op = op_scene.instance()
 	op.scale = num_scale*Vector2(1, 1)
@@ -47,11 +56,39 @@ func mk_number(number, decs, pos):
 			num_list.append(dig)
 	return num_list
 
+func _on_timeout():
+	queue_free()
+	
+func _on_mouse_entered():
+	hovered = true
+
+func _on_mouse_exited():
+	hovered = false
+
+func _unhandled_input(event):
+	if event is InputEventMouseButton:
+		if hovered:
+			emit_signal("selected", self)
+
 func _ready():
-	mk_number("2", "5", pos-Vector2(14,6))
-	$NumberSprite.position = pos
+	position = num_pos
+	
+	assert($MouseDetector.connect("mouse_entered", self, "_on_mouse_entered") == 0)
+	assert($MouseDetector.connect("mouse_exited", self, "_on_mouse_exited") == 0)
+	assert($ExitTimer.connect("timeout", self, "_on_timeout") == 0)	
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	if find_tick == true:
+		var x1 = position.x
+		var x2 = tick.position.x
+		if abs(x1 - x2) > delta*speed.x:
+			position.x = x1 - (x1-x2)/abs(x1-x2)*delta*speed.x
+		else:
+			position.x = x2
+	else:
+		if position.y > get_parent().line_a.y-10:
+			if not is_exiting:
+				get_parent().validate($TickDetector, null)
+				is_exiting = true
+	position.y += delta*speed.y
