@@ -6,7 +6,7 @@ var num_scene = preload("res://Int.tscn")
 var op_scene = preload("res://Operator.tscn")
 
 var value
-var speed = Vector2(2000, 430)
+var speed = Vector2(2000, 30)
 var tick
 var find_tick = false
 
@@ -61,6 +61,9 @@ func _on_timeout():
 	
 func _on_mouse_entered():
 	hovered = true
+	
+func _change_speed():
+	speed = Vector2(speed.x, 1.4*speed.y)	
 
 func _on_mouse_exited():
 	hovered = false
