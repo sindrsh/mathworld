@@ -1,10 +1,18 @@
 extends Node
 
 
-func get_font():
+func get_font(size = 16):
 	var font = DynamicFont.new()
 	font.font_data = load("res://assets/fonts/OpenSans.ttf")
+	font.size = size
 	return font
+
+func get_label(size = 16, color = Color(0, 0, 0)):
+	var font = get_font(size)
+	var labl = Label.new()
+	labl.set("custom_fonts/font", font)
+	labl.set("custom_colors/font_color", color)
+	return labl
 
 func mk_operator(int_frame, pos, num_scale = 1):
 	var op_scene = preload("res://Operator.tscn")
