@@ -28,19 +28,22 @@ func _ready():
 		ticks100list.append(tick)
 		tick.position = Vector2(line_a.x + dx*i, line_a.y)
 		
-	GlobalVariables.mk_number("0", null, Vector2(line_a.x, line_a.y+40), 0.5, 20, 5, 10, 10)
-	GlobalVariables.mk_number("1", null, Vector2(line_a.x+100*dx, line_a.y+40), 0.5, 20, 5, 10, 10)
+	GlobalVariables.mk_number(self, "0", null, Vector2(line_a.x, line_a.y+40), 0.5, 20, 5, 10, 10)
+	GlobalVariables.mk_number(self, "1", null, Vector2(line_a.x+100*dx, line_a.y+40), 0.5, 20, 5, 10, 10)
 	
 	for i in range(ticks100list.size()):
 		view_list.append(ticks100list[i])
-		numbers100list.append(GlobalVariables.mk_number("0", String(i % 100), Vector2(line_a.x-15+i*dx, line_a.y-40), 0.5, 20, 5, 10, 10))	
+		if i < 10:
+			numbers100list.append(GlobalVariables.mk_number(self, "0","0"+String(i % 100), Vector2(line_a.x-15+i*dx, line_a.y-40), 0.5, 20, 5, 10, 10))	
+		else: 
+			numbers100list.append(GlobalVariables.mk_number(self, "0", String(i % 100), Vector2(line_a.x-15+i*dx, line_a.y-40), 0.5, 20, 5, 10, 10))	
 		for num in numbers100list[i]:
 			view_list.append(num)
 		
 		
 	for i in range(ticks10list.size()):
 		view_list.append(ticks10list[i])
-		numbers10list.append(GlobalVariables.mk_number("0", String(i % 10), Vector2(line_a.x-15+10*i*dx, line_a.y+40), 0.5, 20, 5, 10, 10))	
+		numbers10list.append(GlobalVariables.mk_number(self, "0", String(i % 10), Vector2(line_a.x-15+10*i*dx, line_a.y+40), 0.5, 20, 5, 10, 10))	
 		for num in numbers10list[i]:
 			view_list.append(num)
 		
@@ -153,13 +156,24 @@ func frame5():
 	for tick in ticks100list:
 		tick.frame = 0	
 		tick.show()
+	if frame6_shown: 
+		for i in range(10, numbers100list.size()-10):
+			if i % 10 == 0:
+				for dig in numbers100list[i]:
+					dig.position = dig.position - Vector2(0, 80)
+		frame6_shown = false
 
+var frame6_shown = false
 func frame6():
+	frame6_shown = true
+	print("hei")
 	for i in range(numbers100list.size()):
 		if i % 5 == 0:
 			if i != 0 and i != 100:
 				if i % 10 == 0:
 					for dig in numbers100list[i]:
+						if i == 10: print(dig.position)
 						dig.position = dig.position + Vector2(0, 80)
 				show_on_screen(numbers100list[i])
 				ticks100list[i].frame = 1
+				

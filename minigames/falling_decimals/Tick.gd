@@ -13,16 +13,7 @@ func _on_mouse_exited():
 	
 func _on_area_entered(area):
 	get_parent().validate(area, self)
-	"""
-	var node = area.get_parent()
-	node.get_node("ExitTimer").start()
-	if node.value == value:
-		get_parent().score += 1
-		get_parent().get_node("ScoreBox/ScoreLabel").text = String(get_parent().score)
-		node.get_node("Sprite").frame = 2
-	else: 
-		node.get_node("Sprite").frame = 3
-"""
+
 func _unhandled_input(event):
 	if event is InputEventMouseButton:
 		if hovered:

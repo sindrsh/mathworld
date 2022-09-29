@@ -104,11 +104,11 @@ func _ready():
 	$RoundsBorder.rect_position = $RoundsBox.rect_position
 	$RoundsBorder.rect_size = $RoundsBox.rect_size
 
-	GlobalVariables.mk_number("0", null, Vector2(line_a.x, line_a.y+40), 0.5, 20, 5, 10, 10)
-	GlobalVariables.mk_number("0", "5", Vector2(line_a.x-10+5*dx, line_a.y+40), 0.5, 20, 5, 10, 10)
-	GlobalVariables.mk_number("1", null, Vector2(line_a.x+10*dx, line_a.y+40), 0.5, 20, 5, 10, 10)
-	GlobalVariables.mk_number("1", "5", Vector2(line_a.x-10+15*dx, line_a.y+40), 0.5, 20, 5, 10, 10)
-	GlobalVariables.mk_number("2", null, Vector2(line_a.x+20*dx, line_a.y+40), 0.5, 20, 5, 10, 10)
+	GlobalVariables.mk_number(self, "0", null, Vector2(line_a.x, line_a.y+40), 0.5, 20, 5, 10, 10)
+	GlobalVariables.mk_number(self, "0", "5", Vector2(line_a.x-10+5*dx, line_a.y+40), 0.5, 20, 5, 10, 10)
+	GlobalVariables.mk_number(self, "1", null, Vector2(line_a.x+10*dx, line_a.y+40), 0.5, 20, 5, 10, 10)
+	GlobalVariables.mk_number(self, "1", "5", Vector2(line_a.x-10+15*dx, line_a.y+40), 0.5, 20, 5, 10, 10)
+	GlobalVariables.mk_number(self, "2", null, Vector2(line_a.x+20*dx, line_a.y+40), 0.5, 20, 5, 10, 10)
 	
 	assert($NumberTimer.connect("timeout", self, "_add_number") == 0 )
 	assert($RestartButton.connect("pressed", self, "_on_restart") == 0)
