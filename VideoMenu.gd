@@ -23,6 +23,8 @@ var div_scene2
 
 var dec_scene1
 
+var dec_game
+
 var y_line
 var x_line1
 var x_line2
@@ -46,6 +48,8 @@ func _ready():
 	
 	dec_scene1 = video_button_scene.instance()
 	
+	dec_game = video_button_scene.instance()
+	
 	y_line = line_scene.instance()
 	
 	lang_choice = lang_choice_scene.instance()
@@ -62,6 +66,7 @@ func _ready():
 	add_child(div_scene2)
 	
 	add_child(dec_scene1)
+	add_child(dec_game)
 	
 	add_child(y_line)
 	
@@ -97,6 +102,11 @@ func _ready():
 	
 	dec_scene1.scene = "res://vid_dec/vid_dec.tscn"
 	dec_scene1.rect_position = Vector2(400,550)
+	
+	dec_game.scene = "res://minigames/falling_decimals/Main.tscn"
+	dec_game.rect_position = Vector2(400, 800)
+	dec_game.text = "MINIGAME"
+	
 	
 	_on_lang_change()
 	
