@@ -12,9 +12,13 @@ var ticks10list = []
 var numbers100list = []
 var numbers10list = []
 
+var cnt_pos1
+var cnt_pos2
+var cnt_pos3
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	set_frame_max(6)
+	set_frame_max(7)
 	
 	for i in range(ticks100):
 		var tick = tick_scene.instance()
@@ -25,7 +29,6 @@ func _ready():
 		tick.position = Vector2(line_a.x + dx*i, line_a.y)
 		
 	GlobalVariables.mk_number("0", null, Vector2(line_a.x, line_a.y+40), 0.5, 20, 5, 10, 10)
-	#GlobalVariables.mk_number("0", "5", Vector2(line_a.x-15+50*dx, line_a.y+40), 0.5, 20, 5, 10, 10)
 	GlobalVariables.mk_number("1", null, Vector2(line_a.x+100*dx, line_a.y+40), 0.5, 20, 5, 10, 10)
 	
 	for i in range(ticks100list.size()):
@@ -42,7 +45,10 @@ func _ready():
 			view_list.append(num)
 		
 	tick_count_label = GlobalVariables.get_label(50, Color(1,1,1))
-	tick_count_label.rect_position = $Ticks.rect_position + Vector2(5,0)
+	tick_count_label.rect_position = $Ticks.rect_position + Vector2(60,0)
+	cnt_pos1 = tick_count_label.rect_position
+	cnt_pos2 = cnt_pos1 - Vector2(25,0)
+	cnt_pos3 = cnt_pos2 - Vector2(25, 0)
 	tick_count_label.text = "0"
 	
 	$Ticks.hide()
@@ -51,8 +57,6 @@ func _ready():
 	
 	mk_frame_func_list()
 	update()
-	
-	
 	
 func _draw():
 	draw_line(line_a, line_b, Color(0,0,0), 3.5, true)
@@ -63,9 +67,11 @@ func _physics_process(delta):
 	time += delta
 	
 	if frame == 1:
-		if time > 0.75 and cnt < ticks10list.size() - 1:
+		if time > 0.5 and cnt < ticks10list.size() - 1:
 			ticks10list[cnt+1].show()
 			ticks10list[cnt+1].frame = 1
+			if cnt+1 == 10:
+				tick_count_label.rect_position = cnt_pos2
 			tick_count_label.text = String(cnt+1)
 			cnt += 1 
 			time = 0
@@ -85,6 +91,10 @@ func _physics_process(delta):
 		if time > 0.07 and cnt < ticks100list.size() - 1:
 			ticks100list[cnt+1].show()
 			ticks100list[cnt+1].frame = 1
+			if cnt+1 == 10:
+				tick_count_label.rect_position = cnt_pos2
+			if cnt+1 == 100:
+				tick_count_label.rect_position = cnt_pos3	
 			tick_count_label.text = String(cnt+1)
 			cnt += 1 
 			time = 0
@@ -99,26 +109,19 @@ func _physics_process(delta):
 			cnt += 1 
 			time = 0
 			
-		if time > 0.1 and cnt < ticks100list.size() - 1:
+		if time > 1.5 and cnt < ticks100list.size() - 1:
 			ticks100list[cnt].frame = 0
 			for dig in numbers100list[cnt]:
 				dig.hide()
-			for i in range(numbers100list.size()):
-				if i % 5 == 0:
-					if i != 0 and i != 100:
-						if i % 10 == 0:
-							for dig in numbers100list[i]:
-								dig.position = dig.position + Vector2(0, 80)
-						show_on_screen(numbers100list[i])
-						ticks100list[i].frame = 1
 			cnt += 1
-		
+			
 func frame0():
 	cnt = 0
 	ticks10list[0].visible = true 
 	ticks10list[-1].visible = true 
 	$Ticks.hide()
 	tick_count_label.hide()
+	ticks10list[-1].frame = 0
 	
 func frame1():
 	$Ticks.show()
@@ -126,6 +129,7 @@ func frame1():
 	pass
 
 func frame2():
+	tick_count_label.rect_position = cnt_pos1
 	$Ticks.hide()
 	tick_count_label.hide()
 	for tick in ticks10list:
@@ -149,3 +153,13 @@ func frame5():
 	for tick in ticks100list:
 		tick.frame = 0	
 		tick.show()
+
+func frame6():
+	for i in range(numbers100list.size()):
+		if i % 5 == 0:
+			if i != 0 and i != 100:
+				if i % 10 == 0:
+					for dig in numbers100list[i]:
+						dig.position = dig.position + Vector2(0, 80)
+				show_on_screen(numbers100list[i])
+				ticks100list[i].frame = 1

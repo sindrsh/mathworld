@@ -13,12 +13,15 @@ var x_line_y = 75
 var sub_scene1
 var sub_scene2
 var sub_scene3
-var div_scene1
-var div_scene2
 
 var vid10mul_int
 var vid10mul_int_b
 var mul_scene1
+
+var div_scene1
+var div_scene2
+
+var dec_scene1
 
 var y_line
 var x_line1
@@ -41,6 +44,8 @@ func _ready():
 	div_scene1 = video_button_scene.instance()
 	div_scene2 = video_button_scene.instance()
 	
+	dec_scene1 = video_button_scene.instance()
+	
 	y_line = line_scene.instance()
 	
 	lang_choice = lang_choice_scene.instance()
@@ -55,6 +60,8 @@ func _ready():
 
 	add_child(div_scene1)
 	add_child(div_scene2)
+	
+	add_child(dec_scene1)
 	
 	add_child(y_line)
 	
@@ -88,6 +95,8 @@ func _ready():
 	
 	lang_choice.rect_position = Vector2(1600, 22)
 	
+	dec_scene1.scene = "res://vid_dec/vid_dec.tscn"
+	dec_scene1.rect_position = Vector2(400,550)
 	
 	_on_lang_change()
 	
@@ -107,13 +116,15 @@ func _on_lang_change():
 	mul_scene1.text = lang.eg + " 3"
 	div_scene1.text = lang.eg + " 1"
 	div_scene2.text = lang.eg + " 2"
+	
+	dec_scene1.text = lang.eg + " 1"
 
 
 func _draw():
 	var table_col = Color(0, 0, 0)
 	var table_width = 5
 	
-	draw_line(Vector2(350, 75), Vector2(350, 525), table_col, table_width, true)
+	draw_line(Vector2(350, 75), Vector2(350, 675), table_col, table_width, true)
 	
-	for i in range(4):
+	for i in range(5):
 		draw_line(Vector2(x_line_a,x_line_y + i*y_sep), Vector2(x_line_b,x_line_y + i*y_sep), table_col, table_width, true)
