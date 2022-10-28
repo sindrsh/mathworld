@@ -4,12 +4,13 @@ var tick_scene = preload("res://minigames/falling_decimals/Tick.tscn")
 var number_scene = preload("res://minigames/falling_decimals/Number.tscn")
 var ticks = 21
 var dx = 70
-var line_a = Vector2(200,800)
+var line_a = Vector2(250,800)
 var line_b = Vector2(line_a.x + (ticks-1)*dx, line_a.y)
 
 var selected_number
 var score = 0
 var rounds = 3
+var high_score
 
 func _on_num_selection(node):
 	if selected_number == null or not is_instance_valid(selected_number):
@@ -42,7 +43,7 @@ func _add_number():
 	var decimal = rng.randi_range(0, 9)
 	number.value = integer + 0.1*decimal
 	number.mk_number(String(integer), String(decimal), Vector2(-12,-4))
-	number.position = Vector2(line_a. x + rng.randi_range(0, line_b.x - line_a. x), 200)
+	number.position = Vector2(line_a. x + rng.randi_range(0, line_b.x - line_a. x), 100)
 	number.add_to_group("numbers")
 	
 func validate(area, tick = null):
@@ -63,6 +64,11 @@ func validate(area, tick = null):
 		$ScoreBox/ScoreLabel.rect_position.x = 10
 	$RoundsBox/RoundsLabel.text = String(rounds)
 	if rounds == 0:
+		if high_score != null:
+			if score > high_score:
+				high_score = score
+		else: high_score = score
+		$ScoreBoard/HighScore.text = String(high_score)
 		$NumberTimer.stop()
 		get_tree().call_group("numbers", "queue_free")
 		$Music.stop()
@@ -103,7 +109,10 @@ func _ready():
 	$RoundsBox/RoundsLabel.text = String(rounds)
 	$RoundsBorder.rect_position = $RoundsBox.rect_position
 	$RoundsBorder.rect_size = $RoundsBox.rect_size
-
+	
+	$ScoreBoard.rect_position = $RoundsBox.rect_position + Vector2(0, 150)
+	$ScoreBoard/HighScore.set("custom_fonts/font", font)
+	
 	GlobalVariables.mk_number(self, "0", null, Vector2(line_a.x, line_a.y+40), 0.5, 20, 5, 10, 10)
 	GlobalVariables.mk_number(self, "0", "5", Vector2(line_a.x-10+5*dx, line_a.y+40), 0.5, 20, 5, 10, 10)
 	GlobalVariables.mk_number(self, "1", null, Vector2(line_a.x+10*dx, line_a.y+40), 0.5, 20, 5, 10, 10)
@@ -112,7 +121,6 @@ func _ready():
 	
 	assert($NumberTimer.connect("timeout", self, "_add_number") == 0 )
 	assert($RestartButton.connect("pressed", self, "_on_restart") == 0)
-	#$Music.play()
 	$NumberTimer.start()
 	$EndBox.hide()
 	$RestartButton.hide()
@@ -124,6 +132,6 @@ func _draw():
 var time = 0
 func _process(delta):
 	time += delta
-	if time > 10: 
-		$NumberTimer.wait_time = 0.8*$NumberTimer.wait_time
+	if time > 20: 
+		$NumberTimer.wait_time = 0.9*$NumberTimer.wait_time
 		time = 0

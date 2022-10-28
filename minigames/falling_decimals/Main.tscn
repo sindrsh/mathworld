@@ -99,3 +99,30 @@ margin_right = 519.0
 margin_bottom = 132.0
 custom_fonts/font = SubResource( 3 )
 text = "RESTART"
+
+[node name="ScoreBoard" type="ColorRect" parent="."]
+margin_left = 10.0
+margin_top = 200.0
+margin_right = 80.0
+margin_bottom = 300.0
+color = Color( 0.113725, 0.34902, 0.494118, 1 )
+
+[node name="Line1" type="Label" parent="ScoreBoard"]
+margin_left = 10.0
+margin_top = 5.0
+margin_right = 78.0
+margin_bottom = 19.0
+text = "High"
+
+[node name="Line2" type="Label" parent="ScoreBoard"]
+margin_left = 10.0
+margin_top = 20.0
+margin_right = 50.0
+margin_bottom = 34.0
+text = "score"
+
+[node name="HighScore" type="Label" parent="ScoreBoard"]
+margin_left = 20.0
+margin_top = 40.0
+margin_right = 36.0
+margin_bottom = 54.0

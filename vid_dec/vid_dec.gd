@@ -166,13 +166,11 @@ func frame5():
 var frame6_shown = false
 func frame6():
 	frame6_shown = true
-	print("hei")
 	for i in range(numbers100list.size()):
 		if i % 5 == 0:
 			if i != 0 and i != 100:
 				if i % 10 == 0:
 					for dig in numbers100list[i]:
-						if i == 10: print(dig.position)
 						dig.position = dig.position + Vector2(0, 80)
 				show_on_screen(numbers100list[i])
 				ticks100list[i].frame = 1
