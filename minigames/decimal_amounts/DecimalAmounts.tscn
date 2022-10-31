@@ -13,3 +13,6 @@ margin_bottom = 75.0
 custom_colors/cursor_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_uneditable = Color( 0, 0, 0, 1 )
 caret_blink = true
+
+[node name="NewQuestion" type="Timer" parent="."]
+one_shot = true

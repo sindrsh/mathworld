@@ -35,6 +35,9 @@ var xpositions = [
 	one_size+one_sep + adjust_x				
 ]
 
+var level = 2
+var score = 0
+
 var normal_box
 var read_only_box
 
@@ -88,18 +91,38 @@ func _on_text_entered(new_text):
 	else:
 		read_only_box.bg_color = Color(1, 0, 0, 0.5)
 	$TextBox.editable = false
-		
+	
+	$NewQuestion.start()	
 		
 # Called when the node enters the scene tree for the first time.
-func _ready():
+
+func _mk_new():
+	$TextBox.editable = true
+	
+	for list in [ones, tenths, hundredths, blank_tenths, blank_hundredths]:
+		for element in list:
+			element.queue_free()
+	ones = []
+	tenths = []
+	hundredths = []
+	blank_tenths = []
+	blank_hundredths = []
+	
 	randomize()
 	
-	one_cnt = randi() % 4
+	if level == 1:
+		one_cnt = randi() % 2
+	else:
+		one_cnt = randi() % 4
 	for i in range(one_cnt):
 		_mk_one(Vector2(xpositions[i], one_y))
 	
 	var cnt = -1
-	tenth_cnt = randi() % 40
+	
+	if level == 1:
+		tenth_cnt = randi() % 10
+	else:
+		tenth_cnt = randi() % 40
 	for i in range(tenth_cnt / 10):
 		var blank_tenth = blank_tenths_scene.instance()
 		blank_tenth.position = Vector2(xpositions[i], tenth_y)
@@ -118,13 +141,17 @@ func _ready():
 			_mk_tenth(Vector2(j*(tenth_size) - (one_size-tenth_size)/2 + xpositions[cnt+1], tenth_y))	
 	
 	cnt = -1
-	hundredth_cnt = randi() % 400
+	if level == 1:
+		hundredth_cnt = randi() % 10
+	else: 
+		hundredth_cnt = randi() % 400
 	for i in range(hundredth_cnt / 100):
 		var blank_hundredth = blank_hundredths_scene.instance()
 		blank_hundredth.position = Vector2(xpositions[i], hundredth_y)
 		add_child(blank_hundredth)
 		blank_hundredths.append(blank_hundredth)
 		for j in range(100):
+# warning-ignore:integer_division
 			_mk_hundredth(Vector2((j / 10)*tenth_size-(one_size-tenth_size)/2+ xpositions[i], hundredth_y -(j % 10)*(tenth_size)+(one_size-tenth_size)/2))
 		cnt = i
 		
@@ -134,9 +161,22 @@ func _ready():
 		add_child(blank_hundredth)
 		blank_hundredths.append(blank_hundredth)
 		for j in range(hundredth_cnt % 100):
+# warning-ignore:integer_division
 			_mk_hundredth(Vector2((j / 10)*tenth_size-(one_size-tenth_size)/2+ xpositions[cnt+1], hundredth_y -(j % 10)*(tenth_size)+(one_size-tenth_size)/2))
 	
+	dig1 = int(one_cnt + tenth_cnt/10 + hundredth_cnt/100)
+	dig01 = int(tenth_cnt % 10 + (hundredth_cnt % 100)/10)
+	dig1 = dig01/10 + dig1
+	dig01 = dig01 % 10
+	dig001 = int((hundredth_cnt % 100) % 10)
+	return one_cnt + tenth_cnt + hundredth_cnt
 	
+func _on_timeout():
+	$TextBox.text = ""
+	while _mk_new() == 0:
+		pass
+
+func _ready():
 	var header_one = ones_scene.instance()
 	header_one.position = Vector2(xpositions[0],125)
 	add_child(header_one)
@@ -173,7 +213,6 @@ func _ready():
 	read_only_box.border_width_bottom = 2
 	read_only_box.set_border_width_all(2)
 	$TextBox.set("custom_styles/read_only", read_only_box)
-	
 	$TextBox.set("custom_styles/normal", normal_box)
 	$TextBox.set("custom_fonts/font", GlobalVariables.get_font(80))
 	$TextBox.set("custom_colors/font_color", Color(0, 0, 0))
@@ -181,15 +220,8 @@ func _ready():
 	$TextBox.max_length = $TextBox.rect_size.x
 	$TextBox.rect_position = equal_sign2.rect_position + Vector2(100, 10)
 	
-	dig1 = int(one_cnt + tenth_cnt/10 + hundredth_cnt/100)
-	dig01 = int(tenth_cnt % 10 + (hundredth_cnt % 100)/10)
-	dig1 = dig01/10 + dig1
-	dig01 = dig01 % 10
-	dig001 = int((hundredth_cnt % 100) % 10)
-	
-	print(one_cnt,",",tenth_cnt,",", hundredth_cnt)
-	print(dig1,",", dig01, dig001)
-	print(one_cnt + tenth_cnt/10.0 + hundredth_cnt/100.0)
+	while _mk_new() == 0:
+		pass
 	
 	assert($TextBox.connect("text_entered", self, "_on_text_entered") == 0)
-
+	assert($NewQuestion.connect("timeout", self, "_on_timeout") == 0)
