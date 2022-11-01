@@ -6,3 +6,5 @@ real one = 200;
 real tenth = one/10;
 
 pen amnt = heavygreen;
+
+real r = 10;

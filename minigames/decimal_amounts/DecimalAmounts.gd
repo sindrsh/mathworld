@@ -5,18 +5,23 @@ var tenths_scene = preload("res://minigames/decimal_amounts/One10th.tscn")
 var hundredths_scene = preload("res://minigames/decimal_amounts/One100th.tscn")
 var blank_tenths_scene = preload("res://minigames/decimal_amounts/BlankTenths.tscn")
 var blank_hundredths_scene = preload("res://minigames/decimal_amounts/BlankHundredths.tscn")
+var counter_scene = preload("res://minigames/decimal_amounts/Counter.tscn")
+
 var ones = []
 var blank_tenths = []
 var tenths = []
 var hundredths = []
 var blank_hundredths = []
+var level_labels = []
+var level_counters = [] 
+
 var dig1 = 0
 var dig01 = 0
 var dig001 = 0
 
-var one_cnt
-var tenth_cnt
-var hundredth_cnt
+var one_cnt = 0
+var tenth_cnt = 0
+var hundredth_cnt = 0 
 
 var one_size = 200
 var tenth_size = one_size/10
@@ -35,8 +40,9 @@ var xpositions = [
 	one_size+one_sep + adjust_x				
 ]
 
-var level = 2
+var level = 0
 var score = 0
+var score_max = 7
 
 var normal_box
 var read_only_box
@@ -77,6 +83,12 @@ func _check_input(text):
 		return valid
 
 func _on_text_entered(new_text):
+	$TextBox.editable = false
+	dig1 = int(one_cnt + tenth_cnt/10 + hundredth_cnt/100)
+	dig01 = int(tenth_cnt % 10 + (hundredth_cnt % 100)/10)
+	dig1 = dig01/10 + dig1
+	dig01 = dig01 % 10
+	dig001 = int((hundredth_cnt % 100) % 10)
 	var equal = true
 	if new_text.length() > 1:
 		if new_text[1] == "," or new_text[1] == ".":
@@ -84,19 +96,29 @@ func _on_text_entered(new_text):
 		else:
 			equal = false	
 	if equal:
-		if float(new_text) != dig1 + dig01/10.0+dig001/100.0:
+		if stepify(float(new_text), 0.00001) != stepify(dig1*1.0 + dig01/10.0+dig001/100.0, 0.00001):
 			equal = false
 	if equal:
 		read_only_box.bg_color = Color(0, 1, 0, 0.5)
+		if score < score_max:
+			if level < 4:
+				level_counters[level][score].frame = 1
+			score += 1
+		if score == score_max and level < 3:
+			level += 1
+			score = 0
+		$NewQuestion.start()
 	else:
 		read_only_box.bg_color = Color(1, 0, 0, 0.5)
-	$TextBox.editable = false
-	
-	$NewQuestion.start()	
+		for i in range(score):
+			level_counters[level][i].frame = 0
+		score = 0
+		$Next.show()
 		
-# Called when the node enters the scene tree for the first time.
-
 func _mk_new():
+	one_cnt = 0
+	tenth_cnt = 0
+	hundredth_cnt = 0
 	$TextBox.editable = true
 	
 	for list in [ones, tenths, hundredths, blank_tenths, blank_hundredths]:
@@ -110,19 +132,20 @@ func _mk_new():
 	
 	randomize()
 	
-	if level == 1:
+	if level == 0 or level == 1:
 		one_cnt = randi() % 2
 	else:
 		one_cnt = randi() % 4
+		
 	for i in range(one_cnt):
 		_mk_one(Vector2(xpositions[i], one_y))
 	
-	var cnt = -1
-	
-	if level == 1:
+	if level == 0 or level == 1:
 		tenth_cnt = randi() % 10
 	else:
 		tenth_cnt = randi() % 40
+		
+	var cnt = -1
 	for i in range(tenth_cnt / 10):
 		var blank_tenth = blank_tenths_scene.instance()
 		blank_tenth.position = Vector2(xpositions[i], tenth_y)
@@ -140,11 +163,16 @@ func _mk_new():
 		for j in range(tenth_cnt % 10):
 			_mk_tenth(Vector2(j*(tenth_size) - (one_size-tenth_size)/2 + xpositions[cnt+1], tenth_y))	
 	
-	cnt = -1
+	if level == 0 or level == 2:
+		return one_cnt + tenth_cnt
+		
 	if level == 1:
 		hundredth_cnt = randi() % 10
-	else: 
+		
+	if level == 3: 
 		hundredth_cnt = randi() % 400
+	
+	cnt = -1	
 	for i in range(hundredth_cnt / 100):
 		var blank_hundredth = blank_hundredths_scene.instance()
 		blank_hundredth.position = Vector2(xpositions[i], hundredth_y)
@@ -164,15 +192,16 @@ func _mk_new():
 # warning-ignore:integer_division
 			_mk_hundredth(Vector2((j / 10)*tenth_size-(one_size-tenth_size)/2+ xpositions[cnt+1], hundredth_y -(j % 10)*(tenth_size)+(one_size-tenth_size)/2))
 	
-	dig1 = int(one_cnt + tenth_cnt/10 + hundredth_cnt/100)
-	dig01 = int(tenth_cnt % 10 + (hundredth_cnt % 100)/10)
-	dig1 = dig01/10 + dig1
-	dig01 = dig01 % 10
-	dig001 = int((hundredth_cnt % 100) % 10)
 	return one_cnt + tenth_cnt + hundredth_cnt
 	
 func _on_timeout():
 	$TextBox.text = ""
+	while _mk_new() == 0:
+		pass
+
+func _on_next_pressed():
+	$TextBox.text = ""
+	$Next.hide()
 	while _mk_new() == 0:
 		pass
 
@@ -220,8 +249,24 @@ func _ready():
 	$TextBox.max_length = $TextBox.rect_size.x
 	$TextBox.rect_position = equal_sign2.rect_position + Vector2(100, 10)
 	
+	for i in range(4):
+		var level_label = GlobalVariables.get_label(30)
+		level_label.text = "Level "+str(i+1)
+		level_label.rect_position = Vector2(10, 10 + i*50)
+		add_child(level_label)
+		level_counters.append([])
+		for j in range(score_max):
+			var counter = counter_scene.instance()
+			counter.position = Vector2(150 + j*30, 32 + 50*i)
+			add_child(counter)
+			level_counters[i].append(counter)
+	
 	while _mk_new() == 0:
 		pass
 	
+	$Next.rect_position = $TextBox.rect_position + Vector2(300, 18)
+	$Next.hide()
+	
 	assert($TextBox.connect("text_entered", self, "_on_text_entered") == 0)
 	assert($NewQuestion.connect("timeout", self, "_on_timeout") == 0)
+	assert($Next.connect("pressed", self, "_on_next_pressed") == 0)
