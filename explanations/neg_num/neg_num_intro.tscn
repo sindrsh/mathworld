@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://doo1u53ut8qbp"]
+
+[ext_resource type="Script" path="res://explanations/neg_num/neg_num_intro.gd" id="1_wq8tw"]
+
+[node name="NegNumIntro" type="Node2D"]
+script = ExtResource("1_wq8tw")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfg7kfn7t51q6"]
+
+[ext_resource type="Script" path="res://extras/ad/ad_frac.gd" id="1_spgyf"]
+
+[node name="AdFrac" type="Node2D"]
+script = ExtResource("1_spgyf")

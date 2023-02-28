@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://minigames/decimal_amounts/assets/one10th.png" type="Texture" id=1]
-
-[node name="One10th" type="Sprite"]
-texture = ExtResource( 1 )

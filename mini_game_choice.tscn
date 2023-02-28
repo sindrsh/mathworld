@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://d8f004ras7iu"]
+
+[ext_resource type="Script" path="res://mini_game_choice.gd" id="1_owhrr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdnny"]
+bg_color = Color(0.333333, 0.67451, 0.564706, 1)
+
+[node name="MiniGameChoice" type="Button"]
+offset_right = 200.0
+offset_bottom = 100.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_qdnny")
+script = ExtResource("1_owhrr")

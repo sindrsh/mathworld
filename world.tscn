@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://3nh8u5t2bwmy"]
+
+[ext_resource type="Script" path="res://world.gd" id="1_c0mra"]
+[ext_resource type="Texture2D" uid="uid://dbqfdfpk66pdy" path="res://assets/images/landscape/Grass/grass_05.png" id="2_pdnr2"]
+[ext_resource type="Script" path="res://PlayerCharachter.gd" id="3_i8ibb"]
+[ext_resource type="Texture2D" uid="uid://pooqbyp04kro" path="res://icon.svg" id="3_ss72a"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_875rx"]
+texture = ExtResource("2_pdnr2")
+texture_region_size = Vector2i(120, 140)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_5eyao"]
+tile_shape = 3
+tile_size = Vector2i(120, 140)
+sources/13 = SubResource("TileSetAtlasSource_875rx")
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_c0mra")
+
+[node name="TileMap" type="TileMap" parent="."]
+y_sort_enabled = true
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+tile_set = SubResource("TileSet_5eyao")
+format = 2
+layer_0/tile_data = PackedInt32Array(65537, 13, 0, 3, 13, 0, 2, 13, 0, 4, 13, 0, 65539, 13, 0, 65538, 13, 0, 5, 13, 0, 65541, 13, 0, 131078, 13, 0, 196613, 13, 0, 196612, 13, 0, 131076, 13, 0, 131077, 13, 0, 65540, 13, 0, 196611, 13, 0, 196610, 13, 0, 196609, 13, 0, 196608, 13, 0, 131075, 13, 0, 131074, 13, 0, 131073, 13, 0, 131072, 13, 0, 13, 13, 0, 65548, 13, 0, 131084, 13, 0, 196619, 13, 0, 196618, 13, 0, 196617, 13, 0, 196616, 13, 0, 196615, 13, 0, 196614, 13, 0, 131079, 13, 0, 131080, 13, 0, 131081, 13, 0, 131082, 13, 0, 131083, 13, 0, 131085, 13, 0, 131086, 13, 0, 65549, 13, 0, 12, 13, 0, 11, 13, 0, 10, 13, 0, 9, 13, 0, 8, 13, 0, 7, 13, 0, 6, 13, 0, 65546, 13, 0, 65545, 13, 0, 65544, 13, 0, 65543, 13, 0, 65542, 13, 0, 65547, 13, 0, 196620, 13, 0, 196621, 13, 0, 14, 13, 0, 262144, 13, 0, 327680, 13, 0, 262145, 13, 0, 327681, 13, 0, 262146, 13, 0, 327682, 13, 0, 327683, 13, 0, 327684, 13, 0, 327685, 13, 0, 262147, 13, 0, 262148, 13, 0, 262149, 13, 0, 262150, 13, 0, 262151, 13, 0, 262152, 13, 0, 262153, 13, 0, 262154, 13, 0, 262155, 13, 0, 262156, 13, 0, 327690, 13, 0, 327689, 13, 0, 327688, 13, 0, 327686, 13, 0, 327691, 13, 0, 327692, 13, 0, 262157, 13, 0, 327687, 13, 0, 327693, 13, 0, 262158, 13, 0, 393216, 13, 0, 393217, 13, 0, 393218, 13, 0, 393219, 13, 0, 393220, 13, 0, 393221, 13, 0, 393222, 13, 0, 393223, 13, 0, 393224, 13, 0, 393225, 13, 0, 393226, 13, 0, 393227, 13, 0, 393228, 13, 0, 393229, 13, 0, 393230, 13, 0, 65536, 13, 0, 1, 13, 0, 0, 13, 0)
+
+[node name="PlayerCharachter" type="CharacterBody2D" parent="TileMap"]
+script = ExtResource("3_i8ibb")
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMap/PlayerCharachter"]
+texture = ExtResource("3_ss72a")

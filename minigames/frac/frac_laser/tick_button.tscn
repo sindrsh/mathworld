@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://8tgwrj8swwc4"]
+
+[ext_resource type="Script" path="res://minigames/frac/frac_laser/tick_button.gd" id="1_23wxf"]
+
+[node name="TickButton" type="Button"]
+modulate = Color(1, 1, 1, 0)
+script = ExtResource("1_23wxf")

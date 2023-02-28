@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmg2bga1xuqfc"]
+
+[ext_resource type="Script" path="res://assets/global_scenes/geo_shape.gd" id="1_kt6ke"]
+
+[node name="GeoShape" type="Node2D"]
+script = ExtResource("1_kt6ke")

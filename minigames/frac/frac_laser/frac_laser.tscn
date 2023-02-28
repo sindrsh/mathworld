@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bg0qhhfmqp68r"]
+
+[ext_resource type="Script" path="res://minigames/frac/frac_laser/frac_laser.gd" id="1_bu7c7"]
+[ext_resource type="Texture2D" uid="uid://bhmvw451sjvwk" path="res://minigames/frac/frac_laser/assets/shrekny.jpeg" id="2_3lgcl"]
+[ext_resource type="Script" path="res://minigames/frac/frac_laser/laser.gd" id="3_y1e8p"]
+[ext_resource type="Texture2D" uid="uid://bi8k4rqyspipt" path="res://minigames/frac/frac_laser/assets/donkey.png" id="4_8d3r3"]
+
+[node name="FracLaser" type="Node2D"]
+script = ExtResource("1_bu7c7")
+
+[node name="Monster" type="Sprite2D" parent="."]
+texture = ExtResource("2_3lgcl")
+
+[node name="Laser" type="CharacterBody2D" parent="."]
+script = ExtResource("3_y1e8p")
+
+[node name="Beam" type="Sprite2D" parent="Laser"]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_8d3r3")
+
+[node name="BeamSound" type="AudioStreamPlayer2D" parent="Laser"]

@@ -1,8 +1,0 @@
-[gd_scene format=2]
-
-[node name="SepLine" type="Line2D"]
-points = PoolVector2Array( 0, 0 )
-width = 5.0
-default_color = Color( 0.294118, 0.294118, 0.305882, 1 )
-round_precision = 16
-antialiased = true

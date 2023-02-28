@@ -1,26 +1,29 @@
 ## About The Project
-"MathWorld" is the working title of an educational math game. At the moment, the project consists of 'video room' presenting videos on selected methods for elementary calculations. You can check out the movie room on [itch.io](https://sindrsh.itch.io/videoroom).
+"MathWorld" is the working title of an educational math game. (Note: Most of the information to follow can also be found in the form of a [mindmap](https://www.creaza.com/sindre-heggen/uprbEC56rv))
 
 ## Built With
-* [Godot (GDScript)](https://godotengine.org/)
+* [Godot 4 (GDScript, static typed)](https://godotengine.org/)
 * [LaTeX](https://www.latex-project.org/)
 * [Asymptote](https://asymptote.sourceforge.io/)
 
 ## Contributing
 The project is (hopefully) structured in a way that invites others to expand the number of languages offered.
-* The "vid-" folders contains the folders "text" and "audio". 
-* In "text" you will find .asy files named "frameX_languageabbrv.". Copy the respective files for one of the languages present, and edit them into your 
+* The "vid-" folders contains the folders "text" and "audio".
+* In "text" you will find .asy files named "frameX_languageabbrv.". Copy the respective files for one of the languages present, and edit them into your
 language. It is not necessary to compile the files, so a text editor is suffient.
 * In "audio" you can add your .mp3-files for each frame.
 
-## Outline 
-Some aliens, let's call them mathlings, land with their spaceship on an unpopulated planet.
-The only equipment they have brought is a math library (including the videoroom).
-They start building their world by playing math related minigames, giving them resources.
-When topics of math are successfully completed, new territory can be discovered.
-There will be farms where the mathlings can harvest by performing elementary calculations. This to
-enhance practice on topics where a lot of repetition is needed both to learn and preserve the skills.
+## Outline
+### Story
+Some creatures, let's call them
+mathlings, arrive at an empty planet, and
+have to discover the basics of math by themselves. The mathlings does not have any spoken language, hence they must discover the math by finding the patterns and relations (as opposed to reading information).
 
+### Map
+The planet starts off containing
+landscape only, but as the mathlings
+make their mathematical discoveries,
+they will be able to build roads, buildings, etc. Different topics of math will define different parts of the landscape. By completing mini games of a topic, the mathlings get access to new type of buildings and new topics. 
 
 <!-- CONTACT -->
 ## Contact

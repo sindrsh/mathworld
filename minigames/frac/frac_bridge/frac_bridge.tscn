@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://trwqfap7xx15"]
+
+[ext_resource type="Script" path="res://minigames/frac/frac_bridge/frac_bridge.gd" id="1_opei5"]
+[ext_resource type="Script" path="res://minigames/frac/frac_bridge/fraction.gd" id="2_ogdgv"]
+[ext_resource type="Texture2D" uid="uid://bgn0dj5snmjoi" path="res://minigames/frac/frac_bridge/assets/plus.png" id="3_3n6eo"]
+[ext_resource type="Texture2D" uid="uid://dcgc1i6smpv0o" path="res://minigames/frac/frac_bridge/assets/min.png" id="4_7ckkp"]
+[ext_resource type="Script" path="res://minigames/frac/frac_bridge/Creature.gd" id="5_3y8v0"]
+[ext_resource type="Texture2D" uid="uid://ggaplnk8yclp" path="res://minigames/frac/frac_bridge/assets/Godot_icon.svg.png" id="5_xdmjr"]
+[ext_resource type="Texture2D" uid="uid://c1yyr73tst1qq" path="res://minigames/frac/frac_bridge/assets/star.png" id="6_578no"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xek4f"]
+bg_color = Color(0.286275, 0.584314, 0.305882, 1)
+
+[node name="FracBridge" type="Node2D"]
+script = ExtResource("1_opei5")
+
+[node name="Fraction" type="CharacterBody2D" parent="."]
+script = ExtResource("2_ogdgv")
+
+[node name="SendFrac" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_xek4f")
+
+[node name="PlusNum" type="TextureButton" parent="."]
+offset_left = 156.0
+offset_top = 28.0
+offset_right = 258.0
+offset_bottom = 130.0
+texture_normal = ExtResource("3_3n6eo")
+
+[node name="PlusDenom" type="TextureButton" parent="."]
+offset_left = 155.0
+offset_top = 173.0
+offset_right = 257.0
+offset_bottom = 275.0
+texture_normal = ExtResource("3_3n6eo")
+
+[node name="MinNum" type="TextureButton" parent="."]
+offset_left = 26.0
+offset_top = 27.0
+offset_right = 128.0
+offset_bottom = 129.0
+texture_normal = ExtResource("4_7ckkp")
+
+[node name="MinDenom" type="TextureButton" parent="."]
+offset_left = 30.0
+offset_top = 173.0
+offset_right = 132.0
+offset_bottom = 275.0
+texture_normal = ExtResource("4_7ckkp")
+
+[node name="NewTask" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="Score" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("6_578no")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Creature" type="CharacterBody2D" parent="."]
+script = ExtResource("5_3y8v0")
+
+[node name="CreatureFace" type="Sprite2D" parent="Creature"]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("5_xdmjr")
+
+[node name="Star" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("6_578no")
