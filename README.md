@@ -30,7 +30,7 @@ landscape only, but as the mathlings
 make their mathematical discoveries,
 they will be able to build roads, buildings, etc. Different topics of math will define different parts of the landscape. By completing mini games of a topic, the mathlings get access to new type of buildings and new topics.
 
-## Topics
+### Topics
 Most topics will be focusing on three types of skills:
 - Calculation
 - Numbers as amounts
@@ -40,9 +40,7 @@ Most topics will be focusing on three types of skills:
 The topics are addition, subtraction, multiplication, division, fractions, factorization, order of operations, negative numbers, geometry, algebra (in the form of letter calculation), equations, and functions
 
 <!-- CONTACT -->
-## Contact
-For discussions, join the project's [Discord server](https://discord.com/channels/865004050357682246/1078783546598109334)
+## Contribution
+If you want to contribute to this project, please join the project's [Discord server](https://discord.com/channels/865004050357682246/1078783546598109334).
 
 Sindre Sogge Heggen - sindre.heggen@gmail.com
-
-[The project's discord channel](https://discord.com/channels/938334993191686174/1020401566060134440)
