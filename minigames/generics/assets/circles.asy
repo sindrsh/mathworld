@@ -10,4 +10,9 @@ shipout("circle_b");
 erase();
 draw(scale(50)*unitcircle);
 shipout("circle_c");
+
+
+erase();
+filldraw(scale(50)*unitcircle, white);
+shipout("circle_white");
 exit();

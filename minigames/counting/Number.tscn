@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://f7tbymficwqo"]
+
+[ext_resource type="Script" path="res://minigames/counting/number.gd" id="1_cpo4i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1ha6a"]
+radius = 50.0
+
+[node name="Number" type="CharacterBody2D"]
+script = ExtResource("1_cpo4i")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1ha6a")
+
+[node name="Circle" type="Sprite2D" parent="."]
+
+[node name="Value" type="Sprite2D" parent="."]

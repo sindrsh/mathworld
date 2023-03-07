@@ -32,11 +32,11 @@ pen p1 = blue+opacity(0.1);
 pen p10 = green+opacity(0.1);
 pen p100 = orange+opacity(0.3);
 
-pen p1fill = blue;
+pen p1fill = white;
 pen p10fill = deepgreen;
 pen p100fill = orange;
 
-real opac = 0.2;
+real opac = 1;
 real d = 20;
 real w = 20;
 

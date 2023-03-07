@@ -7,7 +7,6 @@ var active : bool = false
 func _on_button_down() -> void:
 	mouse_offset = position-get_global_mouse_position()
 	active = true
-	print("hei")
 	
 func _on_button_up() -> void:
 	active = false

@@ -1,5 +1,9 @@
 import inh;
 
-label(scale(5)*Label("1"));
-shipout("one.svg");
-exit();
+string[] numbers = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+
+for(int i; i< 10; ++i){
+  label(scale(5)*Label(string(i)));
+  shipout(numbers[i] + ".svg");
+  erase();
+}

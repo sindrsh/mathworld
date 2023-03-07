@@ -2,9 +2,10 @@ extends CharacterBody2D
 
 signal bubble_pressed(_name : String)
  
-var speed : int = 200
+var speed : int = 100
 var one : Texture = preload("res://minigames/generics/assets/one.svg")
 var number : float
+var representation : int
 
 var representation2 : Array = [
 	preload("res://minigames/generics/assets/1b.svg"),
