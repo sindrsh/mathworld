@@ -1,0 +1,16 @@
+res://assets/global_scenes/geo_shape.tscn::a774ae01492a9a45417a803fb773381c::1677413399::res://.godot/exported/133200997/export-56d6009c64a8ccd1ce00876fef4317e4-geo_shape.scn
+res://explanations/neg_num/neg_num_intro.tscn::f33fb880bad877dc017ff22e73c22174::1678282638::res://.godot/exported/133200997/export-27e5c220c4201898ae8df49ec9f1395c-neg_num_intro.scn
+res://extras/ad/AdFrac.tscn::df2c234e264674fd93706448f8e86c01::1678282637::res://.godot/exported/133200997/export-72b3e965c03a9636c73ed479985cc1c3-AdFrac.scn
+res://minigames/counting/Character.tscn::f73856a21655d5245c4077c792d84756::1678282638::res://.godot/exported/133200997/export-33bae4e7d524bac213afbb4c7e26b175-Character.scn
+res://minigames/counting/Number.tscn::f72f780cb804bb7187250ed0d05a0316::1678282638::res://.godot/exported/133200997/export-6afaf7d90e273cc54044ee4d706debcb-Number.scn
+res://minigames/counting/NumberCatch.tscn::fa57192d5b8129d5ed45fbc8e5e0550e::1678282638::res://.godot/exported/133200997/export-7a4274b295940ce0da899d1e66303cce-NumberCatch.scn
+res://minigames/frac/frac_bridge/frac_bridge.tscn::3f7bc31f69181027d5582f15e3dc3a22::1677413399::res://.godot/exported/133200997/export-5a91167e4aa0e6f7d4c5de6d2d8cf8a6-frac_bridge.scn
+res://minigames/frac/frac_laser/frac_laser.tscn::0367c8d8c370ecf7e0898881d5036142::1677413399::res://.godot/exported/133200997/export-6217228963d627d516fc02ba902ff839-frac_laser.scn
+res://minigames/frac/frac_laser/tick_button.tscn::28fcaa1728133f80343c9ca53f2c4a39::1677413399::res://.godot/exported/133200997/export-83dd645131f1c99a4bf02d03e26dc125-tick_button.scn
+res://minigames/generics/bouncing_bubbles.tscn::994f6e4f17e5e7c43cb1fd61d110a134::1678282638::res://.godot/exported/133200997/export-40d58720d85de7334a7c43f9a3d17aa0-bouncing_bubbles.scn
+res://minigames/generics/bubble.tscn::3612933f80eee6314b4eb9002251d664::1678282638::res://.godot/exported/133200997/export-119a2c387230b449d3a4029c33a374ef-bubble.scn
+res://minigames/pyt/pyt_puzzle/movable_shape.tscn::8a2e6a9e8ccb5e7080fb7508fed7b76d::1678282638::res://.godot/exported/133200997/export-ffc27dfc892f8d7920b6a437dd2684d4-movable_shape.scn
+res://minigames/pyt/pyt_puzzle/pyt_puzzle.tscn::fd757b6d1e43b8323056bb6483d65b7a::1677413399::res://.godot/exported/133200997/export-4f77c0a4cc204b4588f52f20a26697dd-pyt_puzzle.scn
+res://mini_game_choice.tscn::1d97459b4be65773d0afcac3ae9e1558::1678282638::res://.godot/exported/133200997/export-40c59174693408fe205f15f41c045f97-mini_game_choice.scn
+res://start_menu.tscn::e9f4de5c7e097ef3e7019a66c37fb8fa::1678282637::res://.godot/exported/133200997/export-6ef4cc1f92f36a58300400127ea612ec-start_menu.scn
+res://world.tscn::3c1841652af5af416ec51e3f3fcb4f86::1677413399::res://.godot/exported/133200997/export-76e0adcbc83681695885bae615f516ae-world.scn

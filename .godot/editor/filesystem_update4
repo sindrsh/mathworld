@@ -1,5 +1,3 @@
-res://minigames/counting/Character.tscn
-res://minigames/counting/character.gd
 res://start_menu.tscn
 res://extras/ad/AdFrac.tscn
 res://explanations/neg_num/neg_num_intro.tscn
@@ -8,5 +6,8 @@ res://minigames/generics/bouncing_bubbles.tscn
 res://minigames/counting/NumberCatch.tscn
 res://minigames/counting/Number.tscn
 res://minigames/pyt/pyt_puzzle/movable_shape.tscn
+res://minigames/counting/Character.tscn
 res://minigames/counting/number_catch.gd
 res://minigames/counting/number.gd
+res://mini_game_choice.tscn
+res://start_menu.gd

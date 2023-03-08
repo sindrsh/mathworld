@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://byv8vhln6eltv" path="res://minigames/generics/assets/circle_b.svg" id="2_kkf1b"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d14m8"]
-radius = 25.0
-height = 50.0
+radius = 50.0
+height = 100.0
 
 [node name="Character" type="Area2D"]
 script = ExtResource("1_n1u3y")
