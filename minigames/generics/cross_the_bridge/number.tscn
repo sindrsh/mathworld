@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://mhodasa8gpn3"]
+
+[ext_resource type="Script" path="res://minigames/generics/cross_the_bridge/number.gd" id="1_cbwf7"]
+
+[node name="Number" type="CharacterBody2D"]
+script = ExtResource("1_cbwf7")

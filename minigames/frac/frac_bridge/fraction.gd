@@ -6,8 +6,12 @@ var moving = false
 
 signal move_completed
 
+func _ready():
+	print("ready")
+
 func _physics_process(_delta):
 	if moving:
+		print(position)
 		velocity = position.direction_to(target) * speed
 		if position.distance_to(target) > 10:
 			move_and_slide()

@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://minigames/frac/frac_bridge/frac_bridge.gd" id="1_opei5"]
 [ext_resource type="Script" path="res://minigames/frac/frac_bridge/fraction.gd" id="2_ogdgv"]
-[ext_resource type="Texture2D" uid="uid://bgn0dj5snmjoi" path="res://minigames/frac/frac_bridge/assets/plus.png" id="3_3n6eo"]
-[ext_resource type="Texture2D" uid="uid://dcgc1i6smpv0o" path="res://minigames/frac/frac_bridge/assets/min.png" id="4_7ckkp"]
+[ext_resource type="Texture2D" uid="uid://bgn0dj5snmjoi" path="res://minigames/generics/cross_the_bridge/assets/plus.png" id="3_3n6eo"]
+[ext_resource type="Texture2D" uid="uid://dcgc1i6smpv0o" path="res://minigames/generics/cross_the_bridge/assets/min.png" id="4_7ckkp"]
 [ext_resource type="Script" path="res://minigames/frac/frac_bridge/Creature.gd" id="5_3y8v0"]
-[ext_resource type="Texture2D" uid="uid://ggaplnk8yclp" path="res://minigames/frac/frac_bridge/assets/Godot_icon.svg.png" id="5_xdmjr"]
-[ext_resource type="Texture2D" uid="uid://c1yyr73tst1qq" path="res://minigames/frac/frac_bridge/assets/star.png" id="6_578no"]
+[ext_resource type="Texture2D" uid="uid://ggaplnk8yclp" path="res://minigames/generics/cross_the_bridge/assets/Godot_icon.svg.png" id="5_xdmjr"]
+[ext_resource type="Texture2D" uid="uid://c1yyr73tst1qq" path="res://minigames/generics/cross_the_bridge/assets/star.png" id="6_578no"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xek4f"]
 bg_color = Color(0.286275, 0.584314, 0.305882, 1)

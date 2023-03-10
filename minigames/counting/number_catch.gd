@@ -48,6 +48,7 @@ func _spawn_numbers():
 		num.get_node("Value").texture = values[random_number]
 		num.position = Vector2(randf_range(i*width/3, (i+1)*width/3), 100)
 		add_child(num)
+		print(random_number)
 	
 func _on_character_entered(body : Node2D) -> void:
 	
@@ -62,5 +63,4 @@ func _on_character_entered(body : Node2D) -> void:
 			NumberSprite.position = Vector2(0, -2*character.value*radius)
 			CircleSprite.position = NumberSprite.position
 			character.value += 1
-			character.get_node("CollisionShape2D").shape.height += 2*radius
 			character.get_node("CollisionShape2D").position.y -= 2*radius

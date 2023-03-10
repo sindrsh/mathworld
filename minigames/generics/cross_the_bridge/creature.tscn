@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpnbnwfknhq7g"]
+
+[ext_resource type="Script" path="res://minigames/generics/cross_the_bridge/creature.gd" id="1_oxy5h"]
+
+[node name="Creature" type="CharacterBody2D"]
+script = ExtResource("1_oxy5h")
