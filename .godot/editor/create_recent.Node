@@ -1,9 +1,10 @@
+CollisionShape2D
+StaticBody2D
 Sprite2D
 CharacterBody2D
 Area2D
 TextureButton
 Button
-CollisionShape2D
 Timer
 Node3D
 Node2D

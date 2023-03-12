@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cmwn4u71cnubt"]
-
-[ext_resource type="Script" path="res://minigames/frac/ad_bridge/ad_bridge.gd" id="1_20810"]
-
-[node name="AdBridge" type="Node2D"]
-script = ExtResource("1_20810")

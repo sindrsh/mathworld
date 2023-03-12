@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdpib7i2a1rqg"]
+
+[ext_resource type="Script" path="res://minigames/counting/matching_0_to_9/match_0_to_9.gd" id="1_547w3"]
+
+[node name="Match0To9" type="Node2D"]
+script = ExtResource("1_547w3")

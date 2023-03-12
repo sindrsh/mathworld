@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bddx2q5bjqo73"]
+
+[ext_resource type="Script" path="res://minigames/frac/frac_bridge/frac_bridge.gd" id="1_3xuuy"]
+
+[node name="FracBridge" type="Node2D"]
+script = ExtResource("1_3xuuy")

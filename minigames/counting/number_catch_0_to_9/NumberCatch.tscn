@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvkgs7sjol1ex"]
+
+[ext_resource type="Script" path="res://minigames/counting/number_catch_0_to_9/number_catch.gd" id="1_cdby6"]
+
+[node name="NumberCatch" type="Node2D"]
+script = ExtResource("1_cdby6")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0

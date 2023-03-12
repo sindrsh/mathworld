@@ -7,15 +7,15 @@ var dy : float = 40.0
 var max_int : int = 2
 var max_length : float = max_int*x_scale
 var number_line_pos : Vector2 = Vector2(600, 100)
-var objects : Array 
+var varying_objects : Array 
 var number_line : NumberLine
 
 var score_label : Text
 var max_score : int
 var score : int
-var correct_sound : AudioStream = preload("res://minigames/frac/frac_bridge/assets/correct.mp3")
-var incorrect_sound : AudioStream = preload("res://minigames/frac/frac_bridge/assets/whip.mp3")
-var finished_sound : AudioStream = preload("res://minigames/frac/frac_bridge/assets/success.mp3")
+var correct_sound : AudioStream = preload("res://minigames/generics/cross_the_bridge/assets/correct.mp3")
+var incorrect_sound : AudioStream = preload("res://minigames/generics/cross_the_bridge/assets/whip.mp3")
+var finished_sound : AudioStream = preload("res://minigames/generics/cross_the_bridge/assets/success.mp3")
 var road_start : Vector2 = Vector2(100, 700)
 var creature_start_pos : Vector2 = road_start + Vector2(20,-50)
 
@@ -23,12 +23,13 @@ var number : CharacterBody2D = preload("res://minigames/generics/cross_the_bridg
 var creature : CharacterBody2D = preload("res://minigames/generics/cross_the_bridge/creature.tscn").instantiate()
 var send_number_button := Button.new()
 var new_task_timer := Timer.new()
-var score_count := Sprite2D.new()
+var score_count := Node2D.new()
 var sound_effect := AudioStreamPlayer2D.new()
 var pickable_object := Sprite2D.new()
 var number_line_varies := false
 
-var creature_texture : Texture2D = load("res://minigames/generics/cross_the_bridge/assets/Godot_icon.svg.png")
+var creature_texture : Texture2D = preload("res://minigames/generics/cross_the_bridge/assets/Godot_icon.svg.png")
+var pickable_object_texture : Texture2D = preload("res://minigames/generics/cross_the_bridge/assets/star.png")
 var plus_texture : Texture2D = preload("res://minigames/generics/cross_the_bridge/assets/plus.png")
 var min_texture : Texture2D = preload("res://minigames/generics/cross_the_bridge/assets/min.png")
 
@@ -40,17 +41,23 @@ func _ready() -> void:
 	assert(new_task_timer.connect("timeout", _on_timeout) == 0)
 	
 	new_task_timer.one_shot = true
-		
+	
+	new_task_timer.wait_time = 0.4
+	var score_sprite := Sprite2D.new()	
+	score_sprite.texture = pickable_object_texture
+	score_sprite.scale = 0.05*Vector2(1,1)
+	score_count.add_child(score_sprite)
 	score_count.position = Vector2(1800, 50)
 	score_label = Text.new(30, "0")
-	score_label.set_text_position(score_count.position + Vector2(0,-15))
-	
+	score_label.set_text_position(Vector2(0,-20))
+	score_count.add_child(score_label)
+
 	sound_effect.stream = incorrect_sound
 	
 	send_number_button.position = Vector2(1775, 150)
-	var send_frac_label : Text = Text.new(20, "Go!")
-	send_number_button.add_child(send_frac_label)
-	send_frac_label.set_text_position(Vector2(20,10))
+	var send_num_label : Text = Text.new(20, "Go!")
+	send_number_button.add_child(send_num_label)
+	send_num_label.set_text_position(Vector2(20,10))
 	send_number_button.size = Vector2(50,50)
 	
 	var creature_sprite := Sprite2D.new()
@@ -59,12 +66,16 @@ func _ready() -> void:
 	creature.position = creature_start_pos
 	creature.add_child(creature_sprite)
 	
-	add_child(score_label)
+	pickable_object.texture = pickable_object_texture
+	pickable_object.scale = 0.05*Vector2(1,1)
+	
+	add_child(score_count)
 	add_child(send_number_button)
 	add_child(creature)
 	add_child(number)
 	add_child(sound_effect)
 	add_child(new_task_timer)
+	add_child(pickable_object)
 	
 	max_score = 5
 	_add_specifics()
@@ -73,33 +84,44 @@ func _ready() -> void:
 func _add_specifics() -> void:
 	pass	
 
-func _mk_task() -> void:
+func _prepare_task() -> void:
 	pass
+
+func _mk_task() -> void:
+	for i in range(varying_objects.size()):
+		varying_objects[i].queue_free()
+	varying_objects = []
 	
+	creature.show()
+	pickable_object.show()
+	
+	_prepare_task()
+	_mk_num_line()
 	
 func _mk_num_line() -> void:
 	pass
 
 
 func _on_creature_arrival() -> void:
+	new_task_timer.start()
 	creature.hide()
+	pickable_object.hide()
 	creature.moving = false
 	creature.position = creature_start_pos
-	pickable_object.hide()
+	
 
 func _correct_answer() -> bool:
 	return false
 
-func _arrival_specifics() -> void:
+func _number_arrival_specifics() -> void:
 	pass
 
 func _on_number_arrival() -> void:	
-	_arrival_specifics()
+	_number_arrival_specifics()
 	if _correct_answer():
 		score += 1
 		sound_effect.stream = correct_sound
 		creature.moving = true
-		new_task_timer.start()	
 	else:
 		score = 0
 		sound_effect.stream = incorrect_sound

@@ -15,7 +15,7 @@ func _mk_button(scene : String, game : String, pos : Vector2i) -> void:
 
 func _ready() -> void:
 	
-	_mk_button("uid://trwqfap7xx15", "fraction bridge", Vector2i(0,0))
+	_mk_button("uid://bddx2q5bjqo73", "fraction bridge", Vector2i(0,0))
 	_mk_button("uid://bg0qhhfmqp68r", "fraction laser", Vector2i(1,0))
 	_mk_button("uid://b756fj2codywv", "Pytagoras puzzle", Vector2i(2,0))	
 	_mk_button("uid://cgwefokkpwqw0", "Ordering", Vector2i(3,0))	
