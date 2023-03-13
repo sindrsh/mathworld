@@ -19,3 +19,4 @@ func _ready() -> void:
 	_mk_button("uid://bg0qhhfmqp68r", "fraction laser", Vector2i(1,0))
 	_mk_button("uid://b756fj2codywv", "Pytagoras puzzle", Vector2i(2,0))	
 	_mk_button("uid://cgwefokkpwqw0", "Ordering", Vector2i(3,0))	
+	_mk_button("uid://bdpib7i2a1rqg", "match the numbers", Vector2i(4,0))

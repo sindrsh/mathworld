@@ -2,11 +2,10 @@ extends CharacterBody2D
 
 signal bubble_pressed(_name : String)
 
-var speed : int = 300
+var speed : int = 200
 var int_value : Array
 var float_value : float
 var representation : int
-
 
 func _ready():
 	assert($BubbleButton.connect("pressed", _on_pressed) == 0)

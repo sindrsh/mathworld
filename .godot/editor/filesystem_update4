@@ -1,10 +1,5 @@
 res://minigames/generics/bouncing_bubbles/bouncing_bubbles.tscn
-res://minigames/generics/bouncing_bubbles/bouncing_bubbles.gd
-res://minigames/frac/frac_bridge/FracBridge.tscn
-res://minigames/generics/cross_the_bridge/number.tscn
-res://minigames/generics/bouncing_bubbles/bubble.tscn
-res://minigames/counting/number_catch_0_to_9/Character.tscn
-res://minigames/counting/number_catch_0_to_9/NumberCatch.tscn
-res://minigames/counting/number_catch_0_to_9/Number.tscn
 res://minigames/counting/matching_0_to_9/Match0To9.tscn
-res://minigames/generics/bouncing_bubbles/bubble.gd
+res://minigames/generics/bouncing_bubbles/bubble.tscn
+res://mini_game_choice.tscn
+res://start_menu.tscn

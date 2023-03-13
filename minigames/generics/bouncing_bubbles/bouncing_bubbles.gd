@@ -2,23 +2,18 @@ extends Node2D
 
 const Bubble = preload("res://minigames/generics/bouncing_bubbles/bubble.gd")
 var bubble : Bubble = preload("res://minigames/generics/bouncing_bubbles/bubble.tscn").instantiate()
-var chosen_bubbles := PackedStringArray(['', ''])
-var representation_b : Array = [
-	preload("res://minigames/generics/bouncing_bubbles/assets/1b.svg"),
-	preload("res://minigames/generics/bouncing_bubbles/assets/2b.svg"),
-	preload("res://minigames/generics/bouncing_bubbles/assets/3b.svg"),
-	preload("res://minigames/generics/bouncing_bubbles/assets/4b.svg"),
-	preload("res://minigames/generics/bouncing_bubbles/assets/5b.svg"),
-	preload("res://minigames/generics/bouncing_bubbles/assets/6b.svg"),
-	preload("res://minigames/generics/bouncing_bubbles/assets/7b.svg"),
-	preload("res://minigames/generics/bouncing_bubbles/assets/8b.svg"),	
-	preload("res://minigames/generics/bouncing_bubbles/assets/9b.svg"),
-]
+var chosen_bubble : String
+var representation_a : Array
+var representation_b : Array
+enum {REPRESENTATION_A, REPRESENTATION_B}
 
 var left_wall := StaticBody2D.new()
 var right_wall := StaticBody2D.new()
 var top_wall := StaticBody2D.new()
 var bottom_wall := StaticBody2D.new()
+var audio_player := AudioStreamPlayer2D.new()
+var correct_sound : AudioStream = preload("res://minigames/generics/assets/correct.mp3")
+var incorrect_sound : AudioStream = preload("res://minigames/generics/assets/whip.mp3")
 
 func _ready():
 	var window : Vector2 = get_viewport_rect().size
@@ -61,40 +56,35 @@ func _ready():
 	add_child(right_wall)
 	add_child(bottom_wall)
 	add_child(top_wall)
+	add_child(audio_player)
 	
-	_mk_bubble_pair()
+	_add_specifics()
+
+func _add_specifics():
+	pass
 	
 func _on_bubble_pressed(_name : String) -> void:
-	if _name in chosen_bubbles:
-		return
-	get_node(_name).get_node("BubbleSprite").frame = 1
-	if chosen_bubbles[1]:
-		get_node(chosen_bubbles[1]).get_node("BubbleSprite").frame = 0
-	chosen_bubbles[1] = chosen_bubbles[0]
-	chosen_bubbles[0] = _name
-	
-	if chosen_bubbles[0] != '' and chosen_bubbles[1] != '':
-		if get_node(chosen_bubbles[0]).representation != get_node(chosen_bubbles[0]).representation:
-			if _are_bubbles_equal():
-				get_node(chosen_bubbles[0]).queue_free()
-				get_node(chosen_bubbles[1]).queue_free()
+	if _name == chosen_bubble:
+		get_node(_name).get_node("BubbleSprite").frame = 0
+		chosen_bubble = ''
+	else:
+		if chosen_bubble == '':
+			get_node(_name).get_node("BubbleSprite").frame = 1
+			chosen_bubble = _name
+		elif get_node(chosen_bubble).representation != get_node(_name).representation:
+			if _bubbles_are_equal(_name, chosen_bubble):
+				audio_player.stream = correct_sound
+			else:
+				audio_player.stream = incorrect_sound
 			
-func _are_bubbles_equal() -> bool:
-	return get_node(chosen_bubbles[0]).number == get_node(chosen_bubbles[0]).number
+			audio_player.play()
+			get_node(chosen_bubble).queue_free()
+			get_node(_name).queue_free()
+			chosen_bubble = ''
+				
+func _bubbles_are_equal(_bubble1 : String, _bubble2 : String) -> bool:
+	return false
 			
 
-func _mk_bubble_pair() -> void:
-	# note: bubble_number is 1 less than the value the bubble represents
-	var bubble_number : int = randi() % 9
-	var bubble_a : Bubble = bubble.duplicate()
-	bubble_a.get_node("NumberSymbol").texture = representation_b[bubble_number] 
-	bubble_a.start(Vector2(300, 300), 20)
-	assert(bubble_a.connect("bubble_pressed", _on_bubble_pressed) == 0)
-	add_child(bubble_a)
-	
-	var bubble_b : Bubble = bubble.duplicate()
-	bubble_b.get_node("NumberSymbol").texture = representation_b[bubble_number] 
-	bubble_b.start(Vector2(800, 300), -90)
-	assert(bubble_b.connect("bubble_pressed", _on_bubble_pressed) == 0)
-	add_child(bubble_b)	
+
 	
