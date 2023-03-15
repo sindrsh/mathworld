@@ -5,15 +5,13 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_jf7nl"]
 radius = 50.0
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_llog4"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_k37ah"]
 
 [node name="Bubble" type="CharacterBody2D"]
 script = ExtResource("1_fua8m")
 
 [node name="BubbleCollison" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_jf7nl")
-
-[node name="NumberSymbol" type="Sprite2D" parent="."]
 
 [node name="BubbleButton" type="TextureButton" parent="."]
 anchors_preset = 8
@@ -29,5 +27,4 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="BubbleSprite" type="AnimatedSprite2D" parent="."]
-z_index = -1
-sprite_frames = SubResource("SpriteFrames_llog4")
+sprite_frames = SubResource("SpriteFrames_k37ah")

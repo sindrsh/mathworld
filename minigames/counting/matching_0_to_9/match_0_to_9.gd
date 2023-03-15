@@ -1,5 +1,7 @@
 extends "res://minigames/generics/bouncing_bubbles/bouncing_bubbles.gd"
 
+var representation_a : Array
+var representation_b : Array
 var bubble_pairs := 5
 
 func _add_specifics() -> void:
@@ -37,7 +39,9 @@ func _mk_bubble_pair() -> void:
 	var bubble_number : int = randi() % 9
 	var position_area : Vector2 = 0.7*get_viewport_rect().size
 	var bubble_a : Bubble = bubble.duplicate()
-	bubble_a.get_node("NumberSymbol").texture = representation_a[bubble_number] 
+	var number_symbol_a := Sprite2D.new()
+	number_symbol_a.texture = representation_a[bubble_number] 
+	bubble_a.add_child(number_symbol_a)
 	bubble_a.start(Vector2(position_area.x*randf(), position_area.y*randf()), 3.14*randf())
 	assert(bubble_a.connect("bubble_pressed", _on_bubble_pressed) == 0)
 	bubble_a.int_value = [bubble_number, 1]
@@ -45,7 +49,9 @@ func _mk_bubble_pair() -> void:
 	add_child(bubble_a)
 	
 	var bubble_b : Bubble = bubble.duplicate()
-	bubble_b.get_node("NumberSymbol").texture = representation_b[bubble_number] 
+	var number_symbol_b := Sprite2D.new()
+	number_symbol_b.texture = representation_b[bubble_number] 
+	bubble_b.add_child(number_symbol_b)
 	bubble_b.start(Vector2(800, 300), 3.14*randf())
 	assert(bubble_b.connect("bubble_pressed", _on_bubble_pressed) == 0)
 	bubble_b.int_value = [bubble_number, 1]	

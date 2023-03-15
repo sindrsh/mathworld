@@ -3,8 +3,6 @@ extends Node2D
 const Bubble = preload("res://minigames/generics/bouncing_bubbles/bubble.gd")
 var bubble : Bubble = preload("res://minigames/generics/bouncing_bubbles/bubble.tscn").instantiate()
 var chosen_bubble : String
-var representation_a : Array
-var representation_b : Array
 enum {REPRESENTATION_A, REPRESENTATION_B}
 
 var left_wall := StaticBody2D.new()

@@ -18,5 +18,6 @@ func _ready() -> void:
 	_mk_button("uid://bddx2q5bjqo73", "fraction bridge", Vector2i(0,0))
 	_mk_button("uid://bg0qhhfmqp68r", "fraction laser", Vector2i(1,0))
 	_mk_button("uid://b756fj2codywv", "Pytagoras puzzle", Vector2i(2,0))	
-	_mk_button("uid://cgwefokkpwqw0", "Ordering", Vector2i(3,0))	
+	_mk_button("uid://cvkgs7sjol1ex", "Ordering", Vector2i(3,0))	
 	_mk_button("uid://bdpib7i2a1rqg", "match the numbers", Vector2i(4,0))
+	_mk_button("uid://clancf4lw213r", "match the fractions", Vector2i(5,0))
