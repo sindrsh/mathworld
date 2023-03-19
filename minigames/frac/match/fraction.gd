@@ -10,7 +10,6 @@ func _init(numerator : int, denominator : int, radius : float) -> void:
 	for i in range(denominator):
 		d_array.append(i)
 		dv_array.append(i*dv)
-	
 	randomize()
 	d_array.shuffle()
 	
