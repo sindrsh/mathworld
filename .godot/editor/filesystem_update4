@@ -1,14 +1,4 @@
+res://minigames/frac/match_eq_val/MatchEqualValues.tscn
+res://minigames/generics/bouncing_bubbles/bubble.tscn
 res://minigames/generics/bouncing_bubbles/bouncing_bubbles.tscn
 res://minigames/frac/match_eq_val/match_equal_values.gd
-res://minigames/counting/matching_0_to_9/Match0To9.tscn
-res://minigames/generics/bouncing_bubbles/bubble.tscn
-res://mini_game_choice.tscn
-res://start_menu.tscn
-res://assets/global_scenes/geo_shape.tscn
-res://assets/global_scenes/GeoDraw.tscn
-res://minigames/frac/match/MatchFracs.tscn
-res://minigames/frac/match/Fraction.tscn
-res://minigames/frac/frac_bridge/FracBridge.tscn
-res://minigames/frac/frac_bridge2/FracBridge2.tscn
-res://minigames/frac/frac_bridge/frac_bridge.tscn
-res://minigames/frac/match_eq_val/MatchEqualValues.tscn

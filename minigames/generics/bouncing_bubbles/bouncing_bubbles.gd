@@ -63,11 +63,11 @@ func _add_specifics():
 	
 func _on_bubble_pressed(_name : String) -> void:
 	if _name == chosen_bubble:
-		get_node(_name).get_node("BubbleSprite").frame = 0
+		get_node(_name).sprite.frame = 0
 		chosen_bubble = ''
 	else:
 		if chosen_bubble == '':
-			get_node(_name).get_node("BubbleSprite").frame = 1
+			get_node(_name).sprite.frame = 1
 			chosen_bubble = _name
 		elif get_node(chosen_bubble).representation != get_node(_name).representation:
 			if _bubbles_are_equal(_name, chosen_bubble):
