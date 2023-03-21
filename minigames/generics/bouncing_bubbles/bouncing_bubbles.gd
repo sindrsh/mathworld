@@ -1,7 +1,6 @@
-extends Node2D
+extends MiniGame
 
 const Bubble = preload("res://minigames/generics/bouncing_bubbles/bubble.gd")
-var bubble : Bubble = preload("res://minigames/generics/bouncing_bubbles/bubble.tscn").instantiate()
 var chosen_bubble : String
 enum {REPRESENTATION_A, REPRESENTATION_B}
 
@@ -13,7 +12,8 @@ var audio_player := AudioStreamPlayer2D.new()
 var correct_sound : AudioStream = preload("res://minigames/generics/assets/correct.mp3")
 var incorrect_sound : AudioStream = preload("res://minigames/generics/assets/whip.mp3")
 
-func _ready():
+func _ready() -> void:
+	super()
 	var window : Vector2 = get_viewport_rect().size
 	
 	var border_shape = CollisionShape2D.new()
@@ -40,25 +40,15 @@ func _ready():
 	top_border.shape.b = Vector2(window.x, 0)			
 	top_wall.add_child(top_border)
 	
-	bubble.get_node("BubbleSprite").sprite_frames.add_frame(
-			"default",
-			load("uid://d1lpn21diaxkw")
-	)
-	bubble.get_node("BubbleSprite").sprite_frames.add_frame(
-			"default",
-			load("uid://byv8vhln6eltv")
-	)
-	bubble.get_node("BubbleButton").texture_normal = load("uid://bwvslu284rc4s")
-	
 	add_child(left_wall)
 	add_child(right_wall)
 	add_child(bottom_wall)
 	add_child(top_wall)
 	add_child(audio_player)
 	
-	_add_specifics()
+	_mk_bubbles()
 
-func _add_specifics():
+func _mk_bubbles():
 	pass
 	
 func _on_bubble_pressed(_name : String) -> void:

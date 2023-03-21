@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://canih5ycl1h5l"]
+
+[ext_resource type="Script" path="res://minigames/generics/success_message.gd" id="1_7ifkj"]
+
+[node name="SuccessMessage" type="Node2D"]
+script = ExtResource("1_7ifkj")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 500.0
+offset_bottom = 500.0
+color = Color(0, 0.823529, 0.827451, 1)
+
+[node name="ToMenuButton" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "TO MENU"
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0

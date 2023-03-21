@@ -4,8 +4,8 @@ var speed : float = 1000.0
 var target : Vector2
 var moving = false
 var is_hitting = false
-var miss_sound : AudioStream = preload("res://minigames/frac/frac_laser/assets/whip.mp3")
-var hit_sound : AudioStream = preload("res://minigames/frac/frac_bridge/assets/success.mp3")
+var miss_sound : AudioStream = preload("res://minigames/generics/assets/whip.mp3")
+var hit_sound : AudioStream = preload("res://minigames/generics/assets/correct.mp3")
 
 signal move_completed
 

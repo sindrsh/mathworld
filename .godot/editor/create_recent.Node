@@ -1,3 +1,6 @@
+Label
+Button
+ColorRect
 AnimatedSprite2D
 Sprite2D
 CollisionShape2D
@@ -5,7 +8,6 @@ StaticBody2D
 CharacterBody2D
 Area2D
 TextureButton
-Button
 Timer
 Node3D
 Node2D

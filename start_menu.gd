@@ -15,9 +15,17 @@ func _mk_button(scene : String, game : String, pos : Vector2i) -> void:
 
 func _ready() -> void:
 	
-	_mk_button("uid://bddx2q5bjqo73", "fraction bridge", Vector2i(0,0))
-	_mk_button("uid://bg0qhhfmqp68r", "fraction laser", Vector2i(1,0))
-	_mk_button("uid://b756fj2codywv", "Pytagoras puzzle", Vector2i(2,0))	
-	_mk_button("uid://cvkgs7sjol1ex", "Ordering", Vector2i(3,0))	
-	_mk_button("uid://bdpib7i2a1rqg", "match the numbers", Vector2i(4,0))
-	_mk_button("uid://clancf4lw213r", "match the fractions", Vector2i(5,0))
+	_mk_button("uid://cvkgs7sjol1ex", "Ordering", Vector2i(0,0))
+	_mk_button("uid://bdpib7i2a1rqg", "match the numbers", Vector2i(1,0))
+	
+	_mk_button("uid://bddx2q5bjqo73", "fraction bridge", Vector2i(0,2))
+	_mk_button("uid://bksrxe17w20ux", "frac_bridge 2", Vector2i(1,2))
+	_mk_button("uid://bg0qhhfmqp68r", "fraction laser*", Vector2i(2,2))
+	_mk_button("uid://clancf4lw213r", "match the fractions", Vector2i(3,2))
+	_mk_button("uid://puk4go41bcos", "match the values", Vector2i(4,2))
+
+	_mk_button("uid://b756fj2codywv", "Pytagoras puzzle*", Vector2i(0,4))
+
+	var info_text = Text.new(20, "* indicates games with no ending and/or score")
+	info_text.position = Vector2(50, 700)
+	add_child(info_text)

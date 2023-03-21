@@ -1,9 +1,9 @@
-extends Node2D
+extends MiniGame
 
 var a : float = 80
 var b : float = 150 
 
-func _ready():
+func _add_specifics():
 	
 	var dx : float = 150.0
 	var dy : float = 400.0
