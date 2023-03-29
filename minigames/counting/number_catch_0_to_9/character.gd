@@ -3,6 +3,7 @@ extends Area2D
 var max_speed := 800
 var value := 1
 
+
 func _ready():
 	position = Vector2(get_viewport_rect().size.x/2, get_viewport_rect().size.y - 100) 
 	

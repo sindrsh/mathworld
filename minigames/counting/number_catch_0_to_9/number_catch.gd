@@ -2,10 +2,12 @@ extends MiniGame
 
 const Number = preload("res://minigames/counting/number_catch_0_to_9/number.gd")
 var number : Number = preload("res://minigames/counting/number_catch_0_to_9/Number.tscn").instantiate()
-var circle : Texture2D = preload("res://minigames/generics/assets/circle_white.svg")
+var circle_white : Texture2D = preload("res://minigames/generics/assets/circle_white.svg")
+var circle_blue : Texture2D = preload("res://minigames/generics/assets/circle_blue.svg")
 var character : Area2D = preload("res://minigames/counting/number_catch_0_to_9/Character.tscn").instantiate()
 var radius := 50.0
 var width : float
+var current_sprite : Sprite2D
 
 var values : Array = [
 	preload("res://minigames/generics/assets/one.svg"),
@@ -26,10 +28,11 @@ func _add_specifics() -> void:
 	
 	width = get_viewport_rect().size.x-200
 	
-	number.get_node("Circle").texture = circle	
+	number.get_node("Circle").texture = circle_white
 	var OneSprite := Sprite2D.new() 
 	OneSprite.texture = values[0]
 	character.add_child(OneSprite)
+	current_sprite = character.get_node("Circle")
 	add_child(character)
 	_spawn_numbers()
 	$Timer.start()
@@ -45,18 +48,24 @@ func _spawn_numbers():
 		num.get_node("Value").texture = values[random_number]
 		num.position = Vector2(randf_range(i*width/3, (i+1)*width/3), 100)
 		add_child(num)
-	
+
+
 func _on_character_entered(body : Node2D) -> void:
 	
 	if body as Number:
 		if body.value == character.value + 1:
 			var NumberSprite := Sprite2D.new() 
 			var CircleSprite := Sprite2D.new()
-			CircleSprite.texture = circle
 			NumberSprite.texture = values[body.value - 1]
-			character.add_child(CircleSprite)
-			character.add_child(NumberSprite)
 			NumberSprite.position = Vector2(0, -2*character.value*radius)
 			CircleSprite.position = NumberSprite.position
+			CircleSprite.texture = circle_blue
 			character.value += 1
-			character.get_node("CollisionShape2D").position.y -= 2*radius
+			character.get_node("CollisionShape2D").position.y -= 2 * radius
+			character.add_child(CircleSprite)
+			character.add_child(NumberSprite)
+			current_sprite.texture = circle_white
+			current_sprite = CircleSprite
+			body.queue_free()
+			if character.value == 9:
+				get_tree().reload_current_scene()
