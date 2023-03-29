@@ -35,7 +35,7 @@ func _add_specifics():
 	add_child(min_denom_btn)
 	add_child(min_num_btn)
 
-	number.add_child(fraction_bar)		
+	number.add_child(fraction_bar)
 
 func _physics_process(_delta):
 	if number.moving:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://cvkgs7sjol1ex"]
+[gd_scene load_steps=2 format=3 uid="uid://numbercatch"]
 
 [ext_resource type="Script" path="res://minigames/counting/number_catch_0_to_9/number_catch.gd" id="1_cdby6"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://bddx2q5bjqo73"]
+[gd_scene load_steps=2 format=3 uid="uid://fracbridge"]
 
 [ext_resource type="Script" path="res://minigames/frac/frac_bridge/frac_bridge.gd" id="1_3xuuy"]
 

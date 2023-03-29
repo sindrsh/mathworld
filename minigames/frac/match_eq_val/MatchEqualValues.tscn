@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://puk4go41bcos"]
+[gd_scene load_steps=2 format=3 uid="uid://matchequalvalues"]
 
 [ext_resource type="Script" path="res://minigames/frac/match_eq_val/match_equal_values.gd" id="1_6voyn"]
 
