@@ -45,7 +45,6 @@ func _spawn_numbers():
 		num.get_node("Value").texture = values[random_number]
 		num.position = Vector2(randf_range(i*width/3, (i+1)*width/3), 100)
 		add_child(num)
-		print(random_number)
 	
 func _on_character_entered(body : Node2D) -> void:
 	
