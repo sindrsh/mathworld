@@ -15,6 +15,6 @@ func _ready():
 	assert(connect("button_down", _on_button_down) == 0)
 	assert(connect("button_up", _on_button_up) == 0)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if active:
 		position = get_global_mouse_position() + mouse_offset

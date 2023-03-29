@@ -133,7 +133,6 @@ func _prepare_task() -> void:
 				break
 	var operator := "+"
 	factor = 1
-	print(numerator1_answer, " ", numerator2_answer)
 	if randi() % 2 == 1:
 		operator = " \u2212 " 
 		factor = -1
