@@ -6,6 +6,7 @@
 bg_color = Color(0.333333, 0.67451, 0.564706, 1)
 
 [node name="MiniGameChoice" type="Button"]
+custom_minimum_size = Vector2(200, 100)
 offset_right = 200.0
 offset_bottom = 100.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_qdnny")
