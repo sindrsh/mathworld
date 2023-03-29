@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b756fj2codywv"]
+[gd_scene load_steps=17 format=3 uid="uid://pytpuzzle"]
 
 [ext_resource type="Script" path="res://minigames/pyt/pyt_puzzle/pyt_puzzle.gd" id="1_600gd"]
 [ext_resource type="Texture2D" uid="uid://ba0sr43rxvvv2" path="res://minigames/pyt/pyt_puzzle/assets/rght_btm_tri.svg" id="2_w0ehw"]

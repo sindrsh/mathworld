@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bg0qhhfmqp68r"]
+[gd_scene load_steps=5 format=3 uid="uid://fraclaser"]
 
 [ext_resource type="Script" path="res://minigames/frac/frac_laser/frac_laser.gd" id="1_bu7c7"]
 [ext_resource type="Texture2D" uid="uid://bhmvw451sjvwk" path="res://minigames/frac/frac_laser/assets/shrekny.jpeg" id="2_3lgcl"]

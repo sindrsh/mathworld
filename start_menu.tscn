@@ -40,12 +40,12 @@ theme_override_constants/separation = 90
 [node name="MiniGameChoice" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_ern71")]
 layout_mode = 2
 text = "Ordering"
-scene = "res://minigames/counting/number_catch_0_to_9/NumberCatch.tscn"
+scene_uid = "numbercatch"
 
 [node name="MiniGameChoice2" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_ern71")]
 layout_mode = 2
 text = "Match the numbers"
-scene = "res://minigames/counting/matching_0_to_9/Match0To9.tscn"
+scene_uid = "match0to9"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -54,27 +54,27 @@ theme_override_constants/separation = 90
 [node name="MiniGameChoice" parent="MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("2_ern71")]
 layout_mode = 2
 text = "Fraction bridge"
-scene = "res://minigames/frac/frac_bridge/FracBridge.tscn"
+scene_uid = "fracbridge"
 
 [node name="MiniGameChoice2" parent="MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("2_ern71")]
 layout_mode = 2
 text = "Fraction bridge 2"
-scene = "res://minigames/frac/frac_bridge2/FracBridge2.tscn"
+scene_uid = "fracbridge2"
 
 [node name="MiniGameChoice3" parent="MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("2_ern71")]
 layout_mode = 2
 text = "Fraction laser *"
-scene = "res://minigames/frac/frac_laser/frac_laser.tscn"
+scene_uid = "fraclaser"
 
 [node name="MiniGameChoice4" parent="MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("2_ern71")]
 layout_mode = 2
 text = "Match the fractions"
-scene = "res://minigames/frac/match/MatchFracs.tscn"
+scene_uid = "matchfracs"
 
 [node name="MiniGameChoice5" parent="MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("2_ern71")]
 layout_mode = 2
 text = "Match the values"
-scene = "res://minigames/frac/match_eq_val/MatchEqualValues.tscn"
+scene_uid = "matchequalvalues"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -83,7 +83,7 @@ theme_override_constants/separation = 90
 [node name="MiniGameChoice" parent="MarginContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("2_ern71")]
 layout_mode = 2
 text = "Pytagoras puzzle"
-scene = "res://minigames/pyt/pyt_puzzle/pyt_puzzle.tscn"
+scene_uid = "pytpuzzle"
 
 [node name="info_text" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -98,6 +98,7 @@ text = "* indicates games with no ending and/or score"
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
+theme_override_constants/separation = 20
 
 [node name="FulllScreenButton" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
