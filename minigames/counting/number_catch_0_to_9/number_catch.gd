@@ -26,7 +26,7 @@ func _add_specifics() -> void:
 	assert(character.connect("body_entered", _on_character_entered) == 0)
 	assert($Timer.connect("timeout", _spawn_numbers) == 0)
 	
-	width = get_viewport_rect().size.x-200
+	width = get_viewport_rect().size.x-360
 	
 	number.get_node("Circle").texture = circle_white
 	var OneSprite := Sprite2D.new() 
@@ -46,7 +46,7 @@ func _spawn_numbers():
 		var num : Number = number.duplicate()
 		num.value = random_number + 1
 		num.get_node("Value").texture = values[random_number]
-		num.position = Vector2(randf_range(i*width/3, (i+1)*width/3), 100)
+		num.position = Vector2(100+randf_range(i*width/3, (i+1)*width/3), 100)
 		add_child(num)
 
 
