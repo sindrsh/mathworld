@@ -1,4 +1,5 @@
 # Godot-specific ignores
+.godot/
 .import/
 export.cfg
 export_presets.cfg
@@ -9,3 +10,9 @@ export_presets.cfg
 # System/tool-specific ignores
 .directory
 *~
+.mono/
+data_*/
+mono_crash.*.json
+
+# Imported translations (automatically generated from CSV files)
+*.translation
