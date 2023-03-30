@@ -2,8 +2,8 @@ extends "res://minigames/generics/bouncing_bubbles/bouncing_bubbles.gd"
 
 var representation_a : Array
 var representation_b : Array
-var bubble_pairs : int = 8
-var score : int 
+var bubble_pairs := 7
+var score : = 0
 var failure_sound : AudioStream = preload("res://minigames/generics/assets/failure.mp3")
 
 
@@ -43,7 +43,7 @@ func _mk_bubble_pair() -> void:
 	bubble_a.int_value = [numerator, denominator]
 	bubble_a.representation = REPRESENTATION_A
 	
-	add_child(bubble_a)
+	bubble_container.add_child(bubble_a)
 	bubble_a.add_child(FracLabel.new(str(numerator), str(denominator), 36))
 	
 	var bubble_b := Bubble.new()
@@ -61,20 +61,24 @@ func _mk_bubble_pair() -> void:
 	bubble_b.int_value = [numerator, denominator]	
 	bubble_b.representation = REPRESENTATION_B
 
-	add_child(bubble_b)	
+	bubble_container.add_child(bubble_b)	
 	bubble_b.add_child(FracLabel.new(str(factor*numerator), str(factor*denominator), 36))
 
 
 func _bubbles_are_equal(bubble1 : String, bubble2 : String) -> bool:
-	var are_equal : bool = get_node(bubble1).int_value[0] == get_node(bubble2).int_value[0]
-	if are_equal:
-		are_equal = get_node(bubble1).int_value[1] == get_node(bubble2).int_value[1]
-		score += 1
-	if score == 8:
-		var message = load("res://minigames/generics/SuccessMessage.tscn").instantiate()
-		message.get_node("Label").text = "Match the fraction values completed!"
-		add_child(message)
-	if not are_equal:
-		get_tree().reload_current_scene()
+	var are_equal : bool = bubble_container.get_node(bubble1).int_value[0] == bubble_container.get_node(bubble2).int_value[0] and bubble_container.get_node(bubble1).int_value[1] == bubble_container.get_node(bubble2).int_value[1]
+	if are_equal: score += 1
 	return are_equal
 
+
+func _end_game_message():
+	return "Match the fraction values completed!"
+
+
+func _end_game_condition() -> bool:
+	var got_all_right : bool = (score == bubble_pairs)
+	if got_all_right: 
+		return true
+	if bubble_container.get_child_count() == 0:
+		get_tree().reload_current_scene()
+	return false

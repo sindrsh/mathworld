@@ -3,6 +3,7 @@ extends "res://minigames/generics/bouncing_bubbles/bouncing_bubbles.gd"
 var representation_a : Array
 var representation_b : Array
 var bubble_pairs := 5
+var score : = 0
 
 func _add_specifics() -> void:
 	
@@ -34,6 +35,7 @@ func _mk_bubbles() -> void:
 	for i in range(bubble_pairs):
 		_mk_bubble_pair()
 
+
 func _mk_bubble_pair() -> void:
 	# note: bubble_number is 1 less than the value the bubble represents
 	var bubble_number : int = randi() % 9
@@ -45,7 +47,7 @@ func _mk_bubble_pair() -> void:
 	bubble_a.int_value = [bubble_number, 1]
 	bubble_a.representation = REPRESENTATION_A
 	bubble_a.set_frames()
-	add_child(bubble_a)
+	bubble_container.add_child(bubble_a)
 	var number_symbol_a := Sprite2D.new()
 	number_symbol_a.texture = representation_a[bubble_number] 
 	bubble_a.add_child(number_symbol_a)
@@ -62,12 +64,28 @@ func _mk_bubble_pair() -> void:
 	
 	bubble_b.start(Vector2(800, 300), 3.14*randf())
 	assert(bubble_b.connect("bubble_pressed", _on_bubble_pressed) == 0)
-	bubble_b.int_value = [bubble_number, 1]	
+	bubble_b.int_value = [bubble_number, 1]
 	bubble_b.representation = REPRESENTATION_B
-	add_child(bubble_b)	
+	bubble_container.add_child(bubble_b)
 	var number_symbol_b := Sprite2D.new()
 	number_symbol_b.texture = representation_b[bubble_number] 
 	bubble_b.add_child(number_symbol_b)
 
+
 func _bubbles_are_equal(bubble1 : String, bubble2 : String) -> bool:
-	return get_node(bubble1).int_value[0] == get_node(bubble2).int_value[0]
+	var are_equal : bool = bubble_container.get_node(bubble1).int_value[0] == bubble_container.get_node(bubble2).int_value[0]
+	if are_equal: score += 1
+	return are_equal
+
+
+func _end_game_message():
+	return "Match the numbers completed!"
+
+
+func _end_game_condition() -> bool:
+	var got_all_right : bool = (score == bubble_pairs)
+	if got_all_right: 
+		return true
+	if bubble_container.get_child_count() == 0:
+		get_tree().reload_current_scene()
+	return false

@@ -7,5 +7,3 @@ func _ready() -> void:
 	DisplayServer.window_set_position(screen_size * 0.05);
 	DisplayServer.window_set_size(screen_size * 0.9);
 
-	var m = $MarginContainer
-	print(m.anchors_preset)
