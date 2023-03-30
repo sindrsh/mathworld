@@ -57,5 +57,3 @@ func start(_position, _direction):
 	position = _position
 	velocity = Vector2(speed, 0).rotated(_direction)
 
-	
-

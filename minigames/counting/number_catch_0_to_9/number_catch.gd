@@ -67,5 +67,8 @@ func _on_character_entered(body : Node2D) -> void:
 			current_sprite.texture = circle_white
 			current_sprite = CircleSprite
 			body.queue_free()
+			
 			if character.value == 9:
+				
+				await get_tree().create_timer(0.5).timeout
 				get_tree().reload_current_scene()

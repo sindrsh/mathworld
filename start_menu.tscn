@@ -45,7 +45,7 @@ scene_uid = "numbercatch"
 [node name="MiniGameChoice2" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_ern71")]
 layout_mode = 2
 text = "Match the numbers"
-scene_uid = "match0to9"
+scene_uid = "matchnumbers"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
