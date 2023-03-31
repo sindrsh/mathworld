@@ -1,4 +1,4 @@
-extends MiniGame
+extends Control
 
 var x_scale : float = 500.0
 var dy : float = 40.0
@@ -35,7 +35,6 @@ var min_texture : Texture2D = preload("res://minigames/generics/cross_the_bridge
 
 
 func _ready() -> void:
-	super()
 	assert(creature.connect("move_completed", _on_creature_arrival) == 0)	
 	assert(send_number_button.connect("pressed", _send_number) == 0)
 	assert(number.connect("move_completed", _on_number_arrival) == 0)
@@ -48,18 +47,20 @@ func _ready() -> void:
 	score_sprite.texture = pickable_object_texture
 	score_sprite.scale = 0.05*Vector2(1,1)
 	score_count.add_child(score_sprite)
-	score_count.position = Vector2(1800, 50)
+	score_count.position = Vector2(1820, 164)
 	score_label = Text.new(30, "0")
 	score_label.set_text_position(Vector2(0,-20))
 	score_count.add_child(score_label)
 
 	sound_effect.stream = incorrect_sound
 	
-	send_number_button.position = Vector2(1775, 150)
-	var send_num_label : Text = Text.new(20, "Go!")
-	send_number_button.add_child(send_num_label)
-	send_num_label.set_text_position(Vector2(20,10))
-	send_number_button.size = Vector2(50,50)
+	send_number_button.position = Vector2(100, 430)
+	send_number_button.text = "Go!"
+	send_number_button.custom_minimum_size = Vector2(300, 100)
+	var custom_style = StyleBoxFlat.new()
+	custom_style.set_bg_color(Color(0.33, 0.67, 0.56, 1))
+	send_number_button.set("theme_override_styles/normal", custom_style)
+	
 	
 	var creature_sprite := Sprite2D.new()
 	creature_sprite.scale = 0.05*Vector2(1,1)
@@ -80,6 +81,7 @@ func _ready() -> void:
 	
 	max_score = 5
 	
+	_add_specifics()
 	_mk_task()
 
 func _add_specifics() -> void:

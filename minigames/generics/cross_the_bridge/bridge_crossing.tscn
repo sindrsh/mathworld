@@ -2,5 +2,7 @@
 
 [ext_resource type="Script" path="res://minigames/generics/cross_the_bridge/bridge_crossing.gd" id="1_gnay3"]
 
-[node name="BridgeGame" type="Node2D"]
+[node name="BridgeGame" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_gnay3")

@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://matchfracs"]
+[gd_scene load_steps=3 format=3 uid="uid://matchfracs"]
 
 [ext_resource type="Script" path="res://minigames/frac/match/match_fracs.gd" id="1_3s00h"]
+[ext_resource type="PackedScene" uid="uid://dltiiq845ae1o" path="res://minigames/generics/MenuBar.tscn" id="2_xg6t0"]
 
-[node name="MatchFracs" type="Node2D"]
+[node name="MatchFracs" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_3s00h")
+
+[node name="MenuBar" parent="." instance=ExtResource("2_xg6t0")]
+layout_mode = 1

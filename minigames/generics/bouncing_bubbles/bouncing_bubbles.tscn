@@ -2,5 +2,7 @@
 
 [ext_resource type="Script" path="res://minigames/generics/bouncing_bubbles/bouncing_bubbles.gd" id="1_2om56"]
 
-[node name="BouncingBubbles" type="Node2D"]
+[node name="BouncingBubbles" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_2om56")
