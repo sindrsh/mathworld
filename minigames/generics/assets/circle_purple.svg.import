@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by025kjoj5smx"
-path="res://.godot/imported/circle_c.svg-218662bead31ff46485c6d22eba6966a.ctex"
+uid="uid://cp7d4oobfvqfj"
+path="res://.godot/imported/circle_purple.svg-2ac87ff7519a4a7c5bc241e3de9c3352.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://minigames/generics/assets/circle_c.svg"
-dest_files=["res://.godot/imported/circle_c.svg-218662bead31ff46485c6d22eba6966a.ctex"]
+source_file="res://minigames/generics/assets/circle_purple.svg"
+dest_files=["res://.godot/imported/circle_purple.svg-2ac87ff7519a4a7c5bc241e3de9c3352.ctex"]
 
 [params]
 
