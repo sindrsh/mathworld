@@ -3,7 +3,7 @@ extends Control
 const Number = preload("res://minigames/counting/number_catch_0_to_9/number.gd")
 var number : Number = preload("res://minigames/counting/number_catch_0_to_9/Number.tscn").instantiate()
 var circle_white : Texture2D = preload("res://minigames/generics/assets/circle_white.svg")
-var circle_blue : Texture2D = preload("res://minigames/generics/assets/circle_blue.svg")
+var circle_blue : Texture2D = preload("res://minigames/generics/assets/circle_purple.svg")
 var character : Area2D = preload("res://minigames/counting/number_catch_0_to_9/Character.tscn").instantiate()
 var radius := 50.0
 var width : float

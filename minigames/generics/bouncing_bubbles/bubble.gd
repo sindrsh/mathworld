@@ -11,7 +11,7 @@ var button := TextureButton.new()
 var sprite := AnimatedSprite2D.new()
 
 func _init():
-	button.texture_normal = load("uid://by025kjoj5smx")
+	button.texture_normal = load("res://minigames/generics/assets/circle_white.svg")
 	collision_shape.shape = CircleShape2D.new()
 	collision_shape.shape.radius = 50
 	sprite.sprite_frames = SpriteFrames.new()
@@ -39,10 +39,10 @@ func set_frames(frame0path : String = '', frame1path : String = '',
 	if frame0path == '' and frame1path == '':
 		if configuration1:
 			frame0path = "res://minigames/generics/assets/circle_white.svg"
-			frame1path = "uid://byv8vhln6eltv"
+			frame1path = "res://minigames/generics/assets/circle_purple.svg"
 		else: 
 			frame0path = "res://minigames/generics/assets/circle_yellow.svg"
-			frame1path = "uid://byv8vhln6eltv"
+			frame1path = "res://minigames/generics/assets/circle_purple.svg"
 				
 	sprite.sprite_frames.add_frame(
 			"default",
