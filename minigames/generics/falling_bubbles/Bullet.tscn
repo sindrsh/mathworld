@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4u24tgdjtrk6"]
+
+[ext_resource type="Script" path="res://minigames/generics/falling_bubbles/bullet.gd" id="1_33h60"]
+
+[node name="Bullet" type="CharacterBody2D"]
+script = ExtResource("1_33h60")

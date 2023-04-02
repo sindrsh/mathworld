@@ -48,6 +48,14 @@ layout_mode = 2
 text = "Match the numbers"
 scene_path = "res://minigames/counting/matching_0_to_9/Match0To9.tscn"
 
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/Minigames"]
+layout_mode = 2
+
+[node name="MiniGameChoice" parent="MarginContainer/Minigames/HBoxContainer4" instance=ExtResource("2_ern71")]
+layout_mode = 2
+text = "Nail the product"
+scene_path = "res://minigames/generics/falling_bubbles/FallingBubbles.tscn"
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Minigames"]
 layout_mode = 2
 size_flags_horizontal = 0

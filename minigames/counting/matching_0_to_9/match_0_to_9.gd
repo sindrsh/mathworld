@@ -59,7 +59,7 @@ func _mk_bubble_pair() -> void:
 	)
 	bubble_b.sprite.sprite_frames.add_frame(
 			"default",
-			load("uid://byv8vhln6eltv")
+			load("res://minigames/generics/assets/circle_purple.svg")
 	)	
 	
 	bubble_b.start(Vector2(800, 300), 3.14*randf())

@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://bg2f55iplyln2"]
+
+[node name="Bubble" type="CharacterBody2D"]

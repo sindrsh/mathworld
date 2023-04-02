@@ -12,6 +12,10 @@ func set_new_text(new_text : String):
 func set_text_position(pos : Vector2, adjust : Vector2 = Vector2(-0.5, 0)) -> void:
 	position = pos + string_size*adjust
 
+func center_text():
+	set_text_position(Vector2(0,0), Vector2(-0.5, -0.5))
+	
+
 func _init(font_sz : int, txt : String, font_color : Color = Color(0, 0, 0)):
 	font_size = font_sz
 	font = load("res://assets/fonts/OpenSans.ttf")
