@@ -27,65 +27,68 @@ theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="Minigames" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/separation = 100
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Minigames"]
 layout_mode = 2
+size_flags_horizontal = 0
 theme_override_constants/separation = 90
 
-[node name="MiniGameChoice" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_ern71")]
+[node name="MiniGameChoice" parent="MarginContainer/Minigames/HBoxContainer" instance=ExtResource("2_ern71")]
 layout_mode = 2
 text = "Ordering"
 scene_path = "res://minigames/counting/number_catch_0_to_9/NumberCatch.tscn"
 
-[node name="MiniGameChoice2" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_ern71")]
+[node name="MiniGameChoice2" parent="MarginContainer/Minigames/HBoxContainer" instance=ExtResource("2_ern71")]
 layout_mode = 2
 text = "Match the numbers"
 scene_path = "res://minigames/counting/matching_0_to_9/Match0To9.tscn"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Minigames"]
 layout_mode = 2
+size_flags_horizontal = 0
 theme_override_constants/separation = 90
 
-[node name="MiniGameChoice" parent="MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("2_ern71")]
+[node name="MiniGameChoice" parent="MarginContainer/Minigames/HBoxContainer2" instance=ExtResource("2_ern71")]
 layout_mode = 2
 text = "Fraction bridge"
 scene_path = "res://minigames/frac/frac_bridge/FracBridge.tscn"
 
-[node name="MiniGameChoice2" parent="MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("2_ern71")]
+[node name="MiniGameChoice2" parent="MarginContainer/Minigames/HBoxContainer2" instance=ExtResource("2_ern71")]
 layout_mode = 2
 text = "Fraction bridge 2"
 scene_path = "res://minigames/frac/frac_bridge2/FracBridge2.tscn"
 
-[node name="MiniGameChoice3" parent="MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("2_ern71")]
+[node name="MiniGameChoice3" parent="MarginContainer/Minigames/HBoxContainer2" instance=ExtResource("2_ern71")]
 layout_mode = 2
 text = "Fraction laser *"
 scene_path = "res://minigames/frac/frac_laser/frac_laser.tscn"
 
-[node name="MiniGameChoice4" parent="MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("2_ern71")]
+[node name="MiniGameChoice4" parent="MarginContainer/Minigames/HBoxContainer2" instance=ExtResource("2_ern71")]
 layout_mode = 2
 text = "Match the fractions"
 scene_path = "res://minigames/frac/match/MatchFracs.tscn"
 
-[node name="MiniGameChoice5" parent="MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("2_ern71")]
+[node name="MiniGameChoice5" parent="MarginContainer/Minigames/HBoxContainer2" instance=ExtResource("2_ern71")]
 layout_mode = 2
 text = "Match the values"
 scene_path = "res://minigames/frac/match_eq_val/MatchEqualValues.tscn"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/Minigames"]
 layout_mode = 2
+size_flags_horizontal = 0
 theme_override_constants/separation = 90
 
-[node name="MiniGameChoice" parent="MarginContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("2_ern71")]
+[node name="MiniGameChoice" parent="MarginContainer/Minigames/HBoxContainer3" instance=ExtResource("2_ern71")]
 layout_mode = 2
 text = "Pytagoras puzzle"
 scene_path = "res://minigames/pyt/pyt_puzzle/pyt_puzzle.tscn"
 
-[node name="info_text" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="info_text" type="Label" parent="MarginContainer/Minigames"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -94,24 +97,22 @@ theme_override_fonts/font = ExtResource("3_qhrji")
 theme_override_font_sizes/font_size = 20
 text = "* indicates games with no ending and/or score"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="StartMenuBar" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 theme_override_constants/separation = 20
 
-[node name="FulllScreenButton" type="Button" parent="MarginContainer/HBoxContainer"]
+[node name="FulllScreenButton" type="Button" parent="MarginContainer/StartMenuBar"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
-tooltip_text = "Quit to desktop"
 text = "FULLSCREEN"
 script = ExtResource("4_qaxip")
 
-[node name="QuitButton" type="Button" parent="MarginContainer/HBoxContainer"]
+[node name="QuitButton" type="Button" parent="MarginContainer/StartMenuBar"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
-tooltip_text = "Quit to desktop"
 text = "QUIT"
 script = ExtResource("4_f0h5m")

@@ -1,9 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://numbercatch"]
+[gd_scene load_steps=3 format=3 uid="uid://numbercatch"]
 
 [ext_resource type="Script" path="res://minigames/counting/number_catch_0_to_9/number_catch.gd" id="1_cdby6"]
+[ext_resource type="PackedScene" uid="uid://dltiiq845ae1o" path="res://minigames/generics/MenuBar.tscn" id="2_p5a0v"]
 
-[node name="NumberCatch" type="Node2D"]
+[node name="NumberCatch" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_cdby6")
+
+[node name="MenuBar" parent="." instance=ExtResource("2_p5a0v")]
+layout_mode = 1
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0

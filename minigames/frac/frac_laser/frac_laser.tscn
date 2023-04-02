@@ -1,11 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://fraclaser"]
+[gd_scene load_steps=6 format=3 uid="uid://fraclaser"]
 
 [ext_resource type="Script" path="res://minigames/frac/frac_laser/frac_laser.gd" id="1_bu7c7"]
 [ext_resource type="Texture2D" uid="uid://bhmvw451sjvwk" path="res://minigames/frac/frac_laser/assets/shrekny.jpeg" id="2_3lgcl"]
 [ext_resource type="Script" path="res://minigames/frac/frac_laser/laser.gd" id="3_y1e8p"]
 [ext_resource type="Texture2D" uid="uid://bi8k4rqyspipt" path="res://minigames/frac/frac_laser/assets/donkey.png" id="4_8d3r3"]
+[ext_resource type="PackedScene" uid="uid://dltiiq845ae1o" path="res://minigames/generics/MenuBar.tscn" id="5_1fo7x"]
 
-[node name="FracLaser" type="Node2D"]
+[node name="FracLaser" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_bu7c7")
 
 [node name="Monster" type="Sprite2D" parent="."]
@@ -19,3 +26,6 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("4_8d3r3")
 
 [node name="BeamSound" type="AudioStreamPlayer2D" parent="Laser"]
+
+[node name="MenuBar" parent="." instance=ExtResource("5_1fo7x")]
+layout_mode = 1

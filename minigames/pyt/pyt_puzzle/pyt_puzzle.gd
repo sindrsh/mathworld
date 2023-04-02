@@ -1,9 +1,9 @@
-extends MiniGame
+extends Control
 
 var a : float = 80
 var b : float = 150 
 
-func _add_specifics():
+func _ready():
 	
 	var dx : float = 150.0
 	var dy : float = 400.0

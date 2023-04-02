@@ -13,6 +13,8 @@ var min_num_btn := TextureButton.new()
 var min_denom_btn := TextureButton.new()
 var fraction_bar := Line2D.new()
 
+var num_symbol := Line2D.new()
+var denom_symbol := Line2D.new()
 
 func _add_specifics():
 	assert(plus_num_btn.connect("pressed", _plus_num_pressed) == 0)
@@ -34,7 +36,20 @@ func _add_specifics():
 	add_child(plus_num_btn)
 	add_child(min_denom_btn)
 	add_child(min_num_btn)
-
+	
+	num_symbol.position = min_num_btn.position + Vector2(135,50) 
+	num_symbol.points = PackedVector2Array([Vector2.ZERO, Vector2(30, 0)])
+	num_symbol.width = 6
+	num_symbol.default_color= Color(1,0,0)
+	
+	denom_symbol.position = min_denom_btn.position + Vector2(150,35) 
+	denom_symbol.points = PackedVector2Array([Vector2.ZERO, Vector2(0, 30)])
+	denom_symbol.width = 6
+	denom_symbol.default_color= Color(0,0,0)
+	
+	add_child(num_symbol)
+	add_child(denom_symbol)
+	
 	number.add_child(fraction_bar)
 
 func _physics_process(_delta):
