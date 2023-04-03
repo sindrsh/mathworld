@@ -1,4 +1,4 @@
-extends Control
+extends MiniGame
 
 var x_scale : float = 500.0
 var dy : float = 40.0
@@ -34,7 +34,7 @@ var plus_texture : Texture2D = preload("res://minigames/generics/cross_the_bridg
 var min_texture : Texture2D = preload("res://minigames/generics/cross_the_bridge/assets/min.png")
 
 
-func _ready() -> void:
+func _add_generics() -> void:
 	assert(creature.connect("move_completed", _on_creature_arrival) == 0)	
 	assert(send_number_button.connect("pressed", _send_number) == 0)
 	assert(number.connect("move_completed", _on_number_arrival) == 0)
@@ -81,7 +81,6 @@ func _ready() -> void:
 	
 	max_score = 5
 	
-	_add_specifics()
 	_mk_task()
 
 func _add_specifics() -> void:

@@ -1,4 +1,4 @@
-extends Control
+extends MiniGame
 
 const Bubble = preload("res://minigames/generics/bouncing_bubbles/bubble.gd")
 
@@ -15,7 +15,7 @@ var correct_sound : AudioStream = preload("res://minigames/generics/assets/corre
 var incorrect_sound : AudioStream = preload("res://minigames/generics/assets/whip.mp3")
 
 
-func _ready() -> void:
+func _add_generics() -> void:
 	var window : Vector2 = get_viewport_rect().size
 	
 	var border_shape = CollisionShape2D.new()

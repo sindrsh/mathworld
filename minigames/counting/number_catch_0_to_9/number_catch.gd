@@ -1,4 +1,4 @@
-extends Control
+extends MiniGame
 
 const Number = preload("res://minigames/counting/number_catch_0_to_9/number.gd")
 var number : Number = preload("res://minigames/counting/number_catch_0_to_9/Number.tscn").instantiate()
@@ -22,7 +22,7 @@ var values : Array = [
 ]
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func _add_specifics() -> void:
 	assert(character.connect("body_entered", _on_character_entered) == 0)
 	assert($Timer.connect("timeout", _spawn_numbers) == 0)
 	
