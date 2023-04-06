@@ -1,4 +1,4 @@
-extends Control
+extends MiniGame
 
 var button_scene : PackedScene = preload("res://minigames/frac/frac_laser/tick_button.tscn")
 
@@ -91,7 +91,7 @@ func _on_laser_arrival():
 	$Laser.hide()
 	_mk_task()		
 	
-func _ready():
+func _add_specifics():
 	var one_label1 : Text = Text.new(42, "1")
 	one_label1.set_position(number_line1_pos + Vector2(x_scale-11, -70))		
 	add_child(one_label1)
