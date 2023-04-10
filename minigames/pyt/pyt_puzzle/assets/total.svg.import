@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfgrypfgis81l"
-path="res://.godot/imported/mk_rect.svg-19a2a8b44c7a6db9e3059444c8c26458.ctex"
+uid="uid://b5sdtw5ipvqob"
+path="res://.godot/imported/total.svg-7331050c2de0be495d16b6cdc6d75ba7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://minigames/frac/frac_bridge/pyt/pyt_puzzle/assets/mk_rect.svg"
-dest_files=["res://.godot/imported/mk_rect.svg-19a2a8b44c7a6db9e3059444c8c26458.ctex"]
+source_file="res://minigames/pyt/pyt_puzzle/assets/total.svg"
+dest_files=["res://.godot/imported/total.svg-7331050c2de0be495d16b6cdc6d75ba7.ctex"]
 
 [params]
 

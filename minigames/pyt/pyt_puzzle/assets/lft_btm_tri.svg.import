@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crmn2xv28wtb2"
-path="res://.godot/imported/b2.svg-3bc9a0869cd70af6a6272b3585801367.ctex"
+uid="uid://c6g7al4e51w5e"
+path="res://.godot/imported/lft_btm_tri.svg-92f84e4655b4049fb4e8f1533f7b0dc8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://minigames/frac/frac_bridge/pyt/pyt_puzzle/assets/b2.svg"
-dest_files=["res://.godot/imported/b2.svg-3bc9a0869cd70af6a6272b3585801367.ctex"]
+source_file="res://minigames/pyt/pyt_puzzle/assets/lft_btm_tri.svg"
+dest_files=["res://.godot/imported/lft_btm_tri.svg-92f84e4655b4049fb4e8f1533f7b0dc8.ctex"]
 
 [params]
 
