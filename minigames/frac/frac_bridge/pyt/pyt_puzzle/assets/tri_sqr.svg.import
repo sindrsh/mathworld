@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dvs1ab87cygha"
-path="res://.godot/imported/tri_sqr.svg-30f8e95276c5fda8955fa8fec36a85fd.ctex"
+path="res://.godot/imported/tri_sqr.svg-596f6065ba089618fff48b10e3f9f21c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://minigames/pyt/pyt_puzzle/assets/tri_sqr.svg"
-dest_files=["res://.godot/imported/tri_sqr.svg-30f8e95276c5fda8955fa8fec36a85fd.ctex"]
+source_file="res://minigames/frac/frac_bridge/pyt/pyt_puzzle/assets/tri_sqr.svg"
+dest_files=["res://.godot/imported/tri_sqr.svg-596f6065ba089618fff48b10e3f9f21c.ctex"]
 
 [params]
 

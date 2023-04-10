@@ -1,13 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://xtwybwe3nyax"]
+[gd_scene load_steps=2 format=3 uid="uid://xtwybwe3nyax"]
 
 [ext_resource type="Script" path="res://minigames/generics/falling_bubbles/falling_bubbles.gd" id="1_u7vxo"]
-[ext_resource type="PackedScene" uid="uid://dltiiq845ae1o" path="res://minigames/generics/MenuBar.tscn" id="2_xtqrp"]
 
 [node name="FallingBubbles" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_u7vxo")
-
-[node name="MenuBar" parent="." instance=ExtResource("2_xtqrp")]
-layout_mode = 0
-anchors_preset = 0

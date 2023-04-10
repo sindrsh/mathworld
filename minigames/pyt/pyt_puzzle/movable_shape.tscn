@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dpmo2cu1ntwfb"]
-
-[ext_resource type="Script" path="res://minigames/pyt/pyt_puzzle/movable_shape.gd" id="1_xyo1h"]
-
-[node name="MovableShape" type="TextureButton"]
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("1_xyo1h")
