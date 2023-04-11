@@ -33,65 +33,65 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/separation = 100
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Minigames"]
+[node name="Counting" type="HBoxContainer" parent="MarginContainer/Minigames"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 90
 
-[node name="MiniGameChoice" parent="MarginContainer/Minigames/HBoxContainer" instance=ExtResource("2_ern71")]
+[node name="MiniGameChoice" parent="MarginContainer/Minigames/Counting" instance=ExtResource("2_ern71")]
 layout_mode = 2
 text = "Ordering"
 scene_path = "res://minigames/counting/number_catch_0_to_9/NumberCatch.tscn"
 
-[node name="MiniGameChoice2" parent="MarginContainer/Minigames/HBoxContainer" instance=ExtResource("2_ern71")]
+[node name="MiniGameChoice2" parent="MarginContainer/Minigames/Counting" instance=ExtResource("2_ern71")]
 layout_mode = 2
 text = "Match the numbers"
 scene_path = "res://minigames/counting/matching_0_to_9/Match0To9.tscn"
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/Minigames"]
+[node name="Multiplication" type="HBoxContainer" parent="MarginContainer/Minigames"]
 layout_mode = 2
 
-[node name="MiniGameChoice" parent="MarginContainer/Minigames/HBoxContainer4" instance=ExtResource("2_ern71")]
+[node name="MiniGameChoice" parent="MarginContainer/Minigames/Multiplication" instance=ExtResource("2_ern71")]
 layout_mode = 2
 text = "Nail the product"
-scene_path = "res://minigames/generics/falling_bubbles/FallingBubbles.tscn"
+scene_path = "res://minigames/mul/times_table/TimesTableMenu.tscn"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Minigames"]
+[node name="Fractions" type="HBoxContainer" parent="MarginContainer/Minigames"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 90
 
-[node name="MiniGameChoice" parent="MarginContainer/Minigames/HBoxContainer2" instance=ExtResource("2_ern71")]
+[node name="MiniGameChoice" parent="MarginContainer/Minigames/Fractions" instance=ExtResource("2_ern71")]
 layout_mode = 2
 text = "Fraction bridge"
 scene_path = "res://minigames/frac/frac_bridge/FracBridge.tscn"
 
-[node name="MiniGameChoice2" parent="MarginContainer/Minigames/HBoxContainer2" instance=ExtResource("2_ern71")]
+[node name="MiniGameChoice2" parent="MarginContainer/Minigames/Fractions" instance=ExtResource("2_ern71")]
 layout_mode = 2
 text = "Fraction bridge 2"
 scene_path = "res://minigames/frac/frac_bridge2/FracBridge2.tscn"
 
-[node name="MiniGameChoice3" parent="MarginContainer/Minigames/HBoxContainer2" instance=ExtResource("2_ern71")]
+[node name="MiniGameChoice3" parent="MarginContainer/Minigames/Fractions" instance=ExtResource("2_ern71")]
 layout_mode = 2
 text = "Fraction laser *"
 scene_path = "res://minigames/frac/frac_laser/frac_laser.tscn"
 
-[node name="MiniGameChoice4" parent="MarginContainer/Minigames/HBoxContainer2" instance=ExtResource("2_ern71")]
+[node name="MiniGameChoice4" parent="MarginContainer/Minigames/Fractions" instance=ExtResource("2_ern71")]
 layout_mode = 2
 text = "Match the fractions"
 scene_path = "res://minigames/frac/match/MatchFracs.tscn"
 
-[node name="MiniGameChoice5" parent="MarginContainer/Minigames/HBoxContainer2" instance=ExtResource("2_ern71")]
+[node name="MiniGameChoice5" parent="MarginContainer/Minigames/Fractions" instance=ExtResource("2_ern71")]
 layout_mode = 2
 text = "Match the values"
 scene_path = "res://minigames/frac/match_eq_val/MatchEqualValues.tscn"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/Minigames"]
+[node name="Geometry" type="HBoxContainer" parent="MarginContainer/Minigames"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 90
 
-[node name="MiniGameChoice" parent="MarginContainer/Minigames/HBoxContainer3" instance=ExtResource("2_ern71")]
+[node name="MiniGameChoice" parent="MarginContainer/Minigames/Geometry" instance=ExtResource("2_ern71")]
 layout_mode = 2
 text = "Pytagoras puzzle"
 scene_path = "res://minigames/pyt/pyt_puzzle/pyt_puzzle.tscn"

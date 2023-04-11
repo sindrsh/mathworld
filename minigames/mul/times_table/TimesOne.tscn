@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://jhr7wp08gnao"]
+[gd_scene load_steps=2 format=3 uid="uid://dtm5cjeqknj06"]
 
-[ext_resource type="Script" path="res://minigames/mul/times_table/times_one.gd" id="1_qljam"]
+[ext_resource type="Script" path="res://minigames/mul/times_table/times_table.gd" id="1_rmejm"]
 
 [node name="TimesOne" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_qljam")
+script = ExtResource("1_rmejm")
+number = 1

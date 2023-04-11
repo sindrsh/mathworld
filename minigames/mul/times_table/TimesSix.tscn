@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2q53tryu4jaq"]
+
+[ext_resource type="Script" path="res://minigames/mul/times_table/times_table.gd" id="1_pbo0e"]
+
+[node name="TimesSix" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_pbo0e")
+number = 6

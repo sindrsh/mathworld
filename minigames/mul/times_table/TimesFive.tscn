@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2ue487cxw6n8"]
+
+[ext_resource type="Script" path="res://minigames/mul/times_table/times_table.gd" id="1_pl3ew"]
+
+[node name="TimesFive" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_pl3ew")
+number = 5
