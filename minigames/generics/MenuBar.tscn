@@ -3,11 +3,8 @@
 [ext_resource type="Script" path="res://minigames/generics/MenuBar.gd" id="1_qtc7x"]
 
 [node name="MenuBar" type="MarginContainer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 1920.0
+offset_bottom = 131.0
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
@@ -15,6 +12,7 @@ theme_override_constants/margin_bottom = 50
 script = ExtResource("1_qtc7x")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
+show_behind_parent = true
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0

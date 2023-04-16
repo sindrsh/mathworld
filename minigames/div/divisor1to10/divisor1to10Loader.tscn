@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwtj2jdvlloko"]
+
+[ext_resource type="Script" path="res://minigames/div/divisor1to10/divisor1to10_loader.gd" id="1_mjvea"]
+
+[node name="Divisor1to10Loader" type="Node2D"]
+script = ExtResource("1_mjvea")

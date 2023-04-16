@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c8rt8jhrg1kuq" path="res://minigames/pyt/pyt_puzzle/assets/lft_tp_tri.svg" id="4_m8e43"]
 [ext_resource type="Texture2D" uid="uid://b1lsu2jahcrk7" path="res://minigames/pyt/pyt_puzzle/assets/rght_tp_tri.svg" id="5_mj8lj"]
 [ext_resource type="Texture2D" uid="uid://dvs1ab87cygha" path="res://minigames/pyt/pyt_puzzle/assets/tri_sqr.svg" id="6_w11hg"]
-[ext_resource type="PackedScene" path="res://minigames/pyt/pyt_puzzle/movable_shape.tscn" id="7_pewti"]
+[ext_resource type="PackedScene" uid="uid://d2rdcnopoflal" path="res://minigames/pyt/pyt_puzzle/movable_shape.tscn" id="7_pewti"]
 [ext_resource type="Texture2D" uid="uid://dtjem7amw8iaf" path="res://minigames/pyt/pyt_puzzle/assets/ab_rect.svg" id="8_uwlih"]
 [ext_resource type="Texture2D" uid="uid://dellcrmm2ewd7" path="res://minigames/pyt/pyt_puzzle/assets/ab_rect2.svg" id="9_qwgdb"]
 [ext_resource type="Texture2D" uid="uid://bdxoli2xcjfix" path="res://minigames/pyt/pyt_puzzle/assets/a_sq.svg" id="10_20wit"]
@@ -32,14 +32,11 @@ animations = [{
 
 [node name="PytPuzzle" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 script = ExtResource("1_600gd")
 
 [node name="TriBtmRght" parent="." instance=ExtResource("7_pewti")]
+y_sort_enabled = true
 layout_mode = 0
 texture_normal = ExtResource("2_w0ehw")
 

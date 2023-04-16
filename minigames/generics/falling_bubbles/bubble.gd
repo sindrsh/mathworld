@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 signal bubble_pressed(_name : String)
 
-var gravity = 30.0
+var gravity = 50.0
 var int_value : Array
 var float_value : float
 var collision_shape := CollisionShape2D.new()

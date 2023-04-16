@@ -8,18 +8,23 @@ var active : bool = false
 func _ready():
 	assert(connect("button_down", _on_button_down) == 0)
 	assert(connect("button_up", _on_button_up) == 0)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	if active:
-		position = get_global_mouse_position() + mouse_offset
+#	set_anchors_preset(PRESET_CENTER)
 
 
 func _on_button_down() -> void:
-	mouse_offset = position-get_global_mouse_position()
+	mouse_offset = global_position - get_global_mouse_position()
 	active = true
+	
 	
 func _on_button_up() -> void:
 	active = false
 
+
+
+# This function should be implemented in
+# the parent scene:
+"""
+func _process(_delta):
+	if active:
+		position = get_global_mouse_position() + mouse_offset
+"""

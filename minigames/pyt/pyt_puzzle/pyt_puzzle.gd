@@ -87,3 +87,4 @@ func _add_specifics():
 	plus.texture_normal = load("res://minigames/pyt/pyt_puzzle/assets/plus.svg")
 	plus.position = c22.position + Vector2(label_dx, 0.0)
 	add_child(plus)		
+	
