@@ -1,27 +1,26 @@
 extends Area2D
 
-var number_text : Text
+var number_text := Text.new(40, "0")
 var value : int
 
-func _ready():
-	assert(area_exited.connect(_on_area_exited) == 0)
-	assert(area_entered.connect(_on_area_entered) == 0)
+func _physics_process(_delta):
+	var new_value := 0
+	for area in get_overlapping_areas():
+		var limit_box : Vector2 = $Border.shape.size - area.texture_size
+		var distance : Vector2 = global_position - area.global_position
+		limit_box = limit_box/2
+		if abs(distance.y) < limit_box.y:
+			if abs(distance.x) < limit_box.x:
+				new_value += area.value
+	value = new_value
+	number_text.text = str(value)
 
-func _arrange(border_size : Vector2 = Vector2(300, 330)) -> void:
+func _arrange(border_size : Vector2) -> void:
 	$Border.shape.size = border_size
 	$ColorRect.size = border_size
 #	$Border.position.x -= border_size.x/2 
 	$ColorRect.position = -border_size/2
 	$CenterContainer.position.x += border_size.x/2 - 11.0
 	$CenterContainer.position.y = -border_size.y/2
-	number_text = Text.new(40, "0")
 	$CenterContainer.add_child(number_text)	
 
-func _on_area_exited(area : Area2D) -> void:
-	value -= area.value
-	number_text.text = str(value)
-
-
-func _on_area_entered(area : Area2D) -> void:
-	value += area.value
-	number_text.text = str(value)
