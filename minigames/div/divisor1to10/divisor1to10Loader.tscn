@@ -2,5 +2,7 @@
 
 [ext_resource type="Script" path="res://minigames/div/divisor1to10/divisor1to10_loader.gd" id="1_mjvea"]
 
-[node name="Divisor1to10Loader" type="Node2D"]
+[node name="Divisor1to10Loader" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_mjvea")

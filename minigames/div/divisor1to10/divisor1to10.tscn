@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://djrbh0jm5kjft"]
 
-[ext_resource type="Script" path="res://minigames/div/divisor1to10/divisor1To9.gd" id="1_m8dxu"]
+[ext_resource type="Script" path="res://minigames/div/divisor1to10/divisor1To9.gd" id="1_73bpt"]
 
 [node name="Divisor1To9" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_m8dxu")
+script = ExtResource("1_73bpt")

@@ -56,6 +56,20 @@ layout_mode = 2
 text = "Nail the product"
 scene_path = "res://minigames/mul/times_table/TimesTableMenu.tscn"
 
+[node name="Division" type="HBoxContainer" parent="MarginContainer/Minigames"]
+layout_mode = 2
+theme_override_constants/separation = 90
+
+[node name="MiniGameChoice" parent="MarginContainer/Minigames/Division" instance=ExtResource("2_ern71")]
+layout_mode = 2
+text = "Division 1-10"
+scene_path = "res://minigames/div/divisor1to10/divisor1to10Loader.tscn"
+
+[node name="MiniGameChoice2" parent="MarginContainer/Minigames/Division" instance=ExtResource("2_ern71")]
+layout_mode = 2
+text = "Explore division*"
+scene_path = "res://minigames/div/div_of_amounts/div_of_amounts.tscn"
+
 [node name="Fractions" type="HBoxContainer" parent="MarginContainer/Minigames"]
 layout_mode = 2
 size_flags_horizontal = 0
