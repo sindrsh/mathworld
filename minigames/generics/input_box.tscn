@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwb2fp18xuilf"]
+
+[ext_resource type="FontFile" uid="uid://bhgogbly6iejp" path="res://assets/fonts/OpenSans.ttf" id="1_p8ikg"]
+[ext_resource type="Script" path="res://minigames/generics/input_box.gd" id="2_020k8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_goi4b"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+
+[node name="InputBox" type="LineEdit"]
+offset_right = 200.0
+offset_bottom = 100.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_p8ikg")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_goi4b")
+caret_blink = true
+caret_blink_interval = 0.5
+script = ExtResource("2_020k8")
+
+[node name="EnterButton" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "ENTER"

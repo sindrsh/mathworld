@@ -19,7 +19,7 @@ func center_text():
 func _init(font_sz : int, txt : String, font_color : Color = Color(0, 0, 0)):
 	font_size = font_sz
 	font = load("res://assets/fonts/OpenSans.ttf")
-	set("thene_override_fonts/font", font)
+	set("theme_override_fonts/font", font)
 	set("theme_override_font_sizes/font_size", font_sz)
 	set("theme_override_colors/font_color", font_color)
 	set_new_text(txt)
