@@ -6,3 +6,29 @@
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_ru3i8")
+
+[node name="Cutter" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_top = 250.0
+offset_right = 68.0
+offset_bottom = 281.0
+text = "CUTTER"
+
+[node name="Level 1" type="Button" parent="."]
+layout_mode = 0
+offset_top = 150.0
+offset_right = 62.0
+offset_bottom = 181.0
+text = "Level 1"
+
+[node name="Level 2" type="Button" parent="."]
+layout_mode = 0
+offset_top = 200.0
+offset_right = 62.0
+offset_bottom = 231.0
+text = "Level 2"
+
+[connection signal="pressed" from="Cutter" to="." method="_on_cutter_pressed"]
+[connection signal="pressed" from="Level 1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="Level 2" to="." method="_on_level_2_pressed"]

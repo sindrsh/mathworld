@@ -1,5 +1,7 @@
 extends Area2D
 
+signal shape_pressed(_name)
+
 const MovableShape = preload("res://minigames/generics/puzzles/movable_shape.gd")
 const Number = preload("res://minigames/div/div_of_amounts/number.gd")
 
@@ -22,7 +24,7 @@ var button_texture : Texture2D:
 
 
 func _ready():
-	assert(area_entered.connect(_on_area_entered) == 0)
+	assert(movable_shape.pressed.connect(_on_shape_pressed) == 0)
 	previous_position = position
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -30,6 +32,5 @@ func _process(_delta):
 	if movable_shape.active:
 		position = get_global_mouse_position() + movable_shape.mouse_offset + texture_size/2
 
-			
-func _on_area_entered(_area : Area2D):
-	pass
+func _on_shape_pressed() -> void:
+	emit_signal("shape_pressed", name)			
