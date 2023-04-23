@@ -19,7 +19,6 @@ var incorrect_sound : AudioStream = preload("res://minigames/generics/assets/whi
 func _add_generics():
 	window = get_viewport_rect().size
 	add_child(bullet_container)
-	_make_task()
 	
 	
 func _make_task() -> void:
@@ -38,7 +37,6 @@ func _on_bullet_pressed(_name : String) -> void:
 			bullet_container.get_node(chosen_bubble).sprite.frame = 0
 			bullet_container.get_node(_name).sprite.frame = 1
 			chosen_bubble = _name
-
 	
 func _on_bubble_pressed(_name : String) -> void:
 	if chosen_bubble:
