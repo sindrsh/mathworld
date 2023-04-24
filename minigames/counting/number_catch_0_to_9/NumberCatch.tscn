@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://numbercatch"]
+[gd_scene load_steps=3 format=3 uid="uid://numbercatch"]
 
 [ext_resource type="Script" path="res://minigames/counting/number_catch_0_to_9/number_catch.gd" id="1_cdby6"]
+[ext_resource type="Texture2D" uid="uid://d05xgue4e8to5" path="res://minigames/generics/assets/watercolor-background-blue-sky-green-grass.png" id="2_uauog"]
 
 [node name="NumberCatch" type="Control"]
 layout_mode = 3
@@ -13,3 +14,9 @@ script = ExtResource("1_cdby6")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(968, 539)
+scale = Vector2(2.11562, 1.69329)
+texture = ExtResource("2_uauog")

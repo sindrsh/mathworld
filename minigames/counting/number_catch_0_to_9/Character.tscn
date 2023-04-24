@@ -1,17 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://bsr3ysspoi715"]
+[gd_scene load_steps=5 format=3 uid="uid://bsr3ysspoi715"]
 
 [ext_resource type="Script" path="res://minigames/counting/number_catch_0_to_9/character.gd" id="1_o48ep"]
+[ext_resource type="Texture2D" uid="uid://c0p6bfbu6b06e" path="res://minigames/generics/assets/tennis-racket_perspective.png" id="2_dv0sp"]
 [ext_resource type="Texture2D" uid="uid://byv8vhln6eltv" path="res://minigames/generics/bouncing_bubbles/assets/circle_b.svg" id="2_rh2e8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d14m8"]
 radius = 50.0
 height = 100.0
 
-[node name="Character" type="Area2D"]
+[node name="Character" type="Node2D"]
 script = ExtResource("1_o48ep")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4, 174)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_dv0sp")
+
+[node name="number_container" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="number_container"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="number_container/Area2D"]
 shape = SubResource("CapsuleShape2D_d14m8")
 
-[node name="Circle" type="Sprite2D" parent="."]
+[node name="Circle" type="Sprite2D" parent="number_container"]
 texture = ExtResource("2_rh2e8")
