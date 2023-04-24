@@ -15,6 +15,7 @@ run/main_scene="res://start_menu.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
 boot_splash/bg_color=Color(1, 1, 1, 1)
 boot_splash/image="res://logo.png"
+boot_splash/fullsize=false
 config/icon="res://minigames/generics/assets/tennis_ball.png"
 
 [display]

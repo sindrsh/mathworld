@@ -1,11 +1,13 @@
 extends Node2D
 
-var max_speed := 800
+const max_speed := 800
+const bottom_margin := 220
 var value := 1
-var swing = 0
+var swing := 0.0
+var down_speed := 0
 
 func _ready():
-	position = Vector2(get_viewport_rect().size.x/2, get_viewport_rect().size.y - 100) 
+	position = Vector2(get_viewport_rect().size.x/2, get_viewport_rect().size.y - bottom_margin) 
 	
 func _keyboard_input(delta) -> Vector2:
 	var input_direction : Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -48,6 +50,7 @@ func _rotate_childs(speed_a):
 			node.rotation += a
 
 func _physics_process(delta):
+	position.y += down_speed
 	swing += 0.04
 	var x
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):

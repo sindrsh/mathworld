@@ -7,7 +7,10 @@ var number : Number = preload("res://minigames/counting/number_catch_0_to_9/Numb
 var tennis_ball : Texture2D = preload("res://minigames/generics/assets/tennis_ball_small.png")
 var tennis_ball_purple : Texture2D = preload("res://minigames/generics/assets/tennis_ball_small_purple.png")
 var character : Node2D = preload("res://minigames/counting/number_catch_0_to_9/Character.tscn").instantiate()
-var radius := 50.0
+const radius := 50.0
+const left_margin := 100
+const right_margin := 360
+const top_margin := -100
 var width : float
 var current_sprite : Sprite2D
 var current_node : Node2D
@@ -31,7 +34,7 @@ func _add_specifics() -> void:
 	assert(area2D.connect("body_entered", _on_character_entered) == 0)
 	assert($Timer.connect("timeout", _spawn_numbers) == 0)
 	
-	width = get_viewport_rect().size.x-360
+	width = get_viewport_rect().size.x-right_margin
 	number.get_node("Circle").texture = tennis_ball
 	var OneSprite := Sprite2D.new() 
 	OneSprite.texture = values[0]
@@ -53,7 +56,7 @@ func _spawn_numbers():
 		var num : Number = number.duplicate()
 		num.value = random_number + 1
 		num.get_node("Value").texture = values[random_number]
-		num.position = Vector2(100+randf_range(i*width/3, (i+1)*width/3), 100)
+		num.position = Vector2(left_margin+randf_range(i*width/3, (i+1)*width/3), top_margin)
 		add_child(num)
 
 
@@ -63,6 +66,11 @@ func update_physics(NumberContainer):
 	NumberContainer.add_child(collision_area)
 	current_node.add_child(NumberContainer)
 	current_node = NumberContainer
+
+
+func stop_move():
+	character.down_speed = 0
+
 
 func _on_character_entered(body : Node2D) -> void:
 	if body as Number and body.value == character.value + 1:
@@ -76,6 +84,9 @@ func _on_character_entered(body : Node2D) -> void:
 		CircleSprite.texture = tennis_ball_purple
 		character.value += 1
 		call_deferred('update_physics', NumberContainer)
+		character.down_speed = 1
+		var timer = get_tree().create_timer(0.25)
+		assert(timer.connect("timeout", stop_move) == 0)
 		NumberContainer.add_child(CircleSprite)
 		NumberContainer.add_child(NumberSprite)
 		current_sprite.texture = tennis_ball
@@ -83,6 +94,5 @@ func _on_character_entered(body : Node2D) -> void:
 		body.queue_free()
 		
 		if character.value == 9:
-
 			await get_tree().create_timer(0.5).timeout
 			get_tree().reload_current_scene()
