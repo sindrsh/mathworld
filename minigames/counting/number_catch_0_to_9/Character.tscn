@@ -7,11 +7,15 @@
 radius = 50.0
 height = 100.0
 
-[node name="Character" type="Area2D"]
+[node name="Character" type="Node2D"]
 script = ExtResource("1_o48ep")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="number_container" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="number_container"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="number_container/Area2D"]
 shape = SubResource("CapsuleShape2D_d14m8")
 
-[node name="Circle" type="Sprite2D" parent="."]
+[node name="Circle" type="Sprite2D" parent="number_container"]
 texture = ExtResource("2_rh2e8")

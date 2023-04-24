@@ -1,0 +1,13 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 55" width="45" height="55">
+	<title>four-svg</title>
+	<defs>
+		<image  width="29" height="41" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAApCAMAAAD+ptKGAAAAAXNSR0IB2cksfwAAAHtQTFRFAAAA////////////////////cHBwYGBg////r6+vAAAA7+/vICAg////b29v////v7+/////////////f39/MDAwQEBAz8/P0NDQ////gICA////39/fEBAQwMDA////////j4+PsLCw////UFBQoKCg////kJCQ////SHvrBQAAACl0Uk5TAFGPn1////9S/////5D/mf8G34r//////8//fP///79u//+v//+n/7V+F2GUAAAA+UlEQVR4nLXR3VLCMBAF4Fg8iClKA20Vm/QHKvb9n9DdUGRCdy89V5l+k21mjzGLPGWr5+XXG4Kicob1C1YKbvBqLaBhvtX1De9W1R0Kq6rb81xNDyirWtMDPuynqkdUX9C0QbnNNW3gQwtNO9RrZIr2GGhuJ2uPPJywU/SMccTZyErVhBy9rFRN+MbFyErV1OiMrBsUwaORlSv/4bmi/s2VNFYT5wrqYjWTkZWqqXB0slI1tsU9V6VMzszVSBp/Blg5BY+fUCZhiAfPd92EJDb5b5qbLuD/dH6e8ipG346sY+vnbTwMvScdf13LUFAGPqV3H9cibCPNL/jVG1IoA1GOAAAAAElFTkSuQmCC"/>
+	</defs>
+	<style>
+	</style>
+	<g id="page1">
+		<g id="Layer">
+			<use id="g0-52" href="#img1" x="8" y="6"/>
+		</g>
+	</g>
+</svg>
