@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://matchnumbers"]
+[gd_scene load_steps=3 format=3 uid="uid://matchnumbers"]
 
 [ext_resource type="Script" path="res://minigames/counting/matching_0_to_9/match_0_to_9.gd" id="1_547w3"]
+[ext_resource type="Texture2D" uid="uid://cbgy7legckrn0" path="res://minigames/generics/assets/snooker_table.png" id="2_ilkm7"]
 
 [node name="Match0To9" type="Control"]
 layout_mode = 3
@@ -10,3 +11,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_547w3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.67451)
+position = Vector2(966, 544)
+scale = Vector2(1.69531, 1.69531)
+texture = ExtResource("2_ilkm7")

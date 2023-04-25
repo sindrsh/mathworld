@@ -7,6 +7,10 @@ var number : Number = preload("res://minigames/counting/number_catch_0_to_9/Numb
 var tennis_ball : Texture2D = preload("res://minigames/generics/assets/tennis_ball_small.png")
 var tennis_ball_purple : Texture2D = preload("res://minigames/generics/assets/tennis_ball_small_purple.png")
 var character : Node2D = preload("res://minigames/counting/number_catch_0_to_9/Character.tscn").instantiate()
+
+var audio_player := AudioStreamPlayer2D.new()
+var correct_sound : AudioStream = preload("res://minigames/generics/assets/correct.mp3")
+
 const radius := 50.0
 const left_margin := 100
 const right_margin := 360
@@ -46,7 +50,8 @@ func _add_specifics() -> void:
 	add_child(character)
 	_spawn_numbers()
 	$Timer.start()
-	
+	add_child(audio_player)
+	audio_player.stream = correct_sound
 
 func _spawn_numbers():
 	randomize()
@@ -92,6 +97,7 @@ func _on_character_entered(body : Node2D) -> void:
 		current_sprite.texture = tennis_ball
 		current_sprite = CircleSprite
 		body.queue_free()
+		audio_player.play()
 		
 		if character.value == 9:
 			await get_tree().create_timer(0.5).timeout
