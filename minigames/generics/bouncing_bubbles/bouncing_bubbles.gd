@@ -71,15 +71,18 @@ func _on_bubble_pressed(_name : String) -> void:
 		elif bubble_container.get_node(chosen_bubble).representation != bubble_container.get_node(_name).representation:
 			if _bubbles_are_equal(_name, chosen_bubble):
 				audio_player.stream = correct_sound
+				audio_player.play()
+				bubble_container.get_node(chosen_bubble).queue_free()
+				bubble_container.get_node(_name).queue_free()
+				chosen_bubble = ''
 			else:
 				audio_player.stream = incorrect_sound
+				audio_player.play()
+				await get_tree().create_timer(0.5).timeout
+				get_tree().reload_current_scene()
+				return
 			
-			audio_player.play()
-			bubble_container.get_node(chosen_bubble).queue_free()
-			bubble_container.get_node(_name).queue_free()
-			chosen_bubble = ''
-			
-			await get_tree().create_timer(0.1).timeout
+			await get_tree().create_timer(0.5).timeout
 			if _end_game_condition(): _end_game()
 
 
