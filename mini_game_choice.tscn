@@ -1,13 +1,34 @@
-[gd_scene load_steps=3 format=3 uid="uid://d8f004ras7iu"]
+[gd_scene load_steps=5 format=3 uid="uid://d8f004ras7iu"]
 
 [ext_resource type="Script" path="res://mini_game_choice.gd" id="1_owhrr"]
+[ext_resource type="Texture2D" uid="uid://bp7ss3i0n46p1" path="res://minigames/generics/assets/button_stroke.png" id="1_xbytt"]
+[ext_resource type="Texture2D" uid="uid://cbw27dtcjowb1" path="res://minigames/generics/assets/button_stroke_lightgreen.png" id="2_ta1uw"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdnny"]
-bg_color = Color(0.333333, 0.67451, 0.564706, 1)
+[sub_resource type="Theme" id="Theme_jnnwb"]
+Label/font_sizes/font_size = 20
+MarginContainer/constants/margin_bottom = 10
+MarginContainer/constants/margin_left = 10
+MarginContainer/constants/margin_right = 10
+MarginContainer/constants/margin_top = 10
 
-[node name="MiniGameChoice" type="Button"]
+[node name="MiniGameChoice" type="TextureButton"]
 custom_minimum_size = Vector2(200, 100)
-offset_right = 200.0
-offset_bottom = 100.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_qdnny")
+offset_right = 301.0
+offset_bottom = 151.0
+theme = SubResource("Theme_jnnwb")
+texture_normal = ExtResource("1_xbytt")
+texture_hover = ExtResource("2_ta1uw")
 script = ExtResource("1_owhrr")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -31.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Button Text"
+horizontal_alignment = 1
+vertical_alignment = 1
