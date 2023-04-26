@@ -50,11 +50,17 @@ scene_path = "res://minigames/counting/matching_0_to_9/Match0To9.tscn"
 
 [node name="Multiplication" type="HBoxContainer" parent="MarginContainer/Minigames"]
 layout_mode = 2
+theme_override_constants/separation = 90
 
 [node name="MiniGameChoice" parent="MarginContainer/Minigames/Multiplication" instance=ExtResource("2_ern71")]
 layout_mode = 2
 text = "Nail the product"
 scene_path = "res://minigames/mul/times_table/TimesTableMenu.tscn"
+
+[node name="MiniGameChoice2" parent="MarginContainer/Minigames/Multiplication" instance=ExtResource("2_ern71")]
+layout_mode = 2
+text = "Factorize"
+scene_path = "res://minigames/mul/factor_bullets/factor_bullets.tscn"
 
 [node name="Division" type="HBoxContainer" parent="MarginContainer/Minigames"]
 layout_mode = 2

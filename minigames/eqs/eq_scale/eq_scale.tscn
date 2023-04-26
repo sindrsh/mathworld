@@ -1,0 +1,149 @@
+[gd_scene load_steps=16 format=3 uid="uid://02rct1vm5xs8"]
+
+[ext_resource type="Script" path="res://minigames/eqs/eq_scale/eq_scale.gd" id="1_14jg7"]
+[ext_resource type="Script" path="res://minigames/eqs/eq_scale/scale.gd" id="2_entmc"]
+[ext_resource type="Texture2D" uid="uid://b65pox6emfdda" path="res://minigames/eqs/eq_scale/assets/bar.svg" id="3_7h4gj"]
+[ext_resource type="Texture2D" uid="uid://bb8ldbikglimj" path="res://minigames/eqs/eq_scale/assets/validate.svg" id="3_nubk6"]
+[ext_resource type="Texture2D" uid="uid://ddnpgajjntjo3" path="res://minigames/eqs/eq_scale/assets/pilar.svg" id="4_0ikqp"]
+[ext_resource type="Texture2D" uid="uid://cvp0jkra6bpa0" path="res://minigames/eqs/eq_scale/assets/rope.svg" id="4_0vc5k"]
+[ext_resource type="Texture2D" uid="uid://32xo34jt4yyi" path="res://minigames/eqs/eq_scale/assets/container_box.svg" id="5_wr80s"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k3hts"]
+height = 200.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f54gu"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5byu3"]
+radius = 5.0
+height = 50.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7algx"]
+size = Vector2(100, 100)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_cgkfc"]
+a = Vector2(-50, 0)
+b = Vector2(50, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_2vvc4"]
+a = Vector2(-50, 0)
+b = Vector2(50, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_toter"]
+a = Vector2(-50, 0)
+b = Vector2(-50, 100)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_eqvuv"]
+a = Vector2(50, 0)
+b = Vector2(50, 100)
+
+[node name="eq_scale" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_14jg7")
+
+[node name="Scale" type="Node2D" parent="."]
+position = Vector2(400, 100)
+script = ExtResource("2_entmc")
+
+[node name="ScaleBar" type="RigidBody2D" parent="Scale"]
+
+[node name="Bar" type="CollisionShape2D" parent="Scale/ScaleBar"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_k3hts")
+
+[node name="LeftBarPin" type="PinJoint2D" parent="Scale/ScaleBar"]
+
+[node name="RightBarPin" type="PinJoint2D" parent="Scale/ScaleBar"]
+
+[node name="BarSprite" type="Sprite2D" parent="Scale/ScaleBar"]
+texture = ExtResource("3_7h4gj")
+
+[node name="ScalePilar" type="StaticBody2D" parent="Scale"]
+
+[node name="Pilar" type="CollisionShape2D" parent="Scale/ScalePilar"]
+shape = SubResource("RectangleShape2D_f54gu")
+
+[node name="PilarSprite" type="Sprite2D" parent="Scale/ScalePilar"]
+texture = ExtResource("4_0ikqp")
+
+[node name="ScalePilarJoint" type="PinJoint2D" parent="Scale"]
+node_a = NodePath("../ScaleBar")
+node_b = NodePath("../ScalePilar")
+
+[node name="LeftRope" type="RigidBody2D" parent="Scale"]
+
+[node name="Rope" type="CollisionShape2D" parent="Scale/LeftRope"]
+shape = SubResource("CapsuleShape2D_5byu3")
+
+[node name="RopeSprite" type="Sprite2D" parent="Scale/LeftRope"]
+texture = ExtResource("4_0vc5k")
+
+[node name="RightRope" type="RigidBody2D" parent="Scale"]
+
+[node name="Rope" type="CollisionShape2D" parent="Scale/RightRope"]
+shape = SubResource("CapsuleShape2D_5byu3")
+
+[node name="RopeSprite" type="Sprite2D" parent="Scale/RightRope"]
+texture = ExtResource("4_0vc5k")
+
+[node name="LeftSide" type="RigidBody2D" parent="Scale"]
+
+[node name="Container" type="Area2D" parent="Scale/LeftSide"]
+
+[node name="Box" type="CollisionShape2D" parent="Scale/LeftSide/Container"]
+position = Vector2(0, 50)
+shape = SubResource("RectangleShape2D_7algx")
+
+[node name="Top" type="CollisionShape2D" parent="Scale/LeftSide"]
+shape = SubResource("SegmentShape2D_cgkfc")
+
+[node name="Bottom" type="CollisionShape2D" parent="Scale/LeftSide"]
+shape = SubResource("SegmentShape2D_2vvc4")
+
+[node name="Left" type="CollisionShape2D" parent="Scale/LeftSide"]
+shape = SubResource("SegmentShape2D_toter")
+
+[node name="Right" type="CollisionShape2D" parent="Scale/LeftSide"]
+shape = SubResource("SegmentShape2D_eqvuv")
+
+[node name="PinJoint" type="PinJoint2D" parent="Scale/LeftSide"]
+node_b = NodePath("..")
+
+[node name="ContainerSprite" type="Sprite2D" parent="Scale/LeftSide"]
+texture = ExtResource("5_wr80s")
+
+[node name="RightSide" type="RigidBody2D" parent="Scale"]
+
+[node name="Container" type="Area2D" parent="Scale/RightSide"]
+
+[node name="Box" type="CollisionShape2D" parent="Scale/RightSide/Container"]
+position = Vector2(0, 50)
+shape = SubResource("RectangleShape2D_7algx")
+
+[node name="Top" type="CollisionShape2D" parent="Scale/RightSide"]
+shape = SubResource("SegmentShape2D_cgkfc")
+
+[node name="Bottom" type="CollisionShape2D" parent="Scale/RightSide"]
+shape = SubResource("SegmentShape2D_2vvc4")
+
+[node name="Left" type="CollisionShape2D" parent="Scale/RightSide"]
+shape = SubResource("SegmentShape2D_toter")
+
+[node name="Right" type="CollisionShape2D" parent="Scale/RightSide"]
+shape = SubResource("SegmentShape2D_eqvuv")
+
+[node name="ContainerSprite" type="Sprite2D" parent="Scale/RightSide"]
+texture = ExtResource("5_wr80s")
+
+[node name="PinJoint" type="PinJoint2D" parent="Scale/RightSide"]
+node_b = NodePath("..")
+
+[node name="ValidateButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1104.0
+offset_top = 48.0
+offset_right = 1255.0
+offset_bottom = 149.0
+texture_normal = ExtResource("3_nubk6")
+
+[connection signal="pressed" from="ValidateButton" to="." method="_on_validate_button_pressed"]
