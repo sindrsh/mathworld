@@ -1,52 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dja4o4nhkgk8g"]
+[gd_scene load_steps=2 format=3 uid="uid://day5anv5yj5b6"]
 
-[sub_resource type="GDScript" id="GDScript_g0oap"]
-script/source = "extends RigidBody2D
+[ext_resource type="Script" path="res://minigames/eqs/eq_scale/rigid_one.gd" id="1_ynube"]
 
-signal shape_pressed(_name)
-
-const MovableShape = preload(\"res://minigames/generics/puzzles/movable_shape.gd\")
-const Number = preload(\"res://minigames/div/div_of_amounts/number.gd\")
-
-var texture_size = Vector2(0,0)
-var movable_shape := MovableShape.new()
-var value : int
-
-var button_texture : Texture2D:
-	set(txture):
-		var collision_shape := CollisionShape2D.new()
-		collision_shape.shape = RectangleShape2D.new()
-		collision_shape.shape.size = txture.get_size()
-		button_texture = txture
-		movable_shape.texture_normal = txture
-		movable_shape.position = -txture.get_size()/2
-		texture_size = txture.get_size()
-		add_child(collision_shape)
-		add_child(movable_shape)
-		
-
-func _ready():
-#	set_use_custom_integrator(true)
-	
-	assert(movable_shape.pressed.connect(_on_shape_pressed) == 0)
-#	collision_layer = 0
-	movable_shape.active = true
-	set_use_custom_integrator(true)
-	
-	
-
-func _on_shape_pressed() -> void:
-#	print(\"pressed\")
-	emit_signal(\"shape_pressed\", name)	
-#	set_use_custom_integrator(false)
-#	print(\"pressed\")
-
-	
-func _integrate_forces(state):
-	if movable_shape.active:
-		position = get_global_mouse_position() + movable_shape.mouse_offset
-"
-
-[node name="RigidOne" type="RigidBody2D"]
-mass = 0.01
-script = SubResource("GDScript_g0oap")
+[node name="rigid_one" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_ynube")
