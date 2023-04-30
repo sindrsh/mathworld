@@ -70,7 +70,7 @@ node_a = NodePath("../ScaleBar")
 node_b = NodePath("../ScalePilar")
 
 [node name="LeftSide" type="RigidBody2D" parent="."]
-mass = 20.0
+mass = 10.0
 
 [node name="Top" type="CollisionShape2D" parent="LeftSide"]
 shape = SubResource("SegmentShape2D_cgkfc")
@@ -97,7 +97,7 @@ texture = ExtResource("5_g485l")
 shape = SubResource("RectangleShape2D_5khcb")
 
 [node name="RightSide" type="RigidBody2D" parent="."]
-mass = 20.0
+mass = 10.0
 
 [node name="Top" type="CollisionShape2D" parent="RightSide"]
 shape = SubResource("SegmentShape2D_cgkfc")

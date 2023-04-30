@@ -95,5 +95,5 @@ func _ready():
 	$LeftSide/Right.shape.a = Vector2(container_a, 0)
 	$LeftSide/Right.shape.b = Vector2(container_a, container_b)
 	
-	position = Vector2(600, 400)
+	position = Vector2(600, 300)
 

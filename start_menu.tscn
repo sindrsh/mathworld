@@ -31,7 +31,7 @@ theme_override_constants/margin_bottom = 50
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_override_constants/separation = 100
+theme_override_constants/separation = 60
 
 [node name="Counting" type="HBoxContainer" parent="MarginContainer/Minigames"]
 layout_mode = 2
@@ -115,6 +115,16 @@ theme_override_constants/separation = 90
 layout_mode = 2
 text = "Pytagoras puzzle"
 scene_path = "res://minigames/pyt/pyt_puzzle/pyt_puzzle.tscn"
+
+[node name="Equations" type="HBoxContainer" parent="MarginContainer/Minigames"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 90
+
+[node name="MiniGameChoice" parent="MarginContainer/Minigames/Equations" instance=ExtResource("2_ern71")]
+layout_mode = 2
+text = "Equation Scale*"
+scene_path = "res://minigames/eqs/eq_scale/eq_scale.tscn"
 
 [node name="info_text" type="Label" parent="MarginContainer/Minigames"]
 layout_mode = 2

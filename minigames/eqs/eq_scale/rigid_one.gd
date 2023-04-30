@@ -7,6 +7,7 @@ var texture_size = Vector2(0,0)
 var movable_shape := MovableShape.new()
 var previous_position : Vector2
 var value : float
+var moved := false
 
 var new_pos : Vector2	
 
@@ -35,13 +36,20 @@ func _process(_delta):
 	if position.y < -500 or position.y > get_viewport_rect().size.y:
 		queue_free()
 	if movable_shape.active:
+		if not moved:
+			moved = true
+		set_use_custom_integrator(true)
 		collision_layer = 0
 		new_pos = get_global_mouse_position() + movable_shape.mouse_offset + texture_size/2
+	elif moved:
+		new_pos = position
+		collision_layer = 1
+		gravity_scale = value/abs(value)*1
+		set_use_custom_integrator(false)
 
 
 func _on_shape_pressed() -> void:
-	collision_layer = 1
-	gravity_scale = value/abs(value)*1
+	pass
 	emit_signal("shape_pressed", name)		
 	
 	

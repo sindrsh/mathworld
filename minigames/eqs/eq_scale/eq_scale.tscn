@@ -17,9 +17,11 @@ texture_normal = ExtResource("3_nubk6")
 
 [node name="Restart" type="Button" parent="."]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-text = "RESTART"
+offset_left = 10.0
+offset_top = 500.0
+offset_right = 173.0
+offset_bottom = 531.0
+text = "RESTART EQUATION"
 
 [node name="AddPlusOne" type="Button" parent="."]
 layout_mode = 0
@@ -45,8 +47,32 @@ offset_right = 1650.0
 offset_bottom = 350.0
 text = "x"
 
+[node name="Level1" type="Button" parent="."]
+layout_mode = 0
+offset_top = 300.0
+offset_right = 62.0
+offset_bottom = 331.0
+text = "Level 1"
+
+[node name="Level2" type="Button" parent="."]
+layout_mode = 0
+offset_top = 350.0
+offset_right = 62.0
+offset_bottom = 381.0
+text = "Level 2"
+
+[node name="Level3" type="Button" parent="."]
+layout_mode = 0
+offset_top = 400.0
+offset_right = 62.0
+offset_bottom = 431.0
+text = "Level 3"
+
 [connection signal="pressed" from="ValidateButton" to="." method="_on_validate_button_pressed"]
 [connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="AddPlusOne" to="." method="_on_add_plus_one_pressed"]
 [connection signal="pressed" from="AddMinusOne" to="." method="_on_add_minus_one_pressed"]
 [connection signal="pressed" from="AddX" to="." method="_on_add_x_pressed"]
+[connection signal="pressed" from="Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="Level2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="Level3" to="." method="_on_level_3_pressed"]
