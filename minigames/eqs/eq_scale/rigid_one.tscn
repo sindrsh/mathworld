@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://day5anv5yj5b6"]
+
+[ext_resource type="Script" path="res://minigames/eqs/eq_scale/rigid_one.gd" id="1_ynube"]
+
+[node name="rigid_one" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_ynube")

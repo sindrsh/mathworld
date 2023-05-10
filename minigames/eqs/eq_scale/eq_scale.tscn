@@ -1,0 +1,78 @@
+[gd_scene load_steps=3 format=3 uid="uid://02rct1vm5xs8"]
+
+[ext_resource type="Script" path="res://minigames/eqs/eq_scale/eq_scale.gd" id="1_14jg7"]
+[ext_resource type="Texture2D" uid="uid://bb8ldbikglimj" path="res://minigames/eqs/eq_scale/assets/validate.svg" id="3_nubk6"]
+
+[node name="eq_scale" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_14jg7")
+
+[node name="ValidateButton" type="TextureButton" parent="."]
+top_level = true
+layout_mode = 0
+offset_right = 151.0
+offset_bottom = 101.0
+texture_normal = ExtResource("3_nubk6")
+
+[node name="Restart" type="Button" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 500.0
+offset_right = 173.0
+offset_bottom = 531.0
+text = "RESTART EQUATION"
+
+[node name="AddPlusOne" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1600.0
+offset_top = 100.0
+offset_right = 1650.0
+offset_bottom = 150.0
+text = "+1"
+
+[node name="AddMinusOne" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1600.0
+offset_top = 200.0
+offset_right = 1650.0
+offset_bottom = 250.0
+text = "-1"
+
+[node name="AddX" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1600.0
+offset_top = 300.0
+offset_right = 1650.0
+offset_bottom = 350.0
+text = "x"
+
+[node name="Level1" type="Button" parent="."]
+layout_mode = 0
+offset_top = 300.0
+offset_right = 62.0
+offset_bottom = 331.0
+text = "Level 1"
+
+[node name="Level2" type="Button" parent="."]
+layout_mode = 0
+offset_top = 350.0
+offset_right = 62.0
+offset_bottom = 381.0
+text = "Level 2"
+
+[node name="Level3" type="Button" parent="."]
+layout_mode = 0
+offset_top = 400.0
+offset_right = 62.0
+offset_bottom = 431.0
+text = "Level 3"
+
+[connection signal="pressed" from="ValidateButton" to="." method="_on_validate_button_pressed"]
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="AddPlusOne" to="." method="_on_add_plus_one_pressed"]
+[connection signal="pressed" from="AddMinusOne" to="." method="_on_add_minus_one_pressed"]
+[connection signal="pressed" from="AddX" to="." method="_on_add_x_pressed"]
+[connection signal="pressed" from="Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="Level2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="Level3" to="." method="_on_level_3_pressed"]

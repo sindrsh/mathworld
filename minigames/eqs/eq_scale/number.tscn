@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b15av1hj47sin"]
+
+[ext_resource type="Script" path="res://minigames/eqs/eq_scale/number.gd" id="1_d660j"]
+
+[node name="Number" type="CharacterBody2D"]
+script = ExtResource("1_d660j")
