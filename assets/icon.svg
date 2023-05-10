@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
+ <g class="layer">
+  <title>Layer 1</title>
+  <rect fill="#ffffff" height="100" id="svg_7" stroke="#ffffff" stroke-width="0" width="100" x="0" y="0"/>
+  <path d="m50.4,82.86q53.62,0 26.81,-44.68q-26.81,-44.68 -53.62,0q-26.81,44.68 26.81,44.68" fill="#96c80f" id="svg_1" stroke="#000000" stroke-opacity="0"/>
+  <g id="svg_6">
+   <path d="m84.05,2.48c0,18.62 -15.09,33.71 -33.71,33.71c-18.62,0 -33.71,-15.09 -33.71,-33.71l67.41,0l0.01,0z" fill="#000000" fill-opacity="0" id="svg_2" stroke="#ffffff" stroke-width="4"/>
+   <path d="m16.9,97.63c0,-18.62 15.09,-33.71 33.71,-33.71c18.62,0 33.71,15.09 33.71,33.71l-67.41,0l-0.01,0z" fill="#000000" fill-opacity="0" id="svg_3" stroke="#ffffff" stroke-width="4"/>
+  </g>
+ </g>
+</svg>

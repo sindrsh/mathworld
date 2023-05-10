@@ -10,7 +10,21 @@ var collision_shape := CollisionShape2D.new()
 var button := TextureButton.new()
 var sprite := AnimatedSprite2D.new()
 
+var background_a : Array
+
 func _init():
+	background_a = [
+		preload("res://minigames/generics/assets/snooker_numbers/one.png"),
+		preload("res://minigames/generics/assets/snooker_numbers/two.png"),
+		preload("res://minigames/generics/assets/snooker_numbers/three.png"),
+		preload("res://minigames/generics/assets/snooker_numbers/four.png"),
+		preload("res://minigames/generics/assets/snooker_numbers/five.png"),
+		preload("res://minigames/generics/assets/snooker_numbers/six.png"),
+		preload("res://minigames/generics/assets/snooker_numbers/seven.png"),
+		preload("res://minigames/generics/assets/snooker_numbers/eight.png"),	
+		preload("res://minigames/generics/assets/snooker_numbers/nine.png"),
+	]
+	
 	button.texture_normal = load("res://minigames/generics/assets/circle_white.svg")
 	collision_shape.shape = CircleShape2D.new()
 	collision_shape.shape.radius = 50
@@ -46,7 +60,8 @@ func set_frames(frame0path : String = '', frame1path : String = '',
 				
 	sprite.sprite_frames.add_frame(
 			"default",
-			load(frame0path)
+			background_a[randi_range(0, 8)]
+			#load(frame0path)
 	)
 	sprite.sprite_frames.add_frame(
 			"default",
@@ -54,6 +69,8 @@ func set_frames(frame0path : String = '', frame1path : String = '',
 	)	
 		
 func start(_position, _direction):
+	if (representation == 1):
+		button.texture_normal = background_a[int_value[0]]
 	position = _position
 	velocity = Vector2(speed, 0).rotated(_direction)
 

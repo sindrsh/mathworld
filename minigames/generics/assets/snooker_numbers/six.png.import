@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1uhmqtk4j4eq"
-path="res://.godot/imported/logo.png-cca8726399059c8d4f806e28e356b14d.ctex"
+uid="uid://c0sck56gn7al2"
+path="res://.godot/imported/six.png-0821a0ae8e4e7be55d665d61b29cf239.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://logo.png"
-dest_files=["res://.godot/imported/logo.png-cca8726399059c8d4f806e28e356b14d.ctex"]
+source_file="res://minigames/generics/assets/snooker_numbers/six.png"
+dest_files=["res://.godot/imported/six.png-0821a0ae8e4e7be55d665d61b29cf239.ctex"]
 
 [params]
 

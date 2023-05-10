@@ -19,12 +19,14 @@ size_flags_vertical = 0
 theme_override_constants/separation = 20
 
 [node name="RestartButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(105, 45)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "RESTART"
 
 [node name="MenuButton" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(85, 45)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0

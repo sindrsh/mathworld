@@ -1,4 +1,4 @@
-extends Button
+extends TextureButton
 
 @export var scene_path : String
 

@@ -16,3 +16,4 @@ mono_crash.*.json
 
 # Imported translations (automatically generated from CSV files)
 *.translation
+*.import
