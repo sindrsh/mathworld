@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://bo4hsysc52jc1"]
+[gd_scene load_steps=22 format=3 uid="uid://bo4hsysc52jc1"]
 
 [ext_resource type="Script" path="res://start_menu.gd" id="1_dxosu"]
 [ext_resource type="PackedScene" uid="uid://d8f004ras7iu" path="res://mini_game_choice.tscn" id="2_ern71"]
+[ext_resource type="Shader" path="res://assets/shaders/hue_shift.gdshader" id="3_ak2gy"]
 [ext_resource type="FontFile" uid="uid://bhgogbly6iejp" path="res://assets/fonts/OpenSans.ttf" id="3_qhrji"]
 [ext_resource type="Script" path="res://QuitButton.gd" id="4_f0h5m"]
 [ext_resource type="Script" path="res://FulllScreenButton.gd" id="4_qaxip"]
+[ext_resource type="Texture2D" uid="uid://c02xx4bq72tgs" path="res://assets/splash.png" id="7_6i2k1"]
 
 [sub_resource type="Theme" id="Theme_t0d7p"]
 HBoxContainer/constants/separation = 20
@@ -12,7 +14,59 @@ MarginContainer/constants/margin_bottom = 50
 MarginContainer/constants/margin_left = 50
 MarginContainer/constants/margin_right = 50
 MarginContainer/constants/margin_top = 50
-VBoxContainer/constants/separation = 25
+VBoxContainer/constants/separation = 20
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i7pkl"]
+shader = ExtResource("3_ak2gy")
+shader_parameter/Shift_Hue = -0.04
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_laf5c"]
+shader = ExtResource("3_ak2gy")
+shader_parameter/Shift_Hue = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nhfea"]
+shader = ExtResource("3_ak2gy")
+shader_parameter/Shift_Hue = 0.06
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e7qht"]
+shader = ExtResource("3_ak2gy")
+shader_parameter/Shift_Hue = 0.12
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r16yr"]
+shader = ExtResource("3_ak2gy")
+shader_parameter/Shift_Hue = 0.24
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_21ctn"]
+shader = ExtResource("3_ak2gy")
+shader_parameter/Shift_Hue = 0.28
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7i8e2"]
+shader = ExtResource("3_ak2gy")
+shader_parameter/Shift_Hue = 0.34
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_flost"]
+shader = ExtResource("3_ak2gy")
+shader_parameter/Shift_Hue = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l25td"]
+shader = ExtResource("3_ak2gy")
+shader_parameter/Shift_Hue = 0.48
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ebdku"]
+shader = ExtResource("3_ak2gy")
+shader_parameter/Shift_Hue = 0.52
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vads3"]
+shader = ExtResource("3_ak2gy")
+shader_parameter/Shift_Hue = 0.6
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_75cuf"]
+shader = ExtResource("3_ak2gy")
+shader_parameter/Shift_Hue = 0.64
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5rmil"]
+shader = ExtResource("3_ak2gy")
+shader_parameter/Shift_Hue = 0.74
 
 [node name="StartMenu" type="Control"]
 layout_mode = 3
@@ -35,13 +89,12 @@ grow_vertical = 2
 [node name="Minigames" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_constants/separation = 60
 
 [node name="Counting" type="HBoxContainer" parent="MarginContainer/Minigames"]
 layout_mode = 2
 
 [node name="MiniGameChoice" parent="MarginContainer/Minigames/Counting" instance=ExtResource("2_ern71")]
+material = SubResource("ShaderMaterial_i7pkl")
 layout_mode = 2
 scene_path = "res://minigames/counting/number_catch_0_to_9/NumberCatch.tscn"
 
@@ -49,6 +102,7 @@ scene_path = "res://minigames/counting/number_catch_0_to_9/NumberCatch.tscn"
 text = "Ordering"
 
 [node name="MiniGameChoice2" parent="MarginContainer/Minigames/Counting" instance=ExtResource("2_ern71")]
+material = SubResource("ShaderMaterial_laf5c")
 layout_mode = 2
 scene_path = "res://minigames/counting/matching_0_to_9/Match0To9.tscn"
 
@@ -57,21 +111,28 @@ text = "Match the numbers"
 
 [node name="Multiplication" type="HBoxContainer" parent="MarginContainer/Minigames"]
 layout_mode = 2
-theme_override_constants/separation = 90
 
 [node name="MiniGameChoice" parent="MarginContainer/Minigames/Multiplication" instance=ExtResource("2_ern71")]
+material = SubResource("ShaderMaterial_nhfea")
 layout_mode = 2
 scene_path = "res://minigames/mul/times_table/TimesTableMenu.tscn"
 
+[node name="Label" parent="MarginContainer/Minigames/Multiplication/MiniGameChoice" index="0"]
+text = "Nail the product"
+
 [node name="MiniGameChoice2" parent="MarginContainer/Minigames/Multiplication" instance=ExtResource("2_ern71")]
+material = SubResource("ShaderMaterial_e7qht")
 layout_mode = 2
-text = "Factorize"
 scene_path = "res://minigames/mul/factor_bullets/factor_bullets.tscn"
+
+[node name="Label" parent="MarginContainer/Minigames/Multiplication/MiniGameChoice2" index="0"]
+text = "Factorize"
 
 [node name="Division" type="HBoxContainer" parent="MarginContainer/Minigames"]
 layout_mode = 2
 
 [node name="MiniGameChoice" parent="MarginContainer/Minigames/Division" instance=ExtResource("2_ern71")]
+material = SubResource("ShaderMaterial_r16yr")
 layout_mode = 2
 scene_path = "res://minigames/div/divisor1to10/divisor1to10Loader.tscn"
 
@@ -79,6 +140,7 @@ scene_path = "res://minigames/div/divisor1to10/divisor1to10Loader.tscn"
 text = "Division 1-10"
 
 [node name="MiniGameChoice2" parent="MarginContainer/Minigames/Division" instance=ExtResource("2_ern71")]
+material = SubResource("ShaderMaterial_21ctn")
 layout_mode = 2
 scene_path = "res://minigames/div/div_of_amounts/div_of_amounts.tscn"
 
@@ -90,6 +152,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 
 [node name="MiniGameChoice" parent="MarginContainer/Minigames/Fractions" instance=ExtResource("2_ern71")]
+material = SubResource("ShaderMaterial_7i8e2")
 layout_mode = 2
 scene_path = "res://minigames/frac/frac_bridge/FracBridge.tscn"
 
@@ -97,6 +160,7 @@ scene_path = "res://minigames/frac/frac_bridge/FracBridge.tscn"
 text = "Fraction bridge"
 
 [node name="MiniGameChoice2" parent="MarginContainer/Minigames/Fractions" instance=ExtResource("2_ern71")]
+material = SubResource("ShaderMaterial_flost")
 layout_mode = 2
 scene_path = "res://minigames/frac/frac_bridge2/FracBridge2.tscn"
 
@@ -104,6 +168,7 @@ scene_path = "res://minigames/frac/frac_bridge2/FracBridge2.tscn"
 text = "Fraction bridge 2"
 
 [node name="MiniGameChoice3" parent="MarginContainer/Minigames/Fractions" instance=ExtResource("2_ern71")]
+material = SubResource("ShaderMaterial_l25td")
 layout_mode = 2
 scene_path = "res://minigames/frac/frac_laser/frac_laser.tscn"
 
@@ -111,6 +176,7 @@ scene_path = "res://minigames/frac/frac_laser/frac_laser.tscn"
 text = "Fraction laser *"
 
 [node name="MiniGameChoice4" parent="MarginContainer/Minigames/Fractions" instance=ExtResource("2_ern71")]
+material = SubResource("ShaderMaterial_ebdku")
 layout_mode = 2
 scene_path = "res://minigames/frac/match/MatchFracs.tscn"
 
@@ -118,6 +184,7 @@ scene_path = "res://minigames/frac/match/MatchFracs.tscn"
 text = "Match the fractions"
 
 [node name="MiniGameChoice5" parent="MarginContainer/Minigames/Fractions" instance=ExtResource("2_ern71")]
+material = SubResource("ShaderMaterial_vads3")
 layout_mode = 2
 scene_path = "res://minigames/frac/match_eq_val/MatchEqualValues.tscn"
 
@@ -129,8 +196,12 @@ layout_mode = 2
 size_flags_horizontal = 0
 
 [node name="MiniGameChoice" parent="MarginContainer/Minigames/Geometry" instance=ExtResource("2_ern71")]
+material = SubResource("ShaderMaterial_75cuf")
 layout_mode = 2
 scene_path = "res://minigames/pyt/pyt_puzzle/pyt_puzzle.tscn"
+
+[node name="Label" parent="MarginContainer/Minigames/Geometry/MiniGameChoice" index="0"]
+text = "Pytagoras puzzle"
 
 [node name="Equations" type="HBoxContainer" parent="MarginContainer/Minigames"]
 layout_mode = 2
@@ -138,18 +209,12 @@ size_flags_horizontal = 0
 theme_override_constants/separation = 90
 
 [node name="MiniGameChoice" parent="MarginContainer/Minigames/Equations" instance=ExtResource("2_ern71")]
+material = SubResource("ShaderMaterial_5rmil")
 layout_mode = 2
-text = "Equation Scale*"
 scene_path = "res://minigames/eqs/eq_scale/eq_scale.tscn"
 
-[node name="info_text" type="Label" parent="MarginContainer/Minigames"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 8
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_qhrji")
-theme_override_font_sizes/font_size = 20
-text = "* indicates games with no ending and/or score"
+[node name="Label" parent="MarginContainer/Minigames/Equations/MiniGameChoice" index="0"]
+text = "Equation Scale*"
 
 [node name="StartMenuBar" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -170,9 +235,24 @@ size_flags_vertical = 0
 text = "QUIT"
 script = ExtResource("4_f0h5m")
 
+[node name="info_text" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_qhrji")
+theme_override_font_sizes/font_size = 20
+text = "* indicates games with no ending and/or score"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1649, 810)
+scale = Vector2(0.361854, 0.361854)
+texture = ExtResource("7_6i2k1")
+
 [editable path="MarginContainer/Minigames/Counting/MiniGameChoice"]
 [editable path="MarginContainer/Minigames/Counting/MiniGameChoice2"]
 [editable path="MarginContainer/Minigames/Multiplication/MiniGameChoice"]
+[editable path="MarginContainer/Minigames/Multiplication/MiniGameChoice2"]
 [editable path="MarginContainer/Minigames/Division/MiniGameChoice"]
 [editable path="MarginContainer/Minigames/Division/MiniGameChoice2"]
 [editable path="MarginContainer/Minigames/Fractions/MiniGameChoice"]
@@ -181,3 +261,4 @@ script = ExtResource("4_f0h5m")
 [editable path="MarginContainer/Minigames/Fractions/MiniGameChoice4"]
 [editable path="MarginContainer/Minigames/Fractions/MiniGameChoice5"]
 [editable path="MarginContainer/Minigames/Geometry/MiniGameChoice"]
+[editable path="MarginContainer/Minigames/Equations/MiniGameChoice"]
