@@ -85,6 +85,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_lock_ = true
 
 [node name="Minigames" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -222,6 +223,7 @@ size_flags_horizontal = 8
 size_flags_vertical = 0
 
 [node name="FulllScreenButton" type="Button" parent="MarginContainer/StartMenuBar"]
+custom_minimum_size = Vector2(140, 45)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
@@ -229,6 +231,7 @@ text = "FULLSCREEN"
 script = ExtResource("4_qaxip")
 
 [node name="QuitButton" type="Button" parent="MarginContainer/StartMenuBar"]
+custom_minimum_size = Vector2(80, 45)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
@@ -245,7 +248,7 @@ theme_override_font_sizes/font_size = 20
 text = "* indicates games with no ending and/or score"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1649, 810)
+position = Vector2(1597, 614)
 scale = Vector2(0.361854, 0.361854)
 texture = ExtResource("7_6i2k1")
 
