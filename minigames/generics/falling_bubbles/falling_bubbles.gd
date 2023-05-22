@@ -37,17 +37,18 @@ func _on_bullet_pressed(_name : String) -> void:
 			bullet_container.get_node(chosen_bubble).sprite.frame = 0
 			bullet_container.get_node(_name).sprite.frame = 1
 			chosen_bubble = _name
-	
+
+
 func _on_bubble_pressed(_name : String) -> void:
 	if chosen_bubble:
 		if _correct_bullet(_name):
 			bullet_container.get_node(chosen_bubble).equals_bubble = true
 		bullet_container.get_node(chosen_bubble).target_node = get_node(_name)
-		
+
 
 func _correct_bullet(_name : String) -> bool:
 	return false
-		
+
 
 func _on_target_reached(_name : String) -> void:
 	var finished_bullet = bullet_container.get_node(_name)
@@ -68,7 +69,7 @@ func _end_game_message():
 
 func _end_game() -> void:
 	var message = load("res://minigames/generics/SuccessMessage.tscn").instantiate()
-	message.get_node("Label").text = _end_game_message()
+	message.get_node("%Label").text = _end_game_message()
 	add_child(message)	
 
 

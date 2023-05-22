@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dj2t4lx6flq3"]
+[gd_scene load_steps=4 format=3 uid="uid://dj2t4lx6flq3"]
 
 [ext_resource type="Script" path="res://minigames/mul/times_table/times_table_menu.gd" id="1_7pdqh"]
+[ext_resource type="Texture2D" uid="uid://c02xx4bq72tgs" path="res://assets/splash.png" id="2_yjbw3"]
 
 [sub_resource type="Theme" id="Theme_uqxun"]
 MarginContainer/constants/margin_bottom = 50
@@ -17,3 +18,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_uqxun")
 script = ExtResource("1_7pdqh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1597, 614)
+scale = Vector2(0.361854, 0.361854)
+texture = ExtResource("2_yjbw3")
