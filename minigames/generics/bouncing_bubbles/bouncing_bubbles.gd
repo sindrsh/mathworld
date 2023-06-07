@@ -100,5 +100,5 @@ func _end_game_message():
 
 func _end_game() -> void:
 	var message = load("res://minigames/generics/SuccessMessage.tscn").instantiate()
-	message.get_node("Label").text = _end_game_message()
+	message.get_node("%Label").text = _end_game_message()
 	add_child(message)

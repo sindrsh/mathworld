@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://dltiiq845ae1o"]
+[gd_scene load_steps=5 format=3 uid="uid://dltiiq845ae1o"]
 
 [ext_resource type="Script" path="res://minigames/generics/MenuBar.gd" id="1_qtc7x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_axd5k"]
+bg_color = Color(0.33, 0.67, 0.56, 1)
+
+[sub_resource type="Theme" id="Theme_sykvq"]
+Button/styles/normal = SubResource("StyleBoxFlat_axd5k")
+
+[sub_resource type="Theme" id="Theme_71cqf"]
+Button/styles/normal = SubResource("StyleBoxFlat_axd5k")
 
 [node name="MenuBar" type="MarginContainer"]
 offset_right = 1920.0
@@ -23,6 +32,7 @@ custom_minimum_size = Vector2(105, 45)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme = SubResource("Theme_sykvq")
 text = "RESTART"
 
 [node name="MenuButton" type="Button" parent="HBoxContainer"]
@@ -30,6 +40,7 @@ custom_minimum_size = Vector2(85, 45)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme = SubResource("Theme_71cqf")
 text = "MENU"
 
 [connection signal="pressed" from="HBoxContainer/RestartButton" to="." method="_restart_game"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bo4hsysc52jc1"]
+[gd_scene load_steps=25 format=3 uid="uid://bo4hsysc52jc1"]
 
 [ext_resource type="Script" path="res://start_menu.gd" id="1_dxosu"]
 [ext_resource type="PackedScene" uid="uid://d8f004ras7iu" path="res://mini_game_choice.tscn" id="2_ern71"]
@@ -19,54 +19,89 @@ VBoxContainer/constants/separation = 20
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i7pkl"]
 shader = ExtResource("3_ak2gy")
 shader_parameter/Shift_Hue = -0.04
+shader_parameter/Saturation = null
+shader_parameter/Light = null
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_laf5c"]
 shader = ExtResource("3_ak2gy")
 shader_parameter/Shift_Hue = 0.0
+shader_parameter/Saturation = null
+shader_parameter/Light = null
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nhfea"]
 shader = ExtResource("3_ak2gy")
 shader_parameter/Shift_Hue = 0.06
+shader_parameter/Saturation = null
+shader_parameter/Light = null
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e7qht"]
 shader = ExtResource("3_ak2gy")
 shader_parameter/Shift_Hue = 0.12
+shader_parameter/Saturation = null
+shader_parameter/Light = 0.1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r16yr"]
 shader = ExtResource("3_ak2gy")
 shader_parameter/Shift_Hue = 0.24
+shader_parameter/Saturation = null
+shader_parameter/Light = 0.1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_21ctn"]
 shader = ExtResource("3_ak2gy")
 shader_parameter/Shift_Hue = 0.28
+shader_parameter/Saturation = null
+shader_parameter/Light = null
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7i8e2"]
 shader = ExtResource("3_ak2gy")
 shader_parameter/Shift_Hue = 0.34
+shader_parameter/Saturation = null
+shader_parameter/Light = null
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_flost"]
 shader = ExtResource("3_ak2gy")
 shader_parameter/Shift_Hue = 0.4
+shader_parameter/Saturation = null
+shader_parameter/Light = 0.1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l25td"]
 shader = ExtResource("3_ak2gy")
 shader_parameter/Shift_Hue = 0.48
+shader_parameter/Saturation = null
+shader_parameter/Light = 0.1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ebdku"]
 shader = ExtResource("3_ak2gy")
 shader_parameter/Shift_Hue = 0.52
+shader_parameter/Saturation = null
+shader_parameter/Light = 0.15
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vads3"]
 shader = ExtResource("3_ak2gy")
 shader_parameter/Shift_Hue = 0.6
+shader_parameter/Saturation = null
+shader_parameter/Light = 0.2
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_75cuf"]
 shader = ExtResource("3_ak2gy")
 shader_parameter/Shift_Hue = 0.64
+shader_parameter/Saturation = null
+shader_parameter/Light = 0.2
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5rmil"]
 shader = ExtResource("3_ak2gy")
 shader_parameter/Shift_Hue = 0.74
+shader_parameter/Saturation = null
+shader_parameter/Light = null
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_53t5f"]
+bg_color = Color(0.33, 0.67, 0.56, 1)
+
+[sub_resource type="Theme" id="Theme_kgwl0"]
+Button/styles/normal = SubResource("StyleBoxFlat_53t5f")
+
+[sub_resource type="Theme" id="Theme_37inc"]
+Button/styles/normal = SubResource("StyleBoxFlat_53t5f")
 
 [node name="StartMenu" type="Control"]
 layout_mode = 3
@@ -227,6 +262,7 @@ custom_minimum_size = Vector2(140, 45)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
+theme = SubResource("Theme_kgwl0")
 text = "FULLSCREEN"
 script = ExtResource("4_qaxip")
 
@@ -235,6 +271,7 @@ custom_minimum_size = Vector2(80, 45)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
+theme = SubResource("Theme_37inc")
 text = "QUIT"
 script = ExtResource("4_f0h5m")
 

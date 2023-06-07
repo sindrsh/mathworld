@@ -101,4 +101,9 @@ func _on_character_entered(body : Node2D) -> void:
 		
 		if character.value == 9:
 			await get_tree().create_timer(0.5).timeout
-			get_tree().reload_current_scene()
+			_end_game()
+
+
+func _end_game() -> void:
+	var message = load("res://minigames/generics/SuccessMessage.tscn").instantiate()
+	add_child(message)
