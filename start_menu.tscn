@@ -6,7 +6,7 @@
 [ext_resource type="FontFile" uid="uid://bhgogbly6iejp" path="res://assets/fonts/OpenSans.ttf" id="3_qhrji"]
 [ext_resource type="Script" path="res://QuitButton.gd" id="4_f0h5m"]
 [ext_resource type="Script" path="res://FulllScreenButton.gd" id="4_qaxip"]
-[ext_resource type="Texture2D" uid="uid://c02xx4bq72tgs" path="res://assets/splash.png" id="7_6i2k1"]
+[ext_resource type="Texture2D" uid="uid://bc1nxxv81y36o" path="res://assets/splash.png" id="7_6i2k1"]
 
 [sub_resource type="Theme" id="Theme_t0d7p"]
 HBoxContainer/constants/separation = 20
@@ -159,9 +159,17 @@ text = "Nail the product"
 [node name="MiniGameChoice2" parent="MarginContainer/Minigames/Multiplication" instance=ExtResource("2_ern71")]
 material = SubResource("ShaderMaterial_e7qht")
 layout_mode = 2
-scene_path = "res://minigames/mul/factor_bullets/factor_bullets.tscn"
+scene_path = "res://minigames/mul/integer_mul_puzzle/integer_mul_puzzle.tscn"
 
 [node name="Label" parent="MarginContainer/Minigames/Multiplication/MiniGameChoice2" index="0"]
+text = "Puzzle"
+
+[node name="MiniGameChoice3" parent="MarginContainer/Minigames/Multiplication" instance=ExtResource("2_ern71")]
+material = SubResource("ShaderMaterial_e7qht")
+layout_mode = 2
+scene_path = "res://minigames/mul/factor_bullets/factor_bullets.tscn"
+
+[node name="Label" parent="MarginContainer/Minigames/Multiplication/MiniGameChoice3" index="0"]
 text = "Factorize"
 
 [node name="Division" type="HBoxContainer" parent="MarginContainer/Minigames"]
@@ -293,6 +301,7 @@ texture = ExtResource("7_6i2k1")
 [editable path="MarginContainer/Minigames/Counting/MiniGameChoice2"]
 [editable path="MarginContainer/Minigames/Multiplication/MiniGameChoice"]
 [editable path="MarginContainer/Minigames/Multiplication/MiniGameChoice2"]
+[editable path="MarginContainer/Minigames/Multiplication/MiniGameChoice3"]
 [editable path="MarginContainer/Minigames/Division/MiniGameChoice"]
 [editable path="MarginContainer/Minigames/Division/MiniGameChoice2"]
 [editable path="MarginContainer/Minigames/Fractions/MiniGameChoice"]

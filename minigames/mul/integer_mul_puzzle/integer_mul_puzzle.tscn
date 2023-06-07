@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://spqf1ag56jg5"]
+
+[ext_resource type="Script" path="res://minigames/mul/integer_mul_puzzle/integer_mul_puzzle.gd" id="1_wr5ap"]
+
+[node name="IntegerMulPuzzle" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_wr5ap")

@@ -3,10 +3,11 @@ extends Control
 class_name MiniGame
 
 var MenuBarScene : PackedScene = load("res://minigames/generics/MenuBar.tscn")
+var menu_bar = MenuBarScene.instantiate()
 
 func _ready():
 #	size = Vector2(1920, 1080)
-	var menu_bar = MenuBarScene.instantiate()
+	
 	add_child(menu_bar);
 	
 	_add_generics()
