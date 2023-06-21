@@ -2,9 +2,7 @@ import "../../../generics/assets/inh.asy" as inh;
 
 
 real s = 30;
-usepackage("icomma");
-usepackage("amsmath");
-usepackage("amssymb");
+
 
 filldraw(scale(s)*unitsquare, green+opacity(0.5));
 shipout("one.svg");

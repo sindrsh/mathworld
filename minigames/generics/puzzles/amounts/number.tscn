@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cu6ftpj1h8hxe"]
+
+[ext_resource type="Script" path="res://minigames/generics/puzzles/amounts/number.gd" id="1_bsf1m"]
+
+[node name="Number" type="Area2D"]
+script = ExtResource("1_bsf1m")

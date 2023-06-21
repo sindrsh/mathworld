@@ -297,6 +297,17 @@ position = Vector2(1597, 614)
 scale = Vector2(0.361854, 0.361854)
 texture = ExtResource("7_6i2k1")
 
+[node name="CountingWorld" parent="." instance=ExtResource("2_ern71")]
+layout_mode = 0
+offset_left = 1176.0
+offset_top = 21.0
+offset_right = 1416.0
+offset_bottom = 131.0
+scene_path = "res://world/counting_world.tscn"
+
+[node name="Label" parent="CountingWorld" index="0"]
+text = "CountingWorld"
+
 [editable path="MarginContainer/Minigames/Counting/MiniGameChoice"]
 [editable path="MarginContainer/Minigames/Counting/MiniGameChoice2"]
 [editable path="MarginContainer/Minigames/Multiplication/MiniGameChoice"]
@@ -311,3 +322,4 @@ texture = ExtResource("7_6i2k1")
 [editable path="MarginContainer/Minigames/Fractions/MiniGameChoice5"]
 [editable path="MarginContainer/Minigames/Geometry/MiniGameChoice"]
 [editable path="MarginContainer/Minigames/Equations/MiniGameChoice"]
+[editable path="CountingWorld"]
