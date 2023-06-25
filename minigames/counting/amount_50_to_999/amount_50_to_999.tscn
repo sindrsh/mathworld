@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://57m8b5tp7a6n"]
+
+[ext_resource type="Script" path="res://minigames/counting/amount_50_to_999/amount_50_to_999.gd" id="1_pa7yk"]
+
+[node name="amount_50_to_999" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_pa7yk")

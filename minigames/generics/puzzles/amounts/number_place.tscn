@@ -1,13 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://b23t2sydrykx6"]
+[gd_scene load_steps=2 format=3 uid="uid://b23t2sydrykx6"]
 
 [ext_resource type="Script" path="res://minigames/generics/puzzles/amounts/number_place.gd" id="1_55ov2"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6vxge"]
-
 [node name="NumberPlace" type="Area2D"]
 script = ExtResource("1_55ov2")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_6vxge")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]

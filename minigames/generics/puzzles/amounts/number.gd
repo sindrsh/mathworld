@@ -21,4 +21,4 @@ func _init(txture : Texture2D):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if movable_shape.active:
-		position = get_global_mouse_position() + movable_shape.mouse_offset + movable_shape.texture_size_div2
+		position.y = get_global_mouse_position().y + movable_shape.mouse_offset.y + movable_shape.texture_size_div2.y

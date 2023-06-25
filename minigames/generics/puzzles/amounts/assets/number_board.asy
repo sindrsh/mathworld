@@ -3,4 +3,4 @@ settings.outformat="svg";
 //defaultpen(fontsize(12pt));
 defaultpen(1bp);
 
-filldraw(box((0,0), (100,200)), white);
+filldraw(box((0,0), (100,150)), white);
