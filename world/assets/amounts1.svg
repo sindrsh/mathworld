@@ -1,0 +1,365 @@
+<?xml version="1.0"?>
+<svg
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:cc="http://web.resource.org/cc/"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+    xmlns:ns1="http://sozi.baierouge.fr"
+    viewBox="0 0 1250 1025"
+  >
+  <desc
+    >Lighted House
+    scripted to turn the lights on/off when clicking anywhere on the house.
+    scripting can be removed and the lightson fill color changed as desired.
+    From the book, I Love to Color, Play, &amp; Learn, by Jay Nick.
+    I Love to Color, Play, &amp; Learn is as an eBook from cattocreations.com
+    Written by Jay Nick
+    Handcoding SVG since 2001
+    Author of eBook, Learn SVG Interactively, published by Catto Creations, LLC
+    http://www.jaynick.com
+    I Love to Color, Play, &amp; Learn is published by Catto Creations, LLC
+    Catto Creations mission is Family, Literacy, and Enrichment
+    Visit http://www.cattocreations.com for award winning children's eBooks
+    I Love to Color, Play, &amp; Learn and other free ePub3 eBooks at http://www.cattocreations.com/ePub3.html</desc
+  >
+  <style
+      type="text/css"
+    >.bottom {fill:#AA0000;}
+    .top {fill:#e5e5e5;stroke-width:12;}
+    #door {fill:#660000;}
+    #knob {fill:silver;stroke:none;}
+    .lightson {fill:#ffff33;}
+    .lightsoff {fill:#333333;}</style
+  >
+  <script
+      type="application/x-javascript"
+    >var House = new function()
+    {
+      var lightson=true;
+      window.addEventListener("load", function(e) { init(); }, false);
+      function init()
+      {
+        var node = document.getElementById("house");
+        node.addEventListener("click", function(e) { e.preventDefault(); toggle(); }, false);
+      }
+      function toggle()
+      {
+        if(lightson) {Off(); lightson=false;}
+        else {On(); lightson=true;}
+      }
+      /**************************************************
+      * Lights on/off
+      **************************************************/
+      function On()
+      {
+        try
+        {
+          var nl=document.getElementsByClassName("lightsoff");
+          while(nl.length&gt;0)
+          {
+            nl[0].setAttribute("class","lightson");
+          }
+        }
+        catch(e) {}        
+      }
+      function Off()
+      {
+        try
+        {
+          var nl=document.getElementsByClassName("lightson");
+          while(nl.length&gt;0)
+          {
+            nl[0].setAttribute("class","lightsoff");
+          }
+        }
+        catch(e) {}        
+      }
+    }();</script
+  >
+  <g
+      transform="translate(0) scale(1)"
+    >
+    <g
+        id="house"
+        stroke="#000"
+        stroke-width="6"
+        transform="translate(75,215)"
+      >
+      <rect
+          id="chimney"
+          width="80"
+          y="-200"
+          x="820"
+          height="300"
+          class="bottom"
+      />
+      <rect
+          id="firstfloor"
+          width="1100"
+          y="200"
+          x="0"
+          height="600"
+          class="bottom"
+      />
+      <path
+          id="secondfloor"
+          d="m-50 200h1200l-600-400z"
+          class="top"
+      />
+      <g
+          id="door"
+        >
+        <ellipse
+            cy="400"
+            cx="550"
+            rx="100"
+            ry="100"
+            class="lightson"
+        />
+        <path
+            d="m550 300v100"
+        />
+        <path
+            d="m550 300v100"
+            transform="rotate(45,550,400)"
+        />
+        <path
+            d="m550 300v100"
+            transform="rotate(-45,550,400)"
+        />
+        <rect
+            y="400"
+            x="450"
+            width="200"
+            height="400"
+        />
+        <circle
+            id="knob"
+            cy="595"
+            cx="470"
+            r="10"
+        />
+        <g
+            id="hexagon"
+            transform="translate(0,390)"
+          >
+          <path
+              transform="rotate(0,550,105)"
+              class="lightson"
+              d="m525 60h50l25 45-25 45h-50l-25-45z"
+          />
+        </g
+        >
+      </g
+      >
+      <g
+          id="window1"
+          transform="translate(0)"
+          class="lightson"
+        >
+        <ellipse
+            cy="400"
+            cx="225"
+            rx="125"
+            ry="100"
+        />
+        <rect
+            y="400"
+            x="100"
+            width="250"
+            height="200"
+        />
+        <path
+            d="m225 300v300m-125-100h250"
+        />
+        <path
+            d="m225 400v-110"
+            transform="rotate(50,225,400)"
+        />
+        <path
+            d="m225 400v-110"
+            transform="rotate(-50,225,400)"
+        />
+      </g
+      >
+      <g
+          id="window2"
+          transform="translate(650)"
+          class="lightson"
+        >
+        <ellipse
+            cy="400"
+            cx="225"
+            rx="125"
+            ry="100"
+        />
+        <rect
+            y="400"
+            x="100"
+            width="250"
+            height="200"
+        />
+        <path
+            d="m225 300v300m-125-100h250"
+        />
+        <path
+            d="m225 400v-110"
+            transform="rotate(50,225,400)"
+        />
+        <path
+            d="m225 400v-110"
+            transform="rotate(-50,225,400)"
+        />
+      </g
+      >
+      <g
+          id="window3"
+          transform="translate(550,-100)"
+          class="lightson"
+        >
+        <ellipse
+            cy="70"
+            cx="0"
+            rx="100"
+            ry="80"
+        />
+        <path
+            d="m0-10v80"
+        />
+        <path
+            d="m0-15v85"
+            transform="rotate(45,0,70)"
+        />
+        <path
+            d="m0-15v85"
+            transform="rotate(-45,0,70)"
+        />
+        <rect
+            y="70"
+            x="-100"
+            width="200"
+            height="150"
+        />
+        <path
+            d="m0 70v150m-100-75h200"
+        />
+      </g
+      >
+    </g
+    >
+  </g
+  >
+  <metadata
+    >
+    <rdf:RDF
+      >
+      <cc:Work
+        >
+        <dc:format
+          >image/svg+xml</dc:format
+        >
+        <dc:type
+            rdf:resource="http://purl.org/dc/dcmitype/StillImage"
+        />
+        <cc:license
+            rdf:resource="http://creativecommons.org/licenses/publicdomain/"
+        />
+        <dc:publisher
+          >
+          <cc:Agent
+              rdf:about="http://openclipart.org/"
+            >
+            <dc:title
+              >Openclipart</dc:title
+            >
+          </cc:Agent
+          >
+        </dc:publisher
+        >
+        <dc:title
+          >Lighted House</dc:title
+        >
+        <dc:date
+          >2013-09-23T14:26:35</dc:date
+        >
+        <dc:description
+          >From the eBook, I Love to Color, Play, and Learn. Script turns the lights on/off when clicking on the SVG image. SVG code can be inserted into an SVG image then scaled and positioned where desired.</dc:description
+        >
+        <dc:source
+          >https://openclipart.org/detail/183685/lighted-house-by-jaynick-183685</dc:source
+        >
+        <dc:creator
+          >
+          <cc:Agent
+            >
+            <dc:title
+              >JayNick</dc:title
+            >
+          </cc:Agent
+          >
+        </dc:creator
+        >
+        <dc:subject
+          >
+          <rdf:Bag
+            >
+            <rdf:li
+              >building</rdf:li
+            >
+            <rdf:li
+              >door</rdf:li
+            >
+            <rdf:li
+              >handcoded</rdf:li
+            >
+            <rdf:li
+              >house</rdf:li
+            >
+            <rdf:li
+              >icon</rdf:li
+            >
+            <rdf:li
+              >javascript</rdf:li
+            >
+            <rdf:li
+              >lights</rdf:li
+            >
+            <rdf:li
+              >scripted</rdf:li
+            >
+            <rdf:li
+              >shapes</rdf:li
+            >
+            <rdf:li
+              >window</rdf:li
+            >
+          </rdf:Bag
+          >
+        </dc:subject
+        >
+      </cc:Work
+      >
+      <cc:License
+          rdf:about="http://creativecommons.org/licenses/publicdomain/"
+        >
+        <cc:permits
+            rdf:resource="http://creativecommons.org/ns#Reproduction"
+        />
+        <cc:permits
+            rdf:resource="http://creativecommons.org/ns#Distribution"
+        />
+        <cc:permits
+            rdf:resource="http://creativecommons.org/ns#DerivativeWorks"
+        />
+      </cc:License
+      >
+    </rdf:RDF
+    >
+  </metadata
+  >
+</svg
+>

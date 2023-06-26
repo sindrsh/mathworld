@@ -16,15 +16,15 @@ MarginContainer/constants/margin_right = 50
 MarginContainer/constants/margin_top = 50
 VBoxContainer/constants/separation = 20
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_i7pkl"]
-shader = ExtResource("3_ak2gy")
-shader_parameter/Shift_Hue = -0.04
-shader_parameter/Saturation = null
-shader_parameter/Light = null
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_laf5c"]
 shader = ExtResource("3_ak2gy")
 shader_parameter/Shift_Hue = 0.0
+shader_parameter/Saturation = null
+shader_parameter/Light = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i7pkl"]
+shader = ExtResource("3_ak2gy")
+shader_parameter/Shift_Hue = -0.04
 shader_parameter/Saturation = null
 shader_parameter/Light = null
 
@@ -128,6 +128,14 @@ size_flags_horizontal = 0
 
 [node name="Counting" type="HBoxContainer" parent="MarginContainer/Minigames"]
 layout_mode = 2
+
+[node name="MiniGameChoice3" parent="MarginContainer/Minigames/Counting" instance=ExtResource("2_ern71")]
+material = SubResource("ShaderMaterial_laf5c")
+layout_mode = 2
+scene_path = "res://minigames/counting/matching_0_to_9/Match0To9.tscn"
+
+[node name="Label" parent="MarginContainer/Minigames/Counting/MiniGameChoice3" index="0"]
+text = "Amounts1"
 
 [node name="MiniGameChoice" parent="MarginContainer/Minigames/Counting" instance=ExtResource("2_ern71")]
 material = SubResource("ShaderMaterial_i7pkl")
@@ -308,6 +316,7 @@ scene_path = "res://world/counting_world.tscn"
 [node name="Label" parent="CountingWorld" index="0"]
 text = "CountingWorld"
 
+[editable path="MarginContainer/Minigames/Counting/MiniGameChoice3"]
 [editable path="MarginContainer/Minigames/Counting/MiniGameChoice"]
 [editable path="MarginContainer/Minigames/Counting/MiniGameChoice2"]
 [editable path="MarginContainer/Minigames/Multiplication/MiniGameChoice"]

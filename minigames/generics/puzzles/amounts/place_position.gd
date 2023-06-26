@@ -99,6 +99,10 @@ var change_mode : Dictionary = {
 
 
 func _add_number(place : int) -> void:
+	call_deferred("add_child", _make_number(place))
+
+
+func _make_number(place: int) -> Area2D:
 	var number : Area2D
 	match place:
 		1:
@@ -114,8 +118,7 @@ func _add_number(place : int) -> void:
 			number.position = number_place_positions[place] + Vector2(0, 400)
 			number.original_position = Vector2(number.position)
 	number.place = place
-	call_deferred("add_child", number)
-	
+	return number	
 
 
 func _add_number_places(places: Array) -> void:
@@ -136,6 +139,8 @@ func _add_board(place: int, pos: Vector2) -> void:
 
 
 func _on_number_entered_board(_number : Area2D, _name : String) -> void:
+	if not _number.movable_shape.active:
+		return
 	var place = _number.place
 	var _number_place : Area2D = get_node(_name)
 	_number.movable_shape.set_deferred("active", false)

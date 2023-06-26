@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://dhoe1ds3idav0"]
+[gd_scene load_steps=20 format=3 uid="uid://dhoe1ds3idav0"]
 
 [ext_resource type="Texture2D" uid="uid://bj7kexaofucm5" path="res://world/assets/grass_70.png" id="1_d3ab0"]
 [ext_resource type="Texture2D" uid="uid://dqjlxmtt0v5x5" path="res://world/assets/Tall_Building_Legs_SVG_Test.svg" id="2_w6j28"]
 [ext_resource type="Texture2D" uid="uid://bgdf3q2pt6q62" path="res://world/assets/Mushroom_Tower_Bottom_SVG_Test.svg" id="3_uol80"]
 [ext_resource type="Texture2D" uid="uid://cixhiufnyccqq" path="res://world/assets/Slugworm_Test_SVG.svg" id="4_jy5qk"]
+[ext_resource type="Script" path="res://world/amounts_0_to_9.gd" id="5_4avtw"]
 [ext_resource type="Texture2D" uid="uid://dd7vwb1p511nw" path="res://world/assets/Building_Head_Test_SVG.svg" id="5_mby80"]
 [ext_resource type="Script" path="res://world/NumberCatch.gd" id="6_o2l5k"]
 [ext_resource type="Texture2D" uid="uid://be0fxbqk4fii" path="res://world/assets/Bridge_SVG_Test.svg" id="7_8u4b0"]
@@ -12,6 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://dbv8884flq4n2" path="res://world/assets/Anonymous_Country_school.svg" id="10_kjbls"]
 [ext_resource type="Texture2D" uid="uid://c1a080jrg134x" path="res://world/assets/BenBois_Atomium_(Belgium).png" id="11_0dd3i"]
 [ext_resource type="PackedScene" uid="uid://dltiiq845ae1o" path="res://minigames/generics/MenuBar.tscn" id="12_khj6s"]
+[ext_resource type="Texture2D" uid="uid://drd7ringh62nm" path="res://world/assets/amounts1.svg" id="13_e10d8"]
+[ext_resource type="Script" path="res://world/amounts_0_to_50.gd" id="14_3kdpj"]
+[ext_resource type="Texture2D" uid="uid://psfw2dumlb8q" path="res://world/assets/amounts2.svg" id="15_7hfj7"]
+[ext_resource type="Script" path="res://world/amounts_0_to_900.gd" id="16_5ty1r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gk4i3"]
 texture = ExtResource("1_d3ab0")
@@ -148,13 +153,13 @@ tile_size = Vector2i(64, 64)
 sources/1 = SubResource("TileSetAtlasSource_gk4i3")
 
 [node name="counting_world" type="Node2D"]
-position = Vector2(-400, 0)
+position = Vector2(-635, 0)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ycla7")
 cell_quadrant_size = 64
 format = 2
-layer_0/tile_data = PackedInt32Array(589834, 458753, 5, 589835, 458753, 5, 589836, 458753, 5, 524300, 458753, 5, 655372, 458753, 5, 720908, 458753, 5, 458764, 458753, 5, 393228, 458753, 5, 393229, 458753, 5, 393230, 458753, 5, 786444, 458753, 5, 786445, 458753, 5, 786446, 458753, 5, 393231, 458753, 5, 393233, 458753, 5, 393232, 458753, 5, 393234, 458753, 5, 393235, 458753, 5, 327695, 458753, 5, 262159, 458753, 5, 196623, 458753, 5, 131087, 458753, 5, 131088, 458753, 5, 393236, 458753, 5, 786447, 458753, 5, 851983, 458753, 5, 917519, 458753, 5, 983055, 458753, 5, 983056, 458753, 5, 983059, 458753, 5, 983060, 458753, 5, 983061, 458753, 5, 983062, 458753, 5, 983063, 458753, 5, 983064, 458753, 5, 393237, 458753, 5, 327701, 458753, 5, 262165, 458753, 5, 196629, 458753, 5, 131093, 458753, 5, 131094, 458753, 5, 131095, 458753, 5, 983065, 458753, 5, 983066, 458753, 5, 917530, 458753, 5, 131096, 458753, 5, 131097, 458753, 5, 131098, 458753, 5, 196634, 458753, 5, 262170, 458753, 5, 327706, 458753, 5, 458778, 458753, 5, 524314, 458753, 5, 393242, 458753, 5, 655386, 458753, 5, 851994, 458753, 5, 720922, 458753, 5, 786458, 458753, 5, 589850, 458753, 5, 589851, 458753, 5, 983058, 458753, 5, 983057, 458753, 5, 589852, 458753, 5, 589853, 458753, 5)
+layer_0/tile_data = PackedInt32Array(589834, 458753, 5, 589835, 458753, 5, 589836, 458753, 5, 524300, 458753, 5, 655372, 458753, 5, 720908, 458753, 5, 458764, 458753, 5, 393228, 458753, 5, 393229, 458753, 5, 393230, 458753, 5, 786444, 458753, 5, 786445, 458753, 5, 786446, 458753, 5, 393231, 458753, 5, 393233, 458753, 5, 393232, 458753, 5, 393234, 458753, 5, 393235, 458753, 5, 327695, 458753, 5, 262159, 458753, 5, 196623, 458753, 5, 131087, 458753, 5, 131088, 458753, 5, 393236, 458753, 5, 786447, 458753, 5, 851983, 458753, 5, 917519, 458753, 5, 983055, 458753, 5, 983056, 458753, 5, 983059, 458753, 5, 983060, 458753, 5, 983061, 458753, 5, 983062, 458753, 5, 983063, 458753, 5, 393237, 458753, 5, 327701, 458753, 5, 262165, 458753, 5, 196629, 458753, 5, 131093, 458753, 5, 131094, 458753, 5, 131095, 458753, 5, 131096, 458753, 5, 131097, 458753, 5, 131098, 458753, 5, 983058, 458753, 5, 983057, 458753, 5, 917527, 458753, 5, 851991, 458753, 5, 786455, 458753, 5, 720919, 458753, 5, 720920, 458753, 5, 720921, 458753, 5, 720922, 458753, 5, 720923, 458753, 5, 786459, 458753, 5, 851995, 458753, 5, 917531, 458753, 5, 720924, 458753, 5, 720925, 458753, 5, 720926, 458753, 5, 720927, 458753, 5, 786463, 458753, 5, 851999, 458753, 5, 917535, 458753, 5, 720928, 458753, 5, 720930, 458753, 5, 720929, 458753, 5, 720931, 458753, 5, 720932, 458753, 5, 131099, 458753, 5, 131100, 458753, 5, 131101, 458753, 5, 131102, 458753, 5, 131103, 458753, 5, 131104, 458753, 5, 131105, 458753, 5, 131106, 458753, 5, 131107, 458753, 5, 196644, 458753, 5, 131108, 458753, 5, 327716, 458753, 5, 393252, 458753, 5, 458788, 458753, 5, 524324, 458753, 5, 589860, 458753, 5, 655396, 458753, 5, 262180, 458753, 5)
 
 [node name="NumberLineGame" type="TextureButton" parent="."]
 offset_left = 1017.0
@@ -173,13 +178,14 @@ offset_bottom = 735.0
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("3_uol80")
 
-[node name="TextureButton2" type="TextureButton" parent="."]
+[node name="Amounts_0_to_9" type="TextureButton" parent="."]
 offset_left = 849.0
 offset_top = 668.0
 offset_right = 1463.0
 offset_bottom = 1086.0
 scale = Vector2(0.4, 0.4)
 texture_normal = ExtResource("4_jy5qk")
+script = ExtResource("5_4avtw")
 
 [node name="NumberCatch" type="TextureButton" parent="."]
 offset_left = 1088.0
@@ -192,10 +198,10 @@ flip_h = true
 script = ExtResource("6_o2l5k")
 
 [node name="TextureButton6" type="TextureButton" parent="."]
-offset_left = 1771.0
-offset_top = 506.0
-offset_right = 2129.0
-offset_bottom = 1178.0
+offset_left = 2310.0
+offset_top = 356.0
+offset_right = 2668.0
+offset_bottom = 1028.0
 texture_normal = ExtResource("7_8u4b0")
 flip_h = true
 
@@ -226,4 +232,26 @@ offset_bottom = 210.0
 texture_normal = ExtResource("11_0dd3i")
 script = ExtResource("9_1ms5y")
 
+[node name="Amounts_0_to_50" type="TextureButton" parent="."]
+offset_left = 1692.0
+offset_top = 652.0
+offset_right = 1842.0
+offset_bottom = 802.0
+scale = Vector2(0.12, 0.12)
+texture_normal = ExtResource("13_e10d8")
+script = ExtResource("14_3kdpj")
+
+[node name="Amounts_0_to_900" type="TextureButton" parent="."]
+offset_left = 1940.0
+offset_top = 657.0
+offset_right = 2090.0
+offset_bottom = 807.0
+scale = Vector2(0.28, 0.28)
+texture_normal = ExtResource("15_7hfj7")
+script = ExtResource("16_5ty1r")
+
 [node name="MenuBar" parent="." instance=ExtResource("12_khj6s")]
+offset_left = 640.0
+offset_top = -2.0
+offset_right = 2560.0
+offset_bottom = 143.0
