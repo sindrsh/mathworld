@@ -1,8 +1,87 @@
-[gd_scene load_steps=5 format=3 uid="uid://bsr3ysspoi715"]
+[gd_scene load_steps=17 format=3 uid="uid://bsr3ysspoi715"]
 
 [ext_resource type="Script" path="res://minigames/counting/number_catch_0_to_9/character.gd" id="1_o48ep"]
-[ext_resource type="Texture2D" uid="uid://c0p6bfbu6b06e" path="res://minigames/generics/assets/tennis-racket_perspective.png" id="2_cc4je"]
-[ext_resource type="Texture2D" uid="uid://byv8vhln6eltv" path="res://minigames/generics/bouncing_bubbles/assets/circle_b.svg" id="2_rh2e8"]
+[ext_resource type="Texture2D" uid="uid://cuuln16bgdmm7" path="res://minigames/counting/number_catch_0_to_9/assets/Canisters.svg" id="2_22cyr"]
+[ext_resource type="Texture2D" uid="uid://dou11tw5qcdm7" path="res://minigames/counting/number_catch_0_to_9/assets/Gas_Front.svg" id="3_b5i7f"]
+[ext_resource type="Texture2D" uid="uid://dniret0ty0w21" path="res://minigames/counting/number_catch_0_to_9/assets/Gas_Back.svg" id="4_fr1oc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4r4a"]
+atlas = ExtResource("2_22cyr")
+region = Rect2(0, 0, 573, 704)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_np658"]
+atlas = ExtResource("2_22cyr")
+region = Rect2(583, 0, 573, 704)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngfc0"]
+atlas = ExtResource("2_22cyr")
+region = Rect2(1166, 0, 573, 704)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_baral"]
+atlas = ExtResource("2_22cyr")
+region = Rect2(1749, 0, 573, 704)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmtuk"]
+atlas = ExtResource("2_22cyr")
+region = Rect2(2332, 0, 573, 704)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_821nq"]
+atlas = ExtResource("2_22cyr")
+region = Rect2(0, 704, 573, 704)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ryhko"]
+atlas = ExtResource("2_22cyr")
+region = Rect2(583, 704, 573, 704)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c681l"]
+atlas = ExtResource("2_22cyr")
+region = Rect2(1166, 704, 573, 704)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61i6b"]
+atlas = ExtResource("2_22cyr")
+region = Rect2(1749, 704, 573, 704)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvexb"]
+atlas = ExtResource("2_22cyr")
+region = Rect2(2332, 704, 573, 704)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tq1ma"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4r4a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_np658")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ngfc0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_baral")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qmtuk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_821nq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ryhko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c681l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_61i6b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvexb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d14m8"]
 radius = 50.0
@@ -11,10 +90,10 @@ height = 100.0
 [node name="Character" type="Node2D"]
 script = ExtResource("1_o48ep")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(4, 174)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_cc4je")
+[node name="Canister" type="AnimatedSprite2D" parent="."]
+position = Vector2(14, 25)
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_tq1ma")
 
 [node name="number_container" type="Node2D" parent="."]
 
@@ -23,5 +102,13 @@ texture = ExtResource("2_cc4je")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="number_container/Area2D"]
 shape = SubResource("CapsuleShape2D_d14m8")
 
-[node name="Circle" type="Sprite2D" parent="number_container"]
-texture = ExtResource("2_rh2e8")
+[node name="GasFront" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_b5i7f")
+
+[node name="GasBack" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(3, -64)
+scale = Vector2(0.2, 0.201)
+texture = ExtResource("4_fr1oc")

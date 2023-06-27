@@ -37,16 +37,16 @@ func _add_specifics() -> void:
 	var area2D : Area2D = character.get_node("number_container/Area2D")
 	assert(area2D.connect("body_entered", _on_character_entered) == 0)
 	assert($Timer.connect("timeout", _spawn_numbers) == 0)
+	assert($GasTimer.connect("timeout", _cut_gas) == 0)
 	
 	width = get_viewport_rect().size.x-right_margin
-	number.get_node("Circle").texture = tennis_ball
 	var OneSprite := Sprite2D.new() 
 	OneSprite.texture = values[0]
-	current_node = character.get_node("number_container")
-	current_node.add_child(OneSprite)
-	current_sprite = current_node.get_node("Circle")
-	current_sprite.texture = tennis_ball_purple
-	collision_area = current_node.get_node("Area2D")
+#	current_node = character.get_node("number_container")
+#	current_node.add_child(OneSprite)
+#	current_sprite = current_node.get_node("Circle")
+#	current_sprite.texture = tennis_ball_purple
+#	collision_area = current_node.get_node("Area2D")
 	add_child(character)
 	_spawn_numbers()
 	$Timer.start()
@@ -57,16 +57,16 @@ func _spawn_numbers():
 	randomize()
 	
 	for i in range(3):
-		var random_number = randi() % 9
+		var random_number = randi() % 9 + 1
 		var num : Number = number.duplicate()
-		num.value = random_number + 1
-		num.get_node("Value").texture = values[random_number]
+		num.value = random_number
+		num.get_node("Orb").frame = random_number
+		num.get_node("Label").text = str(random_number)
 		num.position = Vector2(left_margin+randf_range(i*width/3, (i+1)*width/3), top_margin)
 		add_child(num)
 
 
 func update_physics(NumberContainer):
-	current_node.rotation = 0
 	current_node.remove_child(collision_area)
 	NumberContainer.add_child(collision_area)
 	current_node.add_child(NumberContainer)
@@ -77,8 +77,16 @@ func stop_move():
 	character.down_speed = 0
 
 
+func _cut_gas() -> void:
+	character.get_node("GasFront").hide()
+	character.get_node("GasBack").hide()
+
 func _on_character_entered(body : Node2D) -> void:
 	if body as Number and body.value == character.value + 1:
+		character.get_node("GasFront").show()
+		character.get_node("GasBack").show()
+		$GasTimer.start()
+		character.get_node("Canister").frame += 1
 		var NumberContainer := Node2D.new()
 		var NumberSprite := Sprite2D.new() 
 		var CircleSprite := Sprite2D.new()
@@ -88,16 +96,20 @@ func _on_character_entered(body : Node2D) -> void:
 		CircleSprite.position = NumberSprite.position
 		CircleSprite.texture = tennis_ball_purple
 		character.value += 1
-		call_deferred('update_physics', NumberContainer)
+#		call_deferred('update_physics', NumberContainer)
 		character.down_speed = 1
 		var timer = get_tree().create_timer(0.25)
 		assert(timer.connect("timeout", stop_move) == 0)
 		NumberContainer.add_child(CircleSprite)
 		NumberContainer.add_child(NumberSprite)
-		current_sprite.texture = tennis_ball
-		current_sprite = CircleSprite
+#		current_sprite.texture = tennis_ball
+#		current_sprite = CircleSprite
 		body.queue_free()
 		audio_player.play()
+		
+		
+		
+		
 		
 		if character.value == 9:
 			await get_tree().create_timer(0.5).timeout

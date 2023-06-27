@@ -1,9 +1,81 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhq2gtgs7kght"]
+[gd_scene load_steps=14 format=3 uid="uid://bhq2gtgs7kght"]
 
 [ext_resource type="Script" path="res://minigames/counting/number_catch_0_to_9/number.gd" id="1_slanv"]
+[ext_resource type="Texture2D" uid="uid://8a5gl7b7vt81" path="res://minigames/counting/number_catch_0_to_9/assets/Orbs.svg" id="2_18ow8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1ha6a"]
 radius = 50.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4r73"]
+atlas = ExtResource("2_18ow8")
+region = Rect2(0, 0, 259, 235)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gan1k"]
+atlas = ExtResource("2_18ow8")
+region = Rect2(259, 0, 259, 235)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpkeg"]
+atlas = ExtResource("2_18ow8")
+region = Rect2(518, 0, 259, 235)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fyfe5"]
+atlas = ExtResource("2_18ow8")
+region = Rect2(777, 0, 259, 235)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4ot0"]
+atlas = ExtResource("2_18ow8")
+region = Rect2(1036, 0, 259, 235)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1d26"]
+atlas = ExtResource("2_18ow8")
+region = Rect2(1295, 0, 259, 235)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5s0df"]
+atlas = ExtResource("2_18ow8")
+region = Rect2(1554, 0, 259, 235)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6q6f2"]
+atlas = ExtResource("2_18ow8")
+region = Rect2(1813, 0, 259, 235)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t24kn"]
+atlas = ExtResource("2_18ow8")
+region = Rect2(2072, 0, 259, 235)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_74av5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4r73")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gan1k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qpkeg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fyfe5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4ot0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r1d26")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5s0df")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6q6f2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t24kn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Number" type="CharacterBody2D"]
 script = ExtResource("1_slanv")
@@ -11,6 +83,14 @@ script = ExtResource("1_slanv")
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_1ha6a")
 
-[node name="Circle" type="Sprite2D" parent="."]
+[node name="Orb" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.35, 0.35)
+sprite_frames = SubResource("SpriteFrames_74av5")
 
-[node name="Value" type="Sprite2D" parent="."]
+[node name="Label" type="Label" parent="."]
+offset_left = -11.0
+offset_top = -26.0
+offset_right = 29.0
+scale = Vector2(2, 2)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "9"

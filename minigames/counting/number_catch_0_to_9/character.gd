@@ -2,7 +2,7 @@ extends Node2D
 
 const max_speed := 800
 const bottom_margin := 220
-var value := 1
+var value := 0
 var swing := 0.0
 var down_speed := 0
 
@@ -27,27 +27,14 @@ func _mouse_input(delta) -> Vector2:
 		return mouse_position
 
 
-func _move_and_rotate(x):
+func _move(x):
 	var a = get_node('number_container').rotation
 	var max_a = 0.02
 	var speed_a = 0.004
 	var d = x - position.x
-	if (d > 0 and a < max_a):
-		_rotate_childs(speed_a)
-	if (d < 0 and a > -max_a):
-		_rotate_childs(-speed_a)
-	else:
-		_rotate_childs(sin(swing)*0.0005)
 	return x
 
 
-func _rotate_childs(speed_a):
-	var node = self
-	var a = speed_a
-	for n in value:
-		if (node.has_node('number_container')): 
-			node = node.get_node('number_container')
-			node.rotation += a
 
 func _physics_process(delta):
 	position.y += down_speed
@@ -58,4 +45,4 @@ func _physics_process(delta):
 	else:
 		x = _keyboard_input(delta).x
 	
-	position.x = _move_and_rotate(x)
+	position.x = _move(x)
