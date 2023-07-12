@@ -9,7 +9,7 @@ var collision_shape := CollisionShape2D.new()
 var button := TextureButton.new()
 var sprite := AnimatedSprite2D.new()
 var target_node : CharacterBody2D
-var speed := 800.0
+var speed := 1500.0
 var equals_bubble := false
 
 func _init():
