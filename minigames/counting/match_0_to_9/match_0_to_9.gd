@@ -6,6 +6,8 @@ var bubble_pairs := 5
 var score : = 0
 
 func _add_specifics() -> void:
+	world_part = "counting"
+	id = "match_0_to_9"
 	
 	representation_a = [
 		preload("res://minigames/generics/assets/stroke_numbers/one-stroke.svg"),
@@ -80,14 +82,3 @@ func _bubbles_are_equal(bubble1 : String, bubble2 : String) -> bool:
 	return are_equal
 
 
-func _end_game_message():
-	return "Match the numbers completed!"
-
-
-func _end_game_condition() -> bool:
-	var got_all_right : bool = (score == bubble_pairs)
-	if got_all_right: 
-		return true
-	if bubble_container.get_child_count() == 0:
-		get_tree().reload_current_scene()
-	return false

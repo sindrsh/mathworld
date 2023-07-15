@@ -1,6 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://dhoe1ds3idav0"]
+[gd_scene load_steps=21 format=3 uid="uid://dhoe1ds3idav0"]
 
 [ext_resource type="Texture2D" uid="uid://bj7kexaofucm5" path="res://world/assets/grass_70.png" id="1_d3ab0"]
+[ext_resource type="Script" path="res://world/counting_world.gd" id="1_ugvj7"]
 [ext_resource type="Texture2D" uid="uid://dqjlxmtt0v5x5" path="res://world/assets/Tall_Building_Legs_SVG_Test.svg" id="2_w6j28"]
 [ext_resource type="Texture2D" uid="uid://bgdf3q2pt6q62" path="res://world/assets/Mushroom_Tower_Bottom_SVG_Test.svg" id="3_uol80"]
 [ext_resource type="Texture2D" uid="uid://cixhiufnyccqq" path="res://world/assets/Slugworm_Test_SVG.svg" id="4_jy5qk"]
@@ -154,6 +155,7 @@ sources/1 = SubResource("TileSetAtlasSource_gk4i3")
 
 [node name="counting_world" type="Node2D"]
 position = Vector2(-635, 0)
+script = ExtResource("1_ugvj7")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ycla7")
@@ -188,10 +190,10 @@ texture_normal = ExtResource("4_jy5qk")
 script = ExtResource("5_4avtw")
 
 [node name="NumberCatch" type="TextureButton" parent="."]
-offset_left = 1088.0
-offset_top = 746.0
-offset_right = 1446.0
-offset_bottom = 1418.0
+offset_left = 1318.0
+offset_top = 752.0
+offset_right = 1676.0
+offset_bottom = 1424.0
 scale = Vector2(0.4, 0.4)
 texture_normal = ExtResource("5_mby80")
 flip_h = true
@@ -206,10 +208,10 @@ texture_normal = ExtResource("7_8u4b0")
 flip_h = true
 
 [node name="NumberMatch" type="TextureButton" parent="."]
-offset_left = 1399.0
-offset_top = 892.0
-offset_right = 1797.0
-offset_bottom = 1564.0
+offset_left = 1061.0
+offset_top = 890.0
+offset_right = 1459.0
+offset_bottom = 1562.0
 scale = Vector2(0.4, 0.4)
 texture_normal = ExtResource("8_tbpjs")
 flip_h = true

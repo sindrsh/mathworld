@@ -94,11 +94,3 @@ func _end_game_condition() -> bool:
 	return bubble_container.get_child_count() == 0
 
 
-func _end_game_message():
-	return "Mini game completed!"
-
-
-func _end_game() -> void:
-	var message = load("res://minigames/generics/SuccessMessage.tscn").instantiate()
-	message.get_node("%Label").text = _end_game_message()
-	add_child(message)

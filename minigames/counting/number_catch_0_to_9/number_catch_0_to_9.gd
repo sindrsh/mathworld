@@ -34,6 +34,10 @@ var values : Array = [
 
 # Called when the node enters the scene tree for the first time.
 func _add_specifics() -> void:
+	
+	world_part = "counting"
+	id = "number_catch_0_to_9"
+	
 	var area2D : Area2D = character.get_node("number_container/Area2D")
 	assert(area2D.connect("body_entered", _on_character_entered) == 0)
 	assert($Timer.connect("timeout", _spawn_numbers) == 0)
@@ -107,15 +111,6 @@ func _on_character_entered(body : Node2D) -> void:
 		body.queue_free()
 		audio_player.play()
 		
-		
-		
-		
-		
 		if character.value == 9:
 			await get_tree().create_timer(0.5).timeout
 			_end_game()
-
-
-func _end_game() -> void:
-	var message = load("res://minigames/generics/SuccessMessage.tscn").instantiate()
-	add_child(message)

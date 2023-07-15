@@ -177,16 +177,6 @@ func _connect_line(board: NumberBoard, number_place: Area2D) -> void:
 	add_child(line)
 
 
-func _end_game_message():
-	return "Mini game completed!"
-
-
-func _end_game() -> void:
-	await get_tree().create_timer(1).timeout
-	var message = load("res://minigames/generics/SuccessMessage.tscn").instantiate()
-	message.get_node("%Label").text = _end_game_message()
-	add_child(message)
-	
 	
 func _collect_numbers(place: int) -> void:
 	var sz = textures[place].get_size()
@@ -204,5 +194,4 @@ func _collect_numbers(place: int) -> void:
 	_add_number(place + 1)
 
 	
-func _end_game_condition() -> bool:
-	return false
+
