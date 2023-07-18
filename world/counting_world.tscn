@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dd7vwb1p511nw" path="res://world/assets/Building_Head_Test_SVG.svg" id="5_mby80"]
 [ext_resource type="Script" path="res://world/NumberCatch.gd" id="6_o2l5k"]
 [ext_resource type="Texture2D" uid="uid://be0fxbqk4fii" path="res://world/assets/Bridge_SVG_Test.svg" id="7_8u4b0"]
-[ext_resource type="Texture2D" uid="uid://bwrmb2fwxfx1x" path="res://world/assets/Blocks.svg" id="8_tbpjs"]
+[ext_resource type="Texture2D" uid="uid://be7u48r45s8t7" path="res://world/assets/number_catch_0_to_9.png" id="7_drdr0"]
 [ext_resource type="Script" path="res://world/NumberMatch.gd" id="9_1ms5y"]
 [ext_resource type="Texture2D" uid="uid://dbv8884flq4n2" path="res://world/assets/Anonymous_Country_school.svg" id="10_kjbls"]
 [ext_resource type="Texture2D" uid="uid://c1a080jrg134x" path="res://world/assets/BenBois_Atomium_(Belgium).png" id="11_0dd3i"]
@@ -190,12 +190,12 @@ texture_normal = ExtResource("4_jy5qk")
 script = ExtResource("5_4avtw")
 
 [node name="NumberCatch" type="TextureButton" parent="."]
-offset_left = 1318.0
-offset_top = 752.0
-offset_right = 1676.0
-offset_bottom = 1424.0
-scale = Vector2(0.4, 0.4)
-texture_normal = ExtResource("5_mby80")
+offset_left = 1379.0
+offset_top = 657.0
+offset_right = 2630.0
+offset_bottom = 2026.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("7_drdr0")
 flip_h = true
 script = ExtResource("6_o2l5k")
 
@@ -208,12 +208,12 @@ texture_normal = ExtResource("7_8u4b0")
 flip_h = true
 
 [node name="NumberMatch" type="TextureButton" parent="."]
-offset_left = 1061.0
-offset_top = 890.0
-offset_right = 1459.0
-offset_bottom = 1562.0
+offset_left = 1150.0
+offset_top = 737.0
+offset_right = 1548.0
+offset_bottom = 1409.0
 scale = Vector2(0.4, 0.4)
-texture_normal = ExtResource("8_tbpjs")
+texture_normal = ExtResource("5_mby80")
 flip_h = true
 script = ExtResource("9_1ms5y")
 

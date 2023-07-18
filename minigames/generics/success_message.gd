@@ -4,7 +4,7 @@ extends Control
 func _ready():
 	assert($"%ToMenuButton".connect("pressed", _go_to_menu) == 0)
 	assert($"%RestartButton".connect("pressed", _restart) == 0)
-
+	assert($"%CountingWorldButton".pressed.connect(_go_to_counting_world) == 0)
 
 func _go_to_menu() -> void:
 	if get_tree().change_scene_to_file("res://start_menu.tscn") != OK:
@@ -12,3 +12,7 @@ func _go_to_menu() -> void:
 
 func _restart() -> void:
 	get_tree().reload_current_scene()
+
+func _go_to_counting_world():
+	if get_tree().change_scene_to_file("res://world/counting_world.tscn") != OK:
+		print("Could not change scene")

@@ -7,6 +7,7 @@ var id : String
 var game_index : int
 var MenuBarScene : PackedScene = load("res://minigames/generics/MenuBar.tscn")
 var menu_bar = MenuBarScene.instantiate()
+var cheat_button := Button.new()
 
 func _ready():
 #	size = Vector2(1920, 1080)
@@ -17,7 +18,10 @@ func _ready():
 	_add_specifics()
 	assert(PlayerVariables.world_parts.has(world_part))
 	game_index = PlayerVariables.get_game_index(PlayerVariables.world_parts[world_part], id)
-	
+	cheat_button.text = "cheat"
+	cheat_button.position = Vector2(1800, 1000)
+	cheat_button.pressed.connect(_end_game)
+	add_child(cheat_button)
 	
 func _add_generics() -> void:
 	pass

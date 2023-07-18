@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://canih5ycl1h5l"]
 
 [ext_resource type="Script" path="res://minigames/generics/success_message.gd" id="1_7ifkj"]
-[ext_resource type="Texture2D" uid="uid://c02xx4bq72tgs" path="res://assets/splash.png" id="2_mp5h8"]
+[ext_resource type="Texture2D" uid="uid://bc1nxxv81y36o" path="res://assets/splash.png" id="2_mp5h8"]
 
 [sub_resource type="Theme" id="Theme_crjq2"]
 HBoxContainer/constants/separation = 20
@@ -68,6 +68,13 @@ custom_minimum_size = Vector2(110, 45)
 layout_mode = 2
 theme = SubResource("Theme_d8pc1")
 text = "RESTART"
+
+[node name="CountingWorldButton" type="Button" parent="MarginContainer/VBoxContainer/menuBar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(110, 45)
+layout_mode = 2
+theme = SubResource("Theme_d8pc1")
+text = "CountingWorld"
 
 [node name="ToMenuButton" type="Button" parent="MarginContainer/VBoxContainer/menuBar"]
 unique_name_in_owner = true

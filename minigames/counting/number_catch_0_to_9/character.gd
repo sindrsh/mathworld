@@ -3,8 +3,6 @@ extends Node2D
 const max_speed := 800
 const bottom_margin := 220
 var value := 0
-var swing := 0.0
-var down_speed := 0
 
 func _ready():
 	position = Vector2(get_viewport_rect().size.x/2, get_viewport_rect().size.y - bottom_margin) 
@@ -28,7 +26,6 @@ func _mouse_input(delta) -> Vector2:
 
 
 func _move(x):
-	var a = get_node('number_container').rotation
 	var max_a = 0.02
 	var speed_a = 0.004
 	var d = x - position.x
@@ -37,8 +34,6 @@ func _move(x):
 
 
 func _physics_process(delta):
-	position.y += down_speed
-	swing += 0.04
 	var x
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		x = _mouse_input(delta).x

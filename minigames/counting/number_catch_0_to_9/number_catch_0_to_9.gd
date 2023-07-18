@@ -64,8 +64,7 @@ func _spawn_numbers():
 		var random_number = randi() % 9 + 1
 		var num : Number = number.duplicate()
 		num.value = random_number
-		num.get_node("Orb").frame = random_number
-		num.get_node("Label").text = str(random_number)
+		num.get_node("Orb").frame = random_number - 1
 		num.position = Vector2(left_margin+randf_range(i*width/3, (i+1)*width/3), top_margin)
 		add_child(num)
 
@@ -77,8 +76,6 @@ func update_physics(NumberContainer):
 	current_node = NumberContainer
 
 
-func stop_move():
-	character.down_speed = 0
 
 
 func _cut_gas() -> void:
@@ -101,9 +98,6 @@ func _on_character_entered(body : Node2D) -> void:
 		CircleSprite.texture = tennis_ball_purple
 		character.value += 1
 #		call_deferred('update_physics', NumberContainer)
-		character.down_speed = 1
-		var timer = get_tree().create_timer(0.25)
-		assert(timer.connect("timeout", stop_move) == 0)
 		NumberContainer.add_child(CircleSprite)
 		NumberContainer.add_child(NumberSprite)
 #		current_sprite.texture = tennis_ball
