@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dhoe1ds3idav0"]
+[gd_scene load_steps=23 format=3 uid="uid://dhoe1ds3idav0"]
 
 [ext_resource type="Texture2D" uid="uid://bj7kexaofucm5" path="res://world/assets/grass_70.png" id="1_d3ab0"]
 [ext_resource type="Script" path="res://world/counting_world.gd" id="1_ugvj7"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bgdf3q2pt6q62" path="res://world/assets/Mushroom_Tower_Bottom_SVG_Test.svg" id="3_uol80"]
 [ext_resource type="Texture2D" uid="uid://cixhiufnyccqq" path="res://world/assets/Slugworm_Test_SVG.svg" id="4_jy5qk"]
 [ext_resource type="Script" path="res://world/amounts_0_to_9.gd" id="5_4avtw"]
+[ext_resource type="Script" path="res://world/falling_decimals_0_to_1.gd" id="5_b1mor"]
 [ext_resource type="Texture2D" uid="uid://dd7vwb1p511nw" path="res://world/assets/Building_Head_Test_SVG.svg" id="5_mby80"]
 [ext_resource type="Script" path="res://world/NumberCatch.gd" id="6_o2l5k"]
 [ext_resource type="Texture2D" uid="uid://be0fxbqk4fii" path="res://world/assets/Bridge_SVG_Test.svg" id="7_8u4b0"]
@@ -18,6 +19,7 @@
 [ext_resource type="Script" path="res://world/amounts_0_to_50.gd" id="14_3kdpj"]
 [ext_resource type="Texture2D" uid="uid://psfw2dumlb8q" path="res://world/assets/amounts2.svg" id="15_7hfj7"]
 [ext_resource type="Script" path="res://world/amounts_0_to_900.gd" id="16_5ty1r"]
+[ext_resource type="Texture2D" uid="uid://17xl7kwcp7gr" path="res://world/assets/Button_2.png" id="20_ic551"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gk4i3"]
 texture = ExtResource("1_d3ab0")
@@ -172,13 +174,14 @@ scale = Vector2(0.2, 0.2)
 texture_normal = ExtResource("2_w6j28")
 flip_h = true
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="FallingDecimals0To1" type="TextureButton" parent="."]
 offset_left = 840.0
 offset_top = 245.0
 offset_right = 1198.0
 offset_bottom = 735.0
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("3_uol80")
+script = ExtResource("5_b1mor")
 
 [node name="Amounts_0_to_9" type="TextureButton" parent="."]
 offset_left = 849.0
@@ -237,8 +240,8 @@ script = ExtResource("9_1ms5y")
 [node name="Amounts_0_to_50" type="TextureButton" parent="."]
 offset_left = 1692.0
 offset_top = 652.0
-offset_right = 1842.0
-offset_bottom = 802.0
+offset_right = 2942.0
+offset_bottom = 1677.0
 scale = Vector2(0.12, 0.12)
 texture_normal = ExtResource("13_e10d8")
 script = ExtResource("14_3kdpj")
@@ -246,8 +249,8 @@ script = ExtResource("14_3kdpj")
 [node name="Amounts_0_to_900" type="TextureButton" parent="."]
 offset_left = 1940.0
 offset_top = 657.0
-offset_right = 2090.0
-offset_bottom = 807.0
+offset_right = 2581.0
+offset_bottom = 1141.0
 scale = Vector2(0.28, 0.28)
 texture_normal = ExtResource("15_7hfj7")
 script = ExtResource("16_5ty1r")
@@ -257,3 +260,11 @@ offset_left = 640.0
 offset_top = -2.0
 offset_right = 2560.0
 offset_bottom = 143.0
+
+[node name="DevelopmentBoard" type="TextureButton" parent="."]
+offset_left = 2139.0
+offset_top = 40.0
+offset_right = 3382.0
+offset_bottom = 744.0
+scale = Vector2(0.1, 0.1)
+texture_normal = ExtResource("20_ic551")

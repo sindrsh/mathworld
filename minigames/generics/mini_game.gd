@@ -2,8 +2,12 @@ extends Control
 
 class_name MiniGame
 
+enum {COUNTING, NUMBER_LINE}
+
 var world_part : String
 var id : String
+var minigame_type : int
+
 var game_index : int
 var MenuBarScene : PackedScene = load("res://minigames/generics/MenuBar.tscn")
 var menu_bar = MenuBarScene.instantiate()
@@ -16,8 +20,8 @@ func _ready():
 	
 	_add_generics()
 	_add_specifics()
-	assert(PlayerVariables.world_parts.has(world_part))
-	game_index = PlayerVariables.get_game_index(PlayerVariables.world_parts[world_part], id)
+	assert(GlobalVariables.world_parts.has(world_part))
+	game_index = GlobalVariables.get_game_index(GlobalVariables.world_parts[world_part][minigame_type], id)
 	cheat_button.text = "cheat"
 	cheat_button.position = Vector2(1800, 1000)
 	cheat_button.pressed.connect(_end_game)
@@ -32,8 +36,8 @@ func _add_specifics() -> void:
 
 
 func _game_completed() -> void:
-	var game_array = PlayerVariables.world_parts[world_part][game_index]
-	game_array["status"] = PlayerVariables.COMPLETED
+	var game_array = GlobalVariables.world_parts[world_part][minigame_type][game_index]
+	game_array["status"] = GlobalVariables.COMPLETED
 	if id not in PlayerVariables.save_dict["minigames"][world_part]:
 		PlayerVariables.save_dict["minigames"][world_part].push_back(id) 
 	var save_game = FileAccess.open("user://savegame.save", FileAccess.WRITE)
