@@ -14,7 +14,7 @@ func _init():
 	collision_shape.shape = CircleShape2D.new()
 	collision_shape.shape.radius = 50
 	sprite.sprite_frames = SpriteFrames.new()
-	button.position = -Vector2(button.texture_normal.get_width(), button.texture_normal.get_height())/2
+	button.position = -Vector2(button.texture_normal.get_width(), button.texture_normal.get_height()) / 2
 
 func _ready():
 	assert(button.connect("pressed", _on_pressed) == 0)

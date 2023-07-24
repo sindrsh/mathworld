@@ -3,11 +3,12 @@ extends MiniGame
 var tick_scene = preload("res://minigames/counting/falling_decimals_0_to_1/tick.tscn")
 var number_scene = preload("res://minigames/counting/falling_decimals_0_to_1/number.tscn")
 var ticks = 21
+var tick_map = {}  # used by arrow key movement
 var dx = 70
 var line_a = Vector2(250,800)
 var line_b = Vector2(line_a.x + (ticks-1)*dx, line_a.y)
 
-var selected_number
+var selected_number: Node2D
 var score = 0
 var rounds = 3
 var high_score
@@ -23,7 +24,26 @@ func _on_num_selection(node):
 		selected_number = node
 	node.get_node("Sprite2D").frame = 1
 
-	
+
+# snaps the selected number either to the nearest 
+func _move_selected_number(direction: int) -> void:
+	if direction != 0 && selected_number != null:
+		var closest_tick_right = null
+		var closest_tick_left = null
+		var selected_pos = selected_number.position.x
+		
+		for tick_position in tick_map:
+			if tick_position > selected_number.position.x and (closest_tick_right == null or tick_position < closest_tick_right):
+				closest_tick_right = tick_position
+			if tick_position < selected_number.position.x and (closest_tick_left == null or tick_position > closest_tick_left):
+				closest_tick_left = tick_position
+		print(closest_tick_left)
+		print(closest_tick_right)
+		var tick = tick_map[closest_tick_right] if direction == 1 else tick_map[closest_tick_left]
+		
+		_on_tick_selection(tick)
+
+
 func _on_tick_selection(node):
 	node.get_node("Sprite2D").frame = 1
 	node.get_node("ColorTimer").start()
@@ -35,7 +55,7 @@ func _add_number():
 	var number = number_scene.instantiate()
 	add_child(number)
 	
-	assert(number.connect("selected", Callable(self, "_on_num_selection")) == 0)	
+	assert(number.connect("selected", Callable(self, "_on_num_selection")) == 0)
 
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
@@ -96,10 +116,15 @@ func _add_specifics():
 	for i in range(ticks):
 		var tick = tick_scene.instantiate()
 		add_child(tick)
-		tick.position = Vector2(line_a.x + dx*i, line_a.y)
+		
+		var x_position = line_a.x + dx*i
+		tick.position = Vector2(x_position, line_a.y)
+		tick_map[x_position] = tick
+		
 		tick.value = i*0.1
 		assert(tick.connect("selected", Callable(self, "_on_tick_selection")) == 0)
 	
+	print(tick_map)
 
 	$ScoreBox/ScoreLabel.text = str(score)
 	$ScoreBorder.position = $ScoreBox.position
@@ -172,3 +197,6 @@ func _process(delta):
 	if time > 20: 
 		$NumberTimer.wait_time = 0.9*$NumberTimer.wait_time
 		time = 0
+	
+	# this should probably in in an input event
+	_move_selected_number( int(Input.is_action_just_pressed("ui_right")) - int(Input.is_action_just_released("ui_left")) )
