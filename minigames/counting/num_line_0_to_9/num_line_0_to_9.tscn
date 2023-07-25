@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbv7qu5ju053e"]
+
+[ext_resource type="Script" path="res://minigames/counting/num_line_0_to_9/num_line_0_to_9.gd" id="1_bfi8l"]
+[ext_resource type="Texture2D" uid="uid://bh6c03oncbg4e" path="res://minigames/counting/num_line_0_to_9/assets/bar.svg" id="2_mxbsn"]
+
+[node name="NumLine0To9" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bfi8l")
+
+[node name="Bar" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_mxbsn")
+centered = false

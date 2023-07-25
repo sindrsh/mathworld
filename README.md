@@ -13,22 +13,23 @@ is prioritized over making a "perfect" version. Shall be playable on computers a
 * [Asymptote](https://asymptote.sourceforge.io/)
 
 ## Roadmap
+(Check the Issues tab for more specific tasks)
 * Making minigames </br>
 Other than running from source, the minigames can be cheked out at [itch.io](https://sindrsh.itch.io/mathworld)
-* Writing a more complete story
-* Making an outline of a map. Preferably with something appearing when a mini game is completed.
+* Writing a more complete story about the mathlings
+* Completing the first part of the MathWorld; the "Counting" part.
 
 ## Outline
 ### Story
 Some creatures, let's call them
 mathlings, arrive at an empty planet, and
-have to discover the basics of math by themselves. The mathlings does not have any spoken language, hence they must discover the math by finding the patterns and relations (as opposed to reading information).
+have to discover the basics of math by themselves. The mathlings does not have any spoken language, hence they must discover the math by finding patterns and relations (as opposed to reading information).
 
 ### Map
 The planet starts off containing
 landscape only, but as the mathlings
 make their mathematical discoveries,
-they will be able to build roads, buildings, etc. Different topics of math will define different parts of the landscape. By completing mini games of a topic, the mathlings get access to new type of buildings and new topics.
+their world gain roads and buildings. Different topics of math will define different parts of the landscape. By completing minigames of a topic, the mathlings get access to new type of buildings and new topics.
 
 ### Topics
 Most topics will be focusing on three types of skills:
