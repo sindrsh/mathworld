@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://d13vy2dlshfjr"]
+
+[ext_resource type="Script" path="res://components/shooter/shooter_test.gd" id="1_b1htc"]
+[ext_resource type="PackedScene" uid="uid://2rsfbtnfkpyu" path="res://components/shooter/shooter.tscn" id="2_qh6ng"]
+
+[node name="shooter_test" type="Node2D"]
+script = ExtResource("1_b1htc")
+
+[node name="shooter" parent="." instance=ExtResource("2_qh6ng")]
+position = Vector2(1010, 491)

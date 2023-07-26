@@ -1,4 +1,5 @@
 extends Node2D
+class_name NumberZombie
 
 # can't mark this as constant because Godot is dumb. Pretend it's immutable.
 var OPERATIONS = {
@@ -32,8 +33,8 @@ func shoot(answer: int) -> bool:
 	return false
 
 
-func _on_detection_area_area_entered(area:Area2D):
-	emit_signal("hit", area)
+func _on_detection_area_area_entered(_area: Area2D):
+	emit_signal("hit", self)
 	queue_free()
 
 

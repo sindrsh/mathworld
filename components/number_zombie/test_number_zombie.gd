@@ -8,3 +8,7 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			number_zombie.shoot(3)
+
+
+func _on_number_zombie_hit():
+	pass # Replace with function body.

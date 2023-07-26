@@ -7,8 +7,9 @@
 script = ExtResource("1_v13rx")
 
 [node name="NumberZombie" parent="." instance=ExtResource("1_pj7d0")]
-position = Vector2(278, 256)
-speed = 0
-target = Vector2(800, -800)
-opreation = "+"
+position = Vector2(1299, 92)
+speed = 200
+target = Vector2(800, 800)
 operands = Array[int]([3, 4])
+
+[connection signal="hit" from="NumberZombie" to="." method="_on_number_zombie_hit"]
