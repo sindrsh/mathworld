@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://cvjfutejxtlk8"]
+[gd_scene load_steps=3 format=3 uid="uid://cvjfutejxtlk8"]
 
 [ext_resource type="Script" path="res://components/calculator_ui/calculator_ui.gd" id="1_a8l0y"]
+[ext_resource type="Script" path="res://components/number_button/number_button.gd" id="2_4ultk"]
 
-[node name="shooter_ui" type="Control"]
+[node name="calculator_ui" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,9 +29,121 @@ grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="numbers/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="NumberButton" type="Button" parent="numbers/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1"
+script = ExtResource("2_4ultk")
+
+[node name="NumberButton2" type="Button" parent="numbers/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "2"
+script = ExtResource("2_4ultk")
+
+[node name="NumberButton3" type="Button" parent="numbers/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "3"
+script = ExtResource("2_4ultk")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="numbers/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="NumberButton" type="Button" parent="numbers/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "4"
+script = ExtResource("2_4ultk")
+
+[node name="NumberButton2" type="Button" parent="numbers/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "5"
+script = ExtResource("2_4ultk")
+
+[node name="NumberButton3" type="Button" parent="numbers/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "6"
+script = ExtResource("2_4ultk")
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="numbers/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="NumberButton" type="Button" parent="numbers/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "7"
+script = ExtResource("2_4ultk")
+
+[node name="NumberButton2" type="Button" parent="numbers/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "8"
+script = ExtResource("2_4ultk")
+
+[node name="NumberButton3" type="Button" parent="numbers/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "9"
+script = ExtResource("2_4ultk")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="numbers/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Clear" type="Button" parent="numbers/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Clear"
+
+[node name="Enter" type="Button" parent="numbers/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Enter"
+
+[node name="NumberButton3" type="Button" parent="numbers/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+script = ExtResource("2_4ultk")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -108.5
+offset_right = 108.5
+offset_bottom = 65.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+
+[connection signal="number_pressed" from="numbers/VBoxContainer/HBoxContainer/NumberButton" to="." method="_on_number_pressed"]
+[connection signal="pressed" from="numbers/VBoxContainer/HBoxContainer/NumberButton" to="numbers/VBoxContainer/HBoxContainer/NumberButton" method="_on_pressed"]
+[connection signal="number_pressed" from="numbers/VBoxContainer/HBoxContainer/NumberButton2" to="." method="_on_number_pressed"]
+[connection signal="pressed" from="numbers/VBoxContainer/HBoxContainer/NumberButton2" to="numbers/VBoxContainer/HBoxContainer/NumberButton2" method="_on_pressed"]
+[connection signal="number_pressed" from="numbers/VBoxContainer/HBoxContainer/NumberButton3" to="." method="_on_number_pressed"]
+[connection signal="pressed" from="numbers/VBoxContainer/HBoxContainer/NumberButton3" to="numbers/VBoxContainer/HBoxContainer/NumberButton3" method="_on_pressed"]
+[connection signal="number_pressed" from="numbers/VBoxContainer/HBoxContainer2/NumberButton" to="." method="_on_number_pressed"]
+[connection signal="pressed" from="numbers/VBoxContainer/HBoxContainer2/NumberButton" to="numbers/VBoxContainer/HBoxContainer2/NumberButton" method="_on_pressed"]
+[connection signal="number_pressed" from="numbers/VBoxContainer/HBoxContainer2/NumberButton2" to="." method="_on_number_pressed"]
+[connection signal="pressed" from="numbers/VBoxContainer/HBoxContainer2/NumberButton2" to="numbers/VBoxContainer/HBoxContainer2/NumberButton2" method="_on_pressed"]
+[connection signal="number_pressed" from="numbers/VBoxContainer/HBoxContainer2/NumberButton3" to="." method="_on_number_pressed"]
+[connection signal="pressed" from="numbers/VBoxContainer/HBoxContainer2/NumberButton3" to="numbers/VBoxContainer/HBoxContainer2/NumberButton3" method="_on_pressed"]
+[connection signal="number_pressed" from="numbers/VBoxContainer/HBoxContainer3/NumberButton" to="." method="_on_number_pressed"]
+[connection signal="pressed" from="numbers/VBoxContainer/HBoxContainer3/NumberButton" to="numbers/VBoxContainer/HBoxContainer3/NumberButton" method="_on_pressed"]
+[connection signal="number_pressed" from="numbers/VBoxContainer/HBoxContainer3/NumberButton2" to="." method="_on_number_pressed"]
+[connection signal="pressed" from="numbers/VBoxContainer/HBoxContainer3/NumberButton2" to="numbers/VBoxContainer/HBoxContainer3/NumberButton2" method="_on_pressed"]
+[connection signal="number_pressed" from="numbers/VBoxContainer/HBoxContainer3/NumberButton3" to="." method="_on_number_pressed"]
+[connection signal="pressed" from="numbers/VBoxContainer/HBoxContainer3/NumberButton3" to="numbers/VBoxContainer/HBoxContainer3/NumberButton3" method="_on_pressed"]
+[connection signal="pressed" from="numbers/VBoxContainer/HBoxContainer4/Clear" to="." method="_on_clear"]
+[connection signal="pressed" from="numbers/VBoxContainer/HBoxContainer4/Enter" to="." method="_on_enter"]
+[connection signal="number_pressed" from="numbers/VBoxContainer/HBoxContainer4/NumberButton3" to="." method="_on_number_pressed"]
+[connection signal="pressed" from="numbers/VBoxContainer/HBoxContainer4/NumberButton3" to="numbers/VBoxContainer/HBoxContainer4/NumberButton3" method="_on_pressed"]
