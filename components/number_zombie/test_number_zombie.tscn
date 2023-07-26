@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://wln63t33y1kv"]
+
+[ext_resource type="PackedScene" uid="uid://cq0faomwwgutm" path="res://components/number_zombie/number_zombie.tscn" id="1_pj7d0"]
+[ext_resource type="Script" path="res://components/number_zombie/test_number_zombie.gd" id="1_v13rx"]
+
+[node name="test_number_zombie" type="Node2D"]
+script = ExtResource("1_v13rx")
+
+[node name="NumberZombie" parent="." instance=ExtResource("1_pj7d0")]
+position = Vector2(278, 256)
+speed = 0
+target = Vector2(800, -800)
+opreation = "+"
+operands = Array[int]([3, 4])
