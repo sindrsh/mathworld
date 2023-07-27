@@ -20,8 +20,8 @@ func _ready():
 	
 	_add_generics()
 	_add_specifics()
-	assert(GlobalVariables.world_parts.has(world_part))
-	game_index = GlobalVariables.get_game_index(GlobalVariables.world_parts[world_part][minigame_type], id)
+	if GlobalVariables.world_parts.has(world_part):
+		game_index = GlobalVariables.get_game_index(GlobalVariables.world_parts[world_part][minigame_type], id)
 	cheat_button.text = "cheat"
 	cheat_button.position = Vector2(1800, 1000)
 	cheat_button.pressed.connect(_end_game)
@@ -36,13 +36,14 @@ func _add_specifics() -> void:
 
 
 func _game_completed() -> void:
-	var game_array = GlobalVariables.world_parts[world_part][minigame_type][game_index]
-	game_array["status"] = GlobalVariables.COMPLETED
-	if id not in PlayerVariables.save_dict["minigames"][world_part]:
-		PlayerVariables.save_dict["minigames"][world_part].push_back(id) 
-	var save_game = FileAccess.open("user://savegame.save", FileAccess.WRITE)
-	var json_string = JSON.stringify(PlayerVariables.save_dict)
-	save_game.store_line(json_string)
+	if GlobalVariables.world_parts.has(world_part):
+		var game_array = GlobalVariables.world_parts[world_part][minigame_type][game_index]
+		game_array["status"] = GlobalVariables.COMPLETED
+		if id not in PlayerVariables.save_dict["minigames"][world_part]:
+			PlayerVariables.save_dict["minigames"][world_part].push_back(id) 
+		var save_game = FileAccess.open("user://savegame.save", FileAccess.WRITE)
+		var json_string = JSON.stringify(PlayerVariables.save_dict)
+		save_game.store_line(json_string)
 	
 	
 func _end_game_condition() -> bool:
