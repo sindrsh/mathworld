@@ -1,4 +1,4 @@
-extends Node2D
+extends Area2D
 class_name NumberZombie
 
 # can't mark this as constant because Godot is dumb. Pretend it's immutable.

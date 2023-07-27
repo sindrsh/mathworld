@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi1dhergomg1a"]
+
+[ext_resource type="Script" path="res://components/bullet/bullet.gd" id="1_b0b4m"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k1dij"]
+
+[node name="bullet" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_b0b4m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_k1dij")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(0, -15, -9, -9, -9, 8, 0, 15, 9, 8, 9, -9)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

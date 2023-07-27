@@ -1,24 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://cq0faomwwgutm"]
+[gd_scene load_steps=5 format=3 uid="uid://cq0faomwwgutm"]
 
 [ext_resource type="Script" path="res://components/number_zombie/number_zombie.gd" id="1_jvrnj"]
-[ext_resource type="Script" path="res://components/clickable/clickable.gd" id="2_qp5xc"]
 [ext_resource type="Script" path="res://assets/global_scenes/text.gd" id="3_tftu8"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iopt8"]
-size = Vector2(66, 68)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_od748"]
 radius = 46.0435
 
-[node name="NumberZombie" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iopt8"]
+size = Vector2(63, 68)
+
+[node name="NumberZombie" type="Area2D"]
 script = ExtResource("1_jvrnj")
-
-[node name="Clickable" type="Area2D" parent="."]
-script = ExtResource("2_qp5xc")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Clickable"]
-position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_iopt8")
 
 [node name="DetectionArea" type="Area2D" parent="."]
 collision_layer = 0
@@ -40,5 +32,9 @@ offset_right = 21.0
 offset_bottom = 25.0
 text = "1 + 2"
 script = ExtResource("3_tftu8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_iopt8")
 
 [connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]
