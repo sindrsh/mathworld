@@ -125,6 +125,35 @@ grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 horizontal_alignment = 1
 
+[node name="Health" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -168.0
+offset_top = 48.0
+offset_right = -8.0
+offset_bottom = 96.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Health: 10"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -168.0
+offset_right = -7.0
+offset_bottom = 48.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Score: 0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
 [connection signal="number_pressed" from="numbers/VBoxContainer/HBoxContainer/NumberButton" to="." method="_on_number_pressed"]
 [connection signal="pressed" from="numbers/VBoxContainer/HBoxContainer/NumberButton" to="numbers/VBoxContainer/HBoxContainer/NumberButton" method="_on_pressed"]
 [connection signal="number_pressed" from="numbers/VBoxContainer/HBoxContainer/NumberButton2" to="." method="_on_number_pressed"]

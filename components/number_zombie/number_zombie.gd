@@ -10,6 +10,7 @@ var OPERATIONS = {
 }
 
 signal hit
+signal kill
 
 @export var speed: int = 400
 @export var target: Vector2 = Vector2(0, 0)
@@ -25,11 +26,10 @@ func _ready():
 
 func shoot(answer: int) -> bool:
 	if answer == OPERATIONS[opreation].call(operands[0], operands[1]):
-		print("You shot me!")
 		queue_free()
+		emit_signal("kill")
 		return true
 
-	print("You missed!")	
 	return false
 
 

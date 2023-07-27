@@ -16,5 +16,7 @@ position = Vector2(1232, 504)
 wait_time = 2.0
 autostart = true
 
+[connection signal="damange_taken" from="shooter" to="UILayer/calculator_ui" method="_on_shooter_damange_taken"]
+[connection signal="score_changed" from="shooter" to="UILayer/calculator_ui" method="_on_shooter_score_changed"]
 [connection signal="number_entered" from="UILayer/calculator_ui" to="shooter" method="_give_ammo"]
 [connection signal="timeout" from="Timer" to="shooter" method="spawn" binds= [50, 500]]

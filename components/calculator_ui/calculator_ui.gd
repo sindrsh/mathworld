@@ -2,7 +2,9 @@ extends Control
 
 
 var number_string = "";
-@onready var label = get_node("Label");
+@onready var label: Label = get_node("Label");
+@onready var health_label: Label = get_node("Health");
+@onready var score_label: Label = get_node("Score");
 signal number_entered(number: int);
 
 
@@ -29,3 +31,11 @@ func _input(event):
 func _on_clear():
   number_string = "";
   label.text = number_string;
+
+
+func _on_shooter_score_changed(score: int):
+  score_label.text = "Score: " + str(score);
+
+
+func _on_shooter_damange_taken(health: int):
+  health_label.text = "Health: " + str(health)  
