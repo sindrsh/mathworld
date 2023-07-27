@@ -8,4 +8,13 @@
 [node name="shooter" parent="." instance=ExtResource("1_le6tw")]
 position = Vector2(1232, 504)
 
-[node name="calculator_ui" parent="." instance=ExtResource("2_yam71")]
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="calculator_ui" parent="UILayer" instance=ExtResource("2_yam71")]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="number_entered" from="UILayer/calculator_ui" to="shooter" method="_give_ammo"]
+[connection signal="timeout" from="Timer" to="shooter" method="spawn" binds= [50, 500]]

@@ -17,6 +17,15 @@ func _on_enter():
   _on_clear();
 
 
+func _input(event):
+  if event is InputEventKey:
+    if event.pressed:
+      if event.as_text_keycode() == "C":
+        _on_clear()
+      elif event.as_text_keycode() == "Enter":
+        _on_enter()
+
+
 func _on_clear():
   number_string = "";
   label.text = number_string;

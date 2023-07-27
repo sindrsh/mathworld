@@ -39,6 +39,9 @@ func _on_detection_area_area_entered(_area: Area2D):
 
 
 func _physics_process(delta):
+	# having issues with this not working so I'm throwing it here as a hacky fix
+	text.text = str(operands[0]) + " " + opreation + " " + str(operands[1])
+
 	var direction = target - position
 	var distance = direction.length()
 	var velocity = direction.normalized() * speed * delta

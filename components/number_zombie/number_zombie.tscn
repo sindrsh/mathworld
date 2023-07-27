@@ -10,6 +10,8 @@ radius = 46.0435
 size = Vector2(63, 68)
 
 [node name="NumberZombie" type="Area2D"]
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("1_jvrnj")
 
 [node name="DetectionArea" type="Area2D" parent="."]
