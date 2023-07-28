@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://cq0faomwwgutm"]
+
+[ext_resource type="Script" path="res://components/number_zombie/number_zombie.gd" id="1_jvrnj"]
+[ext_resource type="Script" path="res://assets/global_scenes/text.gd" id="3_tftu8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_od748"]
+radius = 46.0435
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iopt8"]
+size = Vector2(63, 68)
+
+[node name="NumberZombie" type="Area2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_jvrnj")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_od748")
+debug_color = Color(0.972549, 0, 0.454902, 0.419608)
+metadata/_edit_lock_ = true
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(1, 0.0705882, 1, 1)
+polygon = PackedVector2Array(-29, -27, -29, 31, 27, 31, 27, -30, 0, 0)
+
+[node name="Text" type="Label" parent="."]
+offset_left = -19.0
+offset_top = -1.0
+offset_right = 21.0
+offset_bottom = 25.0
+text = "1 + 2"
+script = ExtResource("3_tftu8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_iopt8")
+
+[connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]

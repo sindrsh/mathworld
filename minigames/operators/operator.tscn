@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwbu082f5kxwe"]
+
+[ext_resource type="PackedScene" uid="uid://2rsfbtnfkpyu" path="res://components/shooter/shooter.tscn" id="1_le6tw"]
+[ext_resource type="PackedScene" uid="uid://cvjfutejxtlk8" path="res://components/calculator_ui/calculator_ui.tscn" id="2_yam71"]
+
+[node name="operator" type="Node2D"]
+
+[node name="shooter" parent="." instance=ExtResource("1_le6tw")]
+position = Vector2(1232, 504)
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="calculator_ui" parent="UILayer" instance=ExtResource("2_yam71")]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="damange_taken" from="shooter" to="UILayer/calculator_ui" method="_on_shooter_damange_taken"]
+[connection signal="score_changed" from="shooter" to="UILayer/calculator_ui" method="_on_shooter_score_changed"]
+[connection signal="number_entered" from="UILayer/calculator_ui" to="shooter" method="_give_ammo"]
+[connection signal="timeout" from="Timer" to="shooter" method="spawn" binds= [50, 500]]

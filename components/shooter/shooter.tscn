@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://2rsfbtnfkpyu"]
+
+[ext_resource type="Script" path="res://components/shooter/shooter.gd" id="1_keshn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kihev"]
+radius = 37.0
+
+[node name="shooter" type="Area2D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_keshn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_kihev")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(1, 0.490196, 0.298039, 1)
+polygon = PackedVector2Array(-38, -1, 0, -37, 37, -1, 0, 37)
+
+[node name="Zombies" type="Node2D" parent="."]
