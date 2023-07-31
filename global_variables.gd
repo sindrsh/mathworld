@@ -4,9 +4,24 @@ enum {COMPLETED, NOT_COMPLETED}
 enum {INSIGHT, CALCULATION}
 
 
-var count_number_line_minigames := [
+var count_number_line_minigames := [	
 	{
-		"id": "falling_decimals_0_to_1",
+		"id": "num_line_0_to_9",
+		"status": NOT_COMPLETED,
+		"branch": INSIGHT
+	},	
+	{
+		"id": "falling_numbers_0_to_9",
+		"status": NOT_COMPLETED,
+		"branch": CALCULATION
+	},
+	{
+		"id": "number_bridge_0_to_9",
+		"status": NOT_COMPLETED,
+		"branch": CALCULATION
+	},				
+	{
+		"id": "falling_decimals_0_to_2",
 		"status": NOT_COMPLETED,
 		"branch": CALCULATION
 	},
@@ -32,7 +47,12 @@ var count_amount_minigames := [
 		"id": "amount_0_to_50",
 		"status": NOT_COMPLETED,
 		"branch": CALCULATION
-	}
+	},
+	{
+		"id": "falling_amounts_0_to_999",
+		"status": NOT_COMPLETED,
+		"branch": CALCULATION
+	},	
 ]
 
 

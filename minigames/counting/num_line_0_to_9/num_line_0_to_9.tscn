@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cbv7qu5ju053e"]
+[gd_scene load_steps=4 format=3 uid="uid://cbv7qu5ju053e"]
 
-[ext_resource type="Script" path="res://minigames/counting/num_line_0_to_9/num_line_0_to_9.gd" id="1_bfi8l"]
-[ext_resource type="Texture2D" uid="uid://bh6c03oncbg4e" path="res://minigames/counting/num_line_0_to_9/assets/bar.svg" id="2_mxbsn"]
+[ext_resource type="Script" path="res://minigames/counting/num_line_0_to_9/num_line_0_to_9.gd" id="1_t1cho"]
+[ext_resource type="Texture2D" uid="uid://bh6c03oncbg4e" path="res://minigames/counting/num_line_0_to_9/assets/bar.svg" id="2_psrlu"]
+[ext_resource type="Texture2D" uid="uid://k7tc2injrgpo" path="res://minigames/counting/num_line_0_to_9/assets/tick.svg" id="3_2afgm"]
 
 [node name="NumLine0To9" type="Control"]
 layout_mode = 3
@@ -10,9 +11,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_bfi8l")
+script = ExtResource("1_t1cho")
 
 [node name="Bar" type="Sprite2D" parent="."]
 visible = false
-texture = ExtResource("2_mxbsn")
+texture = ExtResource("2_psrlu")
+centered = false
+
+[node name="Zero" type="Sprite2D" parent="."]
+texture = ExtResource("3_2afgm")
 centered = false

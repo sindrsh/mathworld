@@ -9,5 +9,6 @@ pair A = (0,0);
 pair B = (x,0);
 path C = (B.x,y);
 path D = (B.x,-y);
-
-draw(A--B^^C--D);
+draw(C--D);
+shipout("tick.svg");
+draw(A--B);

@@ -19,8 +19,19 @@ func _ready():
 	
 	assert($DevelopmentBoard.pressed.connect(_on_development_button_pressed) == 0)
 	
-	amount_minigames = [$Amounts_0_to_9, $NumberMatch, $NumberCatch,]
-	number_line_minigames = [$FallingDecimals0To1]
+	amount_minigames = [
+		$Amount0To9, 
+		$NumberMatch, 
+		$NumberCatch, 
+		$Amount0To50, 
+		$FallingAmounts0To999,
+	]
+	number_line_minigames = [
+		$NumLine0To9, 
+		$FallingNumbers0To9, 
+		$NumberBridge0To9,	
+		$FallingDecimals0To2,
+	]
 #	var save_game := FileAccess.open("user://savegame.save", FileAccess.READ)
 #	var json := JSON.new()
 	

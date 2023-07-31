@@ -1,6 +1,6 @@
 extends TextureButton
 
-var minigame := "falling_decimals_0_to_1"
+var minigame := "falling_decimals_0_to_2"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

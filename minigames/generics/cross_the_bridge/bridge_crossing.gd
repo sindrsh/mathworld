@@ -79,9 +79,6 @@ func _add_generics() -> void:
 	add_child(new_task_timer)
 	add_child(pickable_object)
 	
-	max_score = 5
-	
-	_mk_task()
 
 func _add_specifics() -> void:
 	pass	
@@ -131,6 +128,8 @@ func _on_number_arrival() -> void:
 	score_label.text = str(score)	
 	if score == max_score:
 		sound_effect.stream = finished_sound
+		sound_effect.play()
+		_end_game()
 	sound_effect.play()
 	
 	

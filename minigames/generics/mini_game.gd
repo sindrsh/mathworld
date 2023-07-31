@@ -2,7 +2,7 @@ extends Control
 
 class_name MiniGame
 
-enum {COUNTING, NUMBER_LINE}
+enum {AMOUNT, NUMBER_LINE}
 
 var world_part : String
 var id : String
@@ -20,6 +20,8 @@ func _ready():
 	
 	_add_generics()
 	_add_specifics()
+	
+	
 	if GlobalVariables.world_parts.has(world_part):
 		game_index = GlobalVariables.get_game_index(GlobalVariables.world_parts[world_part][minigame_type], id)
 	cheat_button.text = "cheat"

@@ -1,0 +1,74 @@
+[gd_scene load_steps=12 format=3 uid="uid://ckruf1iauoyh"]
+
+[ext_resource type="Texture2D" uid="uid://rq8m0h0lkgmo" path="res://minigames/counting/falling_decimals_0_to_2/assets/zero_.png" id="1_fxok1"]
+[ext_resource type="Texture2D" uid="uid://dd38qcpr8mxra" path="res://minigames/counting/falling_decimals_0_to_2/assets/one_.png" id="2_0g0lr"]
+[ext_resource type="Texture2D" uid="uid://c4i656yvrnik" path="res://minigames/counting/falling_decimals_0_to_2/assets/two_.png" id="3_0gs35"]
+[ext_resource type="Texture2D" uid="uid://bqfl2tn6yja0n" path="res://minigames/counting/falling_decimals_0_to_2/assets/three_.png" id="4_tvsrh"]
+[ext_resource type="Texture2D" uid="uid://dmgtuxdkk422k" path="res://minigames/counting/falling_decimals_0_to_2/assets/four_.png" id="5_6om2q"]
+[ext_resource type="Texture2D" uid="uid://cvpenf5g6l3ne" path="res://minigames/counting/falling_decimals_0_to_2/assets/five_.png" id="6_krkh2"]
+[ext_resource type="Texture2D" uid="uid://elx3ga2hruxq" path="res://minigames/counting/falling_decimals_0_to_2/assets/six_.png" id="7_y77vh"]
+[ext_resource type="Texture2D" uid="uid://q7bebpfrb558" path="res://minigames/counting/falling_decimals_0_to_2/assets/seven_.png" id="8_4yilw"]
+[ext_resource type="Texture2D" uid="uid://bep2nhv6ql6cm" path="res://minigames/counting/falling_decimals_0_to_2/assets/eight_.png" id="9_85mkp"]
+[ext_resource type="Texture2D" uid="uid://g1xpnqbvb0j7" path="res://minigames/counting/falling_decimals_0_to_2/assets/nine_.png" id="10_o3b5p"]
+
+[sub_resource type="SpriteFrames" id="1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_fxok1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0g0lr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0gs35")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_tvsrh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6om2q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_krkh2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_y77vh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_4yilw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_85mkp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_o3b5p")
+}],
+"loop": true,
+"name": &"black",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"combine",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"red",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"result",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"select",
+"speed": 5.0
+}]
+
+[node name="Int" type="AnimatedSprite2D"]
+sprite_frames = SubResource("1")
+animation = &"black"

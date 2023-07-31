@@ -3,6 +3,7 @@ extends  "res://minigames/generics/puzzles/amounts/place_position.gd"
 func _add_specifics() -> void:
 	world_part = "counting"
 	id = "amount_0_to_9"
+	minigame_type = AMOUNT
 	
 	_add_number_places([1])
 	_add_board(1, number_places[1].position + Vector2(0, -350))
