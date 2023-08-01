@@ -27,5 +27,9 @@ func _input(event) -> void:
 		if event.pressed and hovering:
 			emit_signal("on_click")	
 		return;
+	
+	if event is InputEventScreenTouch:
+		if event.pressed:
+			emit_signal("on_click")
 
 	# TODO: make this work when the screen is tapped as well

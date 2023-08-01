@@ -12,8 +12,8 @@ func _add_specifics():
 	$Measures.position = $Framework.position + Vector2(900.0, 0)
 	
 	$Equation1.position = $Framework.position + Vector2(0.0, dy)
-	$Equation2.position = $Equation1.position + Vector2(0.0, dy)	
-	$Equation3.position = $Equation1.position + Vector2(1100.0, dy/2)		
+	$Equation2.position = $Equation1.position + Vector2(0.0, dy)
+	$Equation3.position = $Equation1.position + Vector2(1100.0, dy/2)
 	
 	var horz_line : Line2D = Line2D.new()
 	horz_line.points = PackedVector2Array([

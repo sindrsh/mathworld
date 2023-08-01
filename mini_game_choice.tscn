@@ -2,8 +2,8 @@
 
 [ext_resource type="Shader" path="res://assets/shaders/hue_shift.gdshader" id="1_fa06o"]
 [ext_resource type="Script" path="res://mini_game_choice.gd" id="1_owhrr"]
-[ext_resource type="Texture2D" uid="uid://8mmer7xbpmn7" path="res://minigames/generics/assets/button_stroke.png" id="1_xbytt"]
-[ext_resource type="Texture2D" uid="uid://nva3wgxdla52" path="res://minigames/generics/assets/button_stroke_lightgreen.png" id="2_ta1uw"]
+[ext_resource type="Texture2D" uid="uid://cffiamaywsgsq" path="res://minigames/generics/assets/button_stroke.png" id="1_xbytt"]
+[ext_resource type="Texture2D" uid="uid://yn8kc3x1h06w" path="res://minigames/generics/assets/button_stroke_lightgreen.png" id="2_ta1uw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cotnu"]
 shader = ExtResource("1_fa06o")
