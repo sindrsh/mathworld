@@ -2,6 +2,7 @@ extends TextureButton
 
 var mouse_offset : Vector2
 var active : bool = false
+var hovered: bool = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -23,3 +24,14 @@ func _on_button_down() -> void:
 func _on_button_up() -> void:
 	active = false
 
+
+
+
+func _on_mouse_entered():
+	hovered = true
+	print("entered")
+
+
+func _on_mouse_exited():
+	hovered = false
+	print("exited")

@@ -21,11 +21,11 @@ func _on_enter():
 
 func _input(event):
   if event is InputEventKey:
-    if event.pressed:
-      if event.as_text_keycode() == "C":
-        _on_clear()
-      elif event.as_text_keycode() == "Enter":
-        _on_enter()
+	if event.pressed:
+	  if event.as_text_keycode() == "C":
+		_on_clear()
+	  elif event.as_text_keycode() == "Enter":
+		_on_enter()
 
 
 func _on_clear():

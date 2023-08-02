@@ -15,3 +15,11 @@ func _on_clickable_on_hover_start():
 
 func _on_clickable_on_hover_stop():
 	print("hover stopped...")
+
+
+func _on_clickable_on_press():
+	print("pressed...")
+
+
+func _on_clickable_on_release():
+	print("released...")

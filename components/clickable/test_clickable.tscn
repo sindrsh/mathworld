@@ -22,3 +22,5 @@ polygon = PackedVector2Array(2, 331, 0, -2, 510, 1, 510, 330)
 [connection signal="on_click" from="clickable" to="." method="_on_clickable_on_click"]
 [connection signal="on_hover_start" from="clickable" to="." method="_on_clickable_on_hover_start"]
 [connection signal="on_hover_stop" from="clickable" to="." method="_on_clickable_on_hover_stop"]
+[connection signal="on_press" from="clickable" to="." method="_on_clickable_on_press"]
+[connection signal="on_release" from="clickable" to="." method="_on_clickable_on_release"]
