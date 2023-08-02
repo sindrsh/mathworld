@@ -41,8 +41,8 @@ func spawn(speed: int, spawn_radius: float) -> void:
 func _on_zombie_hit(zombie: NumberZombie) -> void:
   health -= 1
   if health <= 0:
-    queue_free()
-    emit_signal("dead")
+	queue_free()
+	emit_signal("dead")
 
   emit_signal("damange_taken", health)
   zombie.queue_free()
@@ -55,24 +55,24 @@ func _on_kill() -> void:
 
 func _input(event) -> void:
   if event is InputEventMouseButton:
-    if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-      shoot()
+	if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+	  shoot()
 
 
 func shoot() -> void:
   if has_ammo:
-    polygon.color = default_color
-    var instance: Bullet = bullet_scene.instantiate()
-    get_parent().add_child(instance)
+	polygon.color = default_color
+	var instance: Bullet = bullet_scene.instantiate()
+	get_parent().add_child(instance)
 
-    instance.position = position
+	instance.position = position
 
-    # get a vector pointing to the mouse
-    var mouse_position = get_local_mouse_position().normalized()
+	# get a vector pointing to the mouse
+	var mouse_position = get_local_mouse_position().normalized()
 
-    instance.shoot(mouse_position * bullet_speed, ammo)
+	instance.shoot(mouse_position * bullet_speed, ammo)
 
-    has_ammo = false
+	has_ammo = false
 
 
 func _give_ammo(number: int) -> void:
