@@ -4,14 +4,18 @@ class_name MiniGame
 
 enum {AMOUNT, NUMBER_LINE}
 
+# every child must set these three variables
+# in the _add_specifics function
 var world_part : String
 var id : String
 var minigame_type : int
 
 var game_index : int
 var MenuBarScene : PackedScene = load("res://minigames/generics/MenuBar.tscn")
+var status_bar_scene : PackedScene = load("res://minigames/generics/status_bar.tscn")
 var menu_bar = MenuBarScene.instantiate()
 var cheat_button := Button.new()
+var status_bar : AnimatedSprite2D
 
 func _ready():
 #	size = Vector2(1920, 1080)
@@ -48,16 +52,36 @@ func _game_completed() -> void:
 		save_game.store_line(json_string)
 	
 	
+func _add_status_bar() -> void:
+	status_bar = status_bar_scene.instantiate()
+	status_bar.position = Vector2(1800, 500)
+	add_child(status_bar)
+	
+	
 func _end_game_condition() -> bool:
 	return false
 	
 
 func _end_game_message():
 	return "Mini game completed!"
-	
-	
+
+
+func _stop_game() -> void:
+	set_physics_process(false)
+	for node in get_children():
+		node.queue_free()
+		
+		
 func _end_game() -> void:
 	_game_completed()
+	_stop_game()
 	var message = load("res://minigames/generics/SuccessMessage.tscn").instantiate()
 	message.get_node("%Label").text = _end_game_message()
 	add_child(message)	
+
+
+func _end_game_with_failure():
+	var message = load("res://minigames/generics/SuccessMessage.tscn").instantiate()
+	message.get_node("%Label").text = "OOOPS :-("
+	_stop_game()
+	add_child(message)

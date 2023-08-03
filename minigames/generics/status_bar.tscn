@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://ciylhny54p0u7"]
+
+[ext_resource type="Texture2D" uid="uid://cchdmav8xe1d5" path="res://minigames/generics/assets/status-0.svg" id="1_i1832"]
+[ext_resource type="Texture2D" uid="uid://5o07pqlwcy1n" path="res://minigames/generics/assets/status-1.svg" id="2_llkp6"]
+[ext_resource type="Texture2D" uid="uid://crvbqmukwx5wd" path="res://minigames/generics/assets/status-2.svg" id="3_8o4k6"]
+[ext_resource type="Texture2D" uid="uid://bdslfw1c83l7h" path="res://minigames/generics/assets/status-3.svg" id="4_nqv87"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_htm6x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_i1832")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_llkp6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8o4k6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nqv87")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="StatusBar" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_htm6x")
+frame = 3

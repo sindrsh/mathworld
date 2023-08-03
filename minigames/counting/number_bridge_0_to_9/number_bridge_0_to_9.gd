@@ -60,6 +60,7 @@ func _add_specifics():
 	max_score = 5
 	_mk_task()
 
+
 func _physics_process(_delta):
 	if number.moving:
 		plus_denom_btn.hide()	
@@ -144,7 +145,7 @@ func _prepare_task() -> void:
 	numerator = 0
 	
 	randomize()
-	answer = randi() % 10
+	answer = randi() % 9 + 1
 	number.position = number_line_pos + Vector2(0,-40)
 	
 	var road1 : Line2D = Line2D.new()

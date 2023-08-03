@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 signal bubble_pressed(_name : String)
 
-var speed : int = 200
+var speed : int = 100
 var int_value : Array
 var float_value : float
 var representation : int
@@ -14,6 +14,7 @@ var background_a : Array
 
 func _init():
 	background_a = [
+		preload("res://minigames/generics/assets/snooker_numbers/zero.svg"),
 		preload("res://minigames/generics/assets/snooker_numbers/one.png"),
 		preload("res://minigames/generics/assets/snooker_numbers/two.png"),
 		preload("res://minigames/generics/assets/snooker_numbers/three.png"),
@@ -38,6 +39,7 @@ func _ready():
 	add_child(button)
 	add_child(sprite)
 	
+	
 func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)
 	if collision:
@@ -46,6 +48,7 @@ func _physics_process(delta):
 
 func _on_pressed() -> void:
 	emit_signal("bubble_pressed", name)
+		
 		
 func set_frames(frame0path : String = '', frame1path : String = '', 
 		configuration1 : bool = true) -> void:

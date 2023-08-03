@@ -78,12 +78,15 @@ func _on_bubble_pressed(_name : String) -> void:
 			else:
 				audio_player.stream = incorrect_sound
 				audio_player.play()
-				await get_tree().create_timer(0.5).timeout
-				get_tree().reload_current_scene()
+				if status_bar.frame == 0:
+					_end_game_with_failure()
+					
+				status_bar.frame -= 1
 				return
-			
-			await get_tree().create_timer(0.5).timeout
-			if _end_game_condition(): _end_game()
+
+			if _end_game_condition(): 
+				await get_tree().create_timer(0.5).timeout
+				_end_game()
 
 
 func _bubbles_are_equal(_bubble1 : String, _bubble2 : String) -> bool:

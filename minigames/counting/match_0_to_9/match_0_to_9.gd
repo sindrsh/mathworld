@@ -2,25 +2,30 @@ extends "res://minigames/generics/bouncing_bubbles/bouncing_bubbles.gd"
 
 var representation_a : Array
 var representation_b : Array
-var bubble_pairs := 5
 var score : = 0
+var ints := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 func _add_specifics() -> void:
 	world_part = "counting"
 	id = "match_0_to_9"
+	minigame_type = AMOUNT
+	
+	_add_status_bar()
 	
 	representation_a = [
-		preload("res://minigames/generics/assets/stroke_numbers/one-stroke.svg"),
-		preload("res://minigames/generics/assets/stroke_numbers/two-stroke.svg"),
-		preload("res://minigames/generics/assets/stroke_numbers/three-stroke.svg"),
-		preload("res://minigames/generics/assets/stroke_numbers/four-stroke.svg"),
-		preload("res://minigames/generics/assets/stroke_numbers/five-stroke.svg"),
-		preload("res://minigames/generics/assets/stroke_numbers/six-stroke.svg"),
-		preload("res://minigames/generics/assets/stroke_numbers/seven-stroke.svg"),
-		preload("res://minigames/generics/assets/stroke_numbers/eight-stroke.svg"),	
-		preload("res://minigames/generics/assets/stroke_numbers/nine-stroke.svg"),
+		preload("res://minigames/generics/bouncing_bubbles/assets/zero.svg"),
+		preload("res://minigames/generics/bouncing_bubbles/assets/one.svg"),
+		preload("res://minigames/generics/bouncing_bubbles/assets/two.svg"),
+		preload("res://minigames/generics/bouncing_bubbles/assets/three.svg"),
+		preload("res://minigames/generics/bouncing_bubbles/assets/four.svg"),
+		preload("res://minigames/generics/bouncing_bubbles/assets/five.svg"),
+		preload("res://minigames/generics/bouncing_bubbles/assets/six.svg"),
+		preload("res://minigames/generics/bouncing_bubbles/assets/seven.svg"),
+		preload("res://minigames/generics/bouncing_bubbles/assets/eight.svg"),	
+		preload("res://minigames/generics/bouncing_bubbles/assets/nine.svg"),
 	]
 	representation_b = [
+		null,
 		preload("res://minigames/generics/bouncing_bubbles/assets/1b.svg"),
 		preload("res://minigames/generics/bouncing_bubbles/assets/2b.svg"),
 		preload("res://minigames/generics/bouncing_bubbles/assets/3b.svg"),
@@ -34,13 +39,12 @@ func _add_specifics() -> void:
 
 
 func _mk_bubbles() -> void:
-	for i in range(bubble_pairs):
+	for i in range(ints.size()):
 		_mk_bubble_pair()
 
 
 func _mk_bubble_pair() -> void:
-	# note: bubble_number is 1 less than the value the bubble represents
-	var bubble_number : int = randi() % 9
+	var bubble_number : int = ints.pop_front()
 	var position_area : Vector2 = 0.7*get_viewport_rect().size
 	
 	var bubble_a := Bubble.new()

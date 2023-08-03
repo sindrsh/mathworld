@@ -35,6 +35,9 @@ var min_texture : Texture2D = preload("res://minigames/generics/cross_the_bridge
 
 
 func _add_generics() -> void:
+	
+	_add_status_bar()
+	
 	assert(creature.connect("move_completed", _on_creature_arrival) == 0)	
 	assert(send_number_button.connect("pressed", _send_number) == 0)
 	assert(number.connect("move_completed", _on_number_arrival) == 0)
@@ -122,10 +125,14 @@ func _on_number_arrival() -> void:
 		sound_effect.stream = correct_sound
 		creature.moving = true
 	else:
-		score = 0
+		if status_bar.frame == 0:
+			_end_game_with_failure()
+			return
+		status_bar.frame -= 1
 		sound_effect.stream = incorrect_sound
 		_mk_task()
 	score_label.text = str(score)	
+	
 	if score == max_score:
 		sound_effect.stream = finished_sound
 		sound_effect.play()

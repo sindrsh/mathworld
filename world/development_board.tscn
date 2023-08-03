@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://drprymxpcl50r"]
 
-[ext_resource type="Texture2D" uid="uid://bobj0c88xlyad" path="res://world/assets/window_bar.png" id="1_g5y5i"]
-[ext_resource type="Texture2D" uid="uid://c0ch3melqp211" path="res://world/assets/white_bar.png" id="2_bo0xx"]
-[ext_resource type="Texture2D" uid="uid://d2kgdmsufs7g5" path="res://world/assets/purple_bar.png" id="3_2v68v"]
-[ext_resource type="Texture2D" uid="uid://c8ahy8sf04ksx" path="res://world/assets/icon_placeholder.png.png" id="3_xtpsg"]
+[ext_resource type="Texture2D" uid="uid://g2kqdqg1plqk" path="res://world/assets/window_bar.png" id="1_g5y5i"]
+[ext_resource type="Texture2D" uid="uid://c3b65lvacdfa5" path="res://world/assets/white_bar.png" id="2_bo0xx"]
+[ext_resource type="Texture2D" uid="uid://7xbn3akckent" path="res://world/assets/purple_bar.png" id="3_2v68v"]
+[ext_resource type="Texture2D" uid="uid://dfw3rbhd3yikl" path="res://world/assets/icon_placeholder.png.png" id="3_xtpsg"]
 
 [node name="DevelopmentBoard" type="Node2D"]
 
