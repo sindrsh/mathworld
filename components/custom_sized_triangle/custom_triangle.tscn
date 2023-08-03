@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://csmxm7hrve5v2"]
+
+[ext_resource type="Script" path="res://components/custom_sized_triangle/custom_triangle.gd" id="1_qakrw"]
+
+[node name="custom_triangle" type="Node2D"]
+script = ExtResource("1_qakrw")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(19, 14)
+color = Color(0.976471, 0, 0, 1)
+polygon = PackedVector2Array(14, 1039, -51, 1082, 14, 1082)
