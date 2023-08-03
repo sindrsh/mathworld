@@ -1,6 +1,10 @@
-[gd_scene format=3 uid="uid://c3nf3w02pfi37"]
+[gd_scene load_steps=3 format=3 uid="uid://c3nf3w02pfi37"]
+
+[ext_resource type="Script" path="res://minigames/pyt/pyt_puzzle2/pyt.gd" id="1_i3tul"]
+[ext_resource type="PackedScene" uid="uid://csmxm7hrve5v2" path="res://components/custom_sized_triangle/custom_triangle.tscn" id="2_upmof"]
 
 [node name="pyt" type="Node2D"]
+script = ExtResource("1_i3tul")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -54,3 +58,9 @@ text = "c"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+
+[node name="custom_triangle" parent="." instance=ExtResource("2_upmof")]
+
+[connection signal="value_changed" from="CanvasLayer/Control/HBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/Control/HBoxContainer2/HSlider2" to="." method="_on_h_slider_2_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/Control/HBoxContainer3/HSlider3" to="." method="_on_h_slider_3_value_changed"]
