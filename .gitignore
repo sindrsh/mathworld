@@ -17,3 +17,7 @@ mono_crash.*.json
 # Imported translations (automatically generated from CSV files)
 *.translation
 *.import
+
+# FireSquid uses the godot vim plugin to get vim keybindings in the Godot editor
+# https://github.com/joshnajera/godot-vim
+addons/godot-vim

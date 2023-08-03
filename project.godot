@@ -33,6 +33,10 @@ window/stretch/mode="canvas_items"
 
 movie_writer/movie_file="/home/firesquid/source/mathworld/clips/ godot_recording.avi"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-vim/plugin.cfg")
+
 [filesystem]
 
 import/blender/enabled=false
