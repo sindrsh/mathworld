@@ -60,6 +60,12 @@ size_flags_horizontal = 3
 size_flags_vertical = 1
 
 [node name="custom_triangle" parent="." instance=ExtResource("2_upmof")]
+position = Vector2(1024, -495)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1923.0
+offset_bottom = 1080.0
+color = Color(0.145098, 0.145098, 0.145098, 1)
 
 [connection signal="value_changed" from="CanvasLayer/Control/HBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/Control/HBoxContainer2/HSlider2" to="." method="_on_h_slider_2_value_changed"]

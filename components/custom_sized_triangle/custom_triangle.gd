@@ -1,14 +1,15 @@
 extends Node2D
+class_name CustomTriangle
 
-
-@onready var triangle: Polygon2D = get_node("Triangle")
 
 # index 0 = a, index 1 = b 
 var bases = [50, 50]
+@onready var polygon:Polygon2D = get_node("Polygon2D")
 
 
 # actually updates the triangle's position
 func update_triangle():
+	print(bases)
 	# the "a" side should be situated on the x axis with its midpoint at 0 on the x axis
 	# the "b" side should be situated on the y axis with tis midpoint at 0 on the y axis
 	# Therefore, the three ts of the triangle will be at:
@@ -18,10 +19,15 @@ func update_triangle():
 	# this should keep the triangle centered
 	
 	# had to draw this out on paper to figure it out lol
-	triangle.polygon.clear()
-	triangle.polygon.append(Vector2(0.5 * bases[0], -0.5 * bases[1]))
-	triangle.polygon.append(Vector2(-0.5 * bases[0], -0.5 * bases[1]))
-	triangle.polygon.append(Vector2(0.5 * bases[0], 0.5 * bases[1]))
+
+
+	polygon.polygon = [
+		Vector2(0.5 * bases[0], -0.5 * bases[1]),
+		Vector2(-0.5 * bases[0], -0.5 * bases[1]),
+		Vector2(0.5 * bases[0], 0.5 * bases[1]),
+	]
+	
+	print(polygon.polygon)
 	
 
 
