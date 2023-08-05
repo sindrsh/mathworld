@@ -4,7 +4,3 @@
 
 [node name="custom_triangle" type="Node2D"]
 script = ExtResource("1_qakrw")
-
-[node name="Polygon2D" type="Polygon2D" parent="."]
-color = Color(1, 0, 1, 1)
-polygon = PackedVector2Array(20, 1022, -65, 1098, 160, 1107)

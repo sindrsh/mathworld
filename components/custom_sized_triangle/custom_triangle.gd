@@ -4,7 +4,6 @@ class_name CustomTriangle
 
 # index 0 = a, index 1 = b 
 var bases = [50, 50]
-@onready var polygon:Polygon2D = get_node("Polygon2D")
 
 
 # actually updates the triangle's position
@@ -19,16 +18,17 @@ func update_triangle():
 	# this should keep the triangle centered
 	
 	# had to draw this out on paper to figure it out lol
+	queue_redraw()
 
 
-	polygon.polygon = [
+
+func _draw():
+	print("drawing...")
+	draw_polygon([
 		Vector2(0.5 * bases[0], -0.5 * bases[1]),
 		Vector2(-0.5 * bases[0], -0.5 * bases[1]),
-		Vector2(0.5 * bases[0], 0.5 * bases[1]),
-	]
-	
-	print(polygon.polygon)
-	
+		Vector2(0.5 * bases[0], 0.5 * bases[1])
+	], [Color(0, 0, 0)])
 
 
 # if the bases need to be changed that can just be done by manually setting the value
