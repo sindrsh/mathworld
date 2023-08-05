@@ -1,6 +1,6 @@
 extends Node2D
 
-const MULTIPLIER = 7
+const MULTIPLIER = 3
 @onready var triangle: CustomTriangle = get_node("custom_triangle")
 
 # a

@@ -48,20 +48,5 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/Control"]
-layout_mode = 2
-
-[node name="Label3" type="Label" parent="CanvasLayer/Control/HBoxContainer3"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 21
-text = "c"
-
-[node name="HSlider3" type="HSlider" parent="CanvasLayer/Control/HBoxContainer3"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-
 [connection signal="value_changed" from="CanvasLayer/Control/HBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/Control/HBoxContainer2/HSlider2" to="." method="_on_h_slider_2_value_changed"]
-[connection signal="value_changed" from="CanvasLayer/Control/HBoxContainer3/HSlider3" to="." method="_on_h_slider_3_value_changed"]
