@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3nf3w02pfi37"]
+
+[ext_resource type="Script" path="res://minigames/pyt/pyt_puzzle2/pyt.gd" id="1_i3tul"]
+[ext_resource type="PackedScene" uid="uid://csmxm7hrve5v2" path="res://components/custom_sized_triangle/custom_triangle.tscn" id="2_upmof"]
+
+[node name="pyt" type="Node2D"]
+script = ExtResource("1_i3tul")
+
+[node name="custom_triangle" parent="." instance=ExtResource("2_upmof")]
+position = Vector2(973, 540)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -968.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 21
+text = "a"
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 21
+text = "b"
+
+[node name="HSlider2" type="HSlider" parent="CanvasLayer/Control/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+
+[connection signal="value_changed" from="CanvasLayer/Control/HBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/Control/HBoxContainer2/HSlider2" to="." method="_on_h_slider_2_value_changed"]
