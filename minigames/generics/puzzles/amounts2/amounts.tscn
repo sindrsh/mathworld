@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2dqowd50180x"]
+
+[ext_resource type="PackedScene" uid="uid://doibm0fj5t0lj" path="res://components/cup/cup.tscn" id="1_csaaq"]
+[ext_resource type="PackedScene" uid="uid://y74vssla2807" path="res://components/ball/ball.tscn" id="2_1uklk"]
+
+[node name="Amounts" type="Node2D"]
+
+[node name="Cup" parent="." instance=ExtResource("1_csaaq")]
+position = Vector2(974, 768)
+scale = Vector2(2, 2)
+
+[node name="Ball" parent="." instance=ExtResource("2_1uklk")]
+position = Vector2(1020, 235)

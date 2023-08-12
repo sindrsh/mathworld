@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://doibm0fj5t0lj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sfiga"]
+size = Vector2(244, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hnfar"]
+size = Vector2(38, 237)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqia1"]
+size = Vector2(167, 237)
+
+[node name="Cup" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 63)
+shape = SubResource("RectangleShape2D_sfiga")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-103, -72.5)
+shape = SubResource("RectangleShape2D_hnfar")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(103, -72)
+shape = SubResource("RectangleShape2D_hnfar")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0, 0, 1, 1)
+polygon = PackedVector2Array(-123, -191, -123, 81, 122, 81, 122, -191, 84, -191, 84, 46, -83, 46, -83, -191)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, -72.5)
+shape = SubResource("RectangleShape2D_eqia1")
+debug_color = Color(0.980392, 0.133333, 0, 0.419608)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -20.0
+offset_top = 51.0
+offset_right = 20.0
+offset_bottom = 74.0
+text = "1"
+horizontal_alignment = 1
