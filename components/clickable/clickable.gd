@@ -54,10 +54,14 @@ func _input(event) -> void:
 
 
 func _drag_start() -> void:
+	if !draggable: return
+	
 	dragging = true
 	mouse_difference = position - get_global_mouse_position()
 	print("drag start")
 
 func _drag_end() -> void:
+	if !draggable: return
+	
 	dragging = false
 	print("drag end")
