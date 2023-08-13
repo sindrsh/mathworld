@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://doibm0fj5t0lj"]
+[gd_scene load_steps=5 format=3 uid="uid://doibm0fj5t0lj"]
+
+[ext_resource type="Script" path="res://components/cup/cup.gd" id="1_mlw8u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sfiga"]
 size = Vector2(244, 33)
@@ -10,6 +12,7 @@ size = Vector2(38, 237)
 size = Vector2(167, 237)
 
 [node name="Cup" type="Node2D"]
+script = ExtResource("1_mlw8u")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_mask = 0
@@ -44,5 +47,8 @@ offset_left = -20.0
 offset_top = 51.0
 offset_right = 20.0
 offset_bottom = 74.0
-text = "1"
+text = "0"
 horizontal_alignment = 1
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

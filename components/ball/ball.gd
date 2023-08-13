@@ -6,6 +6,10 @@ var mouse_difference := Vector2(0, 0)
 func _physics_process(delta) -> void:
 	if following_mouse:
 		position = mouse_difference + get_global_mouse_position()
+	
+	# ensures that the balls don't stick around forever
+	if abs(position.x) > 100000 or abs(position.y) > 10000:
+		queue_free()
 
 func _integrate_forces(state):
 	if following_mouse:

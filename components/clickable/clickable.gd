@@ -35,6 +35,8 @@ func _on_mouse_exited() -> void:
 	if dragging: return
 	
 	hovering = false
+	dragging = false
+	emit_signal("on_release")
 	emit_signal("on_hover_stop")
 
 
