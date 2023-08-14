@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2dqowd50180x"]
+
+[ext_resource type="PackedScene" uid="uid://doibm0fj5t0lj" path="res://components/cup/cup.tscn" id="1_csaaq"]
+[ext_resource type="PackedScene" uid="uid://s8wjkxfrinde" path="res://components/dispenser/dispenser.tscn" id="3_m4rug"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_la08f"]
+size = Vector2(270, 69)
+
+[node name="Amounts" type="Node2D"]
+
+[node name="Cup" parent="." instance=ExtResource("1_csaaq")]
+position = Vector2(974, 768)
+scale = Vector2(2, 2)
+
+[node name="Balls" type="Node2D" parent="."]
+
+[node name="dispenser" parent="." node_paths=PackedStringArray("ball_container") instance=ExtResource("3_m4rug")]
+position = Vector2(390, 204)
+ball_container = NodePath("../Balls")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(250, 607)
+
+[node name="Button" type="Button" parent="StaticBody2D"]
+offset_right = 270.0
+offset_bottom = 70.0
+text = "Spawn Ball"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(135, 34.5)
+shape = SubResource("RectangleShape2D_la08f")
+
+[connection signal="pressed" from="StaticBody2D/Button" to="dispenser" method="dispense"]

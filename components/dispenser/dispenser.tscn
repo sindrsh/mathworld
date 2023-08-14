@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://s8wjkxfrinde"]
+
+[ext_resource type="Script" path="res://components/dispenser/dispenser.gd" id="1_afub6"]
+
+[node name="dispenser" type="Node2D"]
+script = ExtResource("1_afub6")

@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://y74vssla2807"]
+
+[ext_resource type="PackedScene" uid="uid://bb5ibsyatnfcq" path="res://components/clickable/clickable.tscn" id="1_6i2ht"]
+[ext_resource type="Script" path="res://components/ball/ball.gd" id="1_7x1o4"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tfpop"]
+bounce = 0.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yt2bt"]
+size = Vector2(70, 70)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hdjj8"]
+radius = 35.0
+
+[node name="Ball" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_tfpop")
+script = ExtResource("1_7x1o4")
+
+[node name="Clickable" parent="." instance=ExtResource("1_6i2ht")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Clickable"]
+shape = SubResource("RectangleShape2D_yt2bt")
+debug_color = Color(0.984314, 0, 0.352941, 0.419608)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hdjj8")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(1, 1, 0, 1)
+polygon = PackedVector2Array(0, -34, 25, -25, 28.6137, -15.9656, 35, 0, 26, 24, 0, 35, -25, 24, -35, 0, -25, -25)
+
+[connection signal="on_press" from="Clickable" to="." method="_on_clickable_on_press"]
+[connection signal="on_release" from="Clickable" to="." method="_on_clickable_on_release"]
