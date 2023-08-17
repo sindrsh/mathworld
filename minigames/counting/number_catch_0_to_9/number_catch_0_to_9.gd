@@ -29,7 +29,7 @@ var values : Array = [
 	preload("res://minigames/generics/assets/stroke_numbers/six-stroke.svg"),
 	preload("res://minigames/generics/assets/stroke_numbers/seven-stroke.svg"),
 	preload("res://minigames/generics/assets/stroke_numbers/eight-stroke.svg"),
-	preload("res://minigames/generics/assets/stroke_numbers/nine-stroke.svg"),		
+	preload("res://minigames/generics/assets/stroke_numbers/nine-stroke.svg"),
 ]
 
 # Called when the node enters the scene tree for the first time.
