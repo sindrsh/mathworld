@@ -20,6 +20,8 @@ var current_sprite : Sprite2D
 var current_node : Node2D
 var collision_area : Area2D
 
+const MAX_HEALTH: int = 5
+var health: int = MAX_HEALTH
 
 var bag: Array[int] = []
 
@@ -77,7 +79,6 @@ func _spawn_numbers(n: int) -> void:
 			_new_bag()
 		
 		var random_number = bag.pop_front()
-		print(bag)
 		
 		var num : Number = number.duplicate()
 		num.value = random_number
@@ -140,9 +141,16 @@ func _on_character_entered(body : Node2D) -> void:
 			_end_game()
 	else:
 		number.queue_free()
-		if character.value > 0:
-			# if the character gets the wrong number, do some sort of punishment
-			character.get_node("Canister").frame -= 1
-			
-			character.value -= 1
+		health -= 1
+		print("health: ", health)
+		print("max health: ", MAX_HEALTH)
+		print("percent: ", float(health) / float(MAX_HEALTH))
+		$ProgressBar.value = float(health) / float(MAX_HEALTH)
+		
+		if health <= 0:
+			# TODO: make something happen when the player dies
+			print("I died :(")
+			return;
+		
+		
 	
