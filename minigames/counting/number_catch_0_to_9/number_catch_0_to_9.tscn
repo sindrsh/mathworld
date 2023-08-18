@@ -11,9 +11,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_y7kqp")
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.588235)
 position = Vector2(968, 539)

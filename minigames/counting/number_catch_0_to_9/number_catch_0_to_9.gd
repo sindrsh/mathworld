@@ -20,6 +20,9 @@ var current_sprite : Sprite2D
 var current_node : Node2D
 var collision_area : Area2D
 
+var time_since_last_spawn: float = 2000  # seconds
+const MAX_TIME_BETWEEN_SPAWNS: float = 4  # seconds
+
 var values : Array = [
 	preload("res://minigames/generics/assets/stroke_numbers/one-stroke.svg"),
 	preload("res://minigames/generics/assets/stroke_numbers/two-stroke.svg"),
@@ -29,7 +32,7 @@ var values : Array = [
 	preload("res://minigames/generics/assets/stroke_numbers/six-stroke.svg"),
 	preload("res://minigames/generics/assets/stroke_numbers/seven-stroke.svg"),
 	preload("res://minigames/generics/assets/stroke_numbers/eight-stroke.svg"),
-	preload("res://minigames/generics/assets/stroke_numbers/nine-stroke.svg"),		
+	preload("res://minigames/generics/assets/stroke_numbers/nine-stroke.svg"),
 ]
 
 # Called when the node enters the scene tree for the first time.
@@ -40,7 +43,6 @@ func _add_specifics() -> void:
 	
 	var area2D : Area2D = character.get_node("number_container/Area2D")
 	assert(area2D.connect("body_entered", _on_character_entered) == 0)
-	assert($Timer.connect("timeout", _spawn_numbers) == 0)
 	assert($GasTimer.connect("timeout", _cut_gas) == 0)
 	
 	width = get_viewport_rect().size.x-right_margin
@@ -52,20 +54,19 @@ func _add_specifics() -> void:
 #	current_sprite.texture = tennis_ball_purple
 #	collision_area = current_node.get_node("Area2D")
 	add_child(character)
-	_spawn_numbers()
-	$Timer.start()
+	_spawn_numbers(1)
 	add_child(audio_player)
 	audio_player.stream = correct_sound
 
-func _spawn_numbers():
+func _spawn_numbers(n: int) -> void: 
 	randomize()
 	
-	for i in range(3):
+	for i in range(n):
 		var random_number = randi() % 9 + 1
 		var num : Number = number.duplicate()
 		num.value = random_number
 		num.get_node("Orb").frame = random_number - 1
-		num.position = Vector2(left_margin+randf_range(i*width/3, (i+1)*width/3), top_margin)
+		num.position = Vector2(left_margin+randf_range(0, width), top_margin)
 		add_child(num)
 
 
@@ -75,36 +76,57 @@ func update_physics(NumberContainer):
 	current_node.add_child(NumberContainer)
 	current_node = NumberContainer
 
-
-
+func _process(delta):
+	time_since_last_spawn += delta
+	
+	var chance_to_spawn: float = (1 / pow(MAX_TIME_BETWEEN_SPAWNS, 2)) * time_since_last_spawn * time_since_last_spawn
+	if randf() < chance_to_spawn:
+		_spawn_numbers(1)
+		time_since_last_spawn = 0
 
 func _cut_gas() -> void:
 	character.get_node("GasFront").hide()
 	character.get_node("GasBack").hide()
 
 func _on_character_entered(body : Node2D) -> void:
-	if body as Number and body.value == character.value + 1:
+	# maybe we should move some of this code to signals?
+	var number: Number = body as Number  # if this throws an error then two things are colliding that shouldn't be colliding
+	
+	if number.value == character.value + 1:
 		character.get_node("GasFront").show()
 		character.get_node("GasBack").show()
 		$GasTimer.start()
 		character.get_node("Canister").frame += 1
+		
+		# genuinely no clue what any of this is doing
 		var NumberContainer := Node2D.new()
 		var NumberSprite := Sprite2D.new() 
 		var CircleSprite := Sprite2D.new()
+		
 		NumberContainer.name = 'number_container'
 		NumberSprite.texture = values[body.value - 1]
 		NumberContainer.position = Vector2(0, -2*radius)
 		CircleSprite.position = NumberSprite.position
 		CircleSprite.texture = tennis_ball_purple
+		
 		character.value += 1
+		
 #		call_deferred('update_physics', NumberContainer)
 		NumberContainer.add_child(CircleSprite)
 		NumberContainer.add_child(NumberSprite)
 #		current_sprite.texture = tennis_ball
 #		current_sprite = CircleSprite
-		body.queue_free()
+		number.queue_free()
 		audio_player.play()
 		
 		if character.value == 9:
 			await get_tree().create_timer(0.5).timeout
 			_end_game()
+	else:
+		number.queue_free()
+		if character.value > 0:
+			# if the character gets the wrong number, do some sort of punishment
+			character.get_node("Canister").frame -= 1
+			
+			character.value -= 1
+	

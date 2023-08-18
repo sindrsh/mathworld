@@ -21,3 +21,7 @@ mono_crash.*.json
 # FireSquid uses the godot vim plugin to get vim keybindings in the Godot editor
 # https://github.com/joshnajera/godot-vim
 addons/godot-vim
+
+# FireSquid uses the wakatime plugin for time tracking
+# https://github.com/thomazthz/godot-wakatime
+addons/wakatime
