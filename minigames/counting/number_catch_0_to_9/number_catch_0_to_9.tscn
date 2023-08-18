@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://numbercatch"]
+[gd_scene load_steps=3 format=3 uid="uid://numbercatch"]
 
 [ext_resource type="Script" path="res://minigames/counting/number_catch_0_to_9/number_catch_0_to_9.gd" id="1_y7kqp"]
+[ext_resource type="Texture2D" uid="uid://71f4hijfdhxt" path="res://minigames/counting/number_catch_0_to_9/assets/BG_amounts.png" id="2_yj3lj"]
 
 [node name="NumberCatch" type="Control"]
 layout_mode = 3
@@ -11,10 +12,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_y7kqp")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.588235)
-position = Vector2(968, 539)
-scale = Vector2(2.11562, 1.69329)
+scale = Vector2(1.48, 1.47)
+texture = ExtResource("2_yj3lj")
+centered = false
 
 [node name="GasTimer" type="Timer" parent="."]
 one_shot = true
