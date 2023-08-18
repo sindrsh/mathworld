@@ -54,6 +54,8 @@ animations = [{
 }]
 
 [node name="Number" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("1_slanv")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
