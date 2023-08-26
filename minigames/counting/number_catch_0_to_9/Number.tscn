@@ -1,16 +1,16 @@
 [gd_scene load_steps=14 format=3 uid="uid://bhq2gtgs7kght"]
 
 [ext_resource type="Script" path="res://minigames/counting/number_catch_0_to_9/number.gd" id="1_slanv"]
-[ext_resource type="Texture2D" uid="uid://cyef3q2wpcj56" path="res://minigames/counting/number_catch_0_to_9/assets/orb_1.svg" id="2_caufg"]
-[ext_resource type="Texture2D" uid="uid://bsuht5qgqdie8" path="res://minigames/counting/number_catch_0_to_9/assets/orb_2.svg" id="3_hvofd"]
-[ext_resource type="Texture2D" uid="uid://d3shpkiuu2kb6" path="res://minigames/counting/number_catch_0_to_9/assets/orb_3.svg" id="4_0k3ty"]
-[ext_resource type="Texture2D" uid="uid://b8ms7gokso56u" path="res://minigames/counting/number_catch_0_to_9/assets/orb_4.svg" id="5_jucvy"]
-[ext_resource type="Texture2D" uid="uid://djiq5f8rfe105" path="res://minigames/counting/number_catch_0_to_9/assets/orb_5.svg" id="6_cig7n"]
-[ext_resource type="Texture2D" uid="uid://cscix137vn21o" path="res://minigames/counting/number_catch_0_to_9/assets/orb_6.svg" id="7_1ucfj"]
-[ext_resource type="Texture2D" uid="uid://dr43hm6hw18dm" path="res://minigames/counting/number_catch_0_to_9/assets/orb_7.svg" id="8_mya57"]
-[ext_resource type="Texture2D" uid="uid://btxud11hq6sn7" path="res://minigames/counting/number_catch_0_to_9/assets/orb_8.svg" id="9_3begb"]
-[ext_resource type="Texture2D" uid="uid://cxkjoyukkkcw4" path="res://minigames/counting/number_catch_0_to_9/assets/orb_9.svg" id="10_li23n"]
-[ext_resource type="Texture2D" uid="uid://e6dsu0ahhxgc" path="res://minigames/counting/number_catch_0_to_9/assets/orb_10.svg" id="11_eave4"]
+[ext_resource type="Texture2D" uid="uid://cn3nx4tyayll3" path="res://minigames/counting/number_catch_0_to_9/assets/orb_1.svg" id="2_caufg"]
+[ext_resource type="Texture2D" uid="uid://bq6eecwl4n1ir" path="res://minigames/counting/number_catch_0_to_9/assets/orb_2.svg" id="3_hvofd"]
+[ext_resource type="Texture2D" uid="uid://cwrbl1qbcot1s" path="res://minigames/counting/number_catch_0_to_9/assets/orb_3.svg" id="4_0k3ty"]
+[ext_resource type="Texture2D" uid="uid://dsm1rde7lcuxq" path="res://minigames/counting/number_catch_0_to_9/assets/orb_4.svg" id="5_jucvy"]
+[ext_resource type="Texture2D" uid="uid://djukcx147jqq3" path="res://minigames/counting/number_catch_0_to_9/assets/orb_5.svg" id="6_cig7n"]
+[ext_resource type="Texture2D" uid="uid://dmw1nba2ahbhf" path="res://minigames/counting/number_catch_0_to_9/assets/orb_6.svg" id="7_1ucfj"]
+[ext_resource type="Texture2D" uid="uid://bw246ym7twwhm" path="res://minigames/counting/number_catch_0_to_9/assets/orb_7.svg" id="8_mya57"]
+[ext_resource type="Texture2D" uid="uid://dnhwu4gcmu263" path="res://minigames/counting/number_catch_0_to_9/assets/orb_8.svg" id="9_3begb"]
+[ext_resource type="Texture2D" uid="uid://dndbunyu1hgf" path="res://minigames/counting/number_catch_0_to_9/assets/orb_9.svg" id="10_li23n"]
+[ext_resource type="Texture2D" uid="uid://bwq4khula47po" path="res://minigames/counting/number_catch_0_to_9/assets/orb_10.svg" id="11_eave4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1ha6a"]
 radius = 50.0
@@ -54,6 +54,8 @@ animations = [{
 }]
 
 [node name="Number" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("1_slanv")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
