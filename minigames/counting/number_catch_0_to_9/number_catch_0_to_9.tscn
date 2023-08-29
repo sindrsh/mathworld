@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://numbercatch"]
 
 [ext_resource type="Script" path="res://minigames/counting/number_catch_0_to_9/number_catch_0_to_9.gd" id="1_y7kqp"]
-[ext_resource type="Texture2D" uid="uid://coepwk0vtxht8" path="res://minigames/counting/number_catch_0_to_9/assets/BG_amounts.png" id="2_yj3lj"]
+[ext_resource type="Texture2D" uid="uid://71f4hijfdhxt" path="res://minigames/counting/number_catch_0_to_9/assets/BG_amounts.png" id="2_yj3lj"]
 
 [node name="NumberCatch" type="Control"]
 layout_mode = 3
