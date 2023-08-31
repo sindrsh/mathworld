@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://celi8du7wpvd8"]
+
+[node name="effect" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Hello world!!!!!!"
