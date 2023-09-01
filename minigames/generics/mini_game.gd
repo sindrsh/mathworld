@@ -46,7 +46,10 @@ func _game_completed() -> void:
 		var game_array = GlobalVariables.world_parts[world_part][minigame_type][game_index]
 		game_array["status"] = GlobalVariables.COMPLETED
 		if id not in PlayerVariables.save_dict["minigames"][world_part]:
+			
 			PlayerVariables.save_dict["minigames"][world_part].push_back(id) 
+			PlayerVariables.save_dict["minigames"]["lastCompletedMinigame"] = id
+			PlayerVariables.save_dict["minigames"]["effectPlayed"] = false
 		var save_game = FileAccess.open("user://savegame.save", FileAccess.WRITE)
 		var json_string = JSON.stringify(PlayerVariables.save_dict)
 		save_game.store_line(json_string)

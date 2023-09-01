@@ -2,6 +2,8 @@ extends Node2D
 
 var development_board : Node2D = preload("res://world/development_board.tscn").instantiate()
 
+var effect_scene = preload("res://world/effect.tscn")
+
 var amount_minigames : Array
 var number_line_minigames : Array
 var developments := {
@@ -16,7 +18,6 @@ var data
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
 	assert($DevelopmentBoard.pressed.connect(_on_development_button_pressed) == 0)
 	
 	amount_minigames = [
@@ -53,7 +54,12 @@ func _is_completed(node : TextureButton) -> bool:
 		return node.get("minigame") in PlayerVariables.save_dict["minigames"]["counting"]
 	return false
 
-			
+func _do_minigame_effect(node: TextureButton) -> bool:
+	if node.get("minigame") == PlayerVariables.save_dict["minigames"]["lastCompletedMinigame"]:
+		var instance = effect_scene.instantiate()
+		node.add_child(instance)
+		
+	return false
 
 func _show_minigames() -> void:
 	for minigames in [amount_minigames, number_line_minigames]:
@@ -61,6 +67,9 @@ func _show_minigames() -> void:
 		for i in range(1, minigames.size()):
 			if _is_completed(minigames[i-1]):
 				minigames[i].show()
+		
+		for i in range(0, minigames.size()):
+			_do_minigame_effect(minigames[i])
 
 func _update_development_status(minigames : Array, minigames_array : Array, insights : String, calculations : String) -> void:
 	for node in minigames:
