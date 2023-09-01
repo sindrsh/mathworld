@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://c71evkxmfm70r"]
 
 [ext_resource type="Script" path="res://minigames/counting/falling_numbers_0_to_9/falling_numbers_0_to_9.gd" id="1_ttqab"]
-[ext_resource type="AudioStream" uid="uid://8fy8l62igru3" path="res://minigames/counting/falling_decimals_0_to_2/assets/House In a Forest Loop.ogg" id="2_ajsij"]
-[ext_resource type="AudioStream" uid="uid://b4fv1iqjixc7q" path="res://minigames/counting/falling_decimals_0_to_2/assets/gameover.wav" id="3_qjww3"]
+[ext_resource type="AudioStream" uid="uid://bkd653hbhci4p" path="res://minigames/counting/falling_decimals_0_to_2/assets/House In a Forest Loop.ogg" id="2_ajsij"]
+[ext_resource type="AudioStream" uid="uid://4v7avs54e5sm" path="res://minigames/counting/falling_decimals_0_to_2/assets/gameover.wav" id="3_qjww3"]
 
 [node name="FallingDecimals0To2" type="Control"]
 layout_mode = 3

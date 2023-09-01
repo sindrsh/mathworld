@@ -1,19 +1,19 @@
 [gd_scene load_steps=15 format=3 uid="uid://dhoe1ds3idav0"]
 
 [ext_resource type="Script" path="res://world/counting_world.gd" id="1_ugvj7"]
-[ext_resource type="Texture2D" uid="uid://bgdf3q2pt6q62" path="res://world/assets/Mushroom_Tower_Bottom_SVG_Test.svg" id="3_uol80"]
-[ext_resource type="Texture2D" uid="uid://cixhiufnyccqq" path="res://world/assets/Slugworm_Test_SVG.svg" id="4_jy5qk"]
-[ext_resource type="Texture2D" uid="uid://ckybwkly4vpgg" path="res://world/assets/biclops.svg" id="6_b2yjb"]
-[ext_resource type="Texture2D" uid="uid://bgjdxkevga1g5" path="res://world/assets/cyclops.svg" id="7_8t41n"]
-[ext_resource type="Texture2D" uid="uid://2eg74tjvo2do" path="res://world/assets/stack guy 2.svg" id="8_p3ulf"]
-[ext_resource type="Texture2D" uid="uid://c83cl2muvlf5q" path="res://world/assets/Stack guy 1.svg" id="9_mfnxp"]
-[ext_resource type="Texture2D" uid="uid://b2logkqxxerl4" path="res://world/assets/red facility.svg" id="10_yaxrg"]
-[ext_resource type="Texture2D" uid="uid://cq6t867j5kecn" path="res://world/assets/blue guy.svg" id="11_nr4lx"]
+[ext_resource type="Texture2D" uid="uid://bh8dc5sjsp0ip" path="res://world/assets/Mushroom_Tower_Bottom_SVG_Test.svg" id="3_uol80"]
+[ext_resource type="Texture2D" uid="uid://d10pq8i8aksph" path="res://world/assets/Slugworm_Test_SVG.svg" id="4_jy5qk"]
+[ext_resource type="Texture2D" uid="uid://dyea5swnyflwr" path="res://world/assets/biclops.svg" id="6_b2yjb"]
+[ext_resource type="Texture2D" uid="uid://dwaxf63ud6607" path="res://world/assets/cyclops.svg" id="7_8t41n"]
+[ext_resource type="Texture2D" uid="uid://cu2o3s5s4ffgq" path="res://world/assets/stack guy 2.svg" id="8_p3ulf"]
+[ext_resource type="Texture2D" uid="uid://ds80xl85ry1rm" path="res://world/assets/Stack guy 1.svg" id="9_mfnxp"]
+[ext_resource type="Texture2D" uid="uid://7ih1p0dnoy6n" path="res://world/assets/red facility.svg" id="10_yaxrg"]
+[ext_resource type="Texture2D" uid="uid://dkw4727ai7fck" path="res://world/assets/blue guy.svg" id="11_nr4lx"]
 [ext_resource type="PackedScene" uid="uid://dltiiq845ae1o" path="res://minigames/generics/MenuBar.tscn" id="12_khj6s"]
-[ext_resource type="Texture2D" uid="uid://dt7cn705ihxdf" path="res://world/assets/bear.svg" id="13_m36cf"]
-[ext_resource type="Texture2D" uid="uid://cnj5uk755vx33" path="res://world/assets/road.svg" id="14_x5dn0"]
+[ext_resource type="Texture2D" uid="uid://dgodonf3udyfi" path="res://world/assets/bear.svg" id="13_m36cf"]
+[ext_resource type="Texture2D" uid="uid://bpsnc3ruqhw5j" path="res://world/assets/road.svg" id="14_x5dn0"]
 [ext_resource type="PackedScene" uid="uid://dbk0lrs3vdn38" path="res://world/building.tscn" id="19_der6q"]
-[ext_resource type="Texture2D" uid="uid://17xl7kwcp7gr" path="res://world/assets/Button_2.png" id="20_ic551"]
+[ext_resource type="Texture2D" uid="uid://ct0njr045ypde" path="res://world/assets/Button_2.png" id="20_ic551"]
 
 [node name="counting_world" type="Node2D"]
 script = ExtResource("1_ugvj7")
@@ -83,6 +83,8 @@ minigame = "falling_amounts_0_to_999"
 world_part = "counting"
 
 [node name="Amount50To999" parent="." instance=ExtResource("19_der6q")]
+minigame = "amount_50_to_999"
+world_part = "counting"
 
 [node name="NumLine0To9" parent="." instance=ExtResource("19_der6q")]
 offset_left = 15.0
