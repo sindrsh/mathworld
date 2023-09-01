@@ -2,6 +2,8 @@ extends Node2D
 
 var development_board : Node2D = preload("res://world/development_board.tscn").instantiate()
 
+var effect_scene = preload("res://world/effect.tscn")
+
 var amount_minigames : Array
 var number_line_minigames : Array
 var developments := {
@@ -54,7 +56,8 @@ func _is_completed(node : TextureButton) -> bool:
 
 func _do_minigame_effect(node: TextureButton) -> bool:
 	if node.get("minigame") == PlayerVariables.save_dict["minigames"]["lastCompletedMinigame"]:
-		print("I should be doing something")
+		var instance = effect_scene.instantiate()
+		node.add_child(instance)
 		
 	return false
 

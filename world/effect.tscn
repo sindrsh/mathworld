@@ -1,9 +1,27 @@
-[gd_scene format=3 uid="uid://celi8du7wpvd8"]
+[gd_scene load_steps=3 format=3 uid="uid://celi8du7wpvd8"]
+
+[ext_resource type="Script" path="res://world/effect.gd" id="1_b2tfq"]
+[ext_resource type="Texture2D" uid="uid://b4m65in8ml75v" path="res://assets/icon.svg" id="2_qca7x"]
 
 [node name="effect" type="Node2D"]
+script = ExtResource("1_b2tfq")
 
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Hello world!!!!!!"
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+modulate = Color(1, 0, 1, 1)
+emitting = false
+amount = 32
+one_shot = true
+speed_scale = 2.48
+texture = ExtResource("2_qca7x")
+emission_shape = 1
+emission_sphere_radius = 10.15
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 58.05
+initial_velocity_max = 144.76
+damping_min = 0.615
+damping_max = 0.615
+angle_max = 360.0
+hue_variation_min = 0.3
+hue_variation_max = 0.3
