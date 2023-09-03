@@ -1,11 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://lgriehlo27sa"]
+[gd_scene load_steps=3 format=3 uid="uid://jk5oi3qj8b6m"]
 
-[ext_resource type="Script" path="res://minigames/div/div_of_amounts/group.gd" id="1_pbhkl"]
+[ext_resource type="Script" path="res://minigames/generics/puzzles/number_board/group.gd" id="1_uqnml"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n3pem"]
 
-[node name="TotalGroup" type="Area2D"]
-script = ExtResource("1_pbhkl")
+[node name="Group" type="Area2D"]
+script = ExtResource("1_uqnml")
 
 [node name="Border" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_n3pem")

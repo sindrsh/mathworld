@@ -17,7 +17,7 @@ func _physics_process(_delta):
 	number_text.text = str(value)
 
 
-func _arrange(border_size : Vector2) -> void:
+func arrange(border_size : Vector2) -> void:
 	$Border.shape.size = border_size
 	$ColorRect.size = border_size
 	$ColorRect.position = -border_size/2
