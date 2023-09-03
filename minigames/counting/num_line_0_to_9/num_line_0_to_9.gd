@@ -1,5 +1,7 @@
 extends MiniGame
 
+#explanation
+
 var bar_length : int
 
 func _add_specifics():

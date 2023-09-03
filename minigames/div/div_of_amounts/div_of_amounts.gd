@@ -1,5 +1,7 @@
 extends MiniGame
 
+#explanation
+
 const Number = preload("res://minigames/div/div_of_amounts/number.gd")
 var input_box : LineEdit = preload("res://minigames/generics/input_box.tscn").instantiate()
 
