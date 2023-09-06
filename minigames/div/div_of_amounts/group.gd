@@ -3,6 +3,7 @@ extends Area2D
 var number_text := Text.new(40, "0")
 var value : int
 
+
 func _physics_process(_delta):
 	var new_value := 0
 	for area in get_overlapping_areas():
@@ -15,10 +16,10 @@ func _physics_process(_delta):
 	value = new_value
 	number_text.text = str(value)
 
+
 func _arrange(border_size : Vector2) -> void:
 	$Border.shape.size = border_size
 	$ColorRect.size = border_size
-#	$Border.position.x -= border_size.x/2 
 	$ColorRect.position = -border_size/2
 	$CenterContainer.position.x += border_size.x/2 - 11.0
 	$CenterContainer.position.y = -border_size.y/2

@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://jk5oi3qj8b6m"]
+
+[ext_resource type="Script" path="res://minigames/generics/puzzles/number_board/group.gd" id="1_uqnml"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n3pem"]
+
+[node name="Group" type="Area2D"]
+script = ExtResource("1_uqnml")
+
+[node name="Border" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_n3pem")
+
+[node name="ColorRect" type="ReferenceRect" parent="."]
+offset_left = 100.0
+offset_top = 100.0
+offset_right = 100.0
+offset_bottom = 100.0
+border_color = Color(0, 0.611765, 0.611765, 1)
+border_width = 2.0
+editor_only = false
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -10.0
+offset_bottom = 10.0
+grow_horizontal = 0

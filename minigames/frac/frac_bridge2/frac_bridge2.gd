@@ -53,6 +53,10 @@ func _add_specifics():
 	add_child(denom_symbol)
 	
 	number.add_child(fraction_bar)
+	x_scale = 300
+	max_int = 2
+	max_score = 5
+	_mk_task()
 
 func _physics_process(_delta):
 	if number.moving:

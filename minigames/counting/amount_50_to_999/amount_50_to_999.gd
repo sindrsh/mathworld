@@ -1,5 +1,7 @@
 extends  "res://minigames/generics/puzzles/amounts/place_position.gd"
 
+#explanation
+
 func _add_specifics() -> void:
 	_add_number_places([1, 2, 3])
 	_add_board(1, number_places[2].position + Vector2(50, -350))

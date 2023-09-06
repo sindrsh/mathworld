@@ -139,8 +139,6 @@ func _add_board(place: int, pos: Vector2) -> void:
 
 
 func _on_number_entered_board(_number : Area2D, _name : String) -> void:
-	if not _number.movable_shape.active:
-		return
 	var place = _number.place
 	var _number_place : Area2D = get_node(_name)
 	_number.movable_shape.set_deferred("active", false)

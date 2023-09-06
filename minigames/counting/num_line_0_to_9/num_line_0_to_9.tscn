@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://cbv7qu5ju053e"]
 
 [ext_resource type="Script" path="res://minigames/counting/num_line_0_to_9/num_line_0_to_9.gd" id="1_t1cho"]
-[ext_resource type="Texture2D" uid="uid://bh6c03oncbg4e" path="res://minigames/counting/num_line_0_to_9/assets/bar.svg" id="2_psrlu"]
-[ext_resource type="Texture2D" uid="uid://k7tc2injrgpo" path="res://minigames/counting/num_line_0_to_9/assets/tick.svg" id="3_2afgm"]
+[ext_resource type="Texture2D" uid="uid://cio5l1dydn7b1" path="res://minigames/counting/num_line_0_to_9/assets/bar.svg" id="2_psrlu"]
+[ext_resource type="Texture2D" uid="uid://cffejba4v58fm" path="res://minigames/counting/num_line_0_to_9/assets/tick.svg" id="3_2afgm"]
 
 [node name="NumLine0To9" type="Control"]
 layout_mode = 3

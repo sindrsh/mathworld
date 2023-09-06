@@ -1,280 +1,138 @@
-[gd_scene load_steps=18 format=3 uid="uid://dhoe1ds3idav0"]
+[gd_scene load_steps=15 format=3 uid="uid://dhoe1ds3idav0"]
 
-[ext_resource type="Texture2D" uid="uid://du1pelggl1wtg" path="res://world/assets/grass_70.png" id="1_d3ab0"]
 [ext_resource type="Script" path="res://world/counting_world.gd" id="1_ugvj7"]
-[ext_resource type="Texture2D" uid="uid://b5ssyvoxrptt0" path="res://world/assets/Tall_Building_Legs_SVG_Test.svg" id="2_w6j28"]
-[ext_resource type="Texture2D" uid="uid://b3kw86262rci" path="res://world/assets/Mushroom_Tower_Bottom_SVG_Test.svg" id="3_uol80"]
-[ext_resource type="Texture2D" uid="uid://b1nfbajn0vcl" path="res://world/assets/Slugworm_Test_SVG.svg" id="4_jy5qk"]
-[ext_resource type="Texture2D" uid="uid://bj7wax2h8m0m" path="res://world/assets/Building_Head_Test_SVG.svg" id="5_mby80"]
-[ext_resource type="Texture2D" uid="uid://cct8ympwh4uvl" path="res://world/assets/Bridge_SVG_Test.svg" id="7_8u4b0"]
-[ext_resource type="Texture2D" uid="uid://d3qth5e1egwcg" path="res://world/assets/number_catch_0_to_9.png" id="7_drdr0"]
-[ext_resource type="Texture2D" uid="uid://gn8udsyou3ep" path="res://world/assets/Anonymous_Country_school.svg" id="10_kjbls"]
-[ext_resource type="Texture2D" uid="uid://dnrweyoce15p0" path="res://world/assets/BenBois_Atomium_(Belgium).png" id="11_0dd3i"]
+[ext_resource type="Texture2D" uid="uid://bh8dc5sjsp0ip" path="res://world/assets/Mushroom_Tower_Bottom_SVG_Test.svg" id="3_uol80"]
+[ext_resource type="Texture2D" uid="uid://d10pq8i8aksph" path="res://world/assets/Slugworm_Test_SVG.svg" id="4_jy5qk"]
+[ext_resource type="Texture2D" uid="uid://dyea5swnyflwr" path="res://world/assets/biclops.svg" id="6_b2yjb"]
+[ext_resource type="Texture2D" uid="uid://dwaxf63ud6607" path="res://world/assets/cyclops.svg" id="7_8t41n"]
+[ext_resource type="Texture2D" uid="uid://cu2o3s5s4ffgq" path="res://world/assets/stack guy 2.svg" id="8_p3ulf"]
+[ext_resource type="Texture2D" uid="uid://ds80xl85ry1rm" path="res://world/assets/Stack guy 1.svg" id="9_mfnxp"]
+[ext_resource type="Texture2D" uid="uid://7ih1p0dnoy6n" path="res://world/assets/red facility.svg" id="10_yaxrg"]
+[ext_resource type="Texture2D" uid="uid://dkw4727ai7fck" path="res://world/assets/blue guy.svg" id="11_nr4lx"]
 [ext_resource type="PackedScene" uid="uid://dltiiq845ae1o" path="res://minigames/generics/MenuBar.tscn" id="12_khj6s"]
-[ext_resource type="Texture2D" uid="uid://jjqaqa6x4ww6" path="res://world/assets/amounts1.svg" id="13_e10d8"]
-[ext_resource type="Texture2D" uid="uid://dokhgfh0roj86" path="res://world/assets/amounts2.svg" id="15_7hfj7"]
+[ext_resource type="Texture2D" uid="uid://dgodonf3udyfi" path="res://world/assets/bear.svg" id="13_m36cf"]
+[ext_resource type="Texture2D" uid="uid://bpsnc3ruqhw5j" path="res://world/assets/road.svg" id="14_x5dn0"]
 [ext_resource type="PackedScene" uid="uid://dbk0lrs3vdn38" path="res://world/building.tscn" id="19_der6q"]
-[ext_resource type="Texture2D" uid="uid://dbb8mffjfffuh" path="res://world/assets/Button_2.png" id="20_ic551"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gk4i3"]
-texture = ExtResource("1_d3ab0")
-texture_region_size = Vector2i(64, 64)
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-8:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-7:1/0 = 0
-8:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-7:2/0 = 0
-8:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-4:3/0 = 0
-5:3/0 = 0
-6:3/0 = 0
-7:3/0 = 0
-8:3/0 = 0
-0:4/0 = 0
-1:4/0 = 0
-2:4/0 = 0
-3:4/0 = 0
-4:4/0 = 0
-5:4/0 = 0
-6:4/0 = 0
-7:4/0 = 0
-8:4/0 = 0
-0:5/0 = 0
-1:5/0 = 0
-2:5/0 = 0
-3:5/0 = 0
-4:5/0 = 0
-5:5/0 = 0
-6:5/0 = 0
-7:5/0 = 0
-8:5/0 = 0
-0:6/0 = 0
-1:6/0 = 0
-2:6/0 = 0
-3:6/0 = 0
-4:6/0 = 0
-5:6/0 = 0
-6:6/0 = 0
-7:6/0 = 0
-8:6/0 = 0
-0:7/0 = 0
-1:7/0 = 0
-2:7/0 = 0
-3:7/0 = 0
-4:7/0 = 0
-5:7/0 = 0
-6:7/0 = 0
-7:7/0 = 0
-8:7/0 = 0
-0:8/0 = 0
-1:8/0 = 0
-2:8/0 = 0
-3:8/0 = 0
-4:8/0 = 0
-5:8/0 = 0
-6:8/0 = 0
-7:8/0 = 0
-8:8/0 = 0
-0:9/0 = 0
-1:9/0 = 0
-2:9/0 = 0
-3:9/0 = 0
-4:9/0 = 0
-5:9/0 = 0
-6:9/0 = 0
-7:9/0 = 0
-8:9/0 = 0
-0:10/0 = 0
-1:10/0 = 0
-2:10/0 = 0
-3:10/0 = 0
-4:10/0 = 0
-5:10/0 = 0
-6:10/0 = 0
-7:10/0 = 0
-8:10/0 = 0
-0:11/0 = 0
-1:11/0 = 0
-2:11/0 = 0
-3:11/0 = 0
-4:11/0 = 0
-5:11/0 = 0
-6:11/0 = 0
-7:11/0 = 0
-8:11/0 = 0
-0:12/0 = 0
-1:12/0 = 0
-2:12/0 = 0
-3:12/0 = 0
-4:12/0 = 0
-5:12/0 = 0
-6:12/0 = 0
-7:12/0 = 0
-8:12/0 = 0
-0:13/0 = 0
-1:13/0 = 0
-2:13/0 = 0
-3:13/0 = 0
-4:13/0 = 0
-5:13/0 = 0
-6:13/0 = 0
-7:13/0 = 0
-8:13/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_ycla7"]
-tile_size = Vector2i(64, 64)
-sources/1 = SubResource("TileSetAtlasSource_gk4i3")
+[ext_resource type="Texture2D" uid="uid://ct0njr045ypde" path="res://world/assets/Button_2.png" id="20_ic551"]
 
 [node name="counting_world" type="Node2D"]
-position = Vector2(-635, 0)
 script = ExtResource("1_ugvj7")
 
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_ycla7")
-cell_quadrant_size = 64
-format = 2
-layer_0/tile_data = PackedInt32Array(589834, 458753, 5, 589835, 458753, 5, 589836, 458753, 5, 524300, 458753, 5, 655372, 458753, 5, 720908, 458753, 5, 458764, 458753, 5, 393228, 458753, 5, 393229, 458753, 5, 393230, 458753, 5, 786444, 458753, 5, 786445, 458753, 5, 786446, 458753, 5, 393231, 458753, 5, 393233, 458753, 5, 393232, 458753, 5, 393234, 458753, 5, 393235, 458753, 5, 393236, 458753, 5, 786447, 458753, 5, 851983, 458753, 5, 917519, 458753, 5, 983055, 458753, 5, 983056, 458753, 5, 983059, 458753, 5, 983060, 458753, 5, 983061, 458753, 5, 983062, 458753, 5, 983063, 458753, 5, 393237, 458753, 5, 327701, 458753, 5, 262165, 458753, 5, 196629, 458753, 5, 131093, 458753, 5, 131094, 458753, 5, 131095, 458753, 5, 131096, 458753, 5, 131097, 458753, 5, 131098, 458753, 5, 983058, 458753, 5, 983057, 458753, 5, 917527, 458753, 5, 851991, 458753, 5, 786455, 458753, 5, 720919, 458753, 5, 720920, 458753, 5, 720921, 458753, 5, 720922, 458753, 5, 720923, 458753, 5, 786459, 458753, 5, 851995, 458753, 5, 917531, 458753, 5, 720924, 458753, 5, 720925, 458753, 5, 720926, 458753, 5, 720927, 458753, 5, 786463, 458753, 5, 851999, 458753, 5, 917535, 458753, 5, 720928, 458753, 5, 720930, 458753, 5, 720929, 458753, 5, 720931, 458753, 5, 720932, 458753, 5, 131099, 458753, 5, 131100, 458753, 5, 131101, 458753, 5, 131102, 458753, 5, 131103, 458753, 5, 131104, 458753, 5, 131105, 458753, 5, 131106, 458753, 5, 131107, 458753, 5, 196644, 458753, 5, 131108, 458753, 5, 327716, 458753, 5, 393252, 458753, 5, 458788, 458753, 5, 524324, 458753, 5, 589860, 458753, 5, 655396, 458753, 5, 262180, 458753, 5)
-
-[node name="TextureButton6" type="TextureButton" parent="."]
-offset_left = 2310.0
-offset_top = 356.0
-offset_right = 2668.0
-offset_bottom = 1028.0
-texture_normal = ExtResource("7_8u4b0")
-flip_h = true
-
 [node name="MenuBar" parent="." instance=ExtResource("12_khj6s")]
-offset_left = 640.0
-offset_top = -2.0
-offset_right = 2560.0
-offset_bottom = 143.0
+offset_left = -692.0
+offset_top = -42.0
+offset_right = 1228.0
+offset_bottom = 103.0
 
 [node name="DevelopmentBoard" type="TextureButton" parent="."]
-offset_left = 2139.0
-offset_top = 40.0
-offset_right = 3382.0
-offset_bottom = 744.0
+offset_left = 1729.0
+offset_top = 973.0
+offset_right = 2972.0
+offset_bottom = 1677.0
 scale = Vector2(0.1, 0.1)
 texture_normal = ExtResource("20_ic551")
 
 [node name="Amount0To9" parent="." instance=ExtResource("19_der6q")]
-offset_left = 824.0
-offset_top = 670.0
-offset_right = 1438.0
-offset_bottom = 1088.0
+offset_left = 645.0
+offset_top = 711.0
+offset_right = 1259.0
+offset_bottom = 1129.0
 scale = Vector2(0.4, 0.4)
 texture_normal = ExtResource("4_jy5qk")
 minigame = "amount_0_to_9"
 world_part = "counting"
 
 [node name="NumberMatch" parent="." instance=ExtResource("19_der6q")]
-offset_left = 1132.0
-offset_top = 755.0
-offset_right = 1490.0
-offset_bottom = 1427.0
+offset_left = 595.0
+offset_top = 280.0
+offset_right = 953.0
+offset_bottom = 952.0
 scale = Vector2(0.4, 0.4)
-texture_normal = ExtResource("5_mby80")
+texture_normal = ExtResource("6_b2yjb")
 flip_h = true
 minigame = "match_0_to_9"
 world_part = "counting"
 
 [node name="NumberCatch" parent="." instance=ExtResource("19_der6q")]
-offset_left = 1365.0
-offset_top = 790.0
-offset_right = 2616.0
-offset_bottom = 2159.0
-scale = Vector2(0.2, 0.2)
-texture_normal = ExtResource("7_drdr0")
+offset_left = 929.0
+offset_top = 349.0
+offset_right = 2180.0
+offset_bottom = 1718.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("7_8t41n")
 minigame = "number_catch_0_to_9"
 world_part = "counting"
 
 [node name="Amount0To50" parent="." instance=ExtResource("19_der6q")]
-offset_left = 1392.0
-offset_top = 573.0
-offset_right = 2642.0
-offset_bottom = 1598.0
-scale = Vector2(0.2, 0.2)
-texture_normal = ExtResource("13_e10d8")
+offset_left = 1086.0
+offset_top = 592.0
+offset_right = 1290.0
+offset_bottom = 856.0
+texture_normal = ExtResource("8_p3ulf")
 minigame = "amount_0_to_50"
 world_part = "counting"
 
 [node name="FallingAmounts0To999" parent="." instance=ExtResource("19_der6q")]
-offset_left = 1728.0
-offset_top = 629.0
-offset_right = 2369.0
-offset_bottom = 1113.0
-scale = Vector2(0.3, 0.3)
-texture_normal = ExtResource("15_7hfj7")
+offset_left = 1660.0
+offset_top = 682.0
+offset_right = 1867.0
+offset_bottom = 946.0
+scale = Vector2(0.7, 0.7)
+texture_normal = ExtResource("9_mfnxp")
 minigame = "falling_amounts_0_to_999"
 world_part = "counting"
 
 [node name="Amount50To999" parent="." instance=ExtResource("19_der6q")]
+minigame = "amount_50_to_999"
+world_part = "counting"
 
 [node name="NumLine0To9" parent="." instance=ExtResource("19_der6q")]
-offset_left = 782.0
-offset_top = 248.0
-offset_right = 1696.0
-offset_bottom = 1604.0
+offset_left = 15.0
+offset_top = 409.0
+offset_right = 1210.0
+offset_bottom = 1765.0
 scale = Vector2(0.2, 0.2)
-texture_normal = ExtResource("2_w6j28")
+texture_normal = ExtResource("10_yaxrg")
 flip_h = true
+flip_v = true
 minigame = "num_line_0_to_9"
 world_part = "counting"
 
 [node name="FallingNumbers0To9" parent="." instance=ExtResource("19_der6q")]
-offset_left = 1020.0
-offset_top = 110.0
-offset_right = 1290.0
-offset_bottom = 601.0
-scale = Vector2(0.7, 0.7)
-texture_normal = ExtResource("10_kjbls")
+offset_left = 106.0
+offset_top = 52.0
+offset_right = 1308.0
+offset_bottom = 1194.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("11_nr4lx")
 flip_h = true
 minigame = "falling_numbers_0_to_9"
 world_part = "counting"
 
 [node name="FallingDecimals0To2" parent="." instance=ExtResource("19_der6q")]
-offset_left = 1600.0
-offset_top = -2.00001
-offset_right = 1958.0
-offset_bottom = 489.0
-scale = Vector2(0.7, 0.7)
+offset_left = 503.0
+offset_top = 19.0
+offset_right = 861.0
+offset_bottom = 510.0
+scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("3_uol80")
 flip_h = true
 minigame = "falling_decimals_0_to_2"
 world_part = "counting"
 
 [node name="NumberBridge0To9" parent="." instance=ExtResource("19_der6q")]
-offset_left = 1261.0
-offset_top = 43.0
-offset_right = 1411.0
-offset_bottom = 193.0
-scale = Vector2(1.5, 1.5)
-texture_normal = ExtResource("11_0dd3i")
+offset_left = 328.0
+offset_top = 163.0
+offset_right = 822.0
+offset_bottom = 781.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("13_m36cf")
 flip_h = true
 minigame = "number_bridge_0_to_9"
 world_part = "counting"
+
+[node name="Roads" type="Sprite2D" parent="."]
+scale = Vector2(0.27, 0.27)
+texture = ExtResource("14_x5dn0")
+centered = false
+offset = Vector2(100, 200)
