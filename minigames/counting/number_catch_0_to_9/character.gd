@@ -4,6 +4,7 @@ const max_speed := 800
 const bottom_margin := 220
 var value := 0
 
+
 func _ready():
 	position = Vector2(get_viewport_rect().size.x/2, get_viewport_rect().size.y - bottom_margin) 
 	
@@ -41,3 +42,11 @@ func _physics_process(delta):
 		x = _keyboard_input(delta).x
 	
 	position.x = _move(x)
+
+
+func hurt_animation():
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "modulate", Color(1, 1, 1), 0.5).from(Color(1, 0, 0))
+	
+	# I'm not sure if tweens kill themselves when they're done of if they need to be manually freed
+	# should there be one tween craeted in onready?

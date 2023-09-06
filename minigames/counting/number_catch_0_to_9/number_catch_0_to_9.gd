@@ -133,15 +133,16 @@ func _on_character_entered(body : Node2D) -> void:
 		NumberContainer.add_child(NumberSprite)
 #		current_sprite.texture = tennis_ball
 #		current_sprite = CircleSprite
-		number.queue_free()
+		number.kill()
 		audio_player.play()
 		
 		if character.value == 9:
 			await get_tree().create_timer(0.5).timeout
 			_end_game()
 	else:
-		number.queue_free()
+		number.kill()
 		health -= 1
+		character.hurt_animation()
 		print("health: ", health)
 		print("max health: ", MAX_HEALTH)
 		print("percent: ", float(health) / float(MAX_HEALTH))
