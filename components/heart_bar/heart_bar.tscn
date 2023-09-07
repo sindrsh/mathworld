@@ -12,3 +12,4 @@ script = ExtResource("1_bhwv5")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
+stretch_mode = 2

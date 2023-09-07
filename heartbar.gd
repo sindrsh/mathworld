@@ -1,4 +1,5 @@
 extends HBoxContainer
+class_name HeartBar
 
 # todo: make this use half hearts?
 @export var max: int = 5

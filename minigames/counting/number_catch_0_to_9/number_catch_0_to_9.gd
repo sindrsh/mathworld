@@ -146,7 +146,7 @@ func _on_character_entered(body : Node2D) -> void:
 		print("health: ", health)
 		print("max health: ", MAX_HEALTH)
 		print("percent: ", float(health) / float(MAX_HEALTH))
-		$ProgressBar.value = float(health) / float(MAX_HEALTH)
+		$HeartBar.set_value(health)
 		
 		if health <= 0:
 			# TODO: make something happen when the player dies
