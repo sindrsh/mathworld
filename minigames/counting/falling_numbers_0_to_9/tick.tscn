@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://jhra60wd8rbo"]
 
 [ext_resource type="Script" path="res://minigames/counting/falling_decimals_0_to_2/tick.gd" id="1_kkaok"]
-[ext_resource type="Texture2D" uid="uid://c3qh2wpcodqxu" path="res://minigames/counting/falling_decimals_0_to_2/assets/tick.png" id="2_lox5g"]
-[ext_resource type="Texture2D" uid="uid://cpq32mjlsd8os" path="res://minigames/counting/falling_decimals_0_to_2/assets/tick_slct.png" id="3_wrlw3"]
+[ext_resource type="Texture2D" uid="uid://btdnktiobi5t1" path="res://minigames/counting/falling_decimals_0_to_2/assets/tick.png" id="2_lox5g"]
+[ext_resource type="Texture2D" uid="uid://dgq2xkgoj4k5a" path="res://minigames/counting/falling_decimals_0_to_2/assets/tick_slct.png" id="3_wrlw3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ti8l6"]
 animations = [{

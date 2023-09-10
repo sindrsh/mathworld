@@ -1,16 +1,16 @@
 [gd_scene load_steps=17 format=3 uid="uid://bhq2gtgs7kght"]
 
 [ext_resource type="Script" path="res://minigames/counting/number_catch_0_to_9/number.gd" id="1_slanv"]
-[ext_resource type="Texture2D" uid="uid://cyef3q2wpcj56" path="res://minigames/counting/number_catch_0_to_9/assets/orb_1.svg" id="2_caufg"]
-[ext_resource type="Texture2D" uid="uid://bsuht5qgqdie8" path="res://minigames/counting/number_catch_0_to_9/assets/orb_2.svg" id="3_hvofd"]
-[ext_resource type="Texture2D" uid="uid://d3shpkiuu2kb6" path="res://minigames/counting/number_catch_0_to_9/assets/orb_3.svg" id="4_0k3ty"]
-[ext_resource type="Texture2D" uid="uid://b8ms7gokso56u" path="res://minigames/counting/number_catch_0_to_9/assets/orb_4.svg" id="5_jucvy"]
-[ext_resource type="Texture2D" uid="uid://djiq5f8rfe105" path="res://minigames/counting/number_catch_0_to_9/assets/orb_5.svg" id="6_cig7n"]
-[ext_resource type="Texture2D" uid="uid://cscix137vn21o" path="res://minigames/counting/number_catch_0_to_9/assets/orb_6.svg" id="7_1ucfj"]
-[ext_resource type="Texture2D" uid="uid://dr43hm6hw18dm" path="res://minigames/counting/number_catch_0_to_9/assets/orb_7.svg" id="8_mya57"]
-[ext_resource type="Texture2D" uid="uid://btxud11hq6sn7" path="res://minigames/counting/number_catch_0_to_9/assets/orb_8.svg" id="9_3begb"]
-[ext_resource type="Texture2D" uid="uid://cxkjoyukkkcw4" path="res://minigames/counting/number_catch_0_to_9/assets/orb_9.svg" id="10_li23n"]
-[ext_resource type="Texture2D" uid="uid://e6dsu0ahhxgc" path="res://minigames/counting/number_catch_0_to_9/assets/orb_10.svg" id="11_eave4"]
+[ext_resource type="Texture2D" uid="uid://c3n2j0b5hq8re" path="res://minigames/counting/number_catch_0_to_9/assets/orb_1.svg" id="2_caufg"]
+[ext_resource type="Texture2D" uid="uid://bv4nb7iqiixy8" path="res://minigames/counting/number_catch_0_to_9/assets/orb_2.svg" id="3_hvofd"]
+[ext_resource type="Texture2D" uid="uid://bmxsvadqbi7lm" path="res://minigames/counting/number_catch_0_to_9/assets/orb_3.svg" id="4_0k3ty"]
+[ext_resource type="Texture2D" uid="uid://bndw8p7h70sm2" path="res://minigames/counting/number_catch_0_to_9/assets/orb_4.svg" id="5_jucvy"]
+[ext_resource type="Texture2D" uid="uid://b0nln3b8hag7v" path="res://minigames/counting/number_catch_0_to_9/assets/orb_5.svg" id="6_cig7n"]
+[ext_resource type="Texture2D" uid="uid://ddhrjjc12kp70" path="res://minigames/counting/number_catch_0_to_9/assets/orb_6.svg" id="7_1ucfj"]
+[ext_resource type="Texture2D" uid="uid://0jnkw22qpc43" path="res://minigames/counting/number_catch_0_to_9/assets/orb_7.svg" id="8_mya57"]
+[ext_resource type="Texture2D" uid="uid://gdekmgnggw6l" path="res://minigames/counting/number_catch_0_to_9/assets/orb_8.svg" id="9_3begb"]
+[ext_resource type="Texture2D" uid="uid://b6ort6bwhly2x" path="res://minigames/counting/number_catch_0_to_9/assets/orb_9.svg" id="10_li23n"]
+[ext_resource type="Texture2D" uid="uid://i5s75d004jse" path="res://minigames/counting/number_catch_0_to_9/assets/orb_10.svg" id="11_eave4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1ha6a"]
 radius = 50.0
@@ -53,6 +53,33 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_shqbd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_4gxnw"]
 resource_name = "kill"
 length = 0.2
@@ -80,33 +107,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_shqbd"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_74xn5"]

@@ -1,12 +1,12 @@
 [gd_scene load_steps=9 format=3 uid="uid://cpwo630ukpne5"]
 
-[ext_resource type="Texture2D" uid="uid://b1e4vly8hfb6u" path="res://minigames/counting/falling_decimals_0_to_2/assets/equals_.png" id="1_23bxc"]
-[ext_resource type="Texture2D" uid="uid://cogqhqd0subyo" path="res://minigames/counting/falling_decimals_0_to_2/assets/plus_.png" id="2_wysye"]
-[ext_resource type="Texture2D" uid="uid://blq70rfrgfix5" path="res://minigames/counting/falling_decimals_0_to_2/assets/minus_.png" id="3_v3mqk"]
-[ext_resource type="Texture2D" uid="uid://bnjbcqhkmv8we" path="res://minigames/counting/falling_decimals_0_to_2/assets/divided_.png" id="4_oaclh"]
-[ext_resource type="Texture2D" uid="uid://ddhg1ddy4a1xt" path="res://minigames/counting/falling_decimals_0_to_2/assets/times_.png" id="5_288qm"]
-[ext_resource type="Texture2D" uid="uid://wfwysxsucnhu" path="res://minigames/counting/falling_decimals_0_to_2/assets/dot_.png" id="6_woe2k"]
-[ext_resource type="Texture2D" uid="uid://btc3n1g1a5xgo" path="res://minigames/counting/falling_decimals_0_to_2/assets/comma_.png" id="7_0o1wy"]
+[ext_resource type="Texture2D" uid="uid://dh24i0mr6kfd8" path="res://minigames/counting/falling_decimals_0_to_2/assets/equals_.png" id="1_23bxc"]
+[ext_resource type="Texture2D" uid="uid://b8kl2s1pdlnkr" path="res://minigames/counting/falling_decimals_0_to_2/assets/plus_.png" id="2_wysye"]
+[ext_resource type="Texture2D" uid="uid://d0r6qyw7ff3vs" path="res://minigames/counting/falling_decimals_0_to_2/assets/minus_.png" id="3_v3mqk"]
+[ext_resource type="Texture2D" uid="uid://c4stp2hjg2u2w" path="res://minigames/counting/falling_decimals_0_to_2/assets/divided_.png" id="4_oaclh"]
+[ext_resource type="Texture2D" uid="uid://dk5gr8v08jyad" path="res://minigames/counting/falling_decimals_0_to_2/assets/times_.png" id="5_288qm"]
+[ext_resource type="Texture2D" uid="uid://bflkxkxs3qe3g" path="res://minigames/counting/falling_decimals_0_to_2/assets/dot_.png" id="6_woe2k"]
+[ext_resource type="Texture2D" uid="uid://554wqnlxkjhc" path="res://minigames/counting/falling_decimals_0_to_2/assets/comma_.png" id="7_0o1wy"]
 
 [sub_resource type="SpriteFrames" id="1"]
 animations = [{

@@ -25,7 +25,7 @@ func _ready():
 		$NumberMatch, 
 		$NumberCatch, 
 		$Amount0To50, 
-		$FallingAmounts0To999,
+		$EnterAmounts0To999,
 	]
 	number_line_minigames = [
 		$NumLine0To9, 

@@ -7,7 +7,7 @@ var size1 : float
 var start_x : float
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func arrange():
 	size100 = _get_frame_size($Hundreds)
 	size10 = _get_frame_size($Tens)
 	size1 = _get_frame_size($Ones)
@@ -18,8 +18,6 @@ func _ready():
 	$Hundreds.position = Vector2(start_x, 20)
 	$Tens.position = Vector2(start_x + size100 + dx, 20)
 	$Ones.position = Vector2(start_x + size100 + size10 + 2*dx, 20)
-	
-	position.x = -$Panel.size.x/2
 	
 	
 func _get_frame_size(animation : AnimatedSprite2D) -> float:

@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://bdp65nv8ttjmn"]
 
 [ext_resource type="Script" path="res://minigames/counting/falling_decimals_0_to_2/number.gd" id="1_4aak3"]
-[ext_resource type="Texture2D" uid="uid://wpjk8gv7allc" path="res://minigames/counting/falling_decimals_0_to_2/assets/number_box.png" id="2_dmn1f"]
-[ext_resource type="Texture2D" uid="uid://bgjbbarksour7" path="res://minigames/counting/falling_decimals_0_to_2/assets/number_box_slct.png" id="3_hl54u"]
-[ext_resource type="Texture2D" uid="uid://bjq5rlnhbp20t" path="res://minigames/counting/falling_decimals_0_to_2/assets/number_box_find.png" id="4_7hxqp"]
-[ext_resource type="Texture2D" uid="uid://c5csinylvsknd" path="res://minigames/counting/falling_decimals_0_to_2/assets/number_box_equal.png" id="5_mmr5g"]
-[ext_resource type="Texture2D" uid="uid://pqa23judwvx2" path="res://minigames/counting/falling_decimals_0_to_2/assets/number_box_unequal.png" id="6_xsqn0"]
+[ext_resource type="Texture2D" uid="uid://78o6150yduxe" path="res://minigames/counting/falling_decimals_0_to_2/assets/number_box.png" id="2_dmn1f"]
+[ext_resource type="Texture2D" uid="uid://da364j53i4df" path="res://minigames/counting/falling_decimals_0_to_2/assets/number_box_slct.png" id="3_hl54u"]
+[ext_resource type="Texture2D" uid="uid://1ptk7faoxos2" path="res://minigames/counting/falling_decimals_0_to_2/assets/number_box_find.png" id="4_7hxqp"]
+[ext_resource type="Texture2D" uid="uid://b8ei0pdb0lj1a" path="res://minigames/counting/falling_decimals_0_to_2/assets/number_box_equal.png" id="5_mmr5g"]
+[ext_resource type="Texture2D" uid="uid://dlju2sq4fkwfu" path="res://minigames/counting/falling_decimals_0_to_2/assets/number_box_unequal.png" id="6_xsqn0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6ckqd"]
 animations = [{

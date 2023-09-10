@@ -49,7 +49,7 @@ var count_amount_minigames := [
 		"branch": CALCULATION
 	},
 	{
-		"id": "falling_amounts_0_to_999",
+		"id": "enter_amounts_0_to_999",
 		"status": NOT_COMPLETED,
 		"branch": CALCULATION
 	},	

@@ -72,14 +72,14 @@ texture_normal = ExtResource("8_p3ulf")
 minigame = "amount_0_to_50"
 world_part = "counting"
 
-[node name="FallingAmounts0To999" parent="." instance=ExtResource("19_der6q")]
+[node name="EnterAmounts0To999" parent="." instance=ExtResource("19_der6q")]
 offset_left = 1660.0
 offset_top = 682.0
 offset_right = 1867.0
 offset_bottom = 946.0
 scale = Vector2(0.7, 0.7)
 texture_normal = ExtResource("9_mfnxp")
-minigame = "falling_amounts_0_to_999"
+minigame = "enter_amounts_0_to_999"
 world_part = "counting"
 
 [node name="Amount50To999" parent="." instance=ExtResource("19_der6q")]

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1w55mitmdcif"]
+
+[ext_resource type="Script" path="res://minigames/counting/enter_amounts_0_to_999/enter_amounts_0_to_999.gd" id="1_4sva6"]
+[ext_resource type="AudioStream" uid="uid://1cct2ila2y1n" path="res://minigames/frac/frac_laser/assets/correct.mp3" id="2_r1wm8"]
+
+[node name="falling_amounts_999" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_4sva6")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_r1wm8")
