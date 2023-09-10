@@ -35,7 +35,7 @@ movie_writer/movie_file="/home/firesquid/source/mathworld/clips/ godot_recording
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/godot-vim/plugin.cfg", "res://addons/wakatime/plugin.cfg")
 
 [filesystem]
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://numbercatch"]
+[gd_scene load_steps=4 format=3 uid="uid://numbercatch"]
 
 [ext_resource type="Script" path="res://minigames/counting/number_catch_0_to_9/number_catch_0_to_9.gd" id="1_y7kqp"]
-[ext_resource type="Texture2D" uid="uid://g63b05i6ybmo" path="res://minigames/counting/number_catch_0_to_9/assets/BG_amounts.png" id="2_yj3lj"]
+[ext_resource type="Texture2D" uid="uid://coepwk0vtxht8" path="res://minigames/counting/number_catch_0_to_9/assets/BG_amounts.png" id="2_yj3lj"]
+[ext_resource type="PackedScene" uid="uid://borb5crw7i1sy" path="res://components/heart_bar/heart_bar.tscn" id="3_8f3u3"]
 
 [node name="NumberCatch" type="Control"]
 layout_mode = 3
@@ -21,11 +22,11 @@ centered = false
 [node name="GasTimer" type="Timer" parent="."]
 one_shot = true
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
+[node name="HeartBar" parent="." instance=ExtResource("3_8f3u3")]
 layout_mode = 1
 anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 27.0
-grow_horizontal = 2
-max_value = 1.0
-value = 1.0
+anchor_bottom = 0.0
+offset_bottom = 69.0
+grow_vertical = 1
+scale = Vector2(0.25, 0.25)
+initial_value = 5
