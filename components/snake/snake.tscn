@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0d8epsbnsmis"]
+
+[ext_resource type="Script" path="res://components/snake/snake.gd" id="1_dpodd"]
+[ext_resource type="PackedScene" uid="uid://bniiqmjysdv5p" path="res://components/snake_part/snake_part.tscn" id="2_q7avl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a7i5v"]
+size = Vector2(16, 16)
+
+[node name="Snake" type="Node2D"]
+script = ExtResource("1_dpodd")
+
+[node name="head" parent="." instance=ExtResource("2_q7avl")]
+
+[node name="Polygon2D" parent="head" index="1"]
+color = Color(0.886275, 0.392157, 0, 1)
+
+[node name="Mouth" type="Area2D" parent="head"]
+position = Vector2(32, 32)
+collision_layer = 0
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="head/Mouth"]
+position = Vector2(16, 0)
+shape = SubResource("RectangleShape2D_a7i5v")
+
+[node name="Polygon2D" type="Polygon2D" parent="head/Mouth"]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(8, -8, 8, 8, 24, 8, 24, -8)
+
+[node name="SnakePart2" parent="." instance=ExtResource("2_q7avl")]
+position = Vector2(52, 111)
+
+[node name="SnakePart3" parent="." instance=ExtResource("2_q7avl")]
+position = Vector2(93, -29)
+
+[connection signal="at_point" from="head" to="." method="_on_head_at_point"]
+[connection signal="area_entered" from="head/Mouth" to="." method="_on_mouth_area_entered"]
+[connection signal="body_entered" from="head/Mouth" to="." method="_on_mouth_body_entered"]
+
+[editable path="head"]
