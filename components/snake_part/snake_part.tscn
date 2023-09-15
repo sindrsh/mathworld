@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bniiqmjysdv5p"]
+
+[ext_resource type="Script" path="res://components/snake_part/snake_part.gd" id="1_mfgv4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_81dxo"]
+size = Vector2(48, 48)
+
+[node name="SnakePart" type="Area2D"]
+script = ExtResource("1_mfgv4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_81dxo")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0, 0.407843, 1, 1)
+polygon = PackedVector2Array(8, 8, 8, 56, 56, 56, 56, 8)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
