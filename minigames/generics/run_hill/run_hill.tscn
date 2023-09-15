@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dj1towovjdfc1"]
+
+[ext_resource type="Script" path="res://minigames/generics/run_hill/run_hill.gd" id="1_25lc2"]
+[ext_resource type="Script" path="res://minigames/generics/run_hill/player.gd" id="2_fq0yj"]
+[ext_resource type="Texture2D" uid="uid://csaxc4b2m6k0n" path="res://assets/icon.png" id="3_upjyg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bbifn"]
+size = Vector2(64, 63)
+
+[node name="run_hill" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_25lc2")
+
+[node name="player" type="CharacterBody2D" parent="."]
+position = Vector2(100, 50)
+script = ExtResource("2_fq0yj")
+
+[node name="Sprite2D" type="Sprite2D" parent="player"]
+texture = ExtResource("3_upjyg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_bbifn")
