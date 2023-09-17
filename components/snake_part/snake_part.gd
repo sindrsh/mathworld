@@ -17,13 +17,14 @@ func teleport():
 
 
 func _physics_process(delta):
+	
 	if position.distance_to(_next_pos) < speed * delta:
 		position = _next_pos
 		emit_signal("at_point")
 	
 	position += (_next_pos - position).normalized() * speed * delta
+	return
 
-
-func _on_area_entered(area):
+func _on_area_entered(_area):
 	emit_signal("collided")
 

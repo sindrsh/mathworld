@@ -7,7 +7,7 @@ extends Node2D
 var _part_scene = preload("res://components/snake_part/snake_part.tscn")
 var _parts: Array[SnakePart] = []
 var head: SnakePart
-var move_dir = Vector2(-1, 0)
+var move_dir = Vector2(1, 0)
 var _last_move_dir = Vector2(-1, 0)
 
 @onready var _mouth: Area2D = get_node("head/Mouth")
@@ -17,7 +17,7 @@ func _ready() -> void:
 		_parts.append(child)
 	
 	head = _parts[0]
-	_move()
+#	_move() # sindrsh: unnecessarry call?
 
 
 func _process(_delta: float) -> void:
@@ -81,4 +81,6 @@ func _mouth_collided(node: CollisionObject2D):  # Godot desperately needs type u
 		node.queue_free()
 		eat()
 	else:
-		print("I died :(")
+		pass
+		#game ending?
+#		print("I died :(")
