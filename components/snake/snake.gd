@@ -9,8 +9,11 @@ var _parts: Array[SnakePart] = []
 var head: SnakePart
 var move_dir = Vector2(1, 0)
 var _last_move_dir = Vector2(-1, 0)
+var next_num = 1
 
 @onready var _mouth: Area2D = get_node("head/Mouth")
+
+signal died();
 
 func _ready() -> void:
 	for child in get_children():
@@ -64,7 +67,6 @@ func _on_mouth_body_entered(body):
 	_mouth_collided(body)
 
 func eat():
-	# I'll eat anything with a collison mask of 2
 	var dir = _last_move_dir.rotated(PI)
 	var last_part = _parts[len(_parts) - 1]
 	var part = _part_scene.instantiate()
@@ -72,15 +74,18 @@ func eat():
 	add_child(part)
 	_parts.append(part)
 	
-	# bad hack
-	part.position = Vector2(-1000, -1000)
 
 
 func _mouth_collided(node: CollisionObject2D):  # Godot desperately needs type unions
 	if (node.get_collision_layer_value(2)):
-		node.queue_free()
-		eat()
+		if node as NumberFruit:
+			node = node as NumberFruit
+			if node.number == next_num:
+				node.queue_free()
+				next_num += 1
+				eat()
+			else: 
+				print("Snake at the wrong number")
+				# do something?
 	else:
-		pass
-		#game ending?
-#		print("I died :(")
+		died.emit()

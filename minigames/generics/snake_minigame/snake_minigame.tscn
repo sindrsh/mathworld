@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2k7syic4qvbu"]
+
+[ext_resource type="Script" path="res://minigames/generics/snake_minigame/snake_minigame.gd" id="1_wn25b"]
+[ext_resource type="PackedScene" uid="uid://d0d8epsbnsmis" path="res://components/snake/snake.tscn" id="2_c0jkg"]
+
+[node name="snake_minigame" type="Node2D"]
+script = ExtResource("1_wn25b")
+
+[node name="Snake" parent="." instance=ExtResource("2_c0jkg")]
+position = Vector2(750, 160)
+
+[node name="Fruit" type="Node2D" parent="."]

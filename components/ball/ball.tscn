@@ -30,6 +30,3 @@ shape = SubResource("CircleShape2D_hdjj8")
 [node name="Polygon2D" type="Polygon2D" parent="."]
 color = Color(1, 1, 0, 1)
 polygon = PackedVector2Array(0, -34, 25, -25, 28.6137, -15.9656, 35, 0, 26, 24, 0, 35, -25, 24, -35, 0, -25, -25)
-
-[connection signal="on_press" from="Clickable" to="." method="_on_clickable_on_press"]
-[connection signal="on_release" from="Clickable" to="." method="_on_clickable_on_release"]
