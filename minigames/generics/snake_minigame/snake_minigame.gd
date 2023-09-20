@@ -3,6 +3,7 @@ extends Node2D
 
 var _fruit_scene = preload("res://components/fruit/fruit.tscn")
 @onready var _fruit_container = get_node("Fruit")
+@onready var _snake = get_node("Snake")
 
 
 func _ready():
@@ -17,3 +18,7 @@ func _ready():
 		fruit.position = spawn_pos
 		
 		print("created fruit at " + str(spawn_pos))
+
+
+func _on_snake_died():
+	_snake.queue_free()

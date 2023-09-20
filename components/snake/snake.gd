@@ -1,6 +1,5 @@
 extends Node2D
 
-
 # Godot does not have a distinction between private and public properties
 # all private properties will be prefixed with an underscore
 
@@ -10,6 +9,7 @@ var head: SnakePart
 var move_dir = Vector2(1, 0)
 var _last_move_dir = Vector2(-1, 0)
 var next_num = 1
+var _collisions_enabled = false  # dumb hack to stop the snake from killing itself instantly
 
 @onready var _mouth: Area2D = get_node("head/Mouth")
 
@@ -20,7 +20,6 @@ func _ready() -> void:
 		_parts.append(child)
 	
 	head = _parts[0]
-#	_move() # sindrsh: unnecessarry call?
 
 
 func _process(_delta: float) -> void:
@@ -77,6 +76,9 @@ func eat():
 
 
 func _mouth_collided(node: CollisionObject2D):  # Godot desperately needs type unions
+	if !_collisions_enabled:
+		return  # hate how this has to be two lines
+	
 	if (node.get_collision_layer_value(2)):
 		if node as NumberFruit:
 			node = node as NumberFruit
@@ -85,7 +87,13 @@ func _mouth_collided(node: CollisionObject2D):  # Godot desperately needs type u
 				next_num += 1
 				eat()
 			else: 
-				print("Snake at the wrong number")
-				# do something?
+				died.emit()
 	else:
+		print("um I died")
 		died.emit()
+
+
+# snake gets invincibility for 0.1s
+func _on_timer_timeout():
+	_collisions_enabled = true
+	pass # Replace with function body
