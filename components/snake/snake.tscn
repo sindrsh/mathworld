@@ -28,10 +28,10 @@ color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(8, -8, 8, 8, 24, 8, 24, -8)
 
 [node name="SnakePart2" parent="." instance=ExtResource("2_q7avl")]
-position = Vector2(-125, 0)
+position = Vector2(-128, 0)
 
 [node name="SnakePart3" parent="." instance=ExtResource("2_q7avl")]
-position = Vector2(-65, 0)
+position = Vector2(-64, 0)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1

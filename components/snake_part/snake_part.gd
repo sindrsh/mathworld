@@ -3,6 +3,7 @@ class_name SnakePart
 
 
 @export var speed: float = 512  # px / s 
+@onready var player: AnimationPlayer = get_node("AnimationPlayer")
 var _next_pos: Vector2 = Vector2(0, 0)
 signal collided
 signal at_point
@@ -11,6 +12,9 @@ signal at_point
 func goto(pos: Vector2):
 	_next_pos = pos
 
+func _ready():
+	player.play("fade_in")
+	print('fading in')
 
 func teleport():
 	position = _next_pos

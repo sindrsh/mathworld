@@ -10,7 +10,7 @@ func _ready():
 	for i in range(1, 10):
 		# max x = 29
 		# max y = 14
-		var spawn_pos = Vector2(randi_range(0, 29), randi_range(0, 14)) * 64
+		var spawn_pos = Vector2(randi_range(1, 29), randi_range(1, 14)) * 64
 		var fruit: NumberFruit = _fruit_scene.instantiate()
 		
 		_fruit_container.add_child(fruit)
