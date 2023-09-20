@@ -1,7 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2k7syic4qvbu"]
+[gd_scene load_steps=6 format=3 uid="uid://d2k7syic4qvbu"]
 
 [ext_resource type="Script" path="res://minigames/generics/snake_minigame/snake_minigame.gd" id="1_wn25b"]
 [ext_resource type="PackedScene" uid="uid://d0d8epsbnsmis" path="res://components/snake/snake.tscn" id="2_c0jkg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0l65v"]
+size = Vector2(144, 1080)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6473c"]
+size = Vector2(104, 1120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o4gw6"]
+size = Vector2(2040, 149)
 
 [node name="snake_minigame" type="Node2D"]
 script = ExtResource("1_wn25b")
@@ -10,3 +19,21 @@ script = ExtResource("1_wn25b")
 position = Vector2(750, 160)
 
 [node name="Fruit" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-72, 540)
+shape = SubResource("RectangleShape2D_0l65v")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1972, 560)
+shape = SubResource("RectangleShape2D_6473c")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(972, -75)
+shape = SubResource("RectangleShape2D_o4gw6")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(952, 1154.5)
+shape = SubResource("RectangleShape2D_o4gw6")
