@@ -1,6 +1,5 @@
 extends Node2D
 
-
 # Godot does not have a distinction between private and public properties
 # all private properties will be prefixed with an underscore
 
@@ -9,15 +8,18 @@ var _parts: Array[SnakePart] = []
 var head: SnakePart
 var move_dir = Vector2(1, 0)
 var _last_move_dir = Vector2(-1, 0)
+var next_num = 1
+var _collisions_enabled = false  # dumb hack to stop the snake from killing itself instantly
 
 @onready var _mouth: Area2D = get_node("head/Mouth")
+
+signal died();
 
 func _ready() -> void:
 	for child in get_children():
 		_parts.append(child)
 	
 	head = _parts[0]
-#	_move() # sindrsh: unnecessarry call?
 
 
 func _process(_delta: float) -> void:
@@ -64,7 +66,6 @@ func _on_mouth_body_entered(body):
 	_mouth_collided(body)
 
 func eat():
-	# I'll eat anything with a collison mask of 2
 	var dir = _last_move_dir.rotated(PI)
 	var last_part = _parts[len(_parts) - 1]
 	var part = _part_scene.instantiate()
@@ -72,15 +73,27 @@ func eat():
 	add_child(part)
 	_parts.append(part)
 	
-	# bad hack
-	part.position = Vector2(-1000, -1000)
 
 
 func _mouth_collided(node: CollisionObject2D):  # Godot desperately needs type unions
+	if !_collisions_enabled:
+		return  # hate how this has to be two lines
+	
 	if (node.get_collision_layer_value(2)):
-		node.queue_free()
-		eat()
+		if node as NumberFruit:
+			node = node as NumberFruit
+			if node.number == next_num:
+				node.queue_free()
+				next_num += 1
+				eat()
+			else: 
+				died.emit()
 	else:
-		pass
-		#game ending?
-#		print("I died :(")
+		print("um I died")
+		died.emit()
+
+
+# snake gets invincibility for 0.1s
+func _on_timer_timeout():
+	_collisions_enabled = true
+	pass # Replace with function body
