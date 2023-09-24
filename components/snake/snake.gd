@@ -22,6 +22,25 @@ func _ready() -> void:
 	head = _parts[0]
 
 
+func _input(event) -> void:
+	if event is InputEventScreenDrag:
+		var drag_angle: float = event.relative.normalized().angle()
+		var degrees: float = rad_to_deg(drag_angle)
+		
+		# tried a bunch of stuff on desmos to see if there was a mathematical funciton to avoid a stupid else if chain
+		# the answer is probably yes but I'm too stupid to figure it out
+		# also I converted it to degrees because radians were too brain hurty :(
+		if degrees > 45 && degrees < 135:
+			move_dir = Vector2(0, 1)
+		elif degrees > -45.0 && degrees < 45.0:
+			move_dir = Vector2(1, 0)
+		elif degrees < -45.0 && degrees > -135:
+			move_dir = Vector2(0, -1)
+		else:
+			move_dir = Vector2(-1, 0)
+		
+
+
 func _process(_delta: float) -> void:
 	var left = int(Input.is_action_just_pressed("ui_left"))
 	var right = int(Input.is_action_just_pressed("ui_right"))
@@ -89,7 +108,7 @@ func _mouth_collided(node: CollisionObject2D):  # Godot desperately needs type u
 			else: 
 				died.emit()
 	else:
-		print("um I died")
+		print("I died")
 		died.emit()
 
 
