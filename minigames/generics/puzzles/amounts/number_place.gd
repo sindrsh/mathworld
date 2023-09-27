@@ -4,7 +4,7 @@ signal number_entered(number: Area2D, _name : String)
 
 var place : int
 var tenth_place_texture: Texture2D = preload("res://minigames/generics/puzzles/amounts/assets/tenth_place_texture.svg")
-var one_place_texture : Texture2D = preload("res://minigames/generics/puzzles/amounts/assets/one_place_texture.svg")
+var one_place_texture : Texture2D = preload("res://minigames/generics/puzzles/amounts/assets/freezer.png")
 var ten_place_texture : Texture2D = preload("res://minigames/generics/puzzles/amounts/assets/ten_place_texture.svg")
 var hundred_place_texture : Texture2D = preload("res://minigames/generics/puzzles/amounts/assets/hundred_place_texture.svg")
 var collision_shape := CollisionShape2D.new()
@@ -33,5 +33,4 @@ func _init(_place: int):
 	
 	
 func _on_area_entered(area : Area2D) -> void:
-	print("area entered")
 	emit_signal("number_entered", area, name)

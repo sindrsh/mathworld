@@ -1,5 +1,6 @@
 extends Area2D
 
+var value : int
 signal hit(_name : String)
 
 # Called when the node enters the scene tree for the first time.

@@ -23,7 +23,7 @@ var one_place : Area2D
 var place_dx = 300
 
 var dx1 = 50
-var dy1 = 50
+var dy1 = 60
 
 var dx10 = 35
 
@@ -40,15 +40,15 @@ var numbers : Dictionary = {
 }
 
 var one_positions : Array = [
+	Vector2(-dx1, -4*dy1),
+	Vector2(dx1, -3*dy1),
+	Vector2(-dx1, -3*dy1),
+	Vector2(dx1, -2*dy1),	
 	Vector2(-dx1, -2*dy1),
 	Vector2(dx1, -dy1),
 	Vector2(-dx1, -dy1),
 	Vector2(dx1, 0),
 	Vector2(-dx1, 0),
-	Vector2(dx1, dy1),
-	Vector2(-dx1, dy1),
-	Vector2(dx1, 2*dy1),
-	Vector2(-dx1, 2*dy1),
 ]
 
 var ten_positions : Array = [
@@ -82,6 +82,12 @@ var number_positions : Dictionary = {
 	3: hundred_positions
 }
 
+var number_adjusts : Dictionary = {
+	1: Vector2(0, 175),
+	2: Vector2(0, -25),
+	3: Vector2(0, 0) 
+}
+
 var number_positions_duplicate: Dictionary = number_positions.duplicate(true)
 
 var number_place_positions : Dictionary = {
@@ -107,7 +113,7 @@ func _make_number(place: int) -> Area2D:
 	match place:
 		1:
 			number = Number.new(one_texture)
-			number.position = number_place_positions[place] + Vector2(0, 320)
+			number.position = number_place_positions[place] + Vector2(0, 380)
 			number.original_position = Vector2(number.position)
 		2:
 			number = Number.new(ten_texture)
@@ -146,7 +152,7 @@ func _on_number_entered_board(_number : Area2D, _name : String) -> void:
 		_number.movable_shape.disabled = true
 		numbers[place].push_back(_number)
 		if numbers[place].size() != 10:
-			_number.position = _number_place.position + number_positions[place].pop_back()
+			_number.position = _number_place.position + number_adjusts[place] + number_positions[place].pop_back()
 			number_boards[place].one_up()
 			if _end_game_condition():
 				_end_game()

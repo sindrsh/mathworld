@@ -1,8 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://dsl3p2c2dnndl"]
+[gd_scene load_steps=5 format=3 uid="uid://dsl3p2c2dnndl"]
 
 [ext_resource type="Script" path="res://minigames/counting/amount_0_to_9/amount_0_to_9.gd" id="1_47c15"]
+[ext_resource type="Texture2D" uid="uid://2xjbcrp0yv4w" path="res://minigames/counting/amount_0_to_9/assets/scenario.png" id="2_40q1n"]
+[ext_resource type="Texture2D" uid="uid://bxqabxpjh8tdv" path="res://minigames/counting/amount_0_to_9/assets/fruit_tree.png" id="3_qvsa7"]
+[ext_resource type="Texture2D" uid="uid://yss4kmn08vd1" path="res://minigames/counting/amount_0_to_9/assets/Fruit_tree_front.png" id="4_6cx80"]
 
 [node name="Amount0To9" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_47c15")
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(1.36415, 1.36456)
+texture = ExtResource("2_40q1n")
+centered = false
+
+[node name="FruitTree" type="Sprite2D" parent="."]
+position = Vector2(389, 408)
+texture = ExtResource("3_qvsa7")
+
+[node name="FruitTree2" type="Sprite2D" parent="."]
+position = Vector2(1619, 386)
+texture = ExtResource("3_qvsa7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(189, 396)
+texture = ExtResource("4_6cx80")
