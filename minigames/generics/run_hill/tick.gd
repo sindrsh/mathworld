@@ -1,12 +1,18 @@
 extends Area2D
 
-var value : int
 signal hit(_name : String)
+var value : int
+var next_obstacle : Area2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	assert(area_entered.connect(_on_tick_entered) == 0)
+	assert($Button.pressed.connect(_on_tick_pressed) == 0)
 
 
 func _on_tick_entered(_area: Area2D) -> void:
 	emit_signal("hit", name)
+
+
+func _on_tick_pressed() -> void:
+	pass

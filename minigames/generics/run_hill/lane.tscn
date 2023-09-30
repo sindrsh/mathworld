@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dj1towovjdfc1"]
+
+[ext_resource type="Script" path="res://minigames/generics/run_hill/lane.gd" id="1_1xnf6"]
+[ext_resource type="Texture2D" uid="uid://csaxc4b2m6k0n" path="res://assets/icon.png" id="2_f5p7o"]
+
+[sub_resource type="Curve2D" id="Curve2D_ruom7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xcb4o"]
+size = Vector2(64, 63)
+
+[node name="lane" type="Node2D"]
+script = ExtResource("1_1xnf6")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_ruom7")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+loop = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D"]
+texture = ExtResource("2_f5p7o")
+
+[node name="Area2D" type="Area2D" parent="Path2D/PathFollow2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/Area2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_xcb4o")
