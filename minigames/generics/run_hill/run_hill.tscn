@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://5lsnuxwnuerm"]
+[gd_scene load_steps=5 format=3 uid="uid://5lsnuxwnuerm"]
 
 [ext_resource type="Script" path="res://minigames/generics/run_hill/run_hill.gd" id="1_25lc2"]
+[ext_resource type="Texture2D" uid="uid://c20hbedhloe3" path="res://minigames/generics/run_hill/assets/alternatives_box.svg" id="2_3l0rc"]
+[ext_resource type="Script" path="res://minigames/generics/run_hill/alt_button.gd" id="3_aeot3"]
+[ext_resource type="Script" path="res://assets/global_scenes/text.gd" id="4_18ax7"]
 
 [node name="run_hill" type="Control"]
 layout_mode = 3
@@ -10,3 +13,59 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_25lc2")
+
+[node name="Alternative1" type="TextureButton" parent="."]
+top_level = true
+layout_mode = 0
+offset_right = 101.0
+offset_bottom = 51.0
+texture_normal = ExtResource("2_3l0rc")
+script = ExtResource("3_aeot3")
+
+[node name="Text" type="Label" parent="Alternative1"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("4_18ax7")
+
+[node name="Alternative2" type="TextureButton" parent="."]
+top_level = true
+layout_mode = 0
+offset_right = 101.0
+offset_bottom = 51.0
+texture_normal = ExtResource("2_3l0rc")
+script = ExtResource("3_aeot3")
+
+[node name="Text" type="Label" parent="Alternative2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("4_18ax7")
+
+[node name="Alternative3" type="TextureButton" parent="."]
+top_level = true
+layout_mode = 0
+offset_right = 101.0
+offset_bottom = 51.0
+texture_normal = ExtResource("2_3l0rc")
+script = ExtResource("3_aeot3")
+
+[node name="Text" type="Label" parent="Alternative3"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("4_18ax7")
+
+[node name="Alternative4" type="TextureButton" parent="."]
+top_level = true
+layout_mode = 0
+offset_right = 101.0
+offset_bottom = 51.0
+texture_normal = ExtResource("2_3l0rc")
+script = ExtResource("3_aeot3")
+
+[node name="Text" type="Label" parent="Alternative4"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("4_18ax7")

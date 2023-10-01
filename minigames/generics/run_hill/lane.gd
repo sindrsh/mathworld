@@ -1,13 +1,16 @@
 extends Node2D
+signal make_new_alternatives(_value: int)
 
 var tick_scene : PackedScene = preload("res://minigames/generics/run_hill/tick.tscn")
-var speed := 100.0
+var speed := 200.0
 var amplitude := 180.0
 var graph := Line2D.new()
-var periods := 2
+var periods := 100
 var obstacles = []	
+var current_obstacle : Area2D
 var ticks := []
 var moving_objects = Node2D.new()
+var moving := false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -30,8 +33,10 @@ func _ready():
 
 
 func _physics_process(delta):
-	$Path2D/PathFollow2D.set_progress($Path2D/PathFollow2D.get_progress() + speed * delta)
-	
+	if moving:
+		$Path2D/PathFollow2D.set_progress($Path2D/PathFollow2D.get_progress() + speed * delta)
+	else:
+		$Path2D/PathFollow2D.set_progress($Path2D/PathFollow2D.get_progress())
 	
 	
 func _path_func(x: float) -> float:
@@ -81,18 +86,23 @@ func _add_ticks() -> void:
 			add_child(tick)
 			ticks.append(tick)
 	
+	var ints := [1, 2, 3, 4, 6, 7, 8, 9]
+	randomize()
 	
 	for j in range(ticks.size() - 10):
 		if j % 10 == 0:
-			var tick_index = j + randi() % 9 + 1
-			ticks[tick_index].get_node("Obstacle").show()
+			var tick_index : int = j + ints[randi() % 8]
+			ticks[tick_index].get_node("ObstacleAnimation").show()
+			ticks[tick_index].tick_is_obstacle = true
 			obstacles.append(ticks[tick_index])
+	
+	current_obstacle = obstacles[0]
+	current_obstacle.get_node("ObstacleAnimation").play()
 	
 	for k in range(obstacles.size() - 1):
 		obstacles[k].next_obstacle = obstacles[k+1]
 		
 				
-			
 func _mk_task():
 	pass
 
@@ -100,3 +110,5 @@ func _mk_task():
 func _on_tick_hit(_name : String) -> void:
 	var tck = get_node(_name)
 	tck.get_node("Text").show()
+	if tck.tick_is_obstacle:
+		emit_signal("make_new_alternatives", (tck.value/10)*10)

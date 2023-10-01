@@ -2,6 +2,12 @@ extends Area2D
 
 signal hit(_name : String)
 var value : int
+var tick_is_obstacle := false:
+	set(_bool):
+		tick_is_obstacle = _bool
+		if tick_is_obstacle:
+			$ObstacleShape.set_deferred("disabled", false)
+		
 var next_obstacle : Area2D
 
 # Called when the node enters the scene tree for the first time.
