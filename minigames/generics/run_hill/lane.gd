@@ -6,7 +6,7 @@ var speed := 200.0
 var amplitude := 180.0
 var graph := Line2D.new()
 var periods := 100
-var obstacles = []	
+var obstacles = []
 var current_obstacle : Area2D
 var ticks := []
 var moving_objects = Node2D.new()
@@ -15,7 +15,6 @@ var moving := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
 	var n := 200
 	var dx := 2*PI/n
 	
@@ -42,6 +41,9 @@ func _physics_process(delta):
 func _path_func(x: float) -> float:
 	return cos(x)
 
+# I assume this means the derivative of the path function?
+# I thought the derivative of cos(x) was -sin(x)?
+#      - firesquid
 func _path_func_der(x: float) -> float:
 	return sin(x)
 
