@@ -36,9 +36,8 @@ func _physics_process(delta):
 		# this took about an hour of math to figure out
 		# my calc teacher would be proud
 		var path_pos = $Path2D/PathFollow2D.get_progress()
-		var spd = 100*sin(0.5*path_pos) + speed
-		print(str(spd) + " " + str($Path2D/PathFollow2D.position.y))
-		$Path2D/PathFollow2D.set_progress(path_pos + spd * delta)
+		$Path2D/PathFollow2D.set_progress(path_pos + speed * delta)
+		$Path2D/PathFollow2D/Sprite2D.rotation += PI * delta
 	else:
 		$Path2D/PathFollow2D.set_progress($Path2D/PathFollow2D.get_progress())
 	
