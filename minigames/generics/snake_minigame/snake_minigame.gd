@@ -19,6 +19,3 @@ func _ready():
 		
 		print("created fruit at " + str(spawn_pos))
 
-
-func _on_snake_died():
-	_snake.queue_free()
