@@ -10,10 +10,12 @@ var move_dir = Vector2(1, 0)
 var _last_move_dir = Vector2(-1, 0)
 var next_num = 1
 var _collisions_enabled = false  # dumb hack to stop the snake from killing itself instantly
+var health = 5
 
 @onready var _mouth: Area2D = get_node("head/Mouth")
 
-signal died();
+signal died()
+signal hurt()
 
 func _ready() -> void:
 	for child in get_children():
@@ -106,7 +108,7 @@ func _mouth_collided(node: CollisionObject2D):  # Godot desperately needs type u
 				next_num += 1
 				eat()
 			else: 
-				died.emit()
+				hurt.emit()
 	else:
 		print("I died")
 		died.emit()
@@ -116,3 +118,9 @@ func _mouth_collided(node: CollisionObject2D):  # Godot desperately needs type u
 func _on_timer_timeout():
 	_collisions_enabled = true
 	pass # Replace with function body
+
+
+func _on_hurt():
+	health -= 1
+	if health <= 0:
+		died.emit()

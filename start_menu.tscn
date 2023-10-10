@@ -6,7 +6,7 @@
 [ext_resource type="FontFile" uid="uid://bhgogbly6iejp" path="res://assets/fonts/OpenSans.ttf" id="3_qhrji"]
 [ext_resource type="Script" path="res://QuitButton.gd" id="4_f0h5m"]
 [ext_resource type="Script" path="res://FulllScreenButton.gd" id="4_qaxip"]
-[ext_resource type="Texture2D" uid="uid://b0t5sqlwlrhko" path="res://assets/splash.png" id="7_6i2k1"]
+[ext_resource type="Texture2D" uid="uid://dlb0doravw1qc" path="res://assets/splash.png" id="7_6i2k1"]
 
 [sub_resource type="Theme" id="Theme_t0d7p"]
 HBoxContainer/constants/separation = 20
