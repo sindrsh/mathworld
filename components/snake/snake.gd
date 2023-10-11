@@ -9,7 +9,7 @@ var head: SnakePart
 var move_dir = Vector2(1, 0)
 var _last_move_dir = Vector2(-1, 0)
 var next_num = 1
-var _collisions_enabled = false  # dumb hack to stop the snake from killing itself instantly
+var _collisions_enabled = false  # dumb hack to stop the snake from killing itself instantlympm
 
 @onready var _mouth: Area2D = get_node("head/Mouth")
 

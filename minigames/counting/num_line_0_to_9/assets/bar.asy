@@ -1,9 +1,9 @@
 unitsize(3/4);
 settings.outformat="svg";
-defaultpen(2bp);
+defaultpen(4bp);
 
-real x = 40;
-real y = 10;
+real x = 100;
+real y = 20;
 
 pair A = (0,0);
 pair B = (x,0);
