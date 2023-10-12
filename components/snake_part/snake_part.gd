@@ -14,7 +14,6 @@ func goto(pos: Vector2):
 
 func _ready():
 	player.play("fade_in")
-	print('fading in')
 
 func teleport():
 	position = _next_pos
@@ -32,3 +31,6 @@ func _physics_process(delta):
 func _on_area_entered(_area):
 	emit_signal("collided")
 
+
+func play_die_animation():
+	player.play("die")

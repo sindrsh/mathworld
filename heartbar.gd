@@ -33,3 +33,7 @@ func set_value(value: int):
 
 func get_value():
 	return _value
+
+
+func _decrease_value():
+	set_value(_value - 1)

@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dj1towovjdfc1"]
+[gd_scene load_steps=5 format=3 uid="uid://delsaknqab4mk"]
 
 [ext_resource type="Script" path="res://minigames/generics/run_hill/lane.gd" id="1_1xnf6"]
-[ext_resource type="Texture2D" uid="uid://csaxc4b2m6k0n" path="res://assets/icon.png" id="2_f5p7o"]
+[ext_resource type="Texture2D" uid="uid://syi6qu0rfjgi" path="res://assets/icon.png" id="2_f5p7o"]
 
 [sub_resource type="Curve2D" id="Curve2D_ruom7"]
 
