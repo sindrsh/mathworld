@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ejrrjhngecu0"]
+[gd_scene load_steps=6 format=3 uid="uid://ejrrjhngecu0"]
 
 [ext_resource type="Script" path="res://minigames/counting/num_line_10_to_100/num_line_10_to_100.gd" id="1_01n0q"]
 [ext_resource type="Texture2D" uid="uid://cio5l1dydn7b1" path="res://minigames/counting/num_line_0_to_9/assets/bar.svg" id="2_iku36"]
 [ext_resource type="Script" path="res://minigames/counting/num_line_10_to_100/number_line.gd" id="2_iv4fx"]
 [ext_resource type="Texture2D" uid="uid://cffejba4v58fm" path="res://minigames/counting/num_line_0_to_9/assets/tick.svg" id="3_05dym"]
+[ext_resource type="Texture2D" uid="uid://driu627b5hxvg" path="res://minigames/counting/num_line_10_to_100/assets/roll.svg" id="5_c8fbh"]
 
 [node name="num_line_10_to_100" type="Control"]
 layout_mode = 3
@@ -25,3 +26,20 @@ centered = false
 [node name="Zero" type="Sprite2D" parent="NumberLine"]
 texture = ExtResource("3_05dym")
 centered = false
+
+[node name="RollFwdButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1565.0
+offset_top = 913.0
+offset_right = 1666.0
+offset_bottom = 964.0
+texture_normal = ExtResource("5_c8fbh")
+
+[node name="RollBckwdButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1383.0
+offset_top = 915.0
+offset_right = 1484.0
+offset_bottom = 966.0
+texture_normal = ExtResource("5_c8fbh")
+flip_h = true
