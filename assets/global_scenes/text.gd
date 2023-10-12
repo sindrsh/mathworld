@@ -36,6 +36,8 @@ func set_text_position(pos : Vector2, adjust : Vector2 = Vector2(-0.5, 0)) -> vo
 
 func center_text():
 	set_text_position(Vector2(0,0), Vector2(-0.5, -0.5))
-	
+
+func set_color(color : Color) -> void:
+	set("theme_override_colors/font_color", color)	
 
 
