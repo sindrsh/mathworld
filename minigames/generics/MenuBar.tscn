@@ -1,6 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dltiiq845ae1o"]
+[gd_scene load_steps=9 format=3 uid="uid://dltiiq845ae1o"]
 
 [ext_resource type="Script" path="res://minigames/generics/MenuBar.gd" id="1_qtc7x"]
+[ext_resource type="Texture2D" uid="uid://bnxh8dfrdhf43" path="res://minigames/generics/assets/audio_on.png" id="2_eirci"]
+[ext_resource type="Texture2D" uid="uid://dtshgodflrumy" path="res://minigames/generics/assets/music_on.png" id="2_jrc84"]
+[ext_resource type="Texture2D" uid="uid://b6wj8qgjitnfk" path="res://minigames/generics/assets/musc_off.png" id="3_bju54"]
+[ext_resource type="Texture2D" uid="uid://bma7tc613k7nf" path="res://minigames/generics/assets/audio_off.png" id="3_xxis3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_axd5k"]
 bg_color = Color(0.33, 0.67, 0.56, 1)
@@ -42,6 +46,24 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = SubResource("Theme_71cqf")
 text = "MENU"
+
+[node name="SoundEffectsContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 50
+
+[node name="MusicButton" type="TextureButton" parent="SoundEffectsContainer"]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("2_jrc84")
+texture_pressed = ExtResource("3_bju54")
+
+[node name="SoundsButton" type="TextureButton" parent="SoundEffectsContainer"]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("2_eirci")
+texture_pressed = ExtResource("3_xxis3")
 
 [connection signal="pressed" from="HBoxContainer/RestartButton" to="." method="_restart_game"]
 [connection signal="pressed" from="HBoxContainer/MenuButton" to="." method="_go_to_menu"]
