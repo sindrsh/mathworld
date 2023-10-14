@@ -1,6 +1,7 @@
 extends MiniGame
 
 #explanation
+
 var tens_rolled := 0
 var max_tens_rolled := 0
 var reached100 := false

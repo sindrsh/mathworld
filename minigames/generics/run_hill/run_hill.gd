@@ -3,6 +3,7 @@ extends MiniGame
 var lane : Node2D = preload("res://minigames/generics/run_hill/lane.tscn").instantiate()
 var alternatives := []
 var start_value := 0
+var music : AudioStream = preload("res://minigames/generics/assets/highway-167255.mp3")
 
 # Called when the node enters the scene tree for the first time.
 func _add_specifics():
@@ -14,7 +15,7 @@ func _add_specifics():
 				
 	add_child(lane)
 	_mk_alternatives()
-
+	music_player.stream = music
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

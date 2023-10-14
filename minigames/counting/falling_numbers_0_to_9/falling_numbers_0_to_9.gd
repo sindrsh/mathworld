@@ -12,6 +12,7 @@ var score = 0
 var rounds = 3
 var high_score
 
+
 func _on_num_selection(node):
 	if selected_number == null or not is_instance_valid(selected_number):
 		selected_number = node

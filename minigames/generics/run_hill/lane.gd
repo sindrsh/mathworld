@@ -5,7 +5,7 @@ var tick_scene : PackedScene = preload("res://minigames/generics/run_hill/tick.t
 var speed := 200.0
 var amplitude := 180.0
 var graph := Line2D.new()
-var periods := 100
+var periods := 10
 var obstacles = []
 var current_obstacle : Area2D
 var ticks := []

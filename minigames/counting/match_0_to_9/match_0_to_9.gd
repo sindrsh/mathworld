@@ -4,11 +4,13 @@ var representation_a : Array
 var representation_b : Array
 var score : = 0
 var ints := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+var music : AudioStreamMP3 = preload("res://minigames/generics/assets/game-music.mp3")
 
 func _add_specifics() -> void:
 	world_part = "counting"
 	id = "match_0_to_9"
 	minigame_type = AMOUNT
+	music_player.stream = music
 	
 	_add_status_bar()
 	
