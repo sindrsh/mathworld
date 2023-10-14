@@ -20,7 +20,8 @@ signal hurt()
 
 func _ready() -> void:
 	for child in get_children():
-		_parts.append(child)
+		if child is Area2D:
+			_parts.append(child)
 	
 	head = _parts[0]
 
@@ -91,12 +92,10 @@ func _on_mouth_body_entered(body):
 	_mouth_collided(body)
 
 func eat():
-	var dir = _last_move_dir.rotated(PI)
-	var last_part = _parts[len(_parts) - 1]
 	var part = _part_scene.instantiate()
 	
-	add_child(part)
 	_parts.append(part)
+	call_deferred("add_child", part)
 	
 
 
