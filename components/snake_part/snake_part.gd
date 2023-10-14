@@ -7,20 +7,20 @@ class_name SnakePart
 var _next_pos: Vector2 = Vector2(0, 0)
 signal collided
 signal at_point
+var _faded_in = false
 
 
 func goto(pos: Vector2):
 	_next_pos = pos
 
-func _ready():
-	player.play("fade_in")
-
 func teleport():
+	if !_faded_in:
+		player.play("fade_in")
+		_faded_in = true
 	position = _next_pos
 
 
 func _physics_process(delta):
-	
 	if position.distance_to(_next_pos) < speed * delta:
 		position = _next_pos
 		emit_signal("at_point")

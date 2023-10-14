@@ -2,7 +2,7 @@ extends HBoxContainer
 class_name HeartBar
 
 # todo: make this use half hearts?
-@export var max: int = 5
+@export var max_health: int = 5
 @export var initial_value: int = 4
 
 var _value: int = 0
@@ -12,7 +12,7 @@ var empty_texture = preload("res://assets/Heart Empty.svg")
 var full_texture = preload("res://assets/Heart Full.svg")
 
 func _ready():
-	for i in range(max):
+	for i in range(max_health):
 		var texture_rect = TextureRect.new()
 		_texture_rects.append(texture_rect)
 		add_child(texture_rect)

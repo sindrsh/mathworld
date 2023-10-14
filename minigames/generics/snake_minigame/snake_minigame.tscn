@@ -72,6 +72,5 @@ scale = Vector2(0.5, 0.5)
 script = ExtResource("4_v4iwu")
 initial_value = 5
 
-[connection signal="died" from="Snake" to="." method="_on_snake_died"]
 [connection signal="hurt" from="Snake" to="Snake" method="_on_hurt"]
 [connection signal="hurt" from="Snake" to="CanvasLayer/Control/HeartBar" method="_decrease_value"]
