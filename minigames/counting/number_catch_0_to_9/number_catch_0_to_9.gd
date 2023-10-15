@@ -28,6 +28,9 @@ var bag: Array[int] = []
 var time_since_last_spawn: float = 2000  # seconds
 const MAX_TIME_BETWEEN_SPAWNS: float = 4  # seconds
 
+var _ended = false
+
+
 var values : Array = [
 	preload("res://minigames/generics/assets/stroke_numbers/one-stroke.svg"),
 	preload("res://minigames/generics/assets/stroke_numbers/two-stroke.svg"),
@@ -65,13 +68,16 @@ func _add_specifics() -> void:
 
 
 func _new_bag():
-	for i in range(10):
+	for i in range(1, 10):
 		bag.append(i)
 	
 	bag.shuffle()
 
 
 func _spawn_numbers(n: int) -> void: 
+	if _ended:
+		return
+		
 	randomize()
 	
 	for i in range(n):
@@ -82,6 +88,8 @@ func _spawn_numbers(n: int) -> void:
 		
 		var num : Number = number.duplicate()
 		num.value = random_number
+		num.get_node("Orb").animation = "default"
+		print(random_number)
 		num.get_node("Orb").frame = random_number - 1
 		num.position = Vector2(left_margin+randf_range(0, width), top_margin)
 		add_child(num)
@@ -138,6 +146,8 @@ func _on_character_entered(body : Node2D) -> void:
 		
 		if character.value == 9:
 			await get_tree().create_timer(0.5).timeout
+			_ended = true
+			print("I'm ending the game!")
 			_end_game()
 	else:
 		number.kill()

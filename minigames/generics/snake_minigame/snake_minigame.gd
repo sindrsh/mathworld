@@ -17,4 +17,3 @@ func _ready():
 		fruit.position = spawn_pos
 		
 		print("created fruit at " + str(spawn_pos))
-
