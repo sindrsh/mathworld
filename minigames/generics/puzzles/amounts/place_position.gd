@@ -84,16 +84,16 @@ var number_positions : Dictionary = {
 
 var number_adjusts : Dictionary = {
 	1: Vector2(0, 175),
-	2: Vector2(0, -25),
-	3: Vector2(0, 0) 
+	2: Vector2(0, 10),
+	3: Vector2(20, 40) 
 }
 
 var number_positions_duplicate: Dictionary = number_positions.duplicate(true)
 
 var number_place_positions : Dictionary = {
-	1: Vector2(1300, 450),
-	2: Vector2(900, 450),
-	3: Vector2(400, 450)
+	1: Vector2(1300, 350),
+	2: Vector2(900, 350),
+	3: Vector2(400, 350)
 }
 
 var change_mode : Dictionary = {
@@ -117,11 +117,11 @@ func _make_number(place: int) -> Area2D:
 			number.original_position = Vector2(number.position)
 		2:
 			number = Number.new(ten_texture)
-			number.position = number_place_positions[place] + Vector2(0, 400)
+			number.position = number_place_positions[place] + Vector2(0, 500)
 			number.original_position = Vector2(number.position)
 		3:
 			number = Number.new(hundred_texture)
-			number.position = number_place_positions[place] + Vector2(0, 400)
+			number.position = number_place_positions[place] + Vector2(0, 500)
 			number.original_position = Vector2(number.position)
 	number.place = place
 	return number	
@@ -154,6 +154,7 @@ func _on_number_entered_board(_number : Area2D, _name : String) -> void:
 		if numbers[place].size() != 10:
 			_number.position = _number_place.position + number_adjusts[place] + number_positions[place].pop_back()
 			number_boards[place].one_up()
+			_number_place.indicator.frame += 1
 			if _end_game_condition():
 				_end_game()
 			else:
@@ -164,24 +165,11 @@ func _on_number_entered_board(_number : Area2D, _name : String) -> void:
 		else:
 			number_positions[place] = number_positions_duplicate.duplicate(true)[place] 
 			_collect_numbers(place)
+			_number_place.indicator.frame = 0
 	else:
 		_number.position = _number.original_position
 
 
-
-func _connect_line(board: NumberBoard, number_place: Area2D) -> void:
-	var line = Line2D.new()
-	line.begin_cap_mode = Line2D.LINE_CAP_ROUND
-	line.end_cap_mode = Line2D.LINE_CAP_ROUND
-	line.width = 5
-	line.antialiased = true
-	line.default_color = Color8(0,0,0)
-	line.add_point(board.position + Vector2(0, board.one_board_texture.get_height()/2.0))
-	line.add_point(number_place.position + Vector2(0, -number_place.sprite.texture.get_height()/2.0))
-	add_child(line)
-
-
-	
 func _collect_numbers(place: int) -> void:
 	var sz = textures[place].get_size()
 	var nums = numbers[place]
@@ -189,7 +177,7 @@ func _collect_numbers(place: int) -> void:
 	for i in [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]:
 		if place == 1:
 			await get_tree().create_timer(0.3).timeout	
-			nums[i].position = number_place_positions[place+1] + Vector2(0, 9*sz.y + i*sz.y)
+			nums[i].position = number_place_positions[place+1] + Vector2(0, 11*sz.y + i*sz.y)
 	await get_tree().create_timer(0.3).timeout	
 	for j in range(10):
 		nums[j].queue_free()

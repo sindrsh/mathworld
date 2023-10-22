@@ -13,7 +13,6 @@ func _add_specifics() -> void:
 	_add_board(1, number_places[1].position + Vector2(0, -350))
 	
 	_add_number(1)
-	_connect_line(number_boards[1], number_places[1])
 	
 	music_player.stream = music
 

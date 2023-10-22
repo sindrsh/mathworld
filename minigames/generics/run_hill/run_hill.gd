@@ -65,6 +65,5 @@ func _alternative_chosen(_name : String) -> void:
 			alternative.hide()
 	
 
-
 func _mk_new_alternatives(value: int) -> void:
 	pass

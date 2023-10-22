@@ -1,0 +1,53 @@
+[gd_scene load_steps=12 format=3 uid="uid://52e2dxi1o08p"]
+
+[ext_resource type="Texture2D" uid="uid://burlt7uepwnf7" path="res://minigames/generics/puzzles/amounts/assets/orb 0.png" id="1_blkbf"]
+[ext_resource type="Texture2D" uid="uid://522pxtif2et" path="res://minigames/generics/puzzles/amounts/assets/orb 1.png" id="2_gq1am"]
+[ext_resource type="Texture2D" uid="uid://cuo1jw1h4dy5l" path="res://minigames/generics/puzzles/amounts/assets/orb 2.png" id="3_sfy7g"]
+[ext_resource type="Texture2D" uid="uid://bx4e0i6auaeny" path="res://minigames/generics/puzzles/amounts/assets/orb 3.png" id="4_t53t4"]
+[ext_resource type="Texture2D" uid="uid://cs3wnwxj56pow" path="res://minigames/generics/puzzles/amounts/assets/orb 4.png" id="5_p3qre"]
+[ext_resource type="Texture2D" uid="uid://blkmgy5onp0m3" path="res://minigames/generics/puzzles/amounts/assets/orb 5.png" id="6_mcehe"]
+[ext_resource type="Texture2D" uid="uid://ca3sc7avatdsd" path="res://minigames/generics/puzzles/amounts/assets/orb 6.png" id="7_uycm6"]
+[ext_resource type="Texture2D" uid="uid://dfb4ome1824nq" path="res://minigames/generics/puzzles/amounts/assets/orb 7.png" id="8_ciiee"]
+[ext_resource type="Texture2D" uid="uid://bup1iy86kcr11" path="res://minigames/generics/puzzles/amounts/assets/orb 8.png" id="9_q3iq6"]
+[ext_resource type="Texture2D" uid="uid://blyahp5w8b376" path="res://minigames/generics/puzzles/amounts/assets/orb 9.png" id="10_daoif"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hj6na"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_blkbf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_gq1am")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_sfy7g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_t53t4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_p3qre")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_mcehe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_uycm6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ciiee")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_q3iq6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_daoif")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="indicator" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_hj6na")
