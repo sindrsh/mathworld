@@ -122,3 +122,6 @@ func _on_tick_hit(_name : String) -> void:
 
 func _on_area_2d_area_entered(area):
 	var tick = area as Tick
+	
+	if tick != null:
+		print(tick.tick_is_obstacle)

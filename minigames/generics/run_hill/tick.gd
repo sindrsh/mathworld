@@ -18,6 +18,7 @@ func _ready():
 
 
 func _on_tick_entered(_area: Area2D) -> void:
+	print("i was hit")
 	emit_signal("hit", name)
 
 
