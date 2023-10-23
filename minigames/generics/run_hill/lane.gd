@@ -124,4 +124,8 @@ func _on_area_2d_area_entered(area):
 	var tick = area as Tick
 	
 	if tick != null:
-		print(tick.tick_is_obstacle)
+		if (tick.tick_is_obstacle and !tick.has_been_hit):
+			moving = false
+			
+			# TODO: make a cool explosion effect when this is called
+			print("Boom!")

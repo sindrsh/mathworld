@@ -52,6 +52,7 @@ func _mk_alternatives() -> void:
 func _alternative_chosen(_name : String) -> void:
 	lane.moving = true
 	var obstacle = lane.current_obstacle
+	lane.current_obstacle.has_been_hit = true
 	var alt = get_node(_name)
 	if alt.value == obstacle.value:
 		obstacle.get_node("ObstacleShape").set_deferred("disabled", true)
