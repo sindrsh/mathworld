@@ -118,3 +118,7 @@ func _on_tick_hit(_name : String) -> void:
 	tck.get_node("Text").show()
 	if tck.tick_is_obstacle:
 		emit_signal("make_new_alternatives", (tck.value/10)*10)
+
+
+func _on_area_2d_area_entered(area):
+	var tick = area as Tick
