@@ -30,12 +30,7 @@ func _ready():
 func set_new_text(new_text : String):
 	text = new_text
 	string_size = font.get_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size)
-	
-func set_text_position(pos : Vector2, adjust : Vector2 = Vector2(-0.5, 0)) -> void:
-	position = pos + string_size*adjust
 
-func center_text():
-	set_text_position(Vector2(0,0), Vector2(-0.5, -0.5))
 
 func set_color(color : Color) -> void:
 	set("theme_override_colors/font_color", color)	

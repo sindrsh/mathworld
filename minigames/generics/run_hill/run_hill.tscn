@@ -23,9 +23,14 @@ texture_normal = ExtResource("2_3l0rc")
 script = ExtResource("3_aeot3")
 
 [node name="Text" type="Label" parent="Alternative1"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("4_18ax7")
 
 [node name="Alternative2" type="TextureButton" parent="."]
@@ -37,9 +42,14 @@ texture_normal = ExtResource("2_3l0rc")
 script = ExtResource("3_aeot3")
 
 [node name="Text" type="Label" parent="Alternative2"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("4_18ax7")
 
 [node name="Alternative3" type="TextureButton" parent="."]
@@ -51,9 +61,14 @@ texture_normal = ExtResource("2_3l0rc")
 script = ExtResource("3_aeot3")
 
 [node name="Text" type="Label" parent="Alternative3"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("4_18ax7")
 
 [node name="Alternative4" type="TextureButton" parent="."]
@@ -65,7 +80,13 @@ texture_normal = ExtResource("2_3l0rc")
 script = ExtResource("3_aeot3")
 
 [node name="Text" type="Label" parent="Alternative4"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "fffffffffff"
+horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("4_18ax7")
