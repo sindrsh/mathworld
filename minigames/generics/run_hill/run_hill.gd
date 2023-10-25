@@ -34,7 +34,6 @@ func _mk_alternatives() -> void:
 	var i = indexes.pop_front()
 	alternatives[i].position = Vector2(300 + i*200, 100)
 	alternatives[i].value = lane.current_obstacle.value
-	alternatives[i].get_node("Text").position = Vector2(50,0)
 	alternatives[i].get_node("Text").text = str(alternatives[i].value)
 	
 	ints.remove_at(lane.current_obstacle.value % 10 - 1)
@@ -43,7 +42,6 @@ func _mk_alternatives() -> void:
 	for j in indexes:
 		alternatives[j].position = Vector2(300 + j*200, 100)
 		alternatives[j].value = start_value + ints.pop_back()
-		alternatives[j].get_node("Text").position = Vector2(50,0)
 		alternatives[j].get_node("Text").text = str(alternatives[j].value)
 	start_value += 10
 		
