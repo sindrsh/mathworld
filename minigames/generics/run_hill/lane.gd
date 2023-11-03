@@ -84,7 +84,6 @@ func _add_ticks() -> void:
 			var text: Text = tick.get_node("Text")
 			text.font_size = 40
 			text.set_new_text(str(i))
-			text.center_text()
 			text.position += Vector2(0, 30)
 			if (i % 5) != 0:
 				text.hide()
@@ -118,3 +117,14 @@ func _on_tick_hit(_name : String) -> void:
 	tck.get_node("Text").show()
 	if tck.tick_is_obstacle:
 		emit_signal("make_new_alternatives", (tck.value/10)*10)
+
+
+func _on_area_2d_area_entered(area):
+	var tick = area as Tick
+	
+	if tick != null:
+		if (tick.tick_is_obstacle and !tick.has_been_hit):
+			moving = false
+			
+			# TODO: make a cool explosion effect when this is called
+			print("Boom!")

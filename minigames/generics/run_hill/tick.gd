@@ -1,4 +1,5 @@
 extends Area2D
+class_name Tick
 
 signal hit(_name : String)
 var value : int
@@ -9,6 +10,7 @@ var tick_is_obstacle := false:
 			$ObstacleShape.set_deferred("disabled", false)
 		
 var next_obstacle : Area2D
+var has_been_hit = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,6 +18,8 @@ func _ready():
 	assert($Button.pressed.connect(_on_tick_pressed) == 0)
 
 
+# Does this method ever get called or connected to?
+# -- FireSquid
 func _on_tick_entered(_area: Area2D) -> void:
 	emit_signal("hit", name)
 
