@@ -34,12 +34,12 @@ func _add_generics() -> void:
 	var bottom_border = CollisionShape2D.new()
 	bottom_border.shape = SegmentShape2D.new()
 	bottom_border.shape.a = Vector2(0, window.y)
-	bottom_border.shape.b = window	
+	bottom_border.shape.b = window
 	bottom_wall.add_child(bottom_border)
 	var top_border = CollisionShape2D.new()
 	top_border.shape = SegmentShape2D.new()
 	top_border.shape.a = Vector2(0, 0)
-	top_border.shape.b = Vector2(window.x, 0)			
+	top_border.shape.b = Vector2(window.x, 0)
 	top_wall.add_child(top_border)
 	
 	add_child(bubble_container)
@@ -72,11 +72,21 @@ func _on_bubble_pressed(_name : String) -> void:
 			if _bubbles_are_equal(_name, chosen_bubble):
 				audio_player.stream = correct_sound
 				audio_player.play()
-				bubble_container.get_node(chosen_bubble).queue_free()
-				bubble_container.get_node(_name).queue_free()
+				
+				var bubble1 = bubble_container.get_node(chosen_bubble)
+				var bubble2 = bubble_container.get_node(_name)
+				
+				bubble1.on_kill()
+				bubble2.on_kill()
+				
+				bubble1.queue_free()
+				bubble2.queue_free()
 				chosen_bubble = ''
 			else:
 				audio_player.stream = incorrect_sound
+				print("You messed up")
+				var bubble = bubble_container.get_node(chosen_bubble)
+				print(bubble)
 				audio_player.play()
 				if status_bar.frame == 0:
 					_end_game_with_failure()
