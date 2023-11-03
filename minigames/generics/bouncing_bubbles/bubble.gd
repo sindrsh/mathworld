@@ -45,6 +45,8 @@ func _physics_process(delta):
 	if collision:
 		velocity = velocity.bounce(collision.get_normal())
 
+func shoot_in_random_direction(speed: float) -> void:
+	velocity = Vector2(speed, 0).rotated(randf_range(0, 2 * PI))
 
 func _on_pressed() -> void:
 	emit_signal("bubble_pressed", name)

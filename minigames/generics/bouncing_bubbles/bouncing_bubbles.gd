@@ -85,15 +85,15 @@ func _on_bubble_pressed(_name : String) -> void:
 			else:
 				audio_player.stream = incorrect_sound
 				print("You messed up")
-				var bubble = bubble_container.get_node(chosen_bubble)
+				var bubble = bubble_container.get_node(_name)
 				print(bubble)
+				bubble.shoot_in_random_direction(200)
 				audio_player.play()
 				if status_bar.frame == 0:
 					_end_game_with_failure()
 					
 				status_bar.frame -= 1
 				return
-
 			if _end_game_condition(): 
 				await get_tree().create_timer(0.5).timeout
 				_end_game()
