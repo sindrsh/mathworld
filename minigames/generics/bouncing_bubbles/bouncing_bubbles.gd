@@ -84,9 +84,13 @@ func _on_bubble_pressed(_name : String) -> void:
 				audio_player.stream = incorrect_sound
 				print("You messed up")
 				var bubble = bubble_container.get_node(_name)
-				print(bubble)
+				bubble.shake()
 				bubble.play_wrong_choice()
 				audio_player.play()
+				bubble_container.get_node(chosen_bubble).shake()
+				bubble_container.get_node(chosen_bubble).sprite.frame = 0
+				chosen_bubble = ''
+				
 				if status_bar.frame == 0:
 					_end_game_with_failure()
 					

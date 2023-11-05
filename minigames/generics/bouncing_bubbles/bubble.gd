@@ -47,7 +47,7 @@ func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)
 	if collision:
 		velocity = velocity.bounce(collision.get_normal())
-
+	
 # depecrated - was used as a wrong choice "animation"
 #func shoot_in_random_direction(speed: float) -> void:
 #	velocity = Vector2(speed, 0).rotated(randf_range(0, 2 * PI))
@@ -93,3 +93,13 @@ func play_wrong_choice():
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "fade_out":
 		queue_free()
+
+
+func shake() -> void:
+	var start_pos := position
+	randomize()
+	for i in range(10):
+		var angle = randf_range(0, 2*PI)
+		position += 10*Vector2(cos(angle), sin(angle))
+		await get_tree().create_timer(0.01).timeout
+	position = start_pos

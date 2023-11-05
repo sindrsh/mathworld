@@ -88,5 +88,3 @@ func _bubbles_are_equal(bubble1 : String, bubble2 : String) -> bool:
 	var are_equal : bool = bubble_container.get_node(bubble1).int_value[0] == bubble_container.get_node(bubble2).int_value[0]
 	if are_equal: score += 1
 	return are_equal
-
-
