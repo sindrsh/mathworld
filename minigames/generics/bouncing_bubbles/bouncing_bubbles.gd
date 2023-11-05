@@ -79,8 +79,6 @@ func _on_bubble_pressed(_name : String) -> void:
 				bubble1.on_kill()
 				bubble2.on_kill()
 				
-				bubble1.queue_free()
-				bubble2.queue_free()
 				chosen_bubble = ''
 			else:
 				audio_player.stream = incorrect_sound

@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Bubble
 
 signal bubble_pressed(_name : String)
 
@@ -11,6 +12,8 @@ var button := TextureButton.new()
 var sprite := AnimatedSprite2D.new()
 
 var background_a : Array
+
+@onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
 
 func _init():
 	background_a = [
@@ -81,4 +84,9 @@ func start(_position, _direction):
 
 
 func on_kill():
-	print("I am dead")
+	animation_player.play("fade_out")
+
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "fade_out":
+		queue_free()
