@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Bubble
 
 signal bubble_pressed(_name : String)
 
@@ -11,6 +12,8 @@ var button := TextureButton.new()
 var sprite := AnimatedSprite2D.new()
 
 var background_a : Array
+
+@onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
 
 func _init():
 	background_a = [
@@ -45,8 +48,9 @@ func _physics_process(delta):
 	if collision:
 		velocity = velocity.bounce(collision.get_normal())
 
-func shoot_in_random_direction(speed: float) -> void:
-	velocity = Vector2(speed, 0).rotated(randf_range(0, 2 * PI))
+# depecrated - was used as a wrong choice "animation"
+#func shoot_in_random_direction(speed: float) -> void:
+#	velocity = Vector2(speed, 0).rotated(randf_range(0, 2 * PI))
 
 func _on_pressed() -> void:
 	emit_signal("bubble_pressed", name)
@@ -81,4 +85,11 @@ func start(_position, _direction):
 
 
 func on_kill():
-	print("I am dead")
+	animation_player.play("fade_out")
+
+func play_wrong_choice():
+	animation_player.play("wrong_choice")
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "fade_out":
+		queue_free()

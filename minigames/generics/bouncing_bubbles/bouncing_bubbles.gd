@@ -79,15 +79,13 @@ func _on_bubble_pressed(_name : String) -> void:
 				bubble1.on_kill()
 				bubble2.on_kill()
 				
-				bubble1.queue_free()
-				bubble2.queue_free()
 				chosen_bubble = ''
 			else:
 				audio_player.stream = incorrect_sound
 				print("You messed up")
 				var bubble = bubble_container.get_node(_name)
 				print(bubble)
-				bubble.shoot_in_random_direction(200)
+				bubble.play_wrong_choice()
 				audio_player.play()
 				if status_bar.frame == 0:
 					_end_game_with_failure()

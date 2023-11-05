@@ -6,6 +6,8 @@ var score : = 0
 var ints := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 var music : AudioStreamMP3 = preload("res://minigames/generics/assets/game-music.mp3")
 
+var bubble_scene = preload("res://minigames/generics/bouncing_bubbles/bubble.tscn")
+
 func _add_specifics() -> void:
 	world_part = "counting"
 	id = "match_0_to_9"
@@ -49,7 +51,7 @@ func _mk_bubble_pair() -> void:
 	var bubble_number : int = ints.pop_front()
 	var position_area : Vector2 = 0.7*get_viewport_rect().size
 	
-	var bubble_a := Bubble.new()
+	var bubble_a := bubble_scene.instantiate()
 	bubble_a.int_value = [bubble_number, 1]
 	bubble_a.representation = REPRESENTATION_A
 	bubble_a.start(Vector2(position_area.x*randf(), position_area.y*randf()), 3.14*randf())
@@ -58,10 +60,10 @@ func _mk_bubble_pair() -> void:
 	bubble_container.add_child(bubble_a)
 	
 	var number_symbol_a := Sprite2D.new()
-	number_symbol_a.texture = representation_a[bubble_number] 
+	number_symbol_a.texture = representation_a[bubble_number]
 	bubble_a.add_child(number_symbol_a)
 	
-	var bubble_b := Bubble.new()
+	var bubble_b := bubble_scene.instantiate()
 	bubble_b.int_value = [bubble_number, 1]
 	bubble_b.representation = REPRESENTATION_B
 	bubble_b.start(Vector2(800, 300), 3.14*randf())
