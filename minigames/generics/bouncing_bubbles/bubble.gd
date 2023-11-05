@@ -48,8 +48,9 @@ func _physics_process(delta):
 	if collision:
 		velocity = velocity.bounce(collision.get_normal())
 
-func shoot_in_random_direction(speed: float) -> void:
-	velocity = Vector2(speed, 0).rotated(randf_range(0, 2 * PI))
+# depecrated - was used as a wrong choice "animation"
+#func shoot_in_random_direction(speed: float) -> void:
+#	velocity = Vector2(speed, 0).rotated(randf_range(0, 2 * PI))
 
 func _on_pressed() -> void:
 	emit_signal("bubble_pressed", name)
@@ -86,6 +87,8 @@ func start(_position, _direction):
 func on_kill():
 	animation_player.play("fade_out")
 
+func play_wrong_choice():
+	animation_player.play("wrong_choice")
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "fade_out":
