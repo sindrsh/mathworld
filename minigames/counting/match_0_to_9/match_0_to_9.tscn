@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://matchnumbers"]
+[gd_scene load_steps=3 format=3 uid="uid://matchnumbers"]
 
 [ext_resource type="Script" path="res://minigames/counting/match_0_to_9/match_0_to_9.gd" id="1_q0sq1"]
+[ext_resource type="Texture2D" uid="uid://cbuktpy0v6oe5" path="res://minigames/counting/match_0_to_9/assets/scenario_match_the_numbers.png" id="2_wugm3"]
 
 [node name="Match0To9" type="Control"]
 layout_mode = 3
@@ -14,4 +15,5 @@ script = ExtResource("1_q0sq1")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.67451)
 position = Vector2(966, 544)
-scale = Vector2(1.69531, 1.69531)
+scale = Vector2(1.38, 1.38)
+texture = ExtResource("2_wugm3")

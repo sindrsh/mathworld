@@ -62,11 +62,11 @@ func _mk_bubbles():
 
 func _on_bubble_pressed(_name : String) -> void:
 	if _name == chosen_bubble:
-		bubble_container.get_node(_name).sprite.frame = 0
+		bubble_container.get_node(_name).button.texture_normal = bubble_container.get_node(_name).not_chosen_texture		
 		chosen_bubble = ''
 	else:
 		if chosen_bubble == '':
-			bubble_container.get_node(_name).sprite.frame = 1
+			bubble_container.get_node(_name).button.texture_normal = bubble_container.get_node(_name).chosen_texture
 			chosen_bubble = _name
 		elif bubble_container.get_node(chosen_bubble).representation != bubble_container.get_node(_name).representation:
 			if _bubbles_are_equal(_name, chosen_bubble):
@@ -82,13 +82,12 @@ func _on_bubble_pressed(_name : String) -> void:
 				chosen_bubble = ''
 			else:
 				audio_player.stream = incorrect_sound
-				print("You messed up")
 				var bubble = bubble_container.get_node(_name)
 				bubble.shake()
 				bubble.play_wrong_choice()
 				audio_player.play()
 				bubble_container.get_node(chosen_bubble).shake()
-				bubble_container.get_node(chosen_bubble).sprite.frame = 0
+				bubble_container.get_node(chosen_bubble).button.texture_normal = bubble_container.get_node(chosen_bubble).not_chosen_texture
 				chosen_bubble = ''
 				
 				if status_bar.frame == 0:

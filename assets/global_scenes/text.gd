@@ -6,7 +6,7 @@ var font : Font:
 	set(_font):
 		font = _font
 		set("theme_override_fonts/font", font)
-		
+
 var font_size : int:
 	set(_font_size):
 		font_size = _font_size
@@ -16,13 +16,13 @@ var font_size : int:
 func _init(font_sz : int = 40, txt : String = "", font_color : Color = Color(0, 0, 0)):
 	font_size = font_sz
 	font = load("res://assets/fonts/OpenSans.ttf")
-#	set("theme_override_fonts/font", font)
-#	set("theme_override_font_sizes/font_size", font_sz)
+	set("theme_override_fonts/font", font)
+	set("theme_override_font_sizes/font_size", font_sz)
 	set("theme_override_colors/font_color", font_color)
 	set_new_text(txt)
-	
 
-func _ready():	
+
+func _ready():
 	if not font:
 		set("theme_override_fonts/font", font)
 		set("theme_override_colors/font_color", Color(0, 0, 0))
@@ -33,6 +33,4 @@ func set_new_text(new_text : String):
 
 
 func set_color(color : Color) -> void:
-	set("theme_override_colors/font_color", color)	
-
-
+	set("theme_override_colors/font_color", color)

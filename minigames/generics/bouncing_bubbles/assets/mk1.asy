@@ -6,7 +6,7 @@ usepackage("amsmath");
 usepackage("amssymb");
 
 
-real sc = 10;
+real sc = 25;
 real y = 7;
 
 
