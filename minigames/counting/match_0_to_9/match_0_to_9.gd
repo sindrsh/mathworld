@@ -20,6 +20,19 @@ var representation_a = [
 		preload("res://minigames/counting/match_0_to_9/assets/bubbles 9.png"),
 	]
 	
+var representation_a_chosen = [
+		preload("res://minigames/counting/match_0_to_9/assets/Purple Bubble 0.png"),
+		preload("res://minigames/counting/match_0_to_9/assets/Purple Bubble 1.png"),
+		preload("res://minigames/counting/match_0_to_9/assets/Purple Bubble 2.png"),
+		preload("res://minigames/counting/match_0_to_9/assets/Purple Bubble 3.png"),
+		preload("res://minigames/counting/match_0_to_9/assets/Purple Bubble 4.png"),
+		preload("res://minigames/counting/match_0_to_9/assets/Purple Bubble 5.png"),
+		preload("res://minigames/counting/match_0_to_9/assets/Purple Bubble 6.png"),
+		preload("res://minigames/counting/match_0_to_9/assets/Purple Bubble 7.png"),
+		preload("res://minigames/counting/match_0_to_9/assets/Purple Bubble 8.png"),
+		preload("res://minigames/counting/match_0_to_9/assets/Purple Bubble 9.png"),
+	]	
+	
 var	representation_b = [
 		preload("res://minigames/counting/match_0_to_9/assets/bubbles empty 2.png"),
 		preload("res://minigames/counting/match_0_to_9/assets/bubbles empty 2.png"),
@@ -32,6 +45,8 @@ var	representation_b = [
 		preload("res://minigames/counting/match_0_to_9/assets/bubbles empty 2.png"),
 		preload("res://minigames/counting/match_0_to_9/assets/bubbles empty 2.png"),
 	]
+
+var representation_b_chosen = preload("res://minigames/counting/match_0_to_9/assets/bubbles empty.png")
 
 func _add_specifics() -> void:
 	world_part = "counting"
@@ -58,7 +73,7 @@ func _mk_bubble_pair() -> void:
 	bubble_a.start(Vector2(position_area.x*randf(), position_area.y*randf()), 3.14*randf())
 	assert(bubble_a.connect("bubble_pressed", _on_bubble_pressed) == 0)
 	bubble_a.not_chosen_texture = representation_a[bubble_number]
-	bubble_a.chosen_texture = load("res://minigames/counting/match_0_to_9/assets/bubbles empty.png")
+	bubble_a.chosen_texture = representation_a_chosen[bubble_number]
 	bubble_a.button.texture_normal = representation_a[bubble_number]
 	
 	var sc := 0.1
@@ -75,7 +90,7 @@ func _mk_bubble_pair() -> void:
 	assert(bubble_b.connect("bubble_pressed", _on_bubble_pressed) == 0)
 	bubble_b.button.texture_normal = representation_b[bubble_number]
 	bubble_b.not_chosen_texture = representation_b[bubble_number]
-	bubble_b.chosen_texture = load("res://minigames/counting/match_0_to_9/assets/bubbles empty.png")
+	bubble_b.chosen_texture = representation_b_chosen
 	bubble_b.button.scale = sc*Vector2(1,1)
 	bubble_b.collision_shape.shape.radius = 0.5*sc*representation_b[bubble_number].get_height()
 	bubble_b.button.position = -0.5*sc*representation_b[bubble_number].get_size()
