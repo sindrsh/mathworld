@@ -20,6 +20,7 @@ var num_pos = Vector2(100,100)
 var hovered = false
 var is_exiting = false
 
+@onready var animation_player = get_node("AnimationPlayer")
 
 # NOTE: mk_operator and mk_number should be made a generic autoload function
 # as VideoPlayer.gd also use these functions
@@ -57,8 +58,12 @@ func mk_number(number, decs, pos):
 	return num_list
 
 func _on_timeout():
-	queue_free()
-	
+	animation_player.play("fade_out")
+
+
+
+
+
 func _on_mouse_entered():
 	hovered = true
 	
@@ -95,3 +100,8 @@ func _process(delta):
 				get_parent().validate($TickDetector, null)
 				is_exiting = true
 	position.y += delta*speed.y
+
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "fade_out":
+		queue_free()
