@@ -12,6 +12,8 @@ var score = 0
 var rounds = 3
 var high_score
 
+var difficulty = 1
+
 
 func _on_num_selection(node):
 	if selected_number == null or not is_instance_valid(selected_number):
@@ -174,3 +176,8 @@ func _process(delta):
 	if time > 20: 
 		$NumberTimer.wait_time = 0.9*$NumberTimer.wait_time
 		time = 0
+
+
+func _on_difficulty_timer_timeout():
+	print("difficulty increased")
+	difficulty += 1
