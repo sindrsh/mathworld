@@ -67,7 +67,7 @@ func _on_mouse_entered():
 	hovered = true
 	
 func _change_speed():
-	speed = Vector2(speed.x, 1.4*speed.y)	
+	speed = Vector2(speed.x, 1.4*speed.y)
 
 func _on_mouse_exited():
 	hovered = false

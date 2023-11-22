@@ -180,5 +180,7 @@ func _process(delta):
 
 
 func _on_difficulty_timer_timeout():
-	print("difficulty increased")
-	difficulty += 1
+	if difficulty < 10:
+		$NumberTimer.wait_time -= 0.2
+		print($NumberTimer.wait_time)
+		difficulty += 1
