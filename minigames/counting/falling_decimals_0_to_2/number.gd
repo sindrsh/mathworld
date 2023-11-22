@@ -5,6 +5,8 @@ signal selected
 var num_scene = preload("res://minigames/counting/falling_decimals_0_to_2/int.tscn")
 var op_scene = preload("res://minigames/counting/falling_decimals_0_to_2/operator.tscn")
 
+@export var speed_multiplier: int = 10
+
 var value
 var speed = Vector2(2000, 30)
 var tick
@@ -16,6 +18,7 @@ var comma_sep2 = 10
 var comma_y = 10
 var num_scale = 0.5
 var num_pos = Vector2(100,100)
+var moving = true
 
 var hovered = false
 var is_exiting = false
@@ -60,15 +63,11 @@ func mk_number(number, decs, pos):
 func _on_timeout():
 	animation_player.play("fade_out")
 
-
-
-
-
 func _on_mouse_entered():
 	hovered = true
 	
 func _change_speed():
-	speed = Vector2(speed.x, 1.4*speed.y)	
+	speed = Vector2(speed.x, 1.4*speed.y)
 
 func _on_mouse_exited():
 	hovered = false
@@ -80,6 +79,7 @@ func _input(event):
 
 func _ready():
 	position = num_pos
+	speed.y += speed_multiplier * get_parent().difficulty
 	
 	assert($MouseDetector.connect("mouse_entered", Callable(self, "_on_mouse_entered")) == 0)
 	assert($MouseDetector.connect("mouse_exited", Callable(self, "_on_mouse_exited")) == 0)
@@ -99,7 +99,9 @@ func _process(delta):
 			if not is_exiting:
 				get_parent().validate($TickDetector, null)
 				is_exiting = true
-	position.y += delta*speed.y
+	
+	if moving:
+		position.y += delta*speed.y
 
 
 func _on_animation_player_animation_finished(anim_name):

@@ -12,6 +12,8 @@ var score = 0
 var rounds = 3
 var high_score
 
+var difficulty = 1
+
 
 func _on_num_selection(node):
 	if selected_number == null or not is_instance_valid(selected_number):
@@ -49,6 +51,7 @@ func _add_number():
 	
 func validate(area, tick = null):
 	var number = area.get_parent()
+	number.moving = false
 	number.get_node("ExitTimer").start()
 	if tick != null:
 		if snapped(number.value, 0.1) == snapped(tick.value, 0.1):
@@ -174,3 +177,10 @@ func _process(delta):
 	if time > 20: 
 		$NumberTimer.wait_time = 0.9*$NumberTimer.wait_time
 		time = 0
+
+
+func _on_difficulty_timer_timeout():
+	if difficulty < 10:
+		$NumberTimer.wait_time -= 0.2
+		print($NumberTimer.wait_time)
+		difficulty += 1
