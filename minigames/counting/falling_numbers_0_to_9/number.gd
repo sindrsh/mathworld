@@ -74,8 +74,6 @@ func _input(event):
 			emit_signal("selected", self)
 
 func _ready():
-	position = num_pos
-	
 	assert($MouseDetector.connect("mouse_entered", Callable(self, "_on_mouse_entered")) == 0)
 	assert($MouseDetector.connect("mouse_exited", Callable(self, "_on_mouse_exited")) == 0)
 	assert($ExitTimer.connect("timeout", Callable(self, "_on_timeout")) == 0)	

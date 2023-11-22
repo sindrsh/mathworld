@@ -51,6 +51,7 @@ func _add_number():
 	
 func validate(area, tick = null):
 	var number = area.get_parent()
+	number.moving = false
 	number.get_node("ExitTimer").start()
 	if tick != null:
 		if snapped(number.value, 0.1) == snapped(tick.value, 0.1):
