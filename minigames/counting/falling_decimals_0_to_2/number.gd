@@ -63,26 +63,16 @@ func mk_number(number, decs, pos):
 func _on_timeout():
 	animation_player.play("fade_out")
 
-func _on_mouse_entered():
-	hovered = true
 	
 func _change_speed():
 	speed = Vector2(speed.x, 1.4*speed.y)
 
-func _on_mouse_exited():
-	hovered = false
-
-func _input(event):
-	if event is InputEventMouseButton:
-		if hovered:
-			emit_signal("selected", self)
 
 func _ready():
 	position = num_pos
 	speed.y += speed_multiplier * get_parent().difficulty
 	
-	assert($MouseDetector.connect("mouse_entered", Callable(self, "_on_mouse_entered")) == 0)
-	assert($MouseDetector.connect("mouse_exited", Callable(self, "_on_mouse_exited")) == 0)
+	assert($TextureButton.pressed.connect(_on_pressed) == 0)
 	assert($ExitTimer.connect("timeout", Callable(self, "_on_timeout")) == 0)	
 
 
@@ -107,3 +97,6 @@ func _process(delta):
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "fade_out":
 		queue_free()
+
+func _on_pressed() -> void:
+	emit_signal("selected", self)

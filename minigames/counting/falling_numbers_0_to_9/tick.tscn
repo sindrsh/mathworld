@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://jhra60wd8rbo"]
+[gd_scene load_steps=7 format=3 uid="uid://jhra60wd8rbo"]
 
 [ext_resource type="Script" path="res://minigames/counting/falling_decimals_0_to_2/tick.gd" id="1_kkaok"]
-[ext_resource type="Texture2D" uid="uid://cok58arylvhc4" path="res://minigames/counting/falling_decimals_0_to_2/assets/tick.png" id="2_lox5g"]
-[ext_resource type="Texture2D" uid="uid://ook54f8dgsap" path="res://minigames/counting/falling_decimals_0_to_2/assets/tick_slct.png" id="3_wrlw3"]
+[ext_resource type="Texture2D" uid="uid://btdnktiobi5t1" path="res://minigames/counting/falling_decimals_0_to_2/assets/tick.png" id="2_lox5g"]
+[ext_resource type="Texture2D" uid="uid://dgq2xkgoj4k5a" path="res://minigames/counting/falling_decimals_0_to_2/assets/tick_slct.png" id="3_wrlw3"]
+[ext_resource type="Texture2D" uid="uid://befwpikw5fpb4" path="res://minigames/counting/falling_numbers_0_to_9/assets/tick_segment.png" id="4_o07bs"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ti8l6"]
 animations = [{
@@ -19,7 +20,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ci0e4"]
-size = Vector2(81, 80)
+size = Vector2(20, 30)
 
 [node name="Tick" type="Area2D"]
 script = ExtResource("1_kkaok")
@@ -33,3 +34,14 @@ shape = SubResource("RectangleShape2D_ci0e4")
 
 [node name="ColorTimer" type="Timer" parent="."]
 wait_time = 0.25
+
+[node name="TextureButton" type="TextureButton" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_o07bs")

@@ -3,9 +3,9 @@ extends MiniGame
 var tick_scene = preload("res://minigames/counting/falling_numbers_0_to_9/tick.tscn")
 var number_scene = preload("res://minigames/counting/falling_numbers_0_to_9/number.tscn")
 var ticks = 10
-var dx = 100
+var dx : float
 var line_a = Vector2(250,800)
-var line_b = Vector2(line_a.x + (ticks-1)*dx, line_a.y)
+var line_b : Vector2
 
 var selected_number
 var score = 0
@@ -13,7 +13,7 @@ var rounds = 3
 var high_score
 
 var difficulty = 1
-
+var time = 0
 
 func _on_num_selection(node):
 	if selected_number == null or not is_instance_valid(selected_number):
@@ -38,7 +38,7 @@ func _add_number():
 	var number = number_scene.instantiate()
 	add_child(number)
 	
-	assert(number.connect("selected", Callable(self, "_on_num_selection")) == 0)	
+	assert(number.selected.connect(_on_num_selection) == 0)	
 
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
@@ -99,12 +99,16 @@ func _add_specifics():
 	id = "falling_numbers_0_to_9"
 	minigame_type = NUMBER_LINE
 	
+	line_b = Vector2(line_a.x + $NumberLine.texture.get_width(), line_a.y)
+	$NumberLine.position = line_a + Vector2(0, -$NumberLine.texture.get_height()/2)
+	dx = $NumberLine.texture.get_width()/float(ticks-1)
+	
 	for i in range(ticks):
 		var tick = tick_scene.instantiate()
 		add_child(tick)
 		tick.position = Vector2(line_a.x + dx*i, line_a.y)
 		tick.value = i
-		assert(tick.connect("selected", Callable(self, "_on_tick_selection")) == 0)
+		assert(tick.selected.connect(_on_tick_selection) == 0)
 	
 
 	$ScoreBox/ScoreLabel.text = str(score)
@@ -123,7 +127,6 @@ func _add_specifics():
 	_mk_number(self, "1", null, Vector2(line_a.x+dx, line_a.y+40), 0.5, 20, 5, 10, 10)
 	
 	assert($NumberTimer.connect("timeout", Callable(self, "_add_number")) == 0 )
-	assert($RestartButton.connect("pressed", Callable(self, "_on_restart")) == 0)
 	$NumberTimer.start()
 	$EndBox.hide()
 	$RestartButton.hide()
@@ -167,11 +170,6 @@ func _mk_operator(scene, int_frame, pos, num_scale = 1):
 	return op
 
 
-func _draw():
-	draw_line(line_a, line_b, Color(0,0,0), 7)
-
-
-var time = 0
 func _process(delta):
 	time += delta
 	if time > 20: 
@@ -182,5 +180,4 @@ func _process(delta):
 func _on_difficulty_timer_timeout():
 	if difficulty < 10:
 		$NumberTimer.wait_time -= 0.2
-		print($NumberTimer.wait_time)
 		difficulty += 1

@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://c71evkxmfm70r"]
+[gd_scene load_steps=6 format=3 uid="uid://c71evkxmfm70r"]
 
 [ext_resource type="Script" path="res://minigames/counting/falling_numbers_0_to_9/falling_numbers_0_to_9.gd" id="1_ttqab"]
-[ext_resource type="AudioStream" uid="uid://dloqmanbldk0v" path="res://minigames/counting/falling_decimals_0_to_2/assets/House In a Forest Loop.ogg" id="2_ajsij"]
-[ext_resource type="AudioStream" uid="uid://buouurbafqk8y" path="res://minigames/counting/falling_decimals_0_to_2/assets/gameover.wav" id="3_qjww3"]
+[ext_resource type="AudioStream" uid="uid://bkd653hbhci4p" path="res://minigames/counting/falling_decimals_0_to_2/assets/House In a Forest Loop.ogg" id="2_ajsij"]
+[ext_resource type="AudioStream" uid="uid://4v7avs54e5sm" path="res://minigames/counting/falling_decimals_0_to_2/assets/gameover.wav" id="3_qjww3"]
+[ext_resource type="Texture2D" uid="uid://chmc52fil8m0j" path="res://minigames/counting/falling_numbers_0_to_9/assets/number_line.png" id="4_uw1jm"]
+[ext_resource type="Texture2D" uid="uid://c6k7qdq3xjs4x" path="res://minigames/counting/falling_numbers_0_to_9/assets/scenario_minigame_2.png" id="5_tuw5p"]
 
-[node name="FallingDecimals0To2" type="Control"]
+[node name="FallingDecimals0To9" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,6 +14,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ttqab")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_tuw5p")
+centered = false
 
 [node name="ScoreBox" type="ColorRect" parent="."]
 layout_mode = 0
@@ -109,5 +116,9 @@ offset_bottom = 40.0
 [node name="DifficultyTimer" type="Timer" parent="."]
 wait_time = 15.0
 autostart = true
+
+[node name="NumberLine" type="Sprite2D" parent="."]
+texture = ExtResource("4_uw1jm")
+centered = false
 
 [connection signal="timeout" from="DifficultyTimer" to="." method="_on_difficulty_timer_timeout"]
