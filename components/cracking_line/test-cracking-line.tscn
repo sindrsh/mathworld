@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1pi1xurawt2c"]
+
+[ext_resource type="PackedScene" uid="uid://eetlqib8aanc" path="res://components/cracking_line/cracking-line.tscn" id="1_svpwj"]
+[ext_resource type="Script" path="res://components/cracking_line/test-cracking-line.gd" id="1_xd6cp"]
+
+[node name="test-cracking-line" type="Node2D"]
+script = ExtResource("1_xd6cp")
+
+[node name="CrackingLine" parent="." instance=ExtResource("1_svpwj")]
+position = Vector2(305, 209)
