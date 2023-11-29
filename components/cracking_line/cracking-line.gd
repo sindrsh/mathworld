@@ -20,32 +20,34 @@ var _line_dir: float
 func _ready():
 	_endpoints.append($Endpoint1.position)
 	_endpoints.append($Endpoint2.position)
+	_line_start = $Endpoint1.position
 	_line_length = $Endpoint1.position.distance_to($Endpoint2.position)
-	_line_dir = $Endpoint1.position.angle_to($Endpoint2.position)  # does the cross product under the hood I think
+	_line_dir = $Endpoint1.position.angle_to_point($Endpoint2.position)
 
 
 # Adds a new crack to the number line
 func crack():
 	_cracks.append(randi_range(0, _line_length))
+	# Docs says that sort() behavior is unstable
+	_cracks.sort_custom(func(a, b): return a < b)
 	queue_redraw()
 
 
 func _draw():
-	var points = [_endpoints[0]]
+	var lines: Array[Array]
+	var start: Vector2 = _line_start
+	var end: Vector2
+	print(_line_start)
+	
 	for crack in _cracks:
-		points.append(get_line_position(crack - crack_length))
-		points.append(get_line_position(crack + crack_length))
-	points.append(_endpoints[1])
-	# it's mathematically impossible for points to have an odd number of elements so I'm not gonna assert it
+		end = get_line_position(crack - crack_length)
+		lines.append([start, end])
+		start = get_line_position(crack + crack_length)
 	
-	var lines: Array[Array]  # A 2D array of vector2's. Godot is stupid and doesn't allow you to explicitly define typed 2d arrays
-	print(points)
-	
-	for i in range(0, len(points), 2):
-		print("I'm in this for loop")
-		lines.append([points[i], points[i+1]])
+	lines.append([start, _endpoints[1]])
 	
 	print(lines)
+	
 	for line in lines:
 		draw_line(line[0], line[1], color, width)
 
