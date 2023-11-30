@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://eetlqib8aanc"]
+
+[ext_resource type="Script" path="res://components/cracking_line/cracking-line.gd" id="1_03xb6"]
+
+[node name="CrackingLine" type="Node2D"]
+script = ExtResource("1_03xb6")
+
+[node name="Endpoint1" type="Marker2D" parent="."]
+position = Vector2(86, -17)
+
+[node name="Endpoint2" type="Marker2D" parent="."]
+position = Vector2(-52, 16)

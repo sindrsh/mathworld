@@ -15,6 +15,8 @@ var high_score
 var difficulty = 1
 var time = 0
 
+@onready var cracking_line: CrackingLine = get_node("NumberLine/CrackingLine")
+
 func _on_num_selection(node):
 	if selected_number == null or not is_instance_valid(selected_number):
 		selected_number = node
@@ -60,6 +62,7 @@ func validate(area, tick = null):
 			number.get_node("Sprite2D").frame = 3
 		else: 
 			rounds -= 1
+			cracking_line.crack()
 			number.get_node("Sprite2D").frame = 4
 	else:
 		rounds -= 1
