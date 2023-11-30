@@ -8,6 +8,8 @@ var one_texture = preload("res://minigames/generics/puzzles/amounts/assets/one.s
 var ten_texture = preload("res://minigames/generics/puzzles/amounts/assets/ten.svg")
 var hundred_texture = preload("res://minigames/generics/puzzles/amounts/assets/hundred.svg")
 
+var music : AudioStreamMP3 = preload("res://minigames/generics/assets/little-slime.mp3")
+
 var textures: Dictionary = {
 	1: one_texture,
 	2: ten_texture,
@@ -31,6 +33,10 @@ var tenths: Array
 var ones: Array
 var tens: Array
 var hundreds: Array
+
+var one_y = 380
+var ten_y = 500
+var hundred_y = 500
 
 var numbers : Dictionary = {
 	-1: tenths,
@@ -103,6 +109,8 @@ var change_mode : Dictionary = {
 	3: true
 }
 
+func _add_generics() -> void:
+	music_player.stream = music
 
 func _add_number(place : int) -> void:
 	call_deferred("add_child", _make_number(place))
@@ -113,15 +121,15 @@ func _make_number(place: int) -> Area2D:
 	match place:
 		1:
 			number = Number.new(one_texture)
-			number.position = number_place_positions[place] + Vector2(0, 380)
+			number.position = number_place_positions[place] + Vector2(0, one_y)
 			number.original_position = Vector2(number.position)
 		2:
 			number = Number.new(ten_texture)
-			number.position = number_place_positions[place] + Vector2(0, 500)
+			number.position = number_place_positions[place] + Vector2(0, ten_y)
 			number.original_position = Vector2(number.position)
 		3:
 			number = Number.new(hundred_texture)
-			number.position = number_place_positions[place] + Vector2(0, 500)
+			number.position = number_place_positions[place] + Vector2(0, hundred_y)
 			number.original_position = Vector2(number.position)
 	number.place = place
 	return number	
@@ -153,8 +161,8 @@ func _on_number_entered_board(_number : Area2D, _name : String) -> void:
 		numbers[place].push_back(_number)
 		if numbers[place].size() != 10:
 			_number.position = _number_place.position + number_adjusts[place] + number_positions[place].pop_back()
-			number_boards[place].one_up()
 			_number_place.indicator.frame += 1
+			number_boards[place].one_up()
 			if _end_game_condition():
 				_end_game()
 			else:
@@ -173,11 +181,15 @@ func _on_number_entered_board(_number : Area2D, _name : String) -> void:
 func _collect_numbers(place: int) -> void:
 	var sz = textures[place].get_size()
 	var nums = numbers[place]
-	number_boards[place].set_to_zero()
 	for i in [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]:
 		if place == 1:
 			await get_tree().create_timer(0.3).timeout	
-			nums[i].position = number_place_positions[place+1] + Vector2(0, 11*sz.y + i*sz.y)
+			nums[i].position = number_place_positions[place+1] + Vector2(0, 11.5*sz.y + i*sz.y)
+		if place == 2:
+			await get_tree().create_timer(0.3).timeout	
+			nums[i].position = number_place_positions[place+1] + Vector2(5*sz.x - i*sz.x, hundred_y)
+		if i != 0:
+				number_boards[place].one_down()
 	await get_tree().create_timer(0.3).timeout	
 	for j in range(10):
 		nums[j].queue_free()
@@ -185,5 +197,5 @@ func _collect_numbers(place: int) -> void:
 	await get_tree().create_timer(0.5).timeout	
 	_add_number(place + 1)
 
-	
+
 

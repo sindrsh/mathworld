@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://matchnumbers"]
 
 [ext_resource type="Script" path="res://minigames/counting/match_0_to_9/match_0_to_9.gd" id="1_q0sq1"]
-[ext_resource type="Texture2D" uid="uid://c00yfssw2t8ks" path="res://minigames/counting/match_0_to_9/assets/scenario_match_the_numbers.png" id="2_wugm3"]
+[ext_resource type="Texture2D" uid="uid://cbuktpy0v6oe5" path="res://minigames/counting/match_0_to_9/assets/scenario_match_the_numbers.png" id="2_wugm3"]
 
 [node name="Match0To9" type="Control"]
 layout_mode = 3

@@ -17,7 +17,7 @@ func one_up() -> void:
 	number_label.set_new_text(str(value))
 	number_label.center_text()
 
-func set_to_zero() -> void:
-	value = 0
+func one_down() -> void:
+	value -= 1
 	number_label.set_new_text(str(value))
 	number_label.center_text()
