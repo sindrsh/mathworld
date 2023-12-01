@@ -1,11 +1,29 @@
-[gd_scene load_steps=7 format=3 uid="uid://c71evkxmfm70r"]
+[gd_scene load_steps=9 format=3 uid="uid://c71evkxmfm70r"]
 
 [ext_resource type="Script" path="res://minigames/counting/falling_numbers_0_to_9/falling_numbers_0_to_9.gd" id="1_ttqab"]
-[ext_resource type="AudioStream" uid="uid://bkd653hbhci4p" path="res://minigames/counting/falling_decimals_0_to_2/assets/House In a Forest Loop.ogg" id="2_ajsij"]
-[ext_resource type="AudioStream" uid="uid://4v7avs54e5sm" path="res://minigames/counting/falling_decimals_0_to_2/assets/gameover.wav" id="3_qjww3"]
-[ext_resource type="Texture2D" uid="uid://chmc52fil8m0j" path="res://minigames/counting/falling_numbers_0_to_9/assets/number_line.png" id="4_uw1jm"]
-[ext_resource type="Texture2D" uid="uid://c6k7qdq3xjs4x" path="res://minigames/counting/falling_numbers_0_to_9/assets/scenario_minigame_2.png" id="5_tuw5p"]
-[ext_resource type="PackedScene" uid="uid://eetlqib8aanc" path="res://components/cracking_line/cracking-line.tscn" id="6_al8yq"]
+[ext_resource type="AudioStream" uid="uid://cu1etc38a8p7p" path="res://minigames/counting/falling_decimals_0_to_2/assets/House In a Forest Loop.ogg" id="2_ajsij"]
+[ext_resource type="AudioStream" uid="uid://b6vul1dg5luwh" path="res://minigames/counting/falling_decimals_0_to_2/assets/gameover.wav" id="3_qjww3"]
+[ext_resource type="Texture2D" uid="uid://bwrubq730ocs0" path="res://minigames/counting/falling_numbers_0_to_9/assets/number_line.png" id="4_uw1jm"]
+[ext_resource type="Texture2D" uid="uid://c8sbnedm7wmd" path="res://minigames/counting/falling_numbers_0_to_9/assets/scenario_minigame_2.png" id="5_tuw5p"]
+[ext_resource type="Texture2D" uid="uid://2v280so21j0w" path="res://minigames/counting/falling_numbers_0_to_9/assets/number_line_cracked1.png" id="6_onu03"]
+[ext_resource type="Texture2D" uid="uid://cwwfc5k4adxg8" path="res://minigames/counting/falling_numbers_0_to_9/assets/number_line_cracked2.png" id="7_45vds"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nxjm2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_uw1jm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_onu03")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_45vds")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="FallingDecimals0To9" type="Control"]
 layout_mode = 3
@@ -118,21 +136,8 @@ offset_bottom = 40.0
 wait_time = 15.0
 autostart = true
 
-[node name="NumberLine" type="Sprite2D" parent="."]
-self_modulate = Color(1, 1, 1, 0)
-texture = ExtResource("4_uw1jm")
+[node name="NumberLine" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_nxjm2")
 centered = false
 
-[node name="CrackingLine" parent="NumberLine" instance=ExtResource("6_al8yq")]
-position = Vector2(315, 91)
-width = 15
-
-[node name="Endpoint1" parent="NumberLine/CrackingLine" index="0"]
-position = Vector2(1087, -85)
-
-[node name="Endpoint2" parent="NumberLine/CrackingLine" index="1"]
-position = Vector2(-315, -85)
-
 [connection signal="timeout" from="DifficultyTimer" to="." method="_on_difficulty_timer_timeout"]
-
-[editable path="NumberLine/CrackingLine"]

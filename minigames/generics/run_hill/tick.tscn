@@ -1,13 +1,13 @@
 [gd_scene load_steps=13 format=3 uid="uid://yc6y61vl775r"]
 
-[ext_resource type="Texture2D" uid="uid://b5k533je0o78m" path="res://minigames/generics/run_hill/assets/tick.svg" id="1_m4keu"]
+[ext_resource type="Texture2D" uid="uid://cv008s4dl3elg" path="res://minigames/generics/run_hill/assets/tick.svg" id="1_m4keu"]
 [ext_resource type="Script" path="res://minigames/generics/run_hill/tick.gd" id="1_wcit6"]
-[ext_resource type="Texture2D" uid="uid://rlfr176dlda8" path="res://minigames/generics/run_hill/assets/tick_select.svg" id="2_6u07u"]
-[ext_resource type="Texture2D" uid="uid://cyjgtnnlrlyu7" path="res://minigames/generics/run_hill/assets/tick_wrong.svg" id="3_kgxyq"]
-[ext_resource type="Texture2D" uid="uid://1wb6nxs4aq4o" path="res://minigames/generics/run_hill/assets/tick_correct.svg" id="4_tx2vf"]
+[ext_resource type="Texture2D" uid="uid://dbclff78bxrqb" path="res://minigames/generics/run_hill/assets/tick_select.svg" id="2_6u07u"]
+[ext_resource type="Texture2D" uid="uid://bm4ohbafdahc5" path="res://minigames/generics/run_hill/assets/tick_wrong.svg" id="3_kgxyq"]
+[ext_resource type="Texture2D" uid="uid://cu4me85y68nwi" path="res://minigames/generics/run_hill/assets/tick_correct.svg" id="4_tx2vf"]
 [ext_resource type="Script" path="res://assets/global_scenes/text.gd" id="5_dbcr1"]
-[ext_resource type="Texture2D" uid="uid://btogc7vsmvtnp" path="res://minigames/generics/run_hill/assets/obstacle_sprite_a.svg" id="7_b3vfw"]
-[ext_resource type="Texture2D" uid="uid://vodw54cpghgp" path="res://minigames/generics/run_hill/assets/obstacle_sprite_b.svg" id="8_g53ul"]
+[ext_resource type="Texture2D" uid="uid://ko6io1uud6l8" path="res://minigames/generics/run_hill/assets/obstacle_sprite_a.svg" id="7_b3vfw"]
+[ext_resource type="Texture2D" uid="uid://wtytif7v502f" path="res://minigames/generics/run_hill/assets/obstacle_sprite_b.svg" id="8_g53ul"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_5mjyj"]
 a = Vector2(0, -8)

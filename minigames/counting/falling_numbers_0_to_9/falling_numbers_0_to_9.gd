@@ -15,8 +15,6 @@ var high_score
 var difficulty = 1
 var time = 0
 
-@onready var cracking_line: CrackingLine = get_node("NumberLine/CrackingLine")
-
 func _on_num_selection(node):
 	if selected_number == null or not is_instance_valid(selected_number):
 		selected_number = node
@@ -61,8 +59,8 @@ func validate(area, tick = null):
 			$ScoreBox/ScoreLabel.text = str(score)
 			number.get_node("Sprite2D").frame = 3
 		else: 
+			$NumberLine.frame += 1
 			rounds -= 1
-			cracking_line.crack()
 			number.get_node("Sprite2D").frame = 4
 	else:
 		rounds -= 1
@@ -102,9 +100,10 @@ func _add_specifics():
 	id = "falling_numbers_0_to_9"
 	minigame_type = NUMBER_LINE
 	
-	line_b = Vector2(line_a.x + $NumberLine.texture.get_width(), line_a.y)
-	$NumberLine.position = line_a + Vector2(0, -$NumberLine.texture.get_height()/2)
-	dx = $NumberLine.texture.get_width()/float(ticks-1)
+	var tex: Texture2D = $NumberLine.sprite_frames.get_frame_texture("default", 0)
+	line_b = Vector2(line_a.x + tex.get_width(), line_a.y)
+	$NumberLine.position = line_a + Vector2(0, -tex.get_height()/2)
+	dx = tex.get_width()/float(ticks-1)
 	
 	for i in range(ticks):
 		var tick = tick_scene.instantiate()
