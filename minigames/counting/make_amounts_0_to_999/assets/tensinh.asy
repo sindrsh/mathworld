@@ -19,6 +19,6 @@ void drwlab(string l="ti", int i =0){
 void drwboxes(int i=0){
 	for(int n; n<i;++n){
 		pair sh = ((w-i*sc-(i-1)*y)/2, 0);
-		db(I=1, J=10, sh=sh+(sc+y)*n,p=p10fill,opac=0.2);
+		db(I=1, J=10, sh=sh+(sc+y)*n,p=p10fill,opac=1);
 	}
 }

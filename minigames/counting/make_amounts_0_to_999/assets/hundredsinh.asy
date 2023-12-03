@@ -20,10 +20,9 @@ void drwlab(string l="", int i =0){
 	fill(box((0,0),(w,b)),p100);
 }
 
-draw()
 void drwboxes(int i=0){
 	for(int n; n<i;++n){
 		pair sh = ((w-10*i*sc-(i-1)*2y)/2, 0);
-		db(I=10, J=10, sh=sh+(10*sc+2y)*n,p=p100fill,opac=0.2);
+		db(I=10, J=10, sh=sh+(10*sc+2y)*n,p=p100fill,opac=1);
 	}
 }
