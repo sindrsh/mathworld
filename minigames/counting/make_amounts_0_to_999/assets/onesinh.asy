@@ -1,6 +1,6 @@
 import talkortfigs;
 
-real opac = 0.2;
+real opac = 1;
 real w = a; // width
 
 void drwnum(int n=1){
