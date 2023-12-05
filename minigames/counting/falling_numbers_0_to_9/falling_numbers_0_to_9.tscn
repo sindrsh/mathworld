@@ -140,4 +140,20 @@ autostart = true
 sprite_frames = SubResource("SpriteFrames_nxjm2")
 centered = false
 
+[node name="BreakParticles" type="CPUParticles2D" parent="NumberLine"]
+position = Vector2(701, 6)
+emitting = false
+amount = 256
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.04
+emission_shape = 3
+emission_rect_extents = Vector2(700, 1)
+initial_velocity_max = 36.36
+angle_min = -20.0
+angle_max = 20.0
+scale_amount_min = 12.0
+scale_amount_max = 12.0
+color = Color(0, 0, 0, 1)
+
 [connection signal="timeout" from="DifficultyTimer" to="." method="_on_difficulty_timer_timeout"]

@@ -26,3 +26,7 @@ func _ready():
 	
 func _on_pressed() -> void:
 	emit_signal("selected", self)
+
+
+func on_death():
+	queue_free()

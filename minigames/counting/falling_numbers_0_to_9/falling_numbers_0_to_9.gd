@@ -7,6 +7,8 @@ var dx : float
 var line_a = Vector2(250,800)
 var line_b : Vector2
 
+signal died
+var numbers = []  # list of stuff that needs to be killed when the game is over
 var selected_number
 var score = 0
 var rounds = 3
@@ -72,16 +74,10 @@ func validate(area, tick = null):
 		if high_score != null:
 			if score > high_score:
 				high_score = score
-		else: high_score = score
-		$ScoreBoard/HighScore.text = str(high_score)
-		$NumberTimer.stop()
-		get_tree().call_group("numbers", "queue_free")
-		$Music.stop()
-		$GameOver.play()
-		$EndBox.show()
-		$RestartButton.show()
-		
-		
+		else: 
+			high_score = score
+		die()
+
 func _on_restart():
 	score = 0
 	rounds = 3
@@ -92,8 +88,24 @@ func _on_restart():
 	$NumberTimer.wait_time = 4
 	$NumberTimer.start()
 	$Music.play()
+
+
+func die():
+	for num in numbers:
+		num.queue_free()  # calling queue free on another object is typically an antipattern, but there is no "script" for numbers so it's fine
 	
-	
+	emit_signal("died")
+	$ScoreBoard/HighScore.text = str(high_score)
+	$NumberTimer.stop()
+	get_tree().call_group("numbers", "queue_free")
+	$Music.stop()
+	$GameOver.play()
+	$EndBox.show()
+	$RestartButton.show()
+	$NumberLine.self_modulate = Color(0, 0, 0, 0)  # we just make it invisible so that it's children are still visible
+	$NumberLine/BreakParticles.emitting = true
+
+
 func _add_specifics():
 	
 	world_part = "counting"
@@ -108,6 +120,7 @@ func _add_specifics():
 	for i in range(ticks):
 		var tick = tick_scene.instantiate()
 		add_child(tick)
+		connect("died", tick.on_death)
 		tick.position = Vector2(line_a.x + dx*i, line_a.y)
 		tick.value = i
 		assert(tick.selected.connect(_on_tick_selection) == 0)
@@ -147,6 +160,8 @@ func _mk_number(scene, number, decs, pos, num_scale = 1, x_sep = 20, comma_sep =
 		dig.frame = int(digit)
 		cnt += 1
 		scene.add_child(dig)
+		
+		numbers.append(dig)
 		num_list.append(dig)
 	if decs != null:
 		comma = _mk_operator(scene, 5, pos + Vector2(cnt*x_sep - comma_sep, comma_y), num_scale)
