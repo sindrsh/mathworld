@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://d1w55mitmdcif"]
+[gd_scene load_steps=8 format=3 uid="uid://d1w55mitmdcif"]
 
 [ext_resource type="Script" path="res://minigames/counting/make_amounts_0_to_999/make_amounts_0_to_999.gd" id="1_4sva6"]
+[ext_resource type="Texture2D" uid="uid://dmkyjs3vpa0ij" path="res://minigames/counting/make_amounts_0_to_999/assets/background.svg" id="2_p1ilp"]
 [ext_resource type="AudioStream" uid="uid://1cct2ila2y1n" path="res://minigames/frac/frac_laser/assets/correct.mp3" id="2_r1wm8"]
 [ext_resource type="Texture2D" uid="uid://b7a1juum15w7y" path="res://minigames/counting/make_amounts_0_to_999/assets/board.svg" id="3_eej2w"]
 [ext_resource type="Texture2D" uid="uid://lbin8cfbklbl" path="res://minigames/counting/make_amounts_0_to_999/assets/equal_sign.svg" id="4_3vaiv"]
@@ -12,6 +13,10 @@
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_4sva6")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_p1ilp")
+centered = false
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_r1wm8")

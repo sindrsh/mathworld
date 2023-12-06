@@ -35,12 +35,8 @@ void db(int I=1, int J=1, int m=I, int n=J, pair sh=(0,0), pen p=white, pen p1=b
 }
 path numb = box((0,0),(a,b));
 
-pen p1 = palegreen;
-pen p10 = paleblue;
-pen p100 = Cyan;
-
-pen p1fill = heavygreen;
-pen p10fill = blue;
-pen p100fill = Cyan;
+pen p1 = RGB(213, 0, 245);
+pen p10 = RGB(179, 47, 68);
+pen p100 = RGB(0, 197, 234);
 
 real d = 6;

@@ -10,15 +10,3 @@ void drwnum(int n=1){
 		else label(scale(labelscale)*Label("0",dx*(a/2,b/2),black));
 	}
 }
-
-void drwlab(string l="ti", int i =0){
-	label(scale(labelscale)*Label(l,(w/2,5b/6),black));
-	fill(box((0,0),(w,b)),p10);
-}
-
-void drwboxes(int i=0){
-	for(int n; n<i;++n){
-		pair sh = ((w-i*sc-(i-1)*y)/2, 0);
-		db(I=1, J=10, sh=sh+(sc+y)*n,p=p10fill,opac=1);
-	}
-}

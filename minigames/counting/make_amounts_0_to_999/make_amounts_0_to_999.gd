@@ -30,7 +30,6 @@ func _add_specifics():
 	$AnswerBoard.get_node("CollisionShape2D").shape.size = $AnswerBoard.get_node("Sprite2D").texture.get_size()
 	add_child(number_picture)
 	
-	
 	var start_x = 200
 	_mk_number(start_x + 2*boards_sep + 9*place_width + place_sep + 4*horizontal_sep, number_board100, 3)
 	_mk_number(start_x + boards_sep + 3*place_width + place_sep + 2*horizontal_sep, number_board10, 2)

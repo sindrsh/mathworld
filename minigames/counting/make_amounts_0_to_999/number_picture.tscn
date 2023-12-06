@@ -30,12 +30,12 @@
 [ext_resource type="Texture2D" uid="uid://b5pn8yc4ytjjp" path="res://minigames/counting/make_amounts_0_to_999/assets/one9.svg" id="28_ptjbv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ke6u"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dootg"]
 animations = [{
