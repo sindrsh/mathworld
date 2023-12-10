@@ -23,7 +23,9 @@ size = Vector2(104, 1120)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o4gw6"]
 size = Vector2(2040, 149)
 
-[node name="snake_minigame" type="Node2D"]
+[node name="snake_minigame" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_wn25b")
 
 [node name="TileMap" type="TileMap" parent="."]

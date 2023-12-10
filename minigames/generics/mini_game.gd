@@ -22,11 +22,13 @@ var music_player := AudioStreamPlayer2D.new()
 func _ready():
 	
 	assert(menu_bar.get_node("SoundEffectsContainer/MusicButton").toggled.connect(_on_music_button_toggled) == 0)
-	add_child(menu_bar);
-	add_child(music_player)
+	
 	
 	_add_generics()
 	_add_specifics()
+	
+	add_child(menu_bar);
+	add_child(music_player)
 	music_player.playing = true
 	
 	

@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://minigames/generics/puzzles/amounts/number_board.gd" id="1_21egs"]
 
-[node name="number_board" type="Node2D"]
+[node name="number_board" type="Sprite2D"]
 script = ExtResource("1_21egs")

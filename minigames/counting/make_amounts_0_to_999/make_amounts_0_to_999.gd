@@ -41,7 +41,7 @@ func _add_specifics():
 
 
 func _mk_task() -> void:
-	value = ints.pop_front()
+	value = ints.pop_front() + 1
 	@warning_ignore("integer_division")
 	number_picture.get_node("Hundreds").frame = value/100
 	@warning_ignore("integer_division")

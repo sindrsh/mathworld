@@ -15,5 +15,5 @@ func _add_specifics() -> void:
 	
 
 func _end_game_condition() -> bool:
-	return number_boards[1].value == 9
+	return number_board.ones == 9
 

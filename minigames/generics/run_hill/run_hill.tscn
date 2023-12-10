@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dj1towovjdfc1"]
+[gd_scene load_steps=6 format=3 uid="uid://dj1towovjdfc1"]
 
 [ext_resource type="Script" path="res://minigames/generics/run_hill/run_hill.gd" id="1_25lc2"]
-[ext_resource type="Texture2D" uid="uid://dd13rt7x5g1w0" path="res://minigames/generics/run_hill/assets/alternatives_box.svg" id="2_3l0rc"]
+[ext_resource type="Texture2D" uid="uid://c20hbedhloe3" path="res://minigames/generics/run_hill/assets/alternatives_box.svg" id="2_3l0rc"]
+[ext_resource type="Texture2D" uid="uid://fpo0gkaht6hj" path="res://minigames/generics/run_hill/assets/background.png" id="2_yesay"]
 [ext_resource type="Script" path="res://minigames/generics/run_hill/alt_button.gd" id="3_aeot3"]
 [ext_resource type="Script" path="res://assets/global_scenes/text.gd" id="4_18ax7"]
 
@@ -13,6 +14,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_25lc2")
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(1.71646, 1.71983)
+texture = ExtResource("2_yesay")
+centered = false
 
 [node name="Alternative1" type="TextureButton" parent="."]
 top_level = true

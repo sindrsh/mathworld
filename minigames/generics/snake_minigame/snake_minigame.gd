@@ -1,11 +1,11 @@
-extends Node2D
+extends MiniGame
 
 
 var _fruit_scene = preload("res://components/fruit/fruit.tscn")
 @onready var _fruit_container = get_node("Fruit")
 
 
-func _ready():
+func _add_specifics():
 	for i in range(1, 10):
 		# max x = 29
 		# max y = 14

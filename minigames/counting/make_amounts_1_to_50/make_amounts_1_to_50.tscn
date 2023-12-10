@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://cfibhhhrm3sh"]
+
+[ext_resource type="Script" path="res://minigames/counting/make_amounts_1_to_50/make_amounts_1_to_50.gd" id="1_4fgk8"]
+[ext_resource type="Texture2D" uid="uid://dmkyjs3vpa0ij" path="res://minigames/counting/make_amounts_0_to_999/assets/background.svg" id="2_0qb23"]
+[ext_resource type="AudioStream" uid="uid://1cct2ila2y1n" path="res://minigames/frac/frac_laser/assets/correct.mp3" id="3_ypcjm"]
+[ext_resource type="Texture2D" uid="uid://b7a1juum15w7y" path="res://minigames/counting/make_amounts_0_to_999/assets/board.svg" id="4_nsich"]
+[ext_resource type="Texture2D" uid="uid://lbin8cfbklbl" path="res://minigames/counting/make_amounts_0_to_999/assets/equal_sign.svg" id="5_mw3gj"]
+[ext_resource type="Texture2D" uid="uid://ciafra2cacnss" path="res://minigames/counting/make_amounts_0_to_999/assets/equal_sign_b.svg" id="6_4xcdj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4uc8a"]
+
+[node name="MakeAmounts1To50" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_4fgk8")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_0qb23")
+centered = false
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ypcjm")
+
+[node name="AnswerBoard" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnswerBoard"]
+shape = SubResource("RectangleShape2D_4uc8a")
+
+[node name="Sprite2D" type="Sprite2D" parent="AnswerBoard"]
+texture = ExtResource("4_nsich")
+
+[node name="EqualSign" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("5_mw3gj")
+texture_hover = ExtResource("6_4xcdj")
