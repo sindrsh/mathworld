@@ -19,20 +19,33 @@ var data
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	assert($DevelopmentBoard.pressed.connect(_on_development_button_pressed) == 0)
+	assert($ShowAllGames.pressed.connect(_show_all_games) == 0)
 	
 	amount_minigames = [
 		$Amount0To9, 
 		$NumberMatch, 
 		$NumberCatch, 
 		$Amount0To50, 
-		$EnterAmounts0To999,
+		$MakeAmounts1To50,
+		$Snake1To50,
+		$Amount50To999,
+		$MakeAmounts1To999,
 	]
 	number_line_minigames = [
 		$NumLine0To9, 
 		$FallingNumbers0To9, 
 		$NumberBridge0To9,	
-		$FallingDecimals0To2,
+		$NumberLine10To100,
+		$RunHill0To100
 	]
+	
+	$Snake1To50.minigame = "snake_1_to_50"
+	$Snake1To50.path = "res://minigames/generics/snake_minigame/snake_minigame.tscn"
+	$MakeAmounts1To50.minigame = "make_amounts_1_to_50"
+	$MakeAmounts1To50.path = "res://minigames/counting/make_amounts_1_to_50/make_amounts_1_to_50.tscn"
+	$RunHill0To100.minigame = "run_hill"
+	$RunHill0To100.path = "res://minigames/generics/run_hill/run_hill.tscn"
+	
 #	var save_game := FileAccess.open("user://savegame.save", FileAccess.READ)
 #	var json := JSON.new()
 	
@@ -62,14 +75,20 @@ func _do_minigame_effect(node: TextureButton) -> bool:
 	return false
 
 func _show_minigames() -> void:
-	for minigames in [amount_minigames, number_line_minigames]:
-		minigames[0].show()
-		for i in range(1, minigames.size()):
-			if _is_completed(minigames[i-1]):
+	if not PlayerVariables.show_all_games:
+		for minigames in [amount_minigames, number_line_minigames]:
+			minigames[0].show()
+			for i in range(1, minigames.size()):
+				if _is_completed(minigames[i-1]):
+					minigames[i].show()
+			
+			for i in range(0, minigames.size()):
+				_do_minigame_effect(minigames[i])
+	else:
+		for minigames in [amount_minigames, number_line_minigames]:
+			for i in range(minigames.size()):
 				minigames[i].show()
-		
-		for i in range(0, minigames.size()):
-			_do_minigame_effect(minigames[i])
+
 
 func _update_development_status(minigames : Array, minigames_array : Array, insights : String, calculations : String) -> void:
 	for node in minigames:
@@ -116,3 +135,7 @@ func _on_development_button_pressed() -> void:
 		_show_development()
 	else:
 		_show_map()
+	
+func _show_all_games() -> void:
+	PlayerVariables.show_all_games = true
+	_show_minigames()

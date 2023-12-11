@@ -31,8 +31,8 @@ func _add_specifics():
 	plus_denom_btn.texture_normal = plus_texture
 	min_denom_btn.texture_normal = min_texture
 	
-	plus_num_btn.position = Vector2(300, 50)
-	min_num_btn.position = Vector2(100, 50)
+	plus_num_btn.position = Vector2(300, 200)
+	min_num_btn.position = Vector2(100, 200)
 	plus_denom_btn.position = plus_num_btn.position + Vector2(0, 200)
 	min_denom_btn.position = min_num_btn.position + Vector2(0, 200)
 	
@@ -59,7 +59,7 @@ func _add_specifics():
 	max_int = 9
 	max_score = 5
 	_mk_task()
-
+	
 
 func _physics_process(_delta):
 	if number.moving:

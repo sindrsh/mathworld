@@ -4,8 +4,6 @@ const Number = preload("res://minigames/counting/number_catch_0_to_9/number.gd")
 var number : Number = preload("res://minigames/counting/number_catch_0_to_9/Number.tscn").instantiate()
 #var circle_white : Texture2D = preload("res://minigames/generics/assets/circle_white.svg")
 #var circle_blue : Texture2D = preload("res://minigames/generics/assets/circle_purple.svg")
-var tennis_ball : Texture2D = preload("res://minigames/generics/assets/tennis_ball_small.png")
-var tennis_ball_purple : Texture2D = preload("res://minigames/generics/assets/tennis_ball_small_purple.png")
 var character : Node2D = preload("res://minigames/counting/number_catch_0_to_9/Character.tscn").instantiate()
 
 var audio_player := AudioStreamPlayer2D.new()
@@ -31,18 +29,6 @@ const MAX_TIME_BETWEEN_SPAWNS: float = 4  # seconds
 var _ended = false
 
 
-var values : Array = [
-	preload("res://minigames/generics/assets/stroke_numbers/one-stroke.svg"),
-	preload("res://minigames/generics/assets/stroke_numbers/two-stroke.svg"),
-	preload("res://minigames/generics/assets/stroke_numbers/three-stroke.svg"),
-	preload("res://minigames/generics/assets/stroke_numbers/four-stroke.svg"),
-	preload("res://minigames/generics/assets/stroke_numbers/five-stroke.svg"),
-	preload("res://minigames/generics/assets/stroke_numbers/six-stroke.svg"),
-	preload("res://minigames/generics/assets/stroke_numbers/seven-stroke.svg"),
-	preload("res://minigames/generics/assets/stroke_numbers/eight-stroke.svg"),
-	preload("res://minigames/generics/assets/stroke_numbers/nine-stroke.svg"),
-]
-
 # Called when the node enters the scene tree for the first time.
 func _add_specifics() -> void:
 	
@@ -54,8 +40,6 @@ func _add_specifics() -> void:
 	assert($GasTimer.connect("timeout", _cut_gas) == 0)
 	
 	width = get_viewport_rect().size.x-right_margin
-	var OneSprite := Sprite2D.new() 
-	OneSprite.texture = values[0]
 #	current_node = character.get_node("number_container")
 #	current_node.add_child(OneSprite)
 #	current_sprite = current_node.get_node("Circle")
@@ -129,10 +113,8 @@ func _on_character_entered(body : Node2D) -> void:
 		var CircleSprite := Sprite2D.new()
 		
 		NumberContainer.name = 'number_container'
-		NumberSprite.texture = values[body.value - 1]
 		NumberContainer.position = Vector2(0, -2*radius)
 		CircleSprite.position = NumberSprite.position
-		CircleSprite.texture = tennis_ball_purple
 		
 		character.value += 1
 		

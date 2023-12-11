@@ -15,7 +15,7 @@ var boards_container := Node.new()
 
 func _add_specifics():
 	world_part = "counting"
-	id = "enter_amounts_1_to_50"
+	id = "make_amounts_1_to_50"
 	minigame_type = AMOUNT
 	
 	assert($AnswerBoard.area_entered.connect(_on_area_entered) == 0)

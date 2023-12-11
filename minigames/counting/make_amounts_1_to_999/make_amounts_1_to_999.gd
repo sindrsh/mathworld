@@ -1,14 +1,14 @@
 extends MiniGame
 
 var ints = Array(range(1000))
-var number_picture : Node2D = preload("res://minigames/counting/make_amounts_0_to_999/number_picture.tscn").instantiate()
+var number_picture : Node2D = preload("res://minigames/counting/make_amounts_1_to_999/number_picture.tscn").instantiate()
 var value := 0
-var number_board1 : Area2D = preload("res://minigames/counting/make_amounts_0_to_999/number_board1.tscn").instantiate()
-var number_board10 : Area2D = preload("res://minigames/counting/make_amounts_0_to_999/number_board10.tscn").instantiate()
-var number_board100 : Area2D = preload("res://minigames/counting/make_amounts_0_to_999/number_board100.tscn").instantiate()
+var number_board1 : Area2D = preload("res://minigames/counting/make_amounts_1_to_999/number_board1.tscn").instantiate()
+var number_board10 : Area2D = preload("res://minigames/counting/make_amounts_1_to_999/number_board10.tscn").instantiate()
+var number_board100 : Area2D = preload("res://minigames/counting/make_amounts_1_to_999/number_board100.tscn").instantiate()
 
-var place_width := preload("res://minigames/counting/make_amounts_0_to_999/assets/1a.svg").get_size().x
-var place_sep := preload("res://minigames/counting/make_amounts_0_to_999/assets/10a.svg").get_size().x - 2*place_width
+var place_width := preload("res://minigames/counting/make_amounts_1_to_999/assets/1a.svg").get_size().x
+var place_sep := preload("res://minigames/counting/make_amounts_1_to_999/assets/10a.svg").get_size().x - 2*place_width
 var horizontal_sep := 20.0
 var boards_sep := 100
 var digits : Array[Area2D] = [null, null, null]
@@ -16,7 +16,7 @@ var boards_container := Node.new()
 
 func _add_specifics():
 	world_part = "counting"
-	id = "enter_amounts_0_to_999"
+	id = "make_amounts_1_to_999"
 	minigame_type = AMOUNT
 	
 	assert($AnswerBoard.area_entered.connect(_on_area_entered) == 0)

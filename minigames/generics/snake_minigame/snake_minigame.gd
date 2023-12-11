@@ -6,6 +6,11 @@ var _fruit_scene = preload("res://components/fruit/fruit.tscn")
 
 
 func _add_specifics():
+	
+	var world_part = "counting"
+	var id = "snake_1_to_50" 
+	var minigame_type = AMOUNT
+	
 	for i in range(1, 10):
 		# max x = 29
 		# max y = 14

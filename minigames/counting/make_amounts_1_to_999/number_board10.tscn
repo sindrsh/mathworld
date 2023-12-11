@@ -1,0 +1,58 @@
+[gd_scene load_steps=13 format=3 uid="uid://d1kglna4gn3y"]
+
+[ext_resource type="Script" path="res://minigames/counting/make_amounts_1_to_999/number_board.gd" id="1_j34ks"]
+[ext_resource type="Texture2D" uid="uid://bqi67l4xl1xul" path="res://minigames/counting/make_amounts_1_to_999/assets/10a.svg" id="2_p7nv1"]
+[ext_resource type="Texture2D" uid="uid://cyt3ucee5jehu" path="res://minigames/counting/make_amounts_1_to_999/assets/20a.svg" id="3_jgopc"]
+[ext_resource type="Texture2D" uid="uid://3s0jf1fyqiqn" path="res://minigames/counting/make_amounts_1_to_999/assets/30a.svg" id="4_hagwg"]
+[ext_resource type="Texture2D" uid="uid://dx8vfwdop8ye2" path="res://minigames/counting/make_amounts_1_to_999/assets/40a.svg" id="5_kf0vc"]
+[ext_resource type="Texture2D" uid="uid://bhl1a7j8n8m6s" path="res://minigames/counting/make_amounts_1_to_999/assets/50a.svg" id="6_3cnq6"]
+[ext_resource type="Texture2D" uid="uid://d2hfog5ldqtqr" path="res://minigames/counting/make_amounts_1_to_999/assets/60a.svg" id="7_jkh6q"]
+[ext_resource type="Texture2D" uid="uid://dweqsie3o3007" path="res://minigames/counting/make_amounts_1_to_999/assets/70a.svg" id="8_ldpcj"]
+[ext_resource type="Texture2D" uid="uid://xjgfiisewwpy" path="res://minigames/counting/make_amounts_1_to_999/assets/80a.svg" id="9_8ef7o"]
+[ext_resource type="Texture2D" uid="uid://d3hxkecvby024" path="res://minigames/counting/make_amounts_1_to_999/assets/90a.svg" id="10_qnmel"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c0t5m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_p7nv1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jgopc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hagwg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_kf0vc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3cnq6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_jkh6q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ldpcj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_8ef7o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_qnmel")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bjwas"]
+
+[node name="NumberBoard10" type="Area2D"]
+script = ExtResource("1_j34ks")
+
+[node name="Numbers" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_c0t5m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bjwas")

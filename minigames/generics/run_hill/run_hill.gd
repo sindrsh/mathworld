@@ -7,6 +7,10 @@ var music : AudioStream = preload("res://minigames/generics/assets/highway-16725
 
 # Called when the node enters the scene tree for the first time.
 func _add_specifics():
+	world_part = "counting"
+	id = "run_hill"
+	minigame_type = NUMBER_LINE
+	
 	alternatives = [$Alternative1, $Alternative2, $Alternative3, $Alternative4]
 	assert(lane.make_new_alternatives.connect(_mk_new_alternatives) == 0)
 	var ints := [1, 2, 3, 4, 5, 6, 7, 8, 9]

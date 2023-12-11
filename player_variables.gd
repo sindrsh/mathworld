@@ -7,6 +7,6 @@ var save_dict := {
 		"lastCompletedMinigame": "",
 		"effectPlayed": true,
 	},
-
 }
 
+var show_all_games = false

@@ -21,10 +21,15 @@ var count_number_line_minigames := [
 		"branch": CALCULATION
 	},				
 	{
-		"id": "falling_decimals_0_to_2",
+		"id": "num_line_10_to_100",
+		"status": NOT_COMPLETED,
+		"branch": INSIGHT
+	},		
+	{
+		"id": "run_hill",
 		"status": NOT_COMPLETED,
 		"branch": CALCULATION
-	},
+	},	
 ]
 
 var count_amount_minigames := [
@@ -49,12 +54,22 @@ var count_amount_minigames := [
 		"branch": CALCULATION
 	},
 	{
-		"id": "enter_amounts_1_to_50",
+		"id": "make_amounts_1_to_50",
 		"status": NOT_COMPLETED,
 		"branch": CALCULATION
-	},		
+	},
 	{
-		"id": "enter_amounts_0_to_999",
+		"id": "snake_1_to_50",
+		"status": NOT_COMPLETED,
+		"branch": CALCULATION
+	},			
+	{
+		"id": "amount_50_to_999",
+		"status": NOT_COMPLETED,
+		"branch": CALCULATION
+	},	
+	{
+		"id": "make_amounts_1_to_999",
 		"status": NOT_COMPLETED,
 		"branch": CALCULATION
 	},	
@@ -72,6 +87,8 @@ func get_game_index(game_array: Array, test_id: String):
 		if game_array[i]["id"] == test_id:
 			index = i
 			break
+	if index == null:
+		print(test_id)
 	assert(index != null)
 	return index
 
