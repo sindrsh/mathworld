@@ -20,7 +20,6 @@ func _add_specifics() -> void:
 	
 	_add_number(1)
 	#_add_number(2)	
-	_add_number(3)
 			
 func _end_game_condition() -> bool:
 	return number_board.hundreds == 9 and number_board.tens == 9 and number_board.ones == 9

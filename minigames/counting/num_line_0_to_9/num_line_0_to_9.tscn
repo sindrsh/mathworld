@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cbv7qu5ju053e"]
+[gd_scene load_steps=5 format=3 uid="uid://cbv7qu5ju053e"]
 
 [ext_resource type="Script" path="res://minigames/counting/num_line_0_to_9/num_line_0_to_9.gd" id="1_t1cho"]
 [ext_resource type="Texture2D" uid="uid://cio5l1dydn7b1" path="res://minigames/counting/num_line_0_to_9/assets/bar.svg" id="2_psrlu"]
+[ext_resource type="Texture2D" uid="uid://crwrlcsjvieqy" path="res://minigames/generics/puzzles/amounts/assets/background.svg" id="2_rf730"]
 [ext_resource type="Texture2D" uid="uid://cffejba4v58fm" path="res://minigames/counting/num_line_0_to_9/assets/tick.svg" id="3_2afgm"]
 
 [node name="NumLine0To9" type="Control"]
@@ -12,6 +13,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_t1cho")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_rf730")
+centered = false
 
 [node name="Bar" type="Sprite2D" parent="."]
 visible = false

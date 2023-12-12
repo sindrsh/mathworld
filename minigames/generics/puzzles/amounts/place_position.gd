@@ -172,7 +172,11 @@ func _on_number_entered_board(_number : Area2D, _name : String) -> void:
 				_end_game()
 			else:
 				if place == 3 and numbers[place].size() == 9:
+					_add_number(1)
 					return
+				if place == 2 and numbers[place+1].size() == 9 and numbers[place].size() == 9:
+					_add_number(1)
+					return	
 				if change_mode[place]:
 					_add_number(place)
 				else:

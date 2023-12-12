@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://s2alqclfrrb0"]
+
+[ext_resource type="Texture2D" uid="uid://b2pvjp50e5ow3" path="res://minigames/generics/insight_games/assets/circle_purple.svg" id="1_hp2al"]
+[ext_resource type="Script" path="res://minigames/generics/insight_games/insight_achieved_button.gd" id="2_fmt2h"]
+
+[node name="InsightAchievedButton" type="TextureButton"]
+offset_left = 1800.0
+offset_top = 500.0
+offset_right = 1901.0
+offset_bottom = 601.0
+texture_normal = ExtResource("1_hp2al")
+script = ExtResource("2_fmt2h")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 11.0
+offset_right = 246.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Insight"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 32.0
+offset_right = 236.0
+offset_bottom = 55.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "achieved!"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 68.0
+offset_right = 243.0
+offset_bottom = 91.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "to menu"

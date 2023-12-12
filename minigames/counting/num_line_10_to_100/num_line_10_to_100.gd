@@ -5,6 +5,8 @@ extends MiniGame
 var tens_rolled := 0
 var max_tens_rolled := 0
 var reached100 := false
+var insight_menu : TextureButton = preload("res://minigames/generics/insight_games/insight_achieved_button.tscn").instantiate()
+
 
 func _add_specifics():
 	assert($NumberLine.rolled_bckwd.connect(_on_number_line_rolled_bckwd) == 0)
@@ -16,6 +18,8 @@ func _add_specifics():
 	id = "num_line_0_to_9"
 	minigame_type = NUMBER_LINE
 	$NumberLine.position = Vector2(958, 500)
+	insight_menu.hide()
+	add_child(insight_menu)
 	
 	
 func _on_number_line_rolled_fwd(_add : bool) -> void:
@@ -32,6 +36,7 @@ func _roll_fwd_button_pressed() -> void:
 		if not reached100:
 			$NumberLine.add_100()
 			reached100 = true
+			insight_menu.show()
 		return
 	if tens_rolled == max_tens_rolled:
 		$NumberLine.roll_ten_fwd(true)
@@ -40,6 +45,7 @@ func _roll_fwd_button_pressed() -> void:
 		$NumberLine.roll_ten_fwd(false)
 	$RollFwdButton.disabled = true
 	tens_rolled += 1
+
 
 func _roll_bckwd_button_pressed() -> void:
 	if tens_rolled == 0:
