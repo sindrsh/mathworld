@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://drprymxpcl50r"]
+[gd_scene load_steps=11 format=3 uid="uid://drprymxpcl50r"]
 
 [ext_resource type="Texture2D" uid="uid://bl0d4l1isgfm5" path="res://world/assets/window_bar.png" id="1_g5y5i"]
 [ext_resource type="Texture2D" uid="uid://kyywynpaiuou" path="res://world/assets/white_bar.png" id="2_bo0xx"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b12gbfakcqjym" path="res://world/assets/planet4.png" id="6_w8wks"]
 [ext_resource type="Texture2D" uid="uid://c0tq6jwbypsam" path="res://world/assets/planet5.png" id="7_yvlhw"]
 [ext_resource type="Texture2D" uid="uid://jv0u887nogx7" path="res://world/assets/planet6.png" id="8_gvkjd"]
+[ext_resource type="PackedScene" uid="uid://3q7kvwwotegq" path="res://minigames/generics/game_rating.tscn" id="9_juoeg"]
 
 [node name="DevelopmentBoard" type="Node2D"]
 
@@ -105,47 +106,27 @@ offset_left = 150.0
 offset_top = 15.0
 offset_right = 1070.0
 offset_bottom = 51.0
-theme_override_constants/separation = 230
+theme_override_constants/separation = 100
 
-[node name="PurpleBar1" type="Control" parent="VBoxContainer/AmountsCalculations/PurpleBarsContainer"]
+[node name="GameRating1" parent="VBoxContainer/AmountsCalculations/PurpleBarsContainer" instance=ExtResource("9_juoeg")]
 visible = false
 layout_mode = 2
 
-[node name="PurpleBar1" type="Sprite2D" parent="VBoxContainer/AmountsCalculations/PurpleBarsContainer/PurpleBar1"]
-texture = ExtResource("3_2v68v")
-centered = false
-
-[node name="PurpleBar2" type="Control" parent="VBoxContainer/AmountsCalculations/PurpleBarsContainer"]
+[node name="GameRating2" parent="VBoxContainer/AmountsCalculations/PurpleBarsContainer" instance=ExtResource("9_juoeg")]
 visible = false
 layout_mode = 2
 
-[node name="PurpleBar1" type="Sprite2D" parent="VBoxContainer/AmountsCalculations/PurpleBarsContainer/PurpleBar2"]
-texture = ExtResource("3_2v68v")
-centered = false
-
-[node name="PurpleBar3" type="Control" parent="VBoxContainer/AmountsCalculations/PurpleBarsContainer"]
+[node name="GameRating3" parent="VBoxContainer/AmountsCalculations/PurpleBarsContainer" instance=ExtResource("9_juoeg")]
 visible = false
 layout_mode = 2
 
-[node name="PurpleBar1" type="Sprite2D" parent="VBoxContainer/AmountsCalculations/PurpleBarsContainer/PurpleBar3"]
-texture = ExtResource("3_2v68v")
-centered = false
-
-[node name="PurpleBar4" type="Control" parent="VBoxContainer/AmountsCalculations/PurpleBarsContainer"]
+[node name="GameRating4" parent="VBoxContainer/AmountsCalculations/PurpleBarsContainer" instance=ExtResource("9_juoeg")]
 visible = false
 layout_mode = 2
 
-[node name="PurpleBar1" type="Sprite2D" parent="VBoxContainer/AmountsCalculations/PurpleBarsContainer/PurpleBar4"]
-texture = ExtResource("3_2v68v")
-centered = false
-
-[node name="PurpleBar5" type="Control" parent="VBoxContainer/AmountsCalculations/PurpleBarsContainer"]
+[node name="GameRating5" parent="VBoxContainer/AmountsCalculations/PurpleBarsContainer" instance=ExtResource("9_juoeg")]
 visible = false
 layout_mode = 2
-
-[node name="PurpleBar1" type="Sprite2D" parent="VBoxContainer/AmountsCalculations/PurpleBarsContainer/PurpleBar5"]
-texture = ExtResource("3_2v68v")
-centered = false
 
 [node name="NumberLineInsights" type="Control" parent="VBoxContainer"]
 layout_mode = 2
@@ -227,44 +208,16 @@ offset_left = 150.0
 offset_top = 15.0
 offset_right = 1070.0
 offset_bottom = 51.0
-theme_override_constants/separation = 230
+theme_override_constants/separation = 100
 
-[node name="PurpleBar1" type="Control" parent="VBoxContainer/NumberLineCalculations/PurpleBarsContainer"]
+[node name="GameRating1" parent="VBoxContainer/NumberLineCalculations/PurpleBarsContainer" instance=ExtResource("9_juoeg")]
 visible = false
 layout_mode = 2
 
-[node name="PurpleBar1" type="Sprite2D" parent="VBoxContainer/NumberLineCalculations/PurpleBarsContainer/PurpleBar1"]
-texture = ExtResource("3_2v68v")
-centered = false
-
-[node name="PurpleBar2" type="Control" parent="VBoxContainer/NumberLineCalculations/PurpleBarsContainer"]
+[node name="GameRating2" parent="VBoxContainer/NumberLineCalculations/PurpleBarsContainer" instance=ExtResource("9_juoeg")]
 visible = false
 layout_mode = 2
 
-[node name="PurpleBar1" type="Sprite2D" parent="VBoxContainer/NumberLineCalculations/PurpleBarsContainer/PurpleBar2"]
-texture = ExtResource("3_2v68v")
-centered = false
-
-[node name="PurpleBar3" type="Control" parent="VBoxContainer/NumberLineCalculations/PurpleBarsContainer"]
+[node name="GameRating3" parent="VBoxContainer/NumberLineCalculations/PurpleBarsContainer" instance=ExtResource("9_juoeg")]
 visible = false
 layout_mode = 2
-
-[node name="PurpleBar1" type="Sprite2D" parent="VBoxContainer/NumberLineCalculations/PurpleBarsContainer/PurpleBar3"]
-texture = ExtResource("3_2v68v")
-centered = false
-
-[node name="PurpleBar4" type="Control" parent="VBoxContainer/NumberLineCalculations/PurpleBarsContainer"]
-visible = false
-layout_mode = 2
-
-[node name="PurpleBar1" type="Sprite2D" parent="VBoxContainer/NumberLineCalculations/PurpleBarsContainer/PurpleBar4"]
-texture = ExtResource("3_2v68v")
-centered = false
-
-[node name="PurpleBar5" type="Control" parent="VBoxContainer/NumberLineCalculations/PurpleBarsContainer"]
-visible = false
-layout_mode = 2
-
-[node name="PurpleBar1" type="Sprite2D" parent="VBoxContainer/NumberLineCalculations/PurpleBarsContainer/PurpleBar5"]
-texture = ExtResource("3_2v68v")
-centered = false

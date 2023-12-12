@@ -13,12 +13,14 @@ var count_number_line_minigames := [
 	{
 		"id": "falling_numbers_0_to_9",
 		"status": NOT_COMPLETED,
-		"branch": CALCULATION
+		"branch": CALCULATION,
+		"score": 0
 	},
 	{
 		"id": "number_bridge_0_to_9",
 		"status": NOT_COMPLETED,
-		"branch": CALCULATION
+		"branch": CALCULATION,
+		"score": 0
 	},				
 	{
 		"id": "num_line_10_to_100",
@@ -28,7 +30,8 @@ var count_number_line_minigames := [
 	{
 		"id": "run_hill",
 		"status": NOT_COMPLETED,
-		"branch": CALCULATION
+		"branch": CALCULATION,
+		"score": 0
 	},	
 ]
 
@@ -41,37 +44,42 @@ var count_amount_minigames := [
 	{
 		"id": "match_0_to_9",
 		"status": NOT_COMPLETED,
-		"branch": CALCULATION
+		"branch": CALCULATION,
+		"score": 0
 	},
 	{
 		"id": "number_catch_0_to_9",
 		"status": NOT_COMPLETED,
-		"branch": CALCULATION
+		"branch": CALCULATION,
+		"score": 0
 	},
 	{
 		"id": "amount_0_to_50",
 		"status": NOT_COMPLETED,
-		"branch": CALCULATION
+		"branch": INSIGHT,
 	},
 	{
 		"id": "make_amounts_1_to_50",
 		"status": NOT_COMPLETED,
-		"branch": CALCULATION
+		"branch": CALCULATION,
+		"score": 0
 	},
 	{
 		"id": "snake_1_to_50",
 		"status": NOT_COMPLETED,
-		"branch": CALCULATION
+		"branch": CALCULATION,
+		"score": 0
 	},			
 	{
 		"id": "amount_50_to_999",
 		"status": NOT_COMPLETED,
-		"branch": CALCULATION
+		"branch": INSIGHT
 	},	
 	{
 		"id": "make_amounts_1_to_999",
 		"status": NOT_COMPLETED,
-		"branch": CALCULATION
+		"branch": CALCULATION,
+		"score": 0
 	},	
 ]
 

@@ -49,8 +49,8 @@ func _add_specifics() -> void:
 
 func _game_completed() -> void:
 	if GlobalVariables.world_parts.has(world_part):
-		var game_array = GlobalVariables.world_parts[world_part][minigame_type][game_index]
-		game_array["status"] = GlobalVariables.COMPLETED
+		var game_dict: Dictionary = GlobalVariables.world_parts[world_part][minigame_type][game_index]
+		game_dict["status"] = GlobalVariables.COMPLETED
 		if id not in PlayerVariables.save_dict["minigames"][world_part]:
 			
 			PlayerVariables.save_dict["minigames"][world_part].push_back(id) 
@@ -59,13 +59,15 @@ func _game_completed() -> void:
 		var save_game = FileAccess.open("user://savegame.save", FileAccess.WRITE)
 		var json_string = JSON.stringify(PlayerVariables.save_dict)
 		save_game.store_line(json_string)
-	
+		if status_bar and game_dict.has("score"):
+			game_dict["score"] = status_bar.frame - 1
+			
+			
 	
 func _add_status_bar() -> void:
 	status_bar = status_bar_scene.instantiate()
 	status_bar.position = Vector2(1800, 500)
 	add_child(status_bar)
-	
 	
 func _end_game_condition() -> bool:
 	return false
@@ -77,24 +79,17 @@ func _end_game_message():
 
 func _stop_game() -> void:
 	set_physics_process(false)
-	for node in get_children():
-		node.queue_free()
 		
 		
 func _end_game() -> void:
 	_game_completed()
-	_stop_game()
-	var message = load("res://minigames/generics/SuccessMessage.tscn").instantiate()
-	message.get_node("%Label").text = _end_game_message()
-	add_child(message)	
-
+	if get_tree().change_scene_to_file("res://minigames/generics/SuccessMessage.tscn") != OK:
+		print("Failed changing scene")
 
 func _end_game_with_failure():
-	var message = load("res://minigames/generics/SuccessMessage.tscn").instantiate()
-	message.get_node("%Label").text = "OOOPS :-("
 	_stop_game()
-	add_child(message)
-
+	if get_tree().change_scene_to_file("res://minigames/generics/FailureMessage.tscn") != OK:
+		print("Failed changing scene")
 
 func _on_music_button_toggled(_button_pressed : bool) -> void:
 	music_player.playing = not _button_pressed

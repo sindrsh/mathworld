@@ -49,7 +49,7 @@ func _add_specifics() -> void:
 	_spawn_numbers(1)
 	add_child(audio_player)
 	audio_player.stream = correct_sound
-
+	_add_status_bar()
 
 func _new_bag():
 	for i in range(1, 10):

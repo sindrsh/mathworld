@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://3q7kvwwotegq"]
+
+[ext_resource type="Texture2D" uid="uid://hwyb4ani6nyw" path="res://minigames/generics/assets/status-3.svg" id="1_jxux1"]
+[ext_resource type="Texture2D" uid="uid://bklexuyhx01ln" path="res://minigames/generics/assets/status-2.svg" id="2_1w2fq"]
+[ext_resource type="Texture2D" uid="uid://tshpe40how4c" path="res://minigames/generics/assets/status-1.svg" id="3_tmulw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_exl6i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_tmulw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1w2fq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_jxux1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="GameRating" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RatingIndicator" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_exl6i")

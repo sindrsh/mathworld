@@ -49,12 +49,13 @@ func _add_generics() -> void:
 	add_child(top_wall)
 	add_child(audio_player)
 	
-	_add_specifics()
 	_mk_bubbles()
 
-func _add_specifics() -> void:
-	pass
 
+func _physics_process(_delta):
+	if _end_game_condition(): 
+			await get_tree().create_timer(0.5).timeout
+			_end_game()
 
 func _mk_bubbles():
 	pass
@@ -76,10 +77,11 @@ func _on_bubble_pressed(_name : String) -> void:
 				var bubble1 = bubble_container.get_node(chosen_bubble)
 				var bubble2 = bubble_container.get_node(_name)
 				
+				chosen_bubble = ''
 				bubble1.on_kill()
 				bubble2.on_kill()
 				
-				chosen_bubble = ''
+				
 			else:
 				audio_player.stream = incorrect_sound
 				var bubble = bubble_container.get_node(_name)
@@ -95,9 +97,6 @@ func _on_bubble_pressed(_name : String) -> void:
 					
 				status_bar.frame -= 1
 				return
-			if _end_game_condition(): 
-				await get_tree().create_timer(0.5).timeout
-				_end_game()
 
 
 func _bubbles_are_equal(_bubble1 : String, _bubble2 : String) -> bool:

@@ -55,8 +55,6 @@ func _add_specifics() -> void:
 	music_player.stream = music
 	
 	_add_status_bar()
-	
-
 
 func _mk_bubbles() -> void:
 	for i in range(ints.size()):

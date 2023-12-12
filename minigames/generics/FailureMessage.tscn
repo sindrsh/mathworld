@@ -1,0 +1,89 @@
+[gd_scene load_steps=6 format=3 uid="uid://coxvjwor2ydmq"]
+
+[ext_resource type="Script" path="res://minigames/generics/success_message.gd" id="1_yf88r"]
+[ext_resource type="Texture2D" uid="uid://7s33dinkutas" path="res://assets/splash.png" id="2_rkm66"]
+
+[sub_resource type="Theme" id="Theme_crjq2"]
+HBoxContainer/constants/separation = 20
+MarginContainer/constants/margin_bottom = 50
+MarginContainer/constants/margin_left = 50
+MarginContainer/constants/margin_right = 50
+MarginContainer/constants/margin_top = 50
+VBoxContainer/constants/separation = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_axd5k"]
+bg_color = Color(0.33, 0.67, 0.56, 1)
+
+[sub_resource type="Theme" id="Theme_d8pc1"]
+Button/styles/normal = SubResource("StyleBoxFlat_axd5k")
+
+[node name="SuccessMessage" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme = SubResource("Theme_crjq2")
+script = ExtResource("1_yf88r")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 60
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Mini game completed!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="menuBar" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="RestartButton" type="Button" parent="MarginContainer/VBoxContainer/menuBar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(110, 45)
+layout_mode = 2
+theme = SubResource("Theme_d8pc1")
+text = "RESTART"
+
+[node name="CountingWorldButton" type="Button" parent="MarginContainer/VBoxContainer/menuBar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(110, 45)
+layout_mode = 2
+theme = SubResource("Theme_d8pc1")
+text = "CountingWorld"
+
+[node name="ToMenuButton" type="Button" parent="MarginContainer/VBoxContainer/menuBar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(110, 45)
+layout_mode = 2
+theme = SubResource("Theme_d8pc1")
+text = "TO MENU"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1597, 614)
+scale = Vector2(0.361854, 0.361854)
+texture = ExtResource("2_rkm66")

@@ -20,7 +20,6 @@ func _add_specifics():
 	world_part = "counting"
 	id = "number_bridge_0_to_9"
 	minigame_type = NUMBER_LINE
-	
 	assert(plus_num_btn.connect("pressed", _plus_num_pressed) == 0)
 	assert(min_num_btn.connect("pressed", _min_num_pressed) == 0)	
 	assert(plus_denom_btn.connect("pressed", _plus_denom_pressed) == 0)

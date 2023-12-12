@@ -8,9 +8,9 @@ var amount_minigames : Array
 var number_line_minigames : Array
 var developments := {
 	"amount_insights": 0,
- 	"amount_calculations": 0,
+ 	"amount_calculations": [],
  	"number_line_insights" : 0,
-	"number_line_calculations" : 0,
+	"number_line_calculations" : [],
 }
 
 var development_board_clikced : bool
@@ -98,7 +98,7 @@ func _update_development_status(minigames : Array, minigames_array : Array, insi
 			if minigame_dict["branch"] == GlobalVariables.INSIGHT:
 				developments[insights] += 1
 			if minigame_dict["branch"] == GlobalVariables.CALCULATION:
-				developments[calculations] += 1	
+				developments[calculations].append(minigame_dict["score"])
 
 func _show_map() -> void:
 	for node in get_children():
@@ -121,11 +121,11 @@ func _show_development() -> void:
 	for i in range(developments["amount_insights"]):
 		development_board.get_node("VBoxContainer/AmountsInsights/PurpleBarsContainer/" + "PurpleBar" + str(i+1)).show()
 	
-	for i in range(developments["amount_calculations"]):
-		development_board.get_node("VBoxContainer/AmountsCalculations/PurpleBarsContainer/" + "PurpleBar" + str(i+1)).show()
-		
-	for i in range(developments["number_line_calculations"]):
-		development_board.get_node("VBoxContainer/NumberLineCalculations/PurpleBarsContainer/" + "PurpleBar" + str(i+1)).show()
+	var ratings : Array = development_board.get_node("VBoxContainer/AmountsCalculations/PurpleBarsContainer/").get_children()
+	for i in range(developments["amount_calculations"].size()):
+		var rating = ratings[i]
+		rating.get_node("RatingIndicator").frame = developments["amount_calculations"][i]
+		rating.show()
 	
 	development_board.show()			
 		
