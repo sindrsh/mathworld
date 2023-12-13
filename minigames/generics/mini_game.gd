@@ -22,7 +22,7 @@ var music_player := AudioStreamPlayer2D.new()
 func _ready():
 	
 	assert(menu_bar.get_node("SoundEffectsContainer/MusicButton").toggled.connect(_on_music_button_toggled) == 0)
-	
+	GlobalVariables.current_game_path = get_scene_file_path()
 	
 	_add_generics()
 	_add_specifics()

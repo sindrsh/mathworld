@@ -17,6 +17,11 @@ var high_score
 var difficulty = 1
 var time = 0
 
+var tick_0 := Sprite2D.new()
+var tick_1 := Sprite2D.new()
+var tick_0_texture : Texture2D = preload("res://minigames/counting/falling_numbers_0_to_9/assets/zero_white.svg")
+var tick_1_texture : Texture2D = preload("res://minigames/counting/falling_numbers_0_to_9/assets/one_white.svg")
+
 func _on_num_selection(node):
 	if selected_number == null or not is_instance_valid(selected_number):
 		selected_number = node
@@ -46,7 +51,7 @@ func _add_number():
 	rng.randomize()
 	var integer = rng.randi_range(0, 9)
 	number.value = integer
-	number.mk_number(str(integer), null, Vector2(-12,-4))
+	number.get_node("NumberSprite").frame = integer
 	number.position = Vector2(line_a. x + rng.randi_range(0, line_b.x - line_a. x), 100)
 	number.add_to_group("numbers")
 	
@@ -117,6 +122,14 @@ func _add_specifics():
 	$NumberLine.position = line_a + Vector2(0, -tex.get_height()/2)
 	dx = tex.get_width()/float(ticks-1)
 	
+	tick_0.texture = tick_0_texture
+	tick_1.texture = tick_1_texture
+	tick_0.position = Vector2(line_a.x, line_a.y + 40)
+	tick_1.position = Vector2(line_a.x + dx, line_a.y + 40)
+	
+	add_child(tick_0)
+	add_child(tick_1)
+	
 	for i in range(ticks):
 		var tick = tick_scene.instantiate()
 		add_child(tick)
@@ -138,54 +151,14 @@ func _add_specifics():
 	
 	$ScoreBoard.position = $RoundsBox.position + Vector2(0, 150)
 	
-	_mk_number(self, "0", null, Vector2(line_a.x, line_a.y+40), 0.5, 20, 5, 10, 10)
-	_mk_number(self, "1", null, Vector2(line_a.x+dx, line_a.y+40), 0.5, 20, 5, 10, 10)
 	
 	assert($NumberTimer.connect("timeout", Callable(self, "_add_number")) == 0 )
 	$NumberTimer.start()
 	$EndBox.hide()
 	$RestartButton.hide()
 	$Music.play()
-
-
-func _mk_number(scene, number, decs, pos, num_scale = 1, x_sep = 20, comma_sep = 20, comma_sep2 = 5, comma_y = 5):
-	var num_scene = preload("res://minigames/counting/falling_numbers_0_to_9/int.tscn")
-	var num_list = []
-	var comma
-	var cnt = 0
-	for digit in number:
-		var dig = num_scene.instantiate()
-		dig.scale = num_scale*Vector2(1, 1)
-		dig.position = pos + Vector2(cnt*x_sep, 0)
-		dig.frame = int(digit)
-		cnt += 1
-		scene.add_child(dig)
-		
-		numbers.append(dig)
-		num_list.append(dig)
-	if decs != null:
-		comma = _mk_operator(scene, 5, pos + Vector2(cnt*x_sep - comma_sep, comma_y), num_scale)
-		num_list.append(comma)
-		for digit in decs:
-			var dig = num_scene.instantiate()
-			dig.scale = num_scale*Vector2(1, 1)
-			dig.position = pos + Vector2(cnt*x_sep + comma_sep2, 0)
-			dig.frame = int(digit)
-			cnt += 1
-			scene.add_child(dig)
-			num_list.append(dig)
-	return num_list
-
-
-func _mk_operator(scene, int_frame, pos, num_scale = 1):
-	var op_scene = preload("res://minigames/counting/falling_numbers_0_to_9/operator.tscn")
-	var op = op_scene.instantiate()
-	op.scale = num_scale*Vector2(1, 1)
-	op.frame = int_frame
-	op.position = pos
-	scene.add_child(op)
-	return op
-
+	
+	
 
 func _process(delta):
 	time += delta

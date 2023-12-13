@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cpwo630ukpne5"]
+[gd_scene load_steps=9 format=3 uid="uid://dubmfyn662jyr"]
 
 [ext_resource type="Texture2D" uid="uid://dh24i0mr6kfd8" path="res://minigames/counting/falling_decimals_0_to_2/assets/equals_.png" id="1_23bxc"]
 [ext_resource type="Texture2D" uid="uid://b8kl2s1pdlnkr" path="res://minigames/counting/falling_decimals_0_to_2/assets/plus_.png" id="2_wysye"]

@@ -3,6 +3,7 @@ extends Node
 enum {COMPLETED, NOT_COMPLETED}
 enum {INSIGHT, CALCULATION}
 
+var current_game_path : String
 
 var count_number_line_minigames := [	
 	{

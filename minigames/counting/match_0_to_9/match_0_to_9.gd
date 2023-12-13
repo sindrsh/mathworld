@@ -55,7 +55,8 @@ func _add_specifics() -> void:
 	music_player.stream = music
 	
 	_add_status_bar()
-
+	
+	
 func _mk_bubbles() -> void:
 	for i in range(ints.size()):
 		_mk_bubble_pair()
@@ -63,12 +64,11 @@ func _mk_bubbles() -> void:
 
 func _mk_bubble_pair() -> void:
 	var bubble_number : int = ints.pop_front()
-	var position_area : Vector2 = 0.7*get_viewport_rect().size
 	
 	var bubble_a = bubble_scene.instantiate()
 	bubble_a.int_value = [bubble_number, 1]
 	bubble_a.representation = REPRESENTATION_A
-	bubble_a.start(Vector2(position_area.x*randf(), position_area.y*randf()), 3.14*randf())
+	bubble_a.start(start_positions.pop_back(), 3.14*randf())
 	assert(bubble_a.connect("bubble_pressed", _on_bubble_pressed) == 0)
 	bubble_a.not_chosen_texture = representation_a[bubble_number]
 	bubble_a.chosen_texture = representation_a_chosen[bubble_number]
@@ -83,7 +83,7 @@ func _mk_bubble_pair() -> void:
 	var bubble_b := bubble_scene.instantiate()
 	bubble_b.int_value = [bubble_number, 1]
 	bubble_b.representation = REPRESENTATION_B
-	bubble_b.start(Vector2(800, 300), 3.14*randf())
+	bubble_b.start(start_positions.pop_back(), 3.14*randf())
 		
 	assert(bubble_b.connect("bubble_pressed", _on_bubble_pressed) == 0)
 	bubble_b.button.texture_normal = representation_b[bubble_number]

@@ -11,7 +11,7 @@ var _last_move_dir = Vector2(-1, 0)
 var next_num = 1
 
 var _collisions_enabled = false  # dumb hack to stop the snake from killing itself instantly
-var health = 5
+var health = 3
 var moving = true
 
 @onready var _mouth: Area2D = get_node("head/Mouth")

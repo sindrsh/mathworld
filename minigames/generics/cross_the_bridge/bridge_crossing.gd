@@ -133,11 +133,12 @@ func _on_number_arrival() -> void:
 		_mk_task()
 	score_label.text = str(score)	
 	
+	sound_effect.play()
 	if score == max_score:
 		sound_effect.stream = finished_sound
 		sound_effect.play()
 		_end_game()
-	sound_effect.play()
+	
 	
 	
 func _on_timeout() -> void:

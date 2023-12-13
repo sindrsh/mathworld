@@ -1,11 +1,21 @@
-[gd_scene load_steps=11 format=3 uid="uid://bdp65nv8ttjmn"]
+[gd_scene load_steps=22 format=3 uid="uid://bdp65nv8ttjmn"]
 
 [ext_resource type="Script" path="res://minigames/counting/falling_decimals_0_to_2/number.gd" id="1_4aak3"]
-[ext_resource type="Texture2D" uid="uid://bbiwrhb0hme5c" path="res://minigames/counting/falling_numbers_0_to_9/assets/purple.png" id="3_vx3uw"]
-[ext_resource type="Texture2D" uid="uid://5nlulbfoqllt" path="res://minigames/counting/falling_numbers_0_to_9/assets/pink.png" id="4_g4w34"]
-[ext_resource type="Texture2D" uid="uid://ba67gm4gdyhys" path="res://minigames/counting/falling_decimals_0_to_2/assets/number_box_equal.png" id="5_mmr5g"]
-[ext_resource type="Texture2D" uid="uid://cweq3sc0f8jvb" path="res://minigames/counting/falling_decimals_0_to_2/assets/number_box_unequal.png" id="6_xsqn0"]
-[ext_resource type="Texture2D" uid="uid://b6b208c5pdtvb" path="res://minigames/counting/falling_numbers_0_to_9/assets/blue.png" id="7_ju4gm"]
+[ext_resource type="Texture2D" uid="uid://de5y0a5fwhoje" path="res://minigames/counting/falling_numbers_0_to_9/assets/purple.png" id="3_vx3uw"]
+[ext_resource type="Texture2D" uid="uid://ck8t28kp3jclp" path="res://minigames/counting/falling_numbers_0_to_9/assets/pink.png" id="4_g4w34"]
+[ext_resource type="Texture2D" uid="uid://b8ei0pdb0lj1a" path="res://minigames/counting/falling_decimals_0_to_2/assets/number_box_equal.png" id="5_mmr5g"]
+[ext_resource type="Texture2D" uid="uid://dlju2sq4fkwfu" path="res://minigames/counting/falling_decimals_0_to_2/assets/number_box_unequal.png" id="6_xsqn0"]
+[ext_resource type="Texture2D" uid="uid://bxialyxlg0w64" path="res://minigames/counting/falling_numbers_0_to_9/assets/zero_white.svg" id="7_ic2yu"]
+[ext_resource type="Texture2D" uid="uid://cdpelcmm02yqa" path="res://minigames/counting/falling_numbers_0_to_9/assets/blue.png" id="7_ju4gm"]
+[ext_resource type="Texture2D" uid="uid://cedjhiyh6330u" path="res://minigames/counting/falling_numbers_0_to_9/assets/one_white.svg" id="8_ftfek"]
+[ext_resource type="Texture2D" uid="uid://cgxmosd1hppwi" path="res://minigames/counting/falling_numbers_0_to_9/assets/two_white.svg" id="9_1e631"]
+[ext_resource type="Texture2D" uid="uid://bucl34ocigxcp" path="res://minigames/counting/falling_numbers_0_to_9/assets/three_white.svg" id="10_htx2q"]
+[ext_resource type="Texture2D" uid="uid://b2bd1qui21vop" path="res://minigames/counting/falling_numbers_0_to_9/assets/four_white.svg" id="11_pu0m7"]
+[ext_resource type="Texture2D" uid="uid://bsohhr146ytuj" path="res://minigames/counting/falling_numbers_0_to_9/assets/five_white.svg" id="12_1dbwg"]
+[ext_resource type="Texture2D" uid="uid://dlso3ap2qef7g" path="res://minigames/counting/falling_numbers_0_to_9/assets/six_white.svg" id="13_4xevt"]
+[ext_resource type="Texture2D" uid="uid://dopk81vcd5qch" path="res://minigames/counting/falling_numbers_0_to_9/assets/seven_white.svg" id="14_j4kja"]
+[ext_resource type="Texture2D" uid="uid://cjpeuuptbk401" path="res://minigames/counting/falling_numbers_0_to_9/assets/eight_white.svg" id="15_qpkwc"]
+[ext_resource type="Texture2D" uid="uid://0t4s04settg0" path="res://minigames/counting/falling_numbers_0_to_9/assets/nine_white.svg" id="16_jtydg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6ckqd"]
 animations = [{
@@ -91,6 +101,44 @@ _data = {
 "fade_out": SubResource("Animation_ya7d5")
 }
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_hvaxo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_ic2yu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ftfek")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_1e631")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_htx2q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_pu0m7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_1dbwg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_4xevt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_j4kja")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_qpkwc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_jtydg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Number" type="Node2D"]
 script = ExtResource("1_4aak3")
 
@@ -123,6 +171,9 @@ offset_bottom = 33.5
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("7_ju4gm")
+
+[node name="NumberSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hvaxo")
 
 [connection signal="area_entered" from="TickDetector" to="." method="_on_tick_detector_area_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

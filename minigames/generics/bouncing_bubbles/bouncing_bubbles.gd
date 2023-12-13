@@ -13,7 +13,7 @@ var bottom_wall := StaticBody2D.new()
 var audio_player := AudioStreamPlayer2D.new()
 var correct_sound : AudioStream = preload("res://minigames/generics/assets/correct.mp3")
 var incorrect_sound : AudioStream = preload("res://minigames/generics/assets/whip.mp3")
-
+var start_positions : Array
 
 func _add_generics() -> void:
 	var window : Vector2 = get_viewport_rect().size
@@ -49,6 +49,13 @@ func _add_generics() -> void:
 	add_child(top_wall)
 	add_child(audio_player)
 	
+	var dx = 200
+	var dy = 150
+	for i in range(1,8):
+		for j in range(1,8):
+			start_positions.push_front(Vector2(i*dx,j*dy))
+	randomize()
+	start_positions.shuffle()
 	_mk_bubbles()
 
 
@@ -62,6 +69,8 @@ func _mk_bubbles():
 
 
 func _on_bubble_pressed(_name : String) -> void:
+	if not bubble_container.get_node(_name):
+		print("wtd")
 	if _name == chosen_bubble:
 		bubble_container.get_node(_name).button.texture_normal = bubble_container.get_node(_name).not_chosen_texture		
 		chosen_bubble = ''
@@ -80,7 +89,6 @@ func _on_bubble_pressed(_name : String) -> void:
 				chosen_bubble = ''
 				bubble1.on_kill()
 				bubble2.on_kill()
-				
 				
 			else:
 				audio_player.stream = incorrect_sound

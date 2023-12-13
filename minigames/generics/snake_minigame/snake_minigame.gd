@@ -7,9 +7,9 @@ var _fruit_scene = preload("res://components/fruit/fruit.tscn")
 
 func _add_specifics():
 	
-	var world_part = "counting"
-	var id = "snake_1_to_50" 
-	var minigame_type = AMOUNT
+	world_part = "counting"
+	id = "snake_1_to_50" 
+	minigame_type = AMOUNT
 	
 	for i in range(1, 10):
 		# max x = 29
@@ -22,3 +22,10 @@ func _add_specifics():
 		fruit.position = spawn_pos
 		
 		print("created fruit at " + str(spawn_pos))
+	
+	_add_status_bar()
+	
+func _physics_process(_delta) -> void:
+	if $Snake:
+		status_bar.frame = $Snake.health
+				

@@ -11,7 +11,8 @@ func _go_to_menu() -> void:
 		print("Could not change scene")
 
 func _restart() -> void:
-	get_tree().reload_current_scene()
+	if get_tree().change_scene_to_file(GlobalVariables.current_game_path) != OK:
+		print("Could not change scene")
 
 func _go_to_counting_world():
 	if get_tree().change_scene_to_file("res://world/counting_world.tscn") != OK:

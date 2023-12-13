@@ -1,4 +1,4 @@
-settings.outformat="png";
+settings.outformat="svg";
 defaultpen(fontsize(11 pt));
 
 unitsize(32pt);
@@ -34,10 +34,10 @@ void db(int I=1, int J=1, int m=I, int n=J, pair sh=(0,0), pen p=lightblue, pen 
 	for (int i = 1; i <= I; ++i){
 		for (int j = 1; j <= J; ++j){
 			if (i<=m || j<=n){
-			filldraw(shift(sh+(i-1,j-1))*b, p, drawpen=black); 
+			filldraw(shift(sh+(i-1,j-1))*b, p, drawpen=black);
 			++cnt;
 			}
-			} 
+			}
 		}
 		if (l == true){
 			string name = "$%d$";
@@ -45,4 +45,3 @@ void db(int I=1, int J=1, int m=I, int n=J, pair sh=(0,0), pen p=lightblue, pen 
 		 	label(lb,(I/2+sh.x,J+ls*0.6+sh.y));
 		 }
 }
-

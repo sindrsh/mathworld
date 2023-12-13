@@ -2,7 +2,6 @@ extends Node2D
 
 signal selected
 
-var num_scene = preload("res://minigames/counting/falling_decimals_0_to_2/int.tscn")
 var op_scene = preload("res://minigames/counting/falling_decimals_0_to_2/operator.tscn")
 
 @export var speed_multiplier: int = 10
@@ -12,9 +11,6 @@ var speed = Vector2(2000, 30)
 var tick
 var find_tick = false
 
-var x_sep = 20
-var comma_sep = 5
-var comma_sep2 = 10
 var comma_y = 10
 var num_scale = 0.5
 var num_pos = Vector2(100,100)
@@ -35,30 +31,6 @@ func mk_operator(int_frame, pos):
 	add_child(op)
 	return op
 
-func mk_number(number, decs, pos):
-	var num_list = []
-	var comma
-	var cnt = 0
-	for digit in number:
-		var dig = num_scene.instantiate()
-		dig.scale = num_scale*Vector2(1, 1)
-		dig.position = pos + Vector2(cnt*x_sep, 0)
-		dig.frame = int(digit)
-		cnt += 1
-		add_child(dig)
-		num_list.append(dig)
-	if decs != null:
-		comma = mk_operator(5, pos + Vector2(cnt*x_sep - comma_sep, comma_y))
-		num_list.append(comma)
-		for digit in decs:
-			var dig = num_scene.instantiate()
-			dig.scale = num_scale*Vector2(1, 1)
-			dig.position = pos + Vector2(cnt*x_sep + comma_sep2, 0)
-			dig.frame = int(digit)
-			cnt += 1
-			add_child(dig)
-			num_list.append(dig)
-	return num_list
 
 func _on_timeout():
 	animation_player.play("fade_out")

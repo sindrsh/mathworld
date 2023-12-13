@@ -21,14 +21,10 @@ func _ready():
 	assert(button.connect("pressed", _on_pressed) == 0)
 	
 	add_child(collision_shape)
-	
 	button.texture_normal = not_chosen_texture
-	
 	add_child(button)
 	
-	
-	
-	
+
 func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)
 	if collision:
@@ -45,7 +41,9 @@ func start(_position, _direction) -> void:
 
 
 func on_kill() -> void:
+	button.disabled = true
 	animation_player.play("fade_out")
+
 
 func play_wrong_choice() -> void:
 	animation_player.play("wrong_choice")
