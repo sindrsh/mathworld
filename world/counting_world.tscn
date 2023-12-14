@@ -25,10 +25,6 @@
 script = ExtResource("1_ugvj7")
 
 [node name="MenuBar" parent="." instance=ExtResource("12_khj6s")]
-offset_left = -692.0
-offset_top = -42.0
-offset_right = 1228.0
-offset_bottom = 103.0
 
 [node name="DevelopmentBoard" type="TextureButton" parent="."]
 offset_left = 1729.0

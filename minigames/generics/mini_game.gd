@@ -13,7 +13,7 @@ var minigame_type : int
 var game_index : int
 var MenuBarScene : PackedScene = load("res://minigames/generics/MenuBar.tscn")
 var status_bar_scene : PackedScene = load("res://minigames/generics/status_bar.tscn")
-var menu_bar : MarginContainer = MenuBarScene.instantiate()
+var menu_bar : Node2D = MenuBarScene.instantiate()
 var cheat_button := Button.new()
 var status_bar : AnimatedSprite2D
 var music_player := AudioStreamPlayer2D.new()

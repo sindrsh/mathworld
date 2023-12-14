@@ -1,4 +1,4 @@
-extends Control
+extends Node2D
 
 func _restart_game() -> void:
 	get_tree().reload_current_scene()

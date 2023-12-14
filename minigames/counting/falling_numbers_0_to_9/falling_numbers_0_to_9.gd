@@ -19,8 +19,8 @@ var time = 0
 
 var tick_0 := Sprite2D.new()
 var tick_1 := Sprite2D.new()
-var tick_0_texture : Texture2D = preload("res://minigames/counting/falling_numbers_0_to_9/assets/zero_white.svg")
-var tick_1_texture : Texture2D = preload("res://minigames/counting/falling_numbers_0_to_9/assets/one_white.svg")
+var tick_0_texture : Texture2D = preload("res://minigames/counting/falling_numbers_0_to_9/assets/zero_black.svg")
+var tick_1_texture : Texture2D = preload("res://minigames/counting/falling_numbers_0_to_9/assets/one_black.svg")
 
 func _on_num_selection(node):
 	if selected_number == null or not is_instance_valid(selected_number):
