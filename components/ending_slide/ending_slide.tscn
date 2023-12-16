@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://buo8uk4i576wx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j6iy2"]
+
+[node name="EndingSlide" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 2)
+sprite_frames = SubResource("SpriteFrames_j6iy2")
