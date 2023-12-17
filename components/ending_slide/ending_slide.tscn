@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://buo8uk4i576wx"]
+[gd_scene load_steps=11 format=3 uid="uid://buo8uk4i576wx"]
 
 [ext_resource type="Script" path="res://components/ending_slide/ending_slide.gd" id="1_wy430"]
+[ext_resource type="Texture2D" uid="uid://uypsk6fgnm4e" path="res://assets/black_square.png" id="2_0uks5"]
 [ext_resource type="Texture2D" uid="uid://djwjgmcahydje" path="res://minigames/generics/assets/status-0.svg" id="2_jp8ae"]
 [ext_resource type="Texture2D" uid="uid://cm1amhiv6747x" path="res://minigames/generics/assets/status-1.svg" id="3_oi3f7"]
 [ext_resource type="Texture2D" uid="uid://bo48g2hpv6mlx" path="res://minigames/generics/assets/status-2.svg" id="4_lxlti"]
@@ -41,6 +42,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(2437, 498), Vector2(968, 498)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.63),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0, 0, 0, 0.392157)]
+}
 
 [sub_resource type="Animation" id="Animation_5hmgr"]
 length = 0.001
@@ -56,6 +69,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(2437, 498)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rab53"]
 _data = {
@@ -64,11 +89,17 @@ _data = {
 }
 
 [node name="EndingSlide" type="Node2D"]
-script = ExtResource("1_wy430")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 1000
 z_as_relative = false
+script = ExtResource("1_wy430")
+
+[node name="Background" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(961, 539.5)
+scale = Vector2(60.0625, 33.7812)
+texture = ExtResource("2_0uks5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2437, 498)
 sprite_frames = SubResource("SpriteFrames_j6iy2")
 

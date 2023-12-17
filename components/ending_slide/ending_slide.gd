@@ -8,6 +8,7 @@ class_name EndingSlide
 @onready var increase_timer: Timer = get_node("IncreaseTimer")
 @onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
 @onready var sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
+@onready var background: Sprite2D = get_node("Background")
 signal animation_complete
 
 var stars: int = -1
@@ -23,6 +24,7 @@ func _ready():
 func slide_in(s: int):
 	stars = s
 	animation_player.play("slide_in")
+	background.visible = true
 
 
 func _on_animation_player_animation_finished(anim_name):
