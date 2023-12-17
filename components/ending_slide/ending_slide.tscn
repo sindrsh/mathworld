@@ -67,6 +67,8 @@ _data = {
 script = ExtResource("1_wy430")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1000
+z_as_relative = false
 position = Vector2(2437, 498)
 sprite_frames = SubResource("SpriteFrames_j6iy2")
 

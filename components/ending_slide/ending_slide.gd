@@ -23,7 +23,6 @@ func _ready():
 func slide_in(s: int):
 	stars = s
 	animation_player.play("slide_in")
-	print("I'm sliding in")
 
 
 func _on_animation_player_animation_finished(anim_name):
