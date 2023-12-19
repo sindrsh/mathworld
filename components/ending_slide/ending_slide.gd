@@ -20,7 +20,7 @@ func _ready():
 
 
 # causes the slide in animation to start
-# put s as the number of stars to display
+# put s as the number of stars to lose
 func slide_in(s: int):
 	stars = s
 	animation_player.play("slide_in")
