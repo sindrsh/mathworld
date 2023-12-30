@@ -18,8 +18,8 @@ func _add_specifics() -> void:
 		number.position = number_place_positions[2] + number_positions[2].pop_back() + number_adjusts[2]
 		number.show()
 	
-	_add_number(1)
-	#_add_number(2)	
-			
+	_add_number(2)	
+
+
 func _end_game_condition() -> bool:
 	return number_board.hundreds == 9 and number_board.tens == 9 and number_board.ones == 9

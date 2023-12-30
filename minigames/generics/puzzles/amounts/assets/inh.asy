@@ -1,6 +1,6 @@
 settings.outformat="svg";
 defaultpen(fontsize(11 pt));
-unitsize(3/4);
+unitsize(0.8);
 
 pen p0 = RGB(102, 102, 255);
 pen p1 = RGB(213, 0, 245);

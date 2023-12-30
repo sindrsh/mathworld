@@ -28,7 +28,13 @@ func set_txture_normal(txture : Texture2D) -> void:
 	texture_size_div2 = texture_normal.get_size()/2.0
 	if centered:
 		position = -Vector2(texture_size_div2.x, texture_size_div2.y)
-	
+
+
+func scale_and_modulate(_scale: Vector2) -> void:
+	scale = _scale
+	self_modulate = Color(1, 1, 1, 0)
+	if centered:
+		position = -scale*Vector2(texture_size_div2.x, texture_size_div2.y)		
 	
 # This function should be implemented in
 # the parent scene:

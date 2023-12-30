@@ -21,7 +21,7 @@ var music_player := AudioStreamPlayer2D.new()
 
 func _ready():
 	
-	assert(menu_bar.get_node("SoundEffectsContainer/MusicButton").toggled.connect(_on_music_button_toggled) == 0)
+	assert(menu_bar.get_node("HBoxContainer/MusicButton").toggled.connect(_on_music_button_toggled) == 0)
 	GlobalVariables.current_game_path = get_scene_file_path()
 	
 	_add_generics()
@@ -78,10 +78,11 @@ func _end_game_message():
 
 
 func _stop_game() -> void:
-	set_physics_process(false)
+	call_deferred("set_physics_process", false)
 		
 		
 func _end_game() -> void:
+	_stop_game()
 	_game_completed()
 	if get_tree().change_scene_to_file("res://minigames/generics/SuccessMessage.tscn") != OK:
 		print("Failed changing scene")

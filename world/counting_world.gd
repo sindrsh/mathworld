@@ -20,6 +20,7 @@ var data
 func _ready():
 	assert($DevelopmentBoard.pressed.connect(_on_development_button_pressed) == 0)
 	assert($ShowAllGames.pressed.connect(_show_all_games) == 0)
+	assert($Button.pressed.connect(_on_smartboard_pressed) == 0)
 	
 	amount_minigames = [
 		$Amount0To9, 
@@ -139,3 +140,8 @@ func _on_development_button_pressed() -> void:
 func _show_all_games() -> void:
 	PlayerVariables.show_all_games = true
 	_show_minigames()
+
+
+func _on_smartboard_pressed() -> void:
+	if get_tree().change_scene_to_file("res://smartboard.tscn") != OK:
+		print("Minigame not found")

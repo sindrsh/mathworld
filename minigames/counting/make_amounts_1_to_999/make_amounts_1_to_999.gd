@@ -13,6 +13,7 @@ var horizontal_sep := 20.0
 var boards_sep := 100
 var digits : Array[Area2D] = [null, null, null]
 var boards_container := Node.new()
+var board_positions : Dictionary
 
 func _add_specifics():
 	world_part = "counting"
@@ -27,6 +28,11 @@ func _add_specifics():
 	number_picture.position = Vector2(400, 100)
 	$EqualSign.position = number_picture.position + Vector2(800, 200)
 	$AnswerBoard.position = $EqualSign.position + Vector2(250, 50)
+	board_positions = {
+		1: $AnswerBoard.position + Vector2(place_width + place_sep, 0),
+		2: $AnswerBoard.position + Vector2((place_width + place_sep)/2.0, 0),	
+		3: $AnswerBoard.position
+	}
 	$AnswerBoard.get_node("CollisionShape2D").shape.size = $AnswerBoard.get_node("Sprite2D").texture.get_size()
 	add_child(number_picture)
 	
@@ -39,6 +45,12 @@ func _add_specifics():
 	
 	_mk_task()
 
+
+func _physics_process(_delta):
+	for area in $AnswerBoard.get_overlapping_areas():
+		if not area.position in board_positions.values():
+			area.movable_shape.active = false
+			area.position = area.original_position
 
 func _mk_task() -> void:
 	value = ints.pop_front() + 1
@@ -65,12 +77,9 @@ func _mk_number(x_pos : float, number_node : Area2D, digit_place : int) -> void:
 
 func _on_area_entered(area) -> void:
 	area.movable_shape.active = false
-	if area.digit_place == 1:
-		area.position = $AnswerBoard.position + Vector2(place_width + place_sep, 0)
-	if area.digit_place == 2:
-		area.position = $AnswerBoard.position + Vector2((place_width + place_sep)/2.0, 0)		
-	if area.digit_place == 3:
-		area.position = $AnswerBoard.position	
+	area.position = board_positions[area.digit_place]
+		
 	if digits[area.digit_place - 1]:
-		digits[area.digit_place - 1].position = digits[area.digit_place - 1].original_position	
+		if digits[area.digit_place - 1] != area:
+			digits[area.digit_place - 1].position = digits[area.digit_place - 1].original_position	
 	digits[area.digit_place - 1] = area

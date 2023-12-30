@@ -29,9 +29,7 @@ func _on_button_up() -> void:
 
 func _on_mouse_entered():
 	hovered = true
-	print("entered")
 
 
 func _on_mouse_exited():
 	hovered = false
-	print("exited")

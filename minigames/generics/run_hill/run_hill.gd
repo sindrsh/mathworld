@@ -11,8 +11,12 @@ func _add_specifics():
 	id = "run_hill"
 	minigame_type = NUMBER_LINE
 	
+	_add_status_bar()
+	status_bar.position.y -= 300
+	
+	lane.tick_hit.connect(_on_obstacle_hit)
+	
 	alternatives = [$Alternative1, $Alternative2, $Alternative3, $Alternative4]
-	assert(lane.make_new_alternatives.connect(_mk_new_alternatives) == 0)
 	var ints := [1, 2, 3, 4, 5, 6, 7, 8, 9]
 	for i in range(alternatives.size()):
 		assert(alternatives[i].chosen.connect(_alternative_chosen) == 0)
@@ -53,20 +57,34 @@ func _mk_alternatives() -> void:
 
 func _alternative_chosen(_name : String) -> void:
 	lane.moving = true
-	var obstacle = lane.current_obstacle
-	lane.current_obstacle.has_been_hit = true
+	var obstacle: Area2D = lane.current_obstacle
 	var alt = get_node(_name)
 	if alt.value == obstacle.value:
-		obstacle.get_node("ObstacleShape").set_deferred("disabled", true)
-	obstacle.get_node("ObstacleAnimation").hide()
-	if obstacle.next_obstacle:
-		lane.current_obstacle = obstacle.next_obstacle
-		lane.current_obstacle.get_node("ObstacleAnimation").play()
-		_mk_alternatives()
-	else:
-		for alternative in alternatives:
-			alternative.hide()
+		obstacle.will_explode = false
+		
+	for alternative in alternatives:
+			if alternative != get_node(_name):
+				alternative.hide()
+			else:
+				alternative.disabled = false
 	
 
-func _mk_new_alternatives(value: int) -> void:
-	pass
+func _mk_new_alternatives() -> void:
+	for alternative in alternatives:
+		alternative.disabled = false
+		alternative.show()
+	_mk_alternatives()
+
+
+func _on_obstacle_hit(_obstacle: Area2D) -> void:
+	if _obstacle.next_obstacle:
+		lane.current_obstacle = _obstacle.next_obstacle
+		_mk_new_alternatives()
+	
+	if _obstacle.will_explode:
+		if status_bar.frame == 0:
+			call_deferred("_end_game_with_failure")
+		else:
+			status_bar.frame -= 1
+		print("kablamo")
+	

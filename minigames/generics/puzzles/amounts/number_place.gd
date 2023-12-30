@@ -22,7 +22,6 @@ var textures : Dictionary = {
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	assert(area_entered.connect(_on_area_entered) == 0)
-	scale = Vector2(0.9,0.9)
 
 func _init(_place: int):
 	collision_shape.shape = RectangleShape2D.new()

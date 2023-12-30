@@ -6,7 +6,9 @@ var number_board: Sprite2D = preload("res://minigames/generics/puzzles/amounts/n
 var one_texture = preload("res://minigames/generics/puzzles/amounts/assets/one.svg")
 var ten_texture = preload("res://minigames/generics/puzzles/amounts/assets/ten.svg")
 var hundred_texture = preload("res://minigames/generics/puzzles/amounts/assets/hundred.svg")
-
+var ten_ones := preload("res://minigames/generics/puzzles/amounts/ten_ones.tscn").instantiate()
+var ten_tens := preload("res://minigames/generics/puzzles/amounts/ten_tens.tscn").instantiate()
+var insight_button : TextureButton = preload("res://minigames/generics/insight_games/insight_achieved_button.tscn").instantiate()
 var music : AudioStreamMP3 = preload("res://minigames/generics/assets/little-slime.mp3")
 
 var background := Sprite2D.new()
@@ -26,9 +28,9 @@ var one_place : Area2D
 var place_dx = 300
 
 var dx1 = 50
-var dy1 = 60
+var dy1 = 50
 
-var dx10 = 35
+var dx10 = 40
 
 var tenths: Array
 var ones: Array
@@ -48,15 +50,15 @@ var numbers : Dictionary = {
 }
 
 var one_positions : Array = [
-	Vector2(-dx1, -4*dy1),
-	Vector2(dx1, -3*dy1),
-	Vector2(-dx1, -3*dy1),
-	Vector2(dx1, -2*dy1),	
-	Vector2(-dx1, -2*dy1),
-	Vector2(dx1, -dy1),
-	Vector2(-dx1, -dy1),
-	Vector2(dx1, 0),
-	Vector2(-dx1, 0),
+	Vector2(0, -8*dy1),
+	Vector2(0, -7*dy1),
+	Vector2(0, -6*dy1),
+	Vector2(0, -5*dy1),	
+	Vector2(0, -4*dy1),
+	Vector2(0, -3*dy1),
+	Vector2(0, -2*dy1),
+	Vector2(0, -dy1),
+	Vector2(0, 0),
 ]
 
 var ten_positions : Array = [
@@ -91,16 +93,16 @@ var number_positions : Dictionary = {
 }
 
 var number_adjusts : Dictionary = {
-	1: Vector2(0, 175),
+	1: Vector2(0, 200),
 	2: Vector2(0, 10),
-	3: Vector2(20, 40) 
+	3: Vector2(20, 0) 
 }
 
 var number_positions_duplicate: Dictionary = number_positions.duplicate(true)
 
 var number_place_positions : Dictionary = {
 	1: Vector2(1300, 450),
-	2: Vector2(900, 450),
+	2: Vector2(950, 450),
 	3: Vector2(400, 450)
 }
 
@@ -116,6 +118,14 @@ func _add_generics() -> void:
 	background.centered = false
 	background.texture = background_image
 	add_child(background)
+	
+	ten_ones.pressed.connect(_on_ten_ones_pressed)
+	ten_ones.hide()
+	add_child(ten_ones)
+	
+	ten_tens.pressed.connect(_on_ten_tens_pressed)
+	ten_tens.hide()
+	add_child(ten_tens)
 
 func _add_number(place : int) -> void:
 	call_deferred("add_child", _make_number(place))
@@ -138,6 +148,7 @@ func _make_number(place: int) -> Area2D:
 			number.original_position = Vector2(number.position)
 		_:
 			return
+	number.y_limit = number_place_positions[place].y + number_places[place].sprite.texture.get_height()/2.0 + number.area.shape.size.y/2.0 - 2
 	number.place = place
 	return number	
 
@@ -159,17 +170,19 @@ func _add_board(digits: int, pos: Vector2) -> void:
 
 
 func _on_number_entered_board(_number : Area2D, _name : String) -> void:
-	var place = _number.place
-	var _number_place : Area2D = get_node(_name)
 	_number.movable_shape.active = false
+	_number.movable_shape.disabled = true
+	var place = _number.place
+	
+	var _number_place : Area2D = get_node(_name)
 	if place == _number_place.place:
-		_number.movable_shape.disabled = true
+		
 		numbers[place].push_back(_number)
 		if numbers[place].size() != 10:
 			_number.position = _number_place.position + number_adjusts[place] + number_positions[place].pop_back()
 			number_board.one_up(place)
 			if _end_game_condition():
-				_end_game()
+				add_child(insight_button)
 			else:
 				if place == 3 and numbers[place].size() == 9:
 					_add_number(1)
@@ -184,6 +197,7 @@ func _on_number_entered_board(_number : Area2D, _name : String) -> void:
 		elif place != 3:
 			number_positions[place] = number_positions_duplicate.duplicate(true)[place] 
 			_collect_numbers(place)
+			
 	else:
 		_number.position = _number.original_position
 
@@ -200,12 +214,25 @@ func _collect_numbers(place: int) -> void:
 			nums[i].position = number_place_positions[place+1] + Vector2(5*sz.x - i*sz.x, hundred_y)
 		if i != 9:
 				number_board.one_down(place)
+	
 	await get_tree().create_timer(0.3).timeout	
+	if place == 1:
+		ten_ones.position = nums[0].position - one_texture.get_size()/2
+		ten_ones.show()
+	if place == 2:
+		ten_tens.position = nums[9].position - ten_texture.get_size()/2.0
+		ten_tens.show()
+		
 	for j in range(10):
 		nums[j].queue_free()
 	numbers[place] = []
-	await get_tree().create_timer(0.5).timeout	
-	_add_number(place + 1)
+	
+	
+func _on_ten_ones_pressed() -> void:
+	ten_ones.hide()
+	_add_number(2)
 
 
-
+func _on_ten_tens_pressed() -> void:
+	ten_tens.hide()
+	_add_number(3)

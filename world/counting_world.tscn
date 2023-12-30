@@ -174,3 +174,10 @@ offset_top = 4.0
 offset_right = 1911.0
 offset_bottom = 35.0
 text = "SHOW ALL"
+
+[node name="Button" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+scale = Vector2(1.4, 1.4)
+theme_override_font_sizes/font_size = 12
+text = "SMARTBOARD"
