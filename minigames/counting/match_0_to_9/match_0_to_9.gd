@@ -16,7 +16,7 @@ var representation_a = [
 		preload("res://minigames/counting/match_0_to_9/assets/bubbles 5.png"),
 		preload("res://minigames/counting/match_0_to_9/assets/bubbles 6.png"),
 		preload("res://minigames/counting/match_0_to_9/assets/bubbles 7.png"),
-		preload("res://minigames/counting/match_0_to_9/assets/bubbles 8.png"),	
+		preload("res://minigames/counting/match_0_to_9/assets/bubbles 8.png"),
 		preload("res://minigames/counting/match_0_to_9/assets/bubbles 9.png"),
 	]
 	
@@ -103,3 +103,8 @@ func _bubbles_are_equal(bubble1 : String, bubble2 : String) -> bool:
 	var are_equal : bool = bubble_container.get_node(bubble1).int_value[0] == bubble_container.get_node(bubble2).int_value[0]
 	if are_equal: score += 1
 	return are_equal
+
+
+func _on_game_ended(success):
+	print("Game is over")
+	print(success)

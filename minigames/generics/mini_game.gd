@@ -10,6 +10,8 @@ var world_part : String
 var id : String
 var minigame_type : int
 
+signal game_ended(success: bool)
+
 var game_index : int
 var MenuBarScene : PackedScene = load("res://minigames/generics/MenuBar.tscn")
 var status_bar_scene : PackedScene = load("res://minigames/generics/status_bar.tscn")
@@ -93,6 +95,7 @@ func _end_game() -> void:
 	ending_slide.slide_in(3)
 	menu_bar.queue_free()
 	print("hello world")
+	emit_signal("game_ended", true)
 	
 	# old ending code
 	#if get_tree().change_scene_to_file("res://minigames/generics/SuccessMessage.tscn") != OK:
@@ -100,8 +103,9 @@ func _end_game() -> void:
 
 func _end_game_with_failure():
 	_stop_game()
-	if get_tree().change_scene_to_file("res://minigames/generics/FailureMessage.tscn") != OK:
-		print("Failed changing scene")
+	#if get_tree().change_scene_to_file("res://minigames/generics/FailureMessage.tscn") != OK:
+		#print("Failed changing scene")
+	emit_signal("game_ended", false)
 
 func _on_music_button_toggled(_button_pressed : bool) -> void:
 	music_player.playing = not _button_pressed
