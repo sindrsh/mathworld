@@ -22,7 +22,7 @@ var ending_slide: EndingSlide
 
 func _ready():
 	
-	assert(menu_bar.get_node("SoundEffectsContainer/MusicButton").toggled.connect(_on_music_button_toggled) == 0)
+	assert(menu_bar.get_node("HBoxContainer/MusicButton").toggled.connect(_on_music_button_toggled) == 0)
 	GlobalVariables.current_game_path = get_scene_file_path()
 	
 	ending_slide = ending_slide_scene.instantiate()
@@ -82,10 +82,11 @@ func _end_game_message():
 
 
 func _stop_game() -> void:
-	set_physics_process(false)
+	call_deferred("set_physics_process", false)
 		
 		
 func _end_game() -> void:
+	_stop_game()
 	_game_completed()
 	# note: not sure how to know how many stars the ending slide should display
 	# has that been implemented yet?

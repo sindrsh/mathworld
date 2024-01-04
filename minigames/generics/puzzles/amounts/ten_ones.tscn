@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://h3gmrxjiwq2f"]
+
+[ext_resource type="Texture2D" uid="uid://dqli0asugj543" path="res://minigames/generics/puzzles/amounts/assets/ten_ones.svg" id="1_2bb7o"]
+
+[node name="TenOnes" type="TextureButton"]
+texture_normal = ExtResource("1_2bb7o")

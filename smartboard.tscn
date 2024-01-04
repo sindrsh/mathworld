@@ -1,0 +1,93 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqeni7p5x0507"]
+
+[ext_resource type="PackedScene" uid="uid://b3oiwefvwffnd" path="res://smartboardbutton.tscn" id="1_1lqng"]
+
+[node name="Smartboard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 100.0
+offset_right = 1920.0
+offset_bottom = 166.0
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Smartboardbutton" parent="HBoxContainer/VBoxContainer" instance=ExtResource("1_1lqng")]
+layout_mode = 2
+text = "Mengde: 0-9"
+path = "res://minigames/counting/amount_0_to_9/amount_0_to_9.tscn"
+
+[node name="Smartboardbutton2" parent="HBoxContainer/VBoxContainer" instance=ExtResource("1_1lqng")]
+layout_mode = 2
+text = "Spill: 0-9"
+path = "res://minigames/counting/match_0_to_9/match_0_to_9.tscn"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Smartboardbutton" parent="HBoxContainer/VBoxContainer2" instance=ExtResource("1_1lqng")]
+layout_mode = 2
+text = "Mengde: 0-50"
+path = "res://minigames/counting/amount_0_to_50/amount_0_to_50.tscn"
+
+[node name="Smartboardbutton2" parent="HBoxContainer/VBoxContainer2" instance=ExtResource("1_1lqng")]
+layout_mode = 2
+text = "Spill: 0-50"
+path = "res://minigames/counting/make_amounts_1_to_50/make_amounts_1_to_50.tscn"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Smartboardbutton" parent="HBoxContainer/VBoxContainer3" instance=ExtResource("1_1lqng")]
+layout_mode = 2
+text = "Mengde: 50-999"
+path = "res://minigames/counting/amount_50_to_999/amount_50_to_999.tscn"
+
+[node name="Smartboardbutton2" parent="HBoxContainer/VBoxContainer3" instance=ExtResource("1_1lqng")]
+layout_mode = 2
+text = "Spill: 1-999"
+path = "res://minigames/counting/make_amounts_1_to_999/make_amounts_1_to_999.tscn"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 400.0
+offset_right = 1920.0
+offset_bottom = 466.0
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer2"]
+layout_mode = 2
+
+[node name="Smartboardbutton" parent="HBoxContainer2/VBoxContainer" instance=ExtResource("1_1lqng")]
+layout_mode = 2
+text = "Tallinje: 0-9"
+path = "res://minigames/counting/num_line_0_to_9/num_line_0_to_9.tscn"
+
+[node name="Smartboardbutton2" parent="HBoxContainer2/VBoxContainer" instance=ExtResource("1_1lqng")]
+layout_mode = 2
+text = "Spill: 0-9"
+path = "res://minigames/counting/falling_numbers_0_to_9/falling_numbers_0_to_9.tscn"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer2"]
+layout_mode = 2
+
+[node name="Smartboardbutton" parent="HBoxContainer2/VBoxContainer2" instance=ExtResource("1_1lqng")]
+layout_mode = 2
+text = "Tallinje: 10-100"
+path = "res://minigames/counting/num_line_10_to_100/num_line_10_to_100.tscn"
+
+[node name="Smartboardbutton2" parent="HBoxContainer2/VBoxContainer2" instance=ExtResource("1_1lqng")]
+layout_mode = 2
+text = "Spill: 0-50"
+path = "res://minigames/generics/run_hill/run_hill.tscn"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer2"]
+layout_mode = 2

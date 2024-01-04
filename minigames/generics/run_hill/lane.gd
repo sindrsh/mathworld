@@ -1,5 +1,5 @@
 extends Node2D
-signal make_new_alternatives(_value: int)
+signal tick_hit(_tick: Tick)
 
 var tick_scene : PackedScene = preload("res://minigames/generics/run_hill/tick.tscn")
 var speed := 200.0
@@ -70,7 +70,7 @@ func _add_ticks() -> void:
 	for j in range(distances.size()):
 		if distances[j] >= i*ds:
 			var tick : Area2D = tick_scene.instantiate()
-			assert(tick.hit.connect(_on_tick_hit) == 0)
+			#assert(tick.hit.connect(_on_tick_hit) == 0)
 			var slope_angle := Vector2(1, _path_func_der(graph_points[j].x)).angle()
 			if (i % 10) < 5:
 				slope_angle = abs(slope_angle)
@@ -98,7 +98,8 @@ func _add_ticks() -> void:
 		if j % 10 == 0:
 			var tick_index : int = j + ints[randi() % 8]
 			ticks[tick_index].get_node("ObstacleAnimation").show()
-			ticks[tick_index].tick_is_obstacle = true
+			ticks[tick_index].get_node("ObstacleAnimation").play()
+			ticks[tick_index].monitorable = true
 			obstacles.append(ticks[tick_index])
 	
 	current_obstacle = obstacles[0]
@@ -106,25 +107,18 @@ func _add_ticks() -> void:
 	
 	for k in range(obstacles.size() - 1):
 		obstacles[k].next_obstacle = obstacles[k+1]
-		
-				
-func _mk_task():
-	pass
 
 
+"""""
+probably superflous
 func _on_tick_hit(_name : String) -> void:
 	var tck = get_node(_name)
 	tck.get_node("Text").show()
 	if tck.tick_is_obstacle:
 		emit_signal("make_new_alternatives", (tck.value/10)*10)
+"""
 
 
-func _on_area_2d_area_entered(area):
-	var tick = area as Tick
-	
-	if tick != null:
-		if (tick.tick_is_obstacle and !tick.has_been_hit):
-			moving = false
-			
-			# TODO: make a cool explosion effect when this is called
-			print("Boom!")
+
+func _tick_hit(_tick: Tick):
+	tick_hit.emit(_tick)
