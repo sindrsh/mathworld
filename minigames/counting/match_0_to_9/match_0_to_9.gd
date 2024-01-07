@@ -6,6 +6,7 @@ var music : AudioStreamMP3 = preload("res://minigames/generics/assets/game-music
 var b_background : Texture2D = preload("res://minigames/counting/match_0_to_9/assets/bubbles empty 2.png")
 var nummber_symbol_b_texture := preload("res://minigames/counting/match_0_to_9/assets/bubbles empty 2.png")
 var bubble_scene = preload("res://minigames/generics/bouncing_bubbles/bubble.tscn")
+var bubbles = []
 
 var representation_a = [
 		preload("res://minigames/counting/match_0_to_9/assets/bubbles 0.png"),
@@ -99,6 +100,9 @@ func _mk_bubble_pair() -> void:
 		amount.scale = 1.25*Vector2(1,1)
 		bubble_b.add_child(amount)
 	
+	bubbles.append(bubble_a)
+	bubbles.append(bubble_b)
+
 func _bubbles_are_equal(bubble1 : String, bubble2 : String) -> bool:
 	var are_equal : bool = bubble_container.get_node(bubble1).int_value[0] == bubble_container.get_node(bubble2).int_value[0]
 	if are_equal: score += 1
@@ -106,5 +110,10 @@ func _bubbles_are_equal(bubble1 : String, bubble2 : String) -> bool:
 
 
 func _on_game_ended(success):
-	print("Game is over")
-	print(success)
+	for bubble in bubbles:
+		if bubble != null:
+			Dissolver.dissolveCircle(bubble.position, 64, 128)
+			bubble.queue_free()
+			await get_tree().create_timer(0.05).timeout
+			
+			
