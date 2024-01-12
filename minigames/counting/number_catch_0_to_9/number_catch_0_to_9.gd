@@ -101,6 +101,9 @@ func _on_character_entered(body : Node2D) -> void:
 	# maybe we should move some of this code to signals?
 	var number: Number = body as Number  # if this throws an error then two things are colliding that shouldn't be colliding
 	
+	if _ended:
+		return
+	
 	if number.value == character.value + 1:
 		character.get_node("GasFront").show()
 		character.get_node("GasBack").show()
@@ -142,8 +145,17 @@ func _on_character_entered(body : Node2D) -> void:
 		
 		if health <= 0:
 			# TODO: make something happen when the player dies
-			print("I died :(")
+			_end_game_with_failure()
+			_ended = true
 			return;
+
+func _on_game_ended(success):
+	if success == false:
+		print("Killing stuff")
+		Dissolver.dissolve(character.position, Vector2(64, 64), 256)
+		character.visible = false
 		
-		
-	
+		for child in get_children():
+			if child is CharacterBody2D:
+				child.visible = false
+				Dissolver.dissolveCircle(child.position, 32, 128)
