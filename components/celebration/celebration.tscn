@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://w4jjexftiagm"]
+
+[ext_resource type="Texture2D" uid="uid://igv2jyd73vqf" path="res://assets/confetti.png" id="1_8ld3h"]
+[ext_resource type="Script" path="res://components/celebration/celebration.gd" id="1_kdju0"]
+
+[sub_resource type="Gradient" id="Gradient_7ivpx"]
+offsets = PackedFloat32Array(0, 0.502347, 1)
+colors = PackedColorArray(0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1)
+
+[node name="Celebration" type="Node2D"]
+script = ExtResource("1_kdju0")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+rotation = -1.5708
+emitting = false
+amount = 128
+lifetime = 5.0
+one_shot = true
+explosiveness = 0.95
+randomness = 0.4
+texture = ExtResource("1_8ld3h")
+emission_shape = 1
+emission_sphere_radius = 3.7
+spread = 180.0
+gravity = Vector2(0, 490)
+initial_velocity_min = 247.63
+initial_velocity_max = 445.54
+angular_velocity_min = -285.57
+angular_velocity_max = 226.11
+angle_max = 360.0
+color_initial_ramp = SubResource("Gradient_7ivpx")

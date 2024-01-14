@@ -1,0 +1,115 @@
+[gd_scene load_steps=11 format=3 uid="uid://buo8uk4i576wx"]
+
+[ext_resource type="Script" path="res://components/ending_slide/ending_slide.gd" id="1_wy430"]
+[ext_resource type="Texture2D" uid="uid://uypsk6fgnm4e" path="res://assets/black_square.png" id="2_0uks5"]
+[ext_resource type="Texture2D" uid="uid://djwjgmcahydje" path="res://minigames/generics/assets/status-0.svg" id="2_jp8ae"]
+[ext_resource type="Texture2D" uid="uid://cm1amhiv6747x" path="res://minigames/generics/assets/status-1.svg" id="3_oi3f7"]
+[ext_resource type="Texture2D" uid="uid://bo48g2hpv6mlx" path="res://minigames/generics/assets/status-2.svg" id="4_lxlti"]
+[ext_resource type="Texture2D" uid="uid://dhcvduinxdqp2" path="res://minigames/generics/assets/status-3.svg" id="5_qx06s"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j6iy2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_qx06s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lxlti")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_oi3f7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jp8ae")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_5hmgr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2437, 498)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3m4rb"]
+resource_name = "slide_in"
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.5, 2.54912),
+"update": 0,
+"values": [Vector2(2437, 498), Vector2(968, 498)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.63),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0, 0, 0, 0.392157)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rab53"]
+_data = {
+"RESET": SubResource("Animation_5hmgr"),
+"slide_in": SubResource("Animation_3m4rb")
+}
+
+[node name="EndingSlide" type="Node2D"]
+z_index = 1000
+z_as_relative = false
+script = ExtResource("1_wy430")
+
+[node name="Background" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(961, 539.5)
+scale = Vector2(60.0625, 33.7812)
+texture = ExtResource("2_0uks5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2437, 498)
+sprite_frames = SubResource("SpriteFrames_j6iy2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rab53")
+}
+
+[node name="IncreaseTimer" type="Timer" parent="."]
+wait_time = 0.3
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="IncreaseTimer" to="." method="_on_increase_timer_timeout"]

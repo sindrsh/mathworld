@@ -22,6 +22,7 @@ config/icon="res://assets/icon.svg"
 
 PlayerVariables="*res://player_variables.gd"
 GlobalVariables="*res://global_variables.gd"
+Dissolver="*res://singletons/dissolver/dissolver.tscn"
 
 [display]
 
