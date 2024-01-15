@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqy5dr147aki2"]
+[gd_scene load_steps=3 format=3 uid="uid://cqy5dr147aki2"]
 
 [ext_resource type="Texture2D" uid="uid://uypsk6fgnm4e" path="res://assets/black_square.png" id="1_x55vb"]
+
+[sub_resource type="Gradient" id="Gradient_34h7i"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
 
 [node name="DissolveEffect" type="CPUParticles2D"]
 emitting = false
@@ -13,3 +16,4 @@ emission_rect_extents = Vector2(512, 512)
 scale_amount_min = 0.2
 scale_amount_max = 0.2
 color = Color(0, 0, 0, 1)
+color_ramp = SubResource("Gradient_34h7i")
