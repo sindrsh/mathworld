@@ -90,11 +90,8 @@ func _stop_game() -> void:
 func _end_game() -> void:
 	_stop_game()
 	_game_completed()
-	# note: not sure how to know how many stars the ending slide should display
-	# has that been implemented yet?
-	ending_slide.slide_in(3)
-	menu_bar.queue_free()
-	print("hello world")
+	if status_bar:
+		ending_slide.slide_in(3 - status_bar.frame)
 	emit_signal("game_ended", true)
 	
 	# old ending code

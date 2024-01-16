@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgrllh28dhfiq"]
+[gd_scene load_steps=3 format=3 uid="uid://bgrllh28dhfiq"]
 
 [ext_resource type="Script" path="res://minigames/counting/number_bridge_0_to_9/number_bridge_0_to_9.gd" id="1_nk2x5"]
+[ext_resource type="Texture2D" uid="uid://ccl7aod5rcihp" path="res://minigames/counting/number_bridge_0_to_9/assets/number_bridge_BG.webp" id="2_lnyg0"]
 
 [node name="NumberBridge0To9" type="Control"]
 layout_mode = 3
@@ -10,3 +11,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nk2x5")
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(1.72, 1.72)
+texture = ExtResource("2_lnyg0")
+centered = false
