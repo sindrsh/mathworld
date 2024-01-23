@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bgrllh28dhfiq"]
 
 [ext_resource type="Script" path="res://minigames/counting/number_bridge_0_to_9/number_bridge_0_to_9.gd" id="1_nk2x5"]
-[ext_resource type="Texture2D" uid="uid://ccl7aod5rcihp" path="res://minigames/counting/number_bridge_0_to_9/assets/number_bridge_BG.webp" id="2_lnyg0"]
+[ext_resource type="Texture2D" uid="uid://5mp0phcjihia" path="res://minigames/counting/number_bridge_0_to_9/assets/number_bridge_BG.webp" id="2_lnyg0"]
 
 [node name="NumberBridge0To9" type="Control"]
 layout_mode = 3

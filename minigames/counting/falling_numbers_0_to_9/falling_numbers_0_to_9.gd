@@ -151,7 +151,6 @@ func _add_specifics():
 	
 	$ScoreBoard.position = $RoundsBox.position + Vector2(0, 150)
 	
-	
 	assert($NumberTimer.connect("timeout", Callable(self, "_add_number")) == 0 )
 	$NumberTimer.start()
 	$EndBox.hide()
