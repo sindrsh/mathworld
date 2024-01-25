@@ -11,10 +11,11 @@ var plus_num_btn := TextureButton.new()
 var plus_denom_btn := TextureButton.new()
 var min_num_btn := TextureButton.new()
 var min_denom_btn := TextureButton.new()
-var fraction_bar := Line2D.new()
+var number_bar := Line2D.new()
 
 var num_symbol := Line2D.new()
 var denom_symbol := Line2D.new()
+var pickable_object_texture : Texture2D = preload("res://minigames/counting/number_bridge_0_to_9/assets/vegetable point.png")
 
 func _add_specifics():
 	world_part = "counting"
@@ -24,6 +25,13 @@ func _add_specifics():
 	assert(min_num_btn.connect("pressed", _min_num_pressed) == 0)	
 	assert(plus_denom_btn.connect("pressed", _plus_denom_pressed) == 0)
 	assert(min_denom_btn.connect("pressed", _min_denom_pressed) == 0)	
+	
+	creature_animation = preload("res://minigames/counting/number_bridge_0_to_9/creature_animation.tscn").instantiate()
+	creature.add_child(creature_animation)
+	creature_animation.play()
+	pickable_object.texture = pickable_object_texture
+	pickable_object.scale = Vector2(0.4, 0.4)
+	
 	
 	plus_num_btn.texture_normal = plus_texture
 	min_num_btn.texture_normal = min_texture
@@ -52,7 +60,7 @@ func _add_specifics():
 	
 	add_child(num_symbol)
 	
-	number.add_child(fraction_bar)
+	number.add_child(number_bar)
 	
 	x_scale = 100
 	max_int = 9
@@ -120,8 +128,8 @@ func _mk_num_line() -> void:
 			number_line.mk_x_tick(Vector2(i*dx*x_scale, 0), "", 1, Color(1,0,0))
 		else:
 			number_line.mk_x_tick(Vector2(i*dx*x_scale, 0))
-	fraction_bar.default_color = Color(1,0,0)
-	fraction_bar.points = PackedVector2Array([
+	number_bar.default_color = Color8(55, 144, 113)
+	number_bar.points = PackedVector2Array([
 		Vector2(0, 0),
 		Vector2(numerator*dx*x_scale, 0)
 	])
@@ -171,7 +179,7 @@ func _prepare_task() -> void:
 	add_child(number_text)
 	varying_objects.append(number_text)
 	
-	pickable_object.position = road2.points[1] + Vector2(-20,-45)
+	pickable_object.position = road2.points[1] + Vector2(-20,-70)
 	pickable_object.show()
 	creature.show()
 	creature.target = Vector2(pickable_object.position.x, creature.position.y)
