@@ -29,10 +29,9 @@ var pickable_object := Sprite2D.new()
 var number_line_varies := false
 
 var creature_texture : Texture2D = preload("res://minigames/generics/cross_the_bridge/assets/Godot_icon.svg.png")
-var pickable_object_texture : Texture2D = preload("res://minigames/generics/cross_the_bridge/assets/star.png")
 var plus_texture : Texture2D = preload("res://minigames/generics/cross_the_bridge/assets/plus.png")
 var min_texture : Texture2D = preload("res://minigames/generics/cross_the_bridge/assets/min.png")
-
+var creature_animation : AnimatedSprite2D
 
 func _add_generics() -> void:
 	
@@ -47,8 +46,6 @@ func _add_generics() -> void:
 	
 	new_task_timer.wait_time = 0.4
 	var score_sprite := Sprite2D.new()	
-	score_sprite.texture = pickable_object_texture
-	score_sprite.scale = 0.05*Vector2(1,1)
 	score_count.add_child(score_sprite)
 	score_count.position = Vector2(1820, 164)
 	score_label = Text.new(30, "0")
@@ -70,9 +67,6 @@ func _add_generics() -> void:
 	creature_sprite.texture = creature_texture
 	creature.position = creature_start_pos
 	creature.add_child(creature_sprite)
-	
-	pickable_object.texture = pickable_object_texture
-	pickable_object.scale = 0.05*Vector2(1,1)
 	
 	add_child(score_count)
 	add_child(send_number_button)
@@ -105,6 +99,7 @@ func _mk_num_line() -> void:
 
 
 func _on_creature_arrival() -> void:
+	creature_animation.animation = "catch"
 	new_task_timer.start()
 	creature.hide()
 	pickable_object.hide()
@@ -123,6 +118,8 @@ func _on_number_arrival() -> void:
 	if _correct_answer():
 		score += 1
 		sound_effect.stream = correct_sound
+		creature_animation.animation = "catch"
+		await get_tree().create_timer(1.0).timeout
 		creature.moving = true
 	else:
 		if status_bar.frame == 0:
@@ -142,6 +139,7 @@ func _on_number_arrival() -> void:
 	
 	
 func _on_timeout() -> void:
+	creature_animation.animation = "idle"
 	_mk_task()
 	
 
