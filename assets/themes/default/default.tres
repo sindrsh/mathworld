@@ -1,0 +1,49 @@
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://cad5kstqpvlfe"]
+
+[ext_resource type="StyleBox" uid="uid://brimovtqal4qs" path="res://assets/themes/default/disabled_box.tres" id="1_s3483"]
+[ext_resource type="StyleBox" uid="uid://bub1clyvjand3" path="res://assets/themes/default/normal_box.tres" id="1_u18ne"]
+[ext_resource type="StyleBox" uid="uid://dngyq68471sxc" path="res://assets/themes/default/hover_box.tres" id="2_ivw40"]
+[ext_resource type="FontFile" uid="uid://bhgogbly6iejp" path="res://assets/fonts/OpenSans.ttf" id="3_67337"]
+[ext_resource type="StyleBox" uid="uid://dch223c8o7h8" path="res://assets/themes/default/pressed_box.tres" id="4_oc77c"]
+[ext_resource type="StyleBox" uid="uid://bkcbhtclivxjm" path="res://assets/themes/default/background-box.tres" id="5_tdyqy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_21u13"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rojfg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kqhkf"]
+
+[resource]
+default_font = ExtResource("3_67337")
+Button/styles/disabled = ExtResource("1_s3483")
+Button/styles/focus = SubResource("StyleBoxEmpty_21u13")
+Button/styles/hover = ExtResource("2_ivw40")
+Button/styles/normal = ExtResource("1_u18ne")
+Button/styles/pressed = ExtResource("4_oc77c")
+CheckBox/styles/disabled = ExtResource("1_s3483")
+CheckBox/styles/hover = ExtResource("2_ivw40")
+CheckBox/styles/hover_pressed = ExtResource("2_ivw40")
+CheckBox/styles/normal = ExtResource("1_u18ne")
+CheckBox/styles/pressed = ExtResource("1_u18ne")
+CheckButton/styles/disabled = ExtResource("1_s3483")
+CheckButton/styles/hover = ExtResource("2_ivw40")
+CheckButton/styles/hover_pressed = ExtResource("2_ivw40")
+CheckButton/styles/normal = ExtResource("1_u18ne")
+CheckButton/styles/pressed = ExtResource("1_u18ne")
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(1, 1, 1, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/constants/line_spacing = 3
+Label/constants/outline_size = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/constants/shadow_outline_size = 1
+Label/font_sizes/font_size = 16
+Label/styles/normal = ExtResource("1_u18ne")
+LineEdit/styles/focus = SubResource("StyleBoxEmpty_rojfg")
+LineEdit/styles/normal = ExtResource("1_u18ne")
+LineEdit/styles/read_only = ExtResource("1_s3483")
+Panel/styles/panel = ExtResource("5_tdyqy")
+TextEdit/styles/focus = SubResource("StyleBoxEmpty_kqhkf")
+TextEdit/styles/normal = ExtResource("1_u18ne")
+TextEdit/styles/read_only = ExtResource("1_s3483")

@@ -140,4 +140,3 @@ func _on_timeout() -> void:
 func _send_number() -> void:
 	number.moving = true
 	
-

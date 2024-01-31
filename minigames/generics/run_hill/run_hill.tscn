@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://dj1towovjdfc1"]
 
 [ext_resource type="Script" path="res://minigames/generics/run_hill/run_hill.gd" id="1_25lc2"]
-[ext_resource type="Texture2D" uid="uid://c20hbedhloe3" path="res://minigames/generics/run_hill/assets/alternatives_box.svg" id="2_3l0rc"]
-[ext_resource type="Texture2D" uid="uid://fpo0gkaht6hj" path="res://minigames/generics/run_hill/assets/background.png" id="2_yesay"]
+[ext_resource type="Texture2D" uid="uid://dcy4skkjb826b" path="res://minigames/generics/run_hill/assets/alternatives_box.svg" id="2_3l0rc"]
+[ext_resource type="Texture2D" uid="uid://bpi0mm8wer52o" path="res://minigames/generics/run_hill/assets/background.png" id="2_yesay"]
 [ext_resource type="Script" path="res://minigames/generics/run_hill/alt_button.gd" id="3_aeot3"]
 [ext_resource type="Script" path="res://assets/global_scenes/text.gd" id="4_18ax7"]
 
