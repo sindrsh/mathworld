@@ -33,15 +33,21 @@ func _add_specifics():
 	pickable_object.scale = Vector2(0.4, 0.4)
 	
 	
+	plus_num_btn.scale = 0.2*Vector2(1,1)
 	plus_num_btn.texture_normal = plus_texture
+	plus_num_btn.texture_pressed = plus_pressed_texture
+	min_num_btn.scale = 0.2*Vector2(1,1)
 	min_num_btn.texture_normal = min_texture
+	min_num_btn.texture_pressed = min_pressed_texture
 	plus_denom_btn.texture_normal = plus_texture
 	min_denom_btn.texture_normal = min_texture
 	
-	plus_num_btn.position = Vector2(300, 200)
-	min_num_btn.position = Vector2(100, 200)
+	plus_num_btn.position = Vector2(300, 50)
+	min_num_btn.position = Vector2(150, 50)
 	plus_denom_btn.position = plus_num_btn.position + Vector2(0, 200)
 	min_denom_btn.position = min_num_btn.position + Vector2(0, 200)
+	
+	send_number_button.position = (plus_num_btn.position + min_num_btn.position)/2.0 + Vector2(0, 150)
 	
 #	add_child(plus_denom_btn)
 	add_child(plus_num_btn)
@@ -58,7 +64,7 @@ func _add_specifics():
 	denom_symbol.width = 6
 	denom_symbol.default_color= Color(0,0,0)
 	
-	add_child(num_symbol)
+	#add_child(num_symbol)
 	
 	number.add_child(number_bar)
 	
@@ -68,20 +74,9 @@ func _add_specifics():
 	_mk_task()
 	
 
-func _physics_process(_delta):
-	if number.moving:
-		plus_denom_btn.hide()	
-		min_denom_btn.hide()	
-		plus_num_btn.hide()	
-		min_num_btn.hide()	
-	else: 
-		plus_denom_btn.show()	
-		min_denom_btn.show()	
-		plus_num_btn.show()	
-		min_num_btn.show()	
-	
-
 func _plus_num_pressed():
+	if number.moving:
+		return
 	max_num = int(max_int/(1.0/denominator)) 
 	
 	if numerator < max_num:
@@ -91,6 +86,8 @@ func _plus_num_pressed():
 
 
 func _min_num_pressed():
+	if number.moving:
+		return
 	max_num = int(max_int/(1.0/denominator)) 
 	
 	if numerator > 0:
