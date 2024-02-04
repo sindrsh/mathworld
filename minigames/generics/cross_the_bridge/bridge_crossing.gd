@@ -17,7 +17,7 @@ var correct_sound : AudioStream = preload("res://minigames/generics/cross_the_br
 var incorrect_sound : AudioStream = preload("res://minigames/generics/cross_the_bridge/assets/whip.mp3")
 var finished_sound : AudioStream = preload("res://minigames/generics/cross_the_bridge/assets/success.mp3")
 var road_start : Vector2 = Vector2(100, 700)
-var creature_start_pos : Vector2 = road_start + Vector2(20,-50)
+var creature_start_pos : Vector2 = road_start + Vector2(100,-50)
 
 var number : CharacterBody2D = preload("res://minigames/generics/cross_the_bridge/number.tscn").instantiate()
 var creature : CharacterBody2D = preload("res://minigames/generics/cross_the_bridge/creature.tscn").instantiate()
