@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://dhoe1ds3idav0"]
+[gd_scene load_steps=23 format=3 uid="uid://dhoe1ds3idav0"]
 
 [ext_resource type="Script" path="res://world/counting_world.gd" id="1_ugvj7"]
 [ext_resource type="Texture2D" uid="uid://dd83j1lu00b36" path="res://world/assets/Mushroom_Tower_Bottom_SVG_Test.svg" id="3_uol80"]
 [ext_resource type="Texture2D" uid="uid://cfx56hp06tgvm" path="res://world/assets/Slugworm_Test_SVG.svg" id="4_jy5qk"]
+[ext_resource type="Material" uid="uid://d1jn304q6a06q" path="res://assets/materials/counting_world_button_outline.tres" id="5_7k5ax"]
 [ext_resource type="Texture2D" uid="uid://cautpopjcugqv" path="res://world/assets/biclops.svg" id="6_b2yjb"]
 [ext_resource type="Texture2D" uid="uid://ciy0in11afkgn" path="res://world/assets/cyclops.svg" id="7_8t41n"]
 [ext_resource type="Texture2D" uid="uid://bu7khc8s7l80v" path="res://world/assets/stack guy 2.svg" id="8_p3ulf"]
@@ -36,6 +37,7 @@ scale = Vector2(0.1, 0.1)
 texture_normal = ExtResource("20_ic551")
 
 [node name="Amount0To9" parent="." instance=ExtResource("19_der6q")]
+material = ExtResource("5_7k5ax")
 offset_left = 645.0
 offset_top = 711.0
 offset_right = 1259.0

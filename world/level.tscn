@@ -1,12 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://be0lrl1guf4mj"]
+[gd_scene load_steps=5 format=3 uid="uid://be0lrl1guf4mj"]
 
-[ext_resource type="Script" path="res://components/clickable/clickable.gd" id="1_fiump"]
-[ext_resource type="Texture2D" uid="uid://wn1ubnswrfox" path="res://world/assets/blue guy.svg" id="2_crj5w"]
-[ext_resource type="Material" uid="uid://8ajo6bma8ot6" path="res://shaders/outline.tres" id="2_iv60g"]
+[ext_resource type="Script" path="res://world/level.gd" id="3_1aqus"]
+[ext_resource type="Texture2D" uid="uid://cfx56hp06tgvm" path="res://world/assets/Slugworm_Test_SVG.svg" id="3_andt3"]
+[ext_resource type="PackedScene" uid="uid://bb5ibsyatnfcq" path="res://components/clickable/clickable.tscn" id="4_t5atp"]
 
-[node name="Level" type="Node2D"]
-script = ExtResource("1_fiump")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_undwg"]
+size = Vector2(647, 506.5)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-material = ExtResource("2_iv60g")
-texture = ExtResource("2_crj5w")
+[node name="Sprite2D" type="Sprite2D"]
+texture = ExtResource("3_andt3")
+script = ExtResource("3_1aqus")
+
+[node name="Clickable" parent="." instance=ExtResource("4_t5atp")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Clickable"]
+position = Vector2(-2.5, -5.25)
+shape = SubResource("RectangleShape2D_undwg")
+
+[connection signal="on_click" from="Clickable" to="." method="_on_clickable_on_click"]
+[connection signal="on_hover_start" from="Clickable" to="." method="_on_clickable_on_hover_start"]
+[connection signal="on_hover_stop" from="Clickable" to="." method="_on_clickable_on_hover_stop"]
