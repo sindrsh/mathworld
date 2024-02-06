@@ -12,6 +12,5 @@ func _on_clickable_on_hover_start():
 func _on_clickable_on_hover_stop():
 	material = null
 
-
 func _on_clickable_on_click():
 	get_tree().change_scene_to_packed(scene)
