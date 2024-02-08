@@ -1,21 +1,58 @@
-[gd_scene load_steps=5 format=3 uid="uid://be0lrl1guf4mj"]
+[gd_scene load_steps=8 format=3 uid="uid://be0lrl1guf4mj"]
 
+[ext_resource type="Material" uid="uid://8ajo6bma8ot6" path="res://shaders/outline.tres" id="1_ohsna"]
 [ext_resource type="Script" path="res://world/level.gd" id="3_1aqus"]
 [ext_resource type="Texture2D" uid="uid://cfx56hp06tgvm" path="res://world/assets/Slugworm_Test_SVG.svg" id="3_andt3"]
 [ext_resource type="PackedScene" uid="uid://bb5ibsyatnfcq" path="res://components/clickable/clickable.tscn" id="4_t5atp"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_undwg"]
-size = Vector2(647, 506.5)
+[sub_resource type="Animation" id="Animation_twn3g"]
+resource_name = "hover"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/line_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4gqv8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/line_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r1p20"]
+_data = {
+"RESET": SubResource("Animation_4gqv8"),
+"hover": SubResource("Animation_twn3g")
+}
 
 [node name="Sprite2D" type="Sprite2D"]
+material = ExtResource("1_ohsna")
 texture = ExtResource("3_andt3")
 script = ExtResource("3_1aqus")
 
 [node name="Clickable" parent="." instance=ExtResource("4_t5atp")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Clickable"]
-position = Vector2(-2.5, -5.25)
-shape = SubResource("RectangleShape2D_undwg")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_r1p20")
+}
 
 [connection signal="on_click" from="Clickable" to="." method="_on_clickable_on_click"]
 [connection signal="on_hover_start" from="Clickable" to="." method="_on_clickable_on_hover_start"]
