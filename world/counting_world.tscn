@@ -1,9 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://dhoe1ds3idav0"]
+[gd_scene load_steps=37 format=3 uid="uid://dhoe1ds3idav0"]
 
 [ext_resource type="Script" path="res://world/counting_world.gd" id="1_ugvj7"]
 [ext_resource type="Texture2D" uid="uid://dd83j1lu00b36" path="res://world/assets/Mushroom_Tower_Bottom_SVG_Test.svg" id="3_uol80"]
-[ext_resource type="Texture2D" uid="uid://cfx56hp06tgvm" path="res://world/assets/Slugworm_Test_SVG.svg" id="4_jy5qk"]
-[ext_resource type="Material" uid="uid://d1jn304q6a06q" path="res://assets/materials/counting_world_button_outline.tres" id="5_7k5ax"]
 [ext_resource type="Texture2D" uid="uid://cautpopjcugqv" path="res://world/assets/biclops.svg" id="6_b2yjb"]
 [ext_resource type="Texture2D" uid="uid://ciy0in11afkgn" path="res://world/assets/cyclops.svg" id="7_8t41n"]
 [ext_resource type="Texture2D" uid="uid://bu7khc8s7l80v" path="res://world/assets/stack guy 2.svg" id="8_p3ulf"]
@@ -12,16 +10,64 @@
 [ext_resource type="Texture2D" uid="uid://wn1ubnswrfox" path="res://world/assets/blue guy.svg" id="11_nr4lx"]
 [ext_resource type="PackedScene" uid="uid://dltiiq845ae1o" path="res://minigames/generics/MenuBar.tscn" id="12_khj6s"]
 [ext_resource type="Texture2D" uid="uid://c18l1k1og5iit" path="res://world/assets/bear.svg" id="13_m36cf"]
+[ext_resource type="PackedScene" uid="uid://57m8b5tp7a6n" path="res://minigames/counting/amount_50_to_999/amount_50_to_999.tscn" id="14_i1jhw"]
 [ext_resource type="Texture2D" uid="uid://7ouhc76mcs01" path="res://world/assets/road.svg" id="14_x5dn0"]
-[ext_resource type="PackedScene" uid="uid://cxo3k3r8250ry" path="res://world/minigame_structure.tscn" id="15_fav1c"]
-[ext_resource type="Texture2D" uid="uid://ces5gd0nx146s" path="res://world/assets/tree4.svg" id="16_lqehr"]
 [ext_resource type="Texture2D" uid="uid://b5q883ljisn5x" path="res://world/assets/tree2.svg" id="17_1cvup"]
 [ext_resource type="Texture2D" uid="uid://dd30dt1ccpaos" path="res://world/assets/planet6.png" id="18_456v0"]
-[ext_resource type="PackedScene" uid="uid://dbk0lrs3vdn38" path="res://world/building.tscn" id="19_der6q"]
-[ext_resource type="Script" path="res://world/building.gd" id="19_hp7a5"]
-[ext_resource type="Script" path="res://world/minigame_structure.gd" id="20_3uih5"]
+[ext_resource type="Texture2D" uid="uid://wiuxkngrtldw" path="res://world/assets/tree5.svg" id="18_dje76"]
+[ext_resource type="PackedScene" uid="uid://cbv7qu5ju053e" path="res://minigames/counting/num_line_0_to_9/num_line_0_to_9.tscn" id="19_4bvtj"]
+[ext_resource type="PackedScene" uid="uid://d0d8epsbnsmis" path="res://components/snake/snake.tscn" id="19_jeje0"]
 [ext_resource type="Texture2D" uid="uid://t35mnayhnlfl" path="res://world/assets/Button_2.png" id="20_ic551"]
+[ext_resource type="PackedScene" uid="uid://be0lrl1guf4mj" path="res://world/level.tscn" id="21_1uq8v"]
+[ext_resource type="PackedScene" uid="uid://cfibhhhrm3sh" path="res://minigames/counting/make_amounts_1_to_50/make_amounts_1_to_50.tscn" id="21_l00ol"]
 [ext_resource type="Theme" uid="uid://cad5kstqpvlfe" path="res://assets/themes/default/default.tres" id="21_mhihp"]
+[ext_resource type="PackedScene" uid="uid://bgrllh28dhfiq" path="res://minigames/counting/number_bridge_0_to_9/number_bridge_0_to_9.tscn" id="21_q6lhu"]
+[ext_resource type="PackedScene" uid="uid://dsl3p2c2dnndl" path="res://minigames/counting/amount_0_to_9/amount_0_to_9.tscn" id="22_blob0"]
+[ext_resource type="PackedScene" uid="uid://dj1towovjdfc1" path="res://minigames/generics/run_hill/run_hill.tscn" id="22_dqgu5"]
+[ext_resource type="PackedScene" uid="uid://ejrrjhngecu0" path="res://minigames/counting/num_line_10_to_100/num_line_10_to_100.tscn" id="22_ytj81"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dh4jb"]
+radius = 155.252
+height = 545.742
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k50ho"]
+radius = 505.05
+height = 1070.71
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gwhf1"]
+radius = 111.111
+height = 272.728
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ry6xw"]
+radius = 241.5
+height = 626.919
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4ww4p"]
+radius = 156.566
+height = 525.252
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e8myf"]
+radius = 88.3767
+height = 257.609
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uta8h"]
+radius = 322.783
+height = 807.918
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j87mg"]
+radius = 340.688
+height = 1290.27
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y1vmp"]
+radius = 57.8323
+height = 231.79
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lxhln"]
+radius = 191.771
+height = 629.247
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hknky"]
+radius = 227.335
 
 [node name="counting_world" type="Node2D"]
 script = ExtResource("1_ugvj7")
@@ -36,140 +82,11 @@ offset_bottom = 1677.0
 scale = Vector2(0.1, 0.1)
 texture_normal = ExtResource("20_ic551")
 
-[node name="Amount0To9" parent="." instance=ExtResource("19_der6q")]
-material = ExtResource("5_7k5ax")
-offset_left = 645.0
-offset_top = 711.0
-offset_right = 1259.0
-offset_bottom = 1129.0
-scale = Vector2(0.4, 0.4)
-texture_normal = ExtResource("4_jy5qk")
-minigame = "amount_0_to_9"
-world_part = "counting"
-
-[node name="NumberMatch" parent="." instance=ExtResource("19_der6q")]
-offset_left = 687.0
-offset_top = 799.0
-offset_right = 1170.0
-offset_bottom = 1526.0
-scale = Vector2(0.4, 0.4)
-texture_normal = ExtResource("6_b2yjb")
-flip_h = true
-minigame = "match_0_to_9"
-world_part = "counting"
-
-[node name="NumberCatch" parent="." instance=ExtResource("19_der6q")]
-offset_left = 902.0
-offset_top = 748.0
-offset_right = 2153.0
-offset_bottom = 2117.0
-scale = Vector2(0.3, 0.3)
-texture_normal = ExtResource("7_8t41n")
-minigame = "number_catch_0_to_9"
-world_part = "counting"
-
-[node name="Amount0To50" parent="." instance=ExtResource("19_der6q")]
-offset_left = 780.0
-offset_top = 361.0
-offset_right = 984.0
-offset_bottom = 625.0
-texture_normal = ExtResource("8_p3ulf")
-minigame = "amount_0_to_50"
-world_part = "counting"
-
-[node name="MakeAmounts1To999" parent="." instance=ExtResource("19_der6q")]
-offset_left = 1660.0
-offset_top = 682.0
-offset_right = 1867.0
-offset_bottom = 946.0
-scale = Vector2(0.7, 0.7)
-texture_normal = ExtResource("9_mfnxp")
-minigame = "make_amounts_1_to_999"
-world_part = "counting"
-
-[node name="Amount50To999" parent="." instance=ExtResource("19_der6q")]
-offset_left = 1511.0
-offset_top = 419.0
-offset_right = 1869.0
-offset_bottom = 909.0
-scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("3_uol80")
-minigame = "amount_50_to_999"
-world_part = "counting"
-
-[node name="NumLine0To9" parent="." instance=ExtResource("19_der6q")]
-offset_left = 15.0
-offset_top = 409.0
-offset_right = 1210.0
-offset_bottom = 1765.0
-scale = Vector2(0.2, 0.2)
-texture_normal = ExtResource("10_yaxrg")
-flip_h = true
-flip_v = true
-minigame = "num_line_0_to_9"
-world_part = "counting"
-
-[node name="FallingNumbers0To9" parent="." instance=ExtResource("19_der6q")]
-offset_left = 106.0
-offset_top = 52.0
-offset_right = 1308.0
-offset_bottom = 1194.0
-scale = Vector2(0.2, 0.2)
-texture_normal = ExtResource("11_nr4lx")
-flip_h = true
-minigame = "falling_numbers_0_to_9"
-world_part = "counting"
-
-[node name="NumberBridge0To9" parent="." instance=ExtResource("19_der6q")]
-offset_left = 328.0
-offset_top = 163.0
-offset_right = 822.0
-offset_bottom = 781.0
-scale = Vector2(0.4, 0.4)
-texture_normal = ExtResource("13_m36cf")
-flip_h = true
-minigame = "number_bridge_0_to_9"
-world_part = "counting"
-
 [node name="Roads" type="Sprite2D" parent="."]
 scale = Vector2(0.27, 0.27)
 texture = ExtResource("14_x5dn0")
 centered = false
 offset = Vector2(100, 200)
-
-[node name="Snake1To50" parent="." instance=ExtResource("15_fav1c")]
-offset_left = 1028.0
-offset_top = 308.0
-offset_right = 1108.0
-offset_bottom = 533.0
-texture_normal = ExtResource("16_lqehr")
-
-[node name="MakeAmounts1To50" parent="." instance=ExtResource("15_fav1c")]
-offset_left = 1048.0
-offset_top = 452.0
-offset_right = 1152.0
-offset_bottom = 678.0
-texture_normal = ExtResource("17_1cvup")
-
-[node name="NumberLine10To100" type="TextureButton" parent="."]
-offset_left = 564.0
-offset_top = 61.0
-offset_right = 1039.0
-offset_bottom = 526.0
-scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("18_456v0")
-script = ExtResource("19_hp7a5")
-minigame = "num_line_10_to_100"
-world_part = "counting"
-
-[node name="RunHill0To100" type="TextureButton" parent="."]
-offset_left = 871.0
-offset_top = 71.0
-offset_right = 1346.0
-offset_bottom = 536.0
-scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("18_456v0")
-script = ExtResource("20_3uih5")
 
 [node name="ShowAllGames" type="Button" parent="."]
 offset_left = 1822.0
@@ -186,3 +103,145 @@ scale = Vector2(1.4, 1.4)
 theme = ExtResource("21_mhihp")
 theme_override_font_sizes/font_size = 12
 text = "SMARTBOARD"
+
+[node name="Amount0To9" parent="." instance=ExtResource("21_1uq8v")]
+position = Vector2(687, 843)
+scale = Vector2(0.333732, 0.333732)
+scene = ExtResource("22_blob0")
+minigame = "amount_0_to_9"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Amount0To9"]
+position = Vector2(0, -20.9751)
+rotation = 1.028
+shape = SubResource("CapsuleShape2D_dh4jb")
+
+[node name="FallingNumbers0To9" parent="." instance=ExtResource("21_1uq8v")]
+position = Vector2(221, 164)
+scale = Vector2(-0.198, 0.198)
+texture = ExtResource("11_nr4lx")
+scene = ExtResource("22_blob0")
+minigame = "falling_numbers_0_to_9"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FallingNumbers0To9"]
+position = Vector2(40.404, 30.3029)
+shape = SubResource("CapsuleShape2D_k50ho")
+
+[node name="MakeAmounts1To999" parent="." instance=ExtResource("21_1uq8v")]
+position = Vector2(1735, 778)
+scale = Vector2(0.733, 0.733)
+texture = ExtResource("9_mfnxp")
+scene = ExtResource("22_blob0")
+minigame = "make_amounts_1_to_999"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MakeAmounts1To999"]
+position = Vector2(-5.72205e-06, -5.0506)
+shape = SubResource("CapsuleShape2D_gwhf1")
+
+[node name="NumberMatch" parent="." instance=ExtResource("21_1uq8v")]
+position = Vector2(877, 909)
+scale = Vector2(-0.389, 0.389)
+texture = ExtResource("6_b2yjb")
+scene = ExtResource("22_blob0")
+minigame = "match_0_to_9"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NumberMatch"]
+position = Vector2(-5.72205e-06, -5.0506)
+shape = SubResource("CapsuleShape2D_ry6xw")
+
+[node name="Amount50To999" parent="." instance=ExtResource("21_1uq8v")]
+position = Vector2(1606, 540)
+scale = Vector2(-0.45638, 0.45638)
+texture = ExtResource("3_uol80")
+scene = ExtResource("14_i1jhw")
+minigame = "amount_50_to_999"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Amount50To999"]
+position = Vector2(-3.8147e-06, 25.2524)
+shape = SubResource("CapsuleShape2D_4ww4p")
+
+[node name="Amount0To50" parent="." instance=ExtResource("21_1uq8v")]
+position = Vector2(858, 471)
+scale = Vector2(-1.06363, 1.06363)
+texture = ExtResource("8_p3ulf")
+scene = ExtResource("22_blob0")
+minigame = "amount_0_to_50"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Amount0To50"]
+position = Vector2(-3.4842, 2.12761)
+shape = SubResource("CapsuleShape2D_e8myf")
+
+[node name="NumberCatch" parent="." instance=ExtResource("21_1uq8v")]
+position = Vector2(1096, 834)
+scale = Vector2(0.295654, 0.295654)
+texture = ExtResource("7_8t41n")
+scene = ExtResource("22_blob0")
+minigame = "number_catch_0_to_9"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NumberCatch"]
+position = Vector2(-3.4842, 2.12761)
+shape = SubResource("CapsuleShape2D_uta8h")
+
+[node name="NumLine0To9" parent="." instance=ExtResource("21_1uq8v")]
+position = Vector2(221, 495)
+scale = Vector2(-0.198, 0.198)
+texture = ExtResource("10_yaxrg")
+scene = ExtResource("19_4bvtj")
+minigame = "num_line_0_to_9"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NumLine0To9"]
+position = Vector2(40.404, 30.3029)
+rotation = -0.923027
+shape = SubResource("CapsuleShape2D_j87mg")
+
+[node name="Snake1To50" parent="." instance=ExtResource("21_1uq8v")]
+position = Vector2(1071, 418)
+scale = Vector2(-0.933134, 0.933134)
+texture = ExtResource("18_dje76")
+scene = ExtResource("19_jeje0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Snake1To50"]
+position = Vector2(-5.11506, -7.71037)
+rotation = 0.0358692
+shape = SubResource("CapsuleShape2D_y1vmp")
+
+[node name="MakeAmounts1To50" parent="." instance=ExtResource("21_1uq8v")]
+position = Vector2(1231, 598)
+scale = Vector2(-0.933134, 0.933134)
+texture = ExtResource("17_1cvup")
+scene = ExtResource("21_l00ol")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MakeAmounts1To50"]
+position = Vector2(-1.07161, -2.1433)
+rotation = 0.00654619
+shape = SubResource("CapsuleShape2D_y1vmp")
+
+[node name="NumberBridge0To9" parent="." instance=ExtResource("21_1uq8v")]
+position = Vector2(402, 302)
+scale = Vector2(0.333732, 0.333732)
+texture = ExtResource("13_m36cf")
+scene = ExtResource("21_q6lhu")
+minigame = "number_bridge_0_to_9"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NumberBridge0To9"]
+position = Vector2(-9.15527e-05, 5.99283)
+shape = SubResource("CapsuleShape2D_lxhln")
+
+[node name="NumberLine10To100" parent="." instance=ExtResource("21_1uq8v")]
+position = Vector2(638, 158)
+scale = Vector2(0.506035, 0.506035)
+texture = ExtResource("18_456v0")
+scene = ExtResource("22_ytj81")
+minigame = "num_line_10_to_100"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NumberLine10To100"]
+shape = SubResource("CircleShape2D_hknky")
+
+[node name="RunHill0To100" parent="." instance=ExtResource("21_1uq8v")]
+position = Vector2(988, 186)
+scale = Vector2(0.506035, 0.506035)
+texture = ExtResource("18_456v0")
+scene = ExtResource("22_dqgu5")
+minigame = "run"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RunHill0To100"]
+shape = SubResource("CircleShape2D_hknky")

@@ -4,6 +4,7 @@ class_name LevelIcon
 # has to be a Sprite2D since Control nodes work weirdly with outlines
 
 @export var scene: PackedScene 
+@export var minigame: String
 @onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
 @onready var collison_shape: Node2D = get_node("CollisionShape2D")
 @onready var clickable: Node2D = get_node("Clickable")

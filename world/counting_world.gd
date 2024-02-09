@@ -40,13 +40,6 @@ func _ready():
 		$RunHill0To100
 	]
 	
-	$Snake1To50.minigame = "snake_1_to_50"
-	$Snake1To50.path = "res://minigames/generics/snake_minigame/snake_minigame.tscn"
-	$MakeAmounts1To50.minigame = "make_amounts_1_to_50"
-	$MakeAmounts1To50.path = "res://minigames/counting/make_amounts_1_to_50/make_amounts_1_to_50.tscn"
-	$RunHill0To100.minigame = "run_hill"
-	$RunHill0To100.path = "res://minigames/generics/run_hill/run_hill.tscn"
-	
 #	var save_game := FileAccess.open("user://savegame.save", FileAccess.READ)
 #	var json := JSON.new()
 	
@@ -63,12 +56,12 @@ func _ready():
 	add_child(development_board)	
 	_show_map()
 
-func _is_completed(node : TextureButton) -> bool:
+func _is_completed(node : LevelIcon) -> bool:
 	if node.get("minigame"):
 		return node.get("minigame") in PlayerVariables.save_dict["minigames"]["counting"]
 	return false
 
-func _do_minigame_effect(node: TextureButton) -> bool:
+func _do_minigame_effect(node: LevelIcon) -> bool:
 	if node.get("minigame") == PlayerVariables.save_dict["minigames"]["lastCompletedMinigame"]:
 		var instance = effect_scene.instantiate()
 		node.add_child(instance)
