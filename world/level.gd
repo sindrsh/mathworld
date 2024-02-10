@@ -10,6 +10,7 @@ class_name LevelIcon
 @onready var clickable: Node2D = get_node("Clickable")
 
 func _ready():
+	material = material.duplicate()  # required or it doesn't work
 	material.set_shader_parameter("line_color", Color(0, 0, 0, 0))
 	
 	# Getting an error here? It's probably because all "Level" nodes need a CollisionShape2D

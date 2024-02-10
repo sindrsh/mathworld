@@ -53,7 +53,7 @@ func _ready():
 	_update_development_status(number_line_minigames, GlobalVariables.count_number_line_minigames, "number_line_insights", "number_line_calculations")
 	development_board.position.x = 635
 	development_board.hide()
-	add_child(development_board)	
+	add_child(development_board)
 	_show_map()
 
 func _is_completed(node : LevelIcon) -> bool:

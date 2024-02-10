@@ -198,6 +198,7 @@ position = Vector2(1071, 418)
 scale = Vector2(-0.933134, 0.933134)
 texture = ExtResource("18_dje76")
 scene = ExtResource("19_jeje0")
+minigame = "snake_1_to_50"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Snake1To50"]
 position = Vector2(-5.11506, -7.71037)
@@ -209,6 +210,7 @@ position = Vector2(1231, 598)
 scale = Vector2(-0.933134, 0.933134)
 texture = ExtResource("17_1cvup")
 scene = ExtResource("21_l00ol")
+minigame = "make_amounts_1_to_50"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MakeAmounts1To50"]
 position = Vector2(-1.07161, -2.1433)
@@ -241,7 +243,7 @@ position = Vector2(988, 186)
 scale = Vector2(0.506035, 0.506035)
 texture = ExtResource("18_456v0")
 scene = ExtResource("22_dqgu5")
-minigame = "run"
+minigame = "run_hill"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RunHill0To100"]
 shape = SubResource("CircleShape2D_hknky")
