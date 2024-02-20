@@ -74,7 +74,9 @@ func _add_specifics():
 	
 	#$BridgeLeft.scale = Vector2(4, 2)
 	#$BridgeRight.scale = Vector2(4, 2)
-	$BridgeLeft.position = Vector2(200, 700)
+	$BridgeLeft.position = Vector2(60, 800)
+	$BridgePilarLeft.position = $BridgeLeft.position + Vector2(40,138)
+	$BridgePilarRight.position = $BridgeLeft.position + Vector2(1760,138)
 	
 	_mk_task()
 	
@@ -158,9 +160,9 @@ func _prepare_task() -> void:
 	number.position = number_line_pos + Vector2(0,-40)
 		
 	var bridge_left_length := 200.0
-	var bridge_right_length := 1000.0 - bridge_left_length-x_scale*answer
-	$BridgeLeft.region_rect = Rect2(0,0, bridge_left_length, 25)
-	$BridgeRight.region_rect = Rect2(0,0, bridge_right_length, 25)
+	var bridge_right_length := 1800.0 - bridge_left_length -x_scale*answer
+	$BridgeLeft.region_rect = Rect2(0,0, bridge_left_length, 40)
+	$BridgeRight.region_rect = Rect2(bridge_left_length + x_scale*answer,0, bridge_right_length, 40)
 	$BridgeRight.position = Vector2($BridgeLeft.position.x + x_scale*answer + bridge_left_length, $BridgeLeft.position.y)
 	
 	var number_text := Text.new(50, str(answer))
@@ -168,7 +170,6 @@ func _prepare_task() -> void:
 	add_child(number_text)
 	varying_objects.append(number_text)
 	
-	pickable_object.position = Vector2(1200, 600)
 	pickable_object.show()
 	creature.show()
 	creature.target = Vector2(pickable_object.position.x, creature.position.y)
