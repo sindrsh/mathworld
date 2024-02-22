@@ -63,8 +63,7 @@ func _is_completed(node : LevelIcon) -> bool:
 
 func _do_minigame_effect(node: LevelIcon) -> bool:
 	if node.get("minigame") == PlayerVariables.save_dict["minigames"]["lastCompletedMinigame"]:
-		var instance = effect_scene.instantiate()
-		node.add_child(instance)
+		node.play_effect()
 		
 	return false
 

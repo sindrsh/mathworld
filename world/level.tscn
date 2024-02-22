@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://be0lrl1guf4mj"]
+[gd_scene load_steps=12 format=3 uid="uid://be0lrl1guf4mj"]
 
 [ext_resource type="Material" uid="uid://8ajo6bma8ot6" path="res://shaders/outline.tres" id="1_ohsna"]
 [ext_resource type="Script" path="res://world/level.gd" id="3_1aqus"]
 [ext_resource type="Texture2D" uid="uid://cfx56hp06tgvm" path="res://world/assets/Slugworm_Test_SVG.svg" id="3_andt3"]
 [ext_resource type="PackedScene" uid="uid://bb5ibsyatnfcq" path="res://components/clickable/clickable.tscn" id="4_t5atp"]
+[ext_resource type="Texture2D" uid="uid://igv2jyd73vqf" path="res://assets/confetti.png" id="5_qkhwq"]
 
 [sub_resource type="Animation" id="Animation_4gqv8"]
 length = 0.001
@@ -18,6 +19,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CPUParticles2D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_twn3g"]
@@ -36,14 +61,52 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_nr2ps"]
+resource_name = "scale_in"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CPUParticles2D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r1p20"]
 _data = {
 "RESET": SubResource("Animation_4gqv8"),
-"hover": SubResource("Animation_twn3g")
+"hover": SubResource("Animation_twn3g"),
+"scale_in": SubResource("Animation_nr2ps")
 }
+
+[sub_resource type="Gradient" id="Gradient_udfsb"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_vtks0"]
+offsets = PackedFloat32Array(0, 0.522034, 1)
+colors = PackedColorArray(1, 0, 0, 1, 0.596078, 1, 0, 1, 1, 1, 1, 1)
 
 [node name="Sprite2D" type="Sprite2D"]
 material = ExtResource("1_ohsna")
+scale = Vector2(0.878165, 0.878165)
 texture = ExtResource("3_andt3")
 script = ExtResource("3_1aqus")
 
@@ -53,6 +116,19 @@ script = ExtResource("3_1aqus")
 libraries = {
 "": SubResource("AnimationLibrary_r1p20")
 }
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 256
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.95
+texture = ExtResource("5_qkhwq")
+direction = Vector2(0, -1)
+initial_velocity_min = 646.61
+initial_velocity_max = 795.0
+color_ramp = SubResource("Gradient_udfsb")
+color_initial_ramp = SubResource("Gradient_vtks0")
 
 [connection signal="on_click" from="Clickable" to="." method="_on_clickable_on_click"]
 [connection signal="on_hover_start" from="Clickable" to="." method="_on_clickable_on_hover_start"]

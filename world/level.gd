@@ -25,3 +25,6 @@ func _on_clickable_on_hover_stop():
 
 func _on_clickable_on_click():
 	get_tree().change_scene_to_packed(scene)
+
+func play_effect():
+	animation_player.play("scale_in")
