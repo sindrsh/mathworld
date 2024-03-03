@@ -1,36 +1,26 @@
 extends Area2D
 class_name SnakePart
 
+var front: SnakePart  # if this is null, it means that this is the head of the snake. Really wish Godot had type unions.
+var back: SnakePart
 
-@export var speed: float = 512  # px / s 
-@onready var player: AnimationPlayer = get_node("AnimationPlayer")
-var _next_pos: Vector2 = Vector2(0, 0)
-signal collided
-signal at_point
-var _faded_in = false
+func move(direction: Vector2):
+	# move in the direction
+	# tell the snake behind me to move in a direction towards where I am
+	pass
 
-
-func goto(pos: Vector2):
-	_next_pos = pos
-
-func teleport():
-	if !_faded_in:
-		player.play("fade_in")
-		_faded_in = true
-	position = _next_pos
+func grow():
+	if back != null:
+		back.grow()
+		return
+	# add a new part behind me
 
 
-func _physics_process(delta):
-	if position.distance_to(_next_pos) < speed * delta:
-		position = _next_pos
-		emit_signal("at_point")
+func _on_area_entered(area):
+	die()
+
+func die():
+	# start death animation
 	
-	position += (_next_pos - position).normalized() * speed * delta
-	return
-
-func _on_area_entered(_area):
-	emit_signal("collided")
-
-
-func play_die_animation():
-	player.play("die")
+	if back != null:
+		back.die()
