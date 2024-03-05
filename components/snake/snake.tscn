@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://d0d8epsbnsmis"]
+[gd_scene load_steps=2 format=3 uid="uid://btivtxr3n0lnd"]
 
-[ext_resource type="Script" path="res://components/snake/snake.gd" id="1_dpodd"]
+[ext_resource type="Script" path="res://components/snake/snake.gd" id="1_cunfd"]
 
-[node name="SnakeController" type="Node2D"]
-script = ExtResource("1_dpodd")
+[node name="Snake" type="Node2D"]
+position = Vector2(511, 319)
+script = ExtResource("1_cunfd")

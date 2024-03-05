@@ -16,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://dd30dt1ccpaos" path="res://world/assets/planet6.png" id="18_456v0"]
 [ext_resource type="Texture2D" uid="uid://wiuxkngrtldw" path="res://world/assets/tree5.svg" id="18_dje76"]
 [ext_resource type="PackedScene" uid="uid://cbv7qu5ju053e" path="res://minigames/counting/num_line_0_to_9/num_line_0_to_9.tscn" id="19_4bvtj"]
-[ext_resource type="PackedScene" uid="uid://d0d8epsbnsmis" path="res://components/snake/snake.tscn" id="19_jeje0"]
 [ext_resource type="Texture2D" uid="uid://t35mnayhnlfl" path="res://world/assets/Button_2.png" id="20_ic551"]
 [ext_resource type="PackedScene" uid="uid://be0lrl1guf4mj" path="res://world/level.tscn" id="21_1uq8v"]
 [ext_resource type="PackedScene" uid="uid://cfibhhhrm3sh" path="res://minigames/counting/make_amounts_1_to_50/make_amounts_1_to_50.tscn" id="21_l00ol"]
@@ -57,6 +56,8 @@ height = 807.918
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j87mg"]
 radius = 340.688
 height = 1290.27
+
+[sub_resource type="PackedScene" id="PackedScene_kovgw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y1vmp"]
 radius = 57.8323
@@ -197,7 +198,7 @@ shape = SubResource("CapsuleShape2D_j87mg")
 position = Vector2(1071, 418)
 scale = Vector2(-0.933134, 0.933134)
 texture = ExtResource("18_dje76")
-scene = ExtResource("19_jeje0")
+scene = SubResource("PackedScene_kovgw")
 minigame = "snake_1_to_50"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Snake1To50"]

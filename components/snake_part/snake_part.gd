@@ -10,7 +10,7 @@ const SPEED = 128  # px/s
 const CELL_SIZE = 64  # px
 
 @onready var _animation_player = get_node("AnimationPlayer")
-var snake_scene = preload("res://components/snake/snake.tscn")
+var snake_scene = preload("res://components/snake_part/snake_part.tscn")
 
 signal arrived()
 
@@ -20,8 +20,8 @@ func _init():
 func _physics_process(delta):
 	if position.distance_to(next_position) < SPEED * delta:
 		position = next_position
-	else:
 		emit_signal("arrived")
+	else:
 		position += (next_position - position).normalized() * SPEED * delta
 
 
@@ -30,13 +30,15 @@ func move(direction: Vector2):
 	_last_position = next_position
 	next_position = position + direction * CELL_SIZE
 	
-	back.move((position - back.next_position).normalized())
+	if back != null:
+		back.move((position - back.next_position).normalized())
 
 func grow():
 	if back != null:
 		back.grow()
 		return
 	# add a new part behind me
+	print("growing")
 	var snake: SnakePart = snake_scene.instantiate()
 	
 	snake.front = self 

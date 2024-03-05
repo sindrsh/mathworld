@@ -2,7 +2,7 @@ extends Object
 class_name TimedInputQueue
 # technically, pop is O(n), not O(1). This isn't a leetcode problem, so it doesn't really matter
 
-var input_lifespan = 0.1  # lifespan of inputs in seconds. Inputs that are "older" than this number will be thrown out
+var input_lifespan = 0.07  # lifespan of inputs in seconds. Inputs that are "older" than this number will be thrown out
 var _inputs: Array[String] = []
 var _times: Array[float] = []
 
@@ -21,3 +21,6 @@ func pop() -> String:
 			return input
 		
 	return ""
+
+func printQueue():
+	print(_inputs)
