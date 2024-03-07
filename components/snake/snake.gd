@@ -26,22 +26,27 @@ func on_move():
 	var input = queue.pop()
 	if input != "":
 		match input:
-			"ui_left":
+			"left":
 				direction = Vector2(-1, 0)
-			"ui_right":
+			"right":
 				direction = Vector2(1, 0)
-			"ui_up":
+			"up":
 				direction = Vector2(0, -1)
-			"ui_down":
+			"down":
 				direction = Vector2(0, 1)
 	
 	head.move(direction)
 
 func _input(event):
-	if event is InputEventAction:
-		event = event as InputEventAction
-		var acceptable_actions = ["ui_left", "ui_right", "ui_down", "ui_up"]
-		
-		if event.action in acceptable_actions:
-			print("pushing ", event.action)
-			queue.push(event.action)
+	if event is InputEventKey:
+		event = event as InputEventKey
+		if event.pressed:
+			match event.as_text_physical_keycode():
+				"A":
+					queue.push("left")
+				"D":
+					queue.push("right")
+				"W":
+					queue.push("up")
+				"S":
+					queue.push("down")

@@ -6,7 +6,7 @@ var back: SnakePart
 
 var next_position: Vector2
 var _last_position: Vector2
-const SPEED = 128  # px/s
+const SPEED = 256  # px/s
 const CELL_SIZE = 64  # px
 
 @onready var _animation_player = get_node("AnimationPlayer")
@@ -43,6 +43,10 @@ func grow():
 	
 	snake.front = self 
 	back = snake
+	var direction = (next_position - position).normalized().rotated(PI)
+	snake.position = position + CELL_SIZE * direction
+	
+	get_parent().add_child(snake)
 
 
 func _on_area_entered(area):
