@@ -103,7 +103,7 @@ _data = {
 
 [node name="SnakePart" type="Area2D"]
 collision_layer = 0
-collision_mask = 0
+collision_mask = 3
 script = ExtResource("1_mfgv4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -122,5 +122,8 @@ libraries = {
 "": SubResource("AnimationLibrary_n88f4")
 }
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

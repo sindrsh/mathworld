@@ -8,3 +8,6 @@ var number = -1  # -1 means that no number has been set. I assume that negative 
 func set_number(num) -> void:
 	number = num
 	label.text = str(number)
+	
+func eat():
+	queue_free()
