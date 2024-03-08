@@ -6,7 +6,7 @@ var back: SnakePart
 
 var next_position: Vector2
 var _last_position: Vector2
-const SPEED = 256  # px/s
+const SPEED = 512  # px/s
 const CELL_SIZE = 64  # px
 
 @onready var _animation_player = get_node("AnimationPlayer")

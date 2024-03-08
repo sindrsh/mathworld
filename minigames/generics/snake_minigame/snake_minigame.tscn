@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://d2k7syic4qvbu"]
 
 [ext_resource type="Script" path="res://minigames/generics/snake_minigame/snake_minigame.gd" id="1_wn25b"]
-[ext_resource type="PackedScene" uid="uid://d0d8epsbnsmis" path="res://components/snake/snake.tscn" id="2_c0jkg"]
+[ext_resource type="PackedScene" uid="uid://btivtxr3n0lnd" path="res://components/snake/snake.tscn" id="2_c0jkg"]
 [ext_resource type="Texture2D" uid="uid://d25vab4rcjskc" path="res://assets/tile.png" id="3_20te0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_41yko"]
@@ -54,5 +54,3 @@ shape = SubResource("RectangleShape2D_o4gw6")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(952, 1154.5)
 shape = SubResource("RectangleShape2D_o4gw6")
-
-[connection signal="hurt" from="Snake" to="Snake" method="_on_hurt"]

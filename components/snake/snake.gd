@@ -5,6 +5,7 @@ var part_scene = preload("res://components/snake_part/snake_part.tscn")
 var queue: TimedInputQueue
 var head: SnakePart
 var direction: Vector2 = Vector2(1, 0)
+var health = 5
 
 func spawn_snake(pos: Vector2 = Vector2(0, 0), starting_parts: int = 4) -> void:
 	head = part_scene.instantiate()
@@ -21,8 +22,6 @@ func _ready():
 	head.move(direction)
 
 func on_move():
-	print("reached position")
-	queue.printQueue()
 	var input = queue.pop()
 	if input != "":
 		match input:
