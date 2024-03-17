@@ -23,7 +23,7 @@ func _init():
 func _ready():
 	$Timer.start()
 	if start_position != Vector2(-1, -1):
-		print("going to start positions")
+		print("going to start position", start_position)
 		position = start_position
 
 func _physics_process(delta):
@@ -55,7 +55,7 @@ func grow():
 	var direction = (next_position - position).normalized().rotated(PI)
 	snake.start_position = position + CELL_SIZE * direction
 	
-	get_parent().add_child(snake)
+	get_parent().call_deferred("add_child", snake)
 
 
 func _on_area_entered(area: Area2D):
