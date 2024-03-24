@@ -71,9 +71,16 @@ func _add_specifics():
 	x_scale = 100
 	max_int = 9
 	max_score = 5
+	
+	#$BridgeLeft.scale = Vector2(4, 2)
+	#$BridgeRight.scale = Vector2(4, 2)
+	$BridgeLeft.position = Vector2(60, 800)
+	$BridgePilarLeft.position = $BridgeLeft.position + Vector2(40,138)
+	$BridgePilarRight.position = $BridgeLeft.position + Vector2(1760,138)
+	
 	_mk_task()
 	
-
+	
 func _plus_num_pressed():
 	if number.moving:
 		return
@@ -151,34 +158,20 @@ func _prepare_task() -> void:
 	randomize()
 	answer = randi() % 9 + 1
 	number.position = number_line_pos + Vector2(0,-40)
-	
-	var road1 : Line2D = Line2D.new()
-	var road2 : Line2D = Line2D.new()
-	
-	road1.points = PackedVector2Array([
-		road_start,
-		Vector2(300, road_start.y)
-	])
-	road1.default_color = Color(0,0,0)
-	add_child(road1)
-	varying_objects.append(road1)
-	
-	road2.points = PackedVector2Array([
-		road1.points[1] + Vector2(x_scale*answer, 0),
-		road1.points[1] + Vector2(x_scale*answer + 300, 0)
-	])
-	road2.default_color = Color(0,0,0)
-	add_child(road2)
-	varying_objects.append((road2))
+		
+	var bridge_left_length := 200.0
+	var bridge_right_length := 1800.0 - bridge_left_length -x_scale*answer
+	$BridgeLeft.region_rect = Rect2(0,0, bridge_left_length, 40)
+	$BridgeRight.region_rect = Rect2(bridge_left_length + x_scale*answer,0, bridge_right_length, 40)
+	$BridgeRight.position = Vector2($BridgeLeft.position.x + x_scale*answer + bridge_left_length, $BridgeLeft.position.y)
 	
 	var number_text := Text.new(50, str(answer))
-	number_text.position = road1.points[1] + Vector2(x_scale*answer/2, 0) + Vector2(0, 60)
+	number_text.position = $BridgeLeft.position + Vector2(bridge_left_length + x_scale*answer/2, 0) + Vector2(0, 60)
 	add_child(number_text)
 	varying_objects.append(number_text)
 	
-	pickable_object.position = road2.points[1] + Vector2(-20,-70)
 	pickable_object.show()
 	creature.show()
 	creature.target = Vector2(pickable_object.position.x, creature.position.y)
-	number.target = road1.points[1]
+	number.target = $BridgeLeft.position + Vector2(bridge_left_length, 5)
 	

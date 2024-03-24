@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgrllh28dhfiq"]
+[gd_scene load_steps=5 format=3 uid="uid://bgrllh28dhfiq"]
 
 [ext_resource type="Script" path="res://minigames/counting/number_bridge_0_to_9/number_bridge_0_to_9.gd" id="1_nk2x5"]
 [ext_resource type="Texture2D" uid="uid://i001yowra5j" path="res://minigames/counting/number_bridge_0_to_9/assets/number bridge BG.png" id="2_lnyg0"]
+[ext_resource type="Texture2D" uid="uid://do7qqarktyi1k" path="res://minigames/counting/number_bridge_0_to_9/assets/bridge_slab.png" id="3_l3ug7"]
+[ext_resource type="Texture2D" uid="uid://xe7b70qw11pp" path="res://minigames/counting/number_bridge_0_to_9/assets/bridge_pole.png" id="4_yif4s"]
 
 [node name="NumberBridge0To9" type="Control"]
 layout_mode = 3
@@ -15,3 +17,21 @@ script = ExtResource("1_nk2x5")
 [node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("2_lnyg0")
 centered = false
+
+[node name="BridgeLeft" type="Sprite2D" parent="."]
+texture = ExtResource("3_l3ug7")
+centered = false
+region_enabled = true
+
+[node name="BridgeRight" type="Sprite2D" parent="."]
+texture = ExtResource("3_l3ug7")
+centered = false
+region_enabled = true
+
+[node name="BridgePilarLeft" type="Sprite2D" parent="."]
+scale = Vector2(0.11, 0.11)
+texture = ExtResource("4_yif4s")
+
+[node name="BridgePilarRight" type="Sprite2D" parent="."]
+scale = Vector2(0.11, 0.11)
+texture = ExtResource("4_yif4s")

@@ -16,8 +16,7 @@ var score : int
 var correct_sound : AudioStream = preload("res://minigames/generics/cross_the_bridge/assets/correct.mp3")
 var incorrect_sound : AudioStream = preload("res://minigames/generics/cross_the_bridge/assets/whip.mp3")
 var finished_sound : AudioStream = preload("res://minigames/generics/cross_the_bridge/assets/success.mp3")
-var road_start : Vector2 = Vector2(100, 700)
-var creature_start_pos : Vector2 = road_start + Vector2(20,-50)
+var creature_start_pos : Vector2 = Vector2(80,750)
 
 var number : CharacterBody2D = preload("res://minigames/generics/cross_the_bridge/number.tscn").instantiate()
 var creature : CharacterBody2D = preload("res://minigames/generics/cross_the_bridge/creature.tscn").instantiate()
@@ -62,6 +61,7 @@ func _add_generics() -> void:
 	sound_effect.stream = incorrect_sound
 	
 	creature.position = creature_start_pos
+	pickable_object.position = creature_start_pos + Vector2(1700, 0)
 	
 	add_child(score_count)
 	add_child(send_number_button)
