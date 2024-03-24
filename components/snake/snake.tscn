@@ -1,48 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://d0d8epsbnsmis"]
+[gd_scene load_steps=2 format=3 uid="uid://btivtxr3n0lnd"]
 
-[ext_resource type="Script" path="res://components/snake/snake.gd" id="1_dpodd"]
-[ext_resource type="PackedScene" uid="uid://bniiqmjysdv5p" path="res://components/snake_part/snake_part.tscn" id="2_q7avl"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a7i5v"]
-size = Vector2(16, 16)
+[ext_resource type="Script" path="res://components/snake/snake.gd" id="1_cunfd"]
 
 [node name="Snake" type="Node2D"]
-script = ExtResource("1_dpodd")
-
-[node name="head" parent="." instance=ExtResource("2_q7avl")]
-
-[node name="Polygon2D" parent="head/Node2D" index="0"]
-color = Color(0.788235, 0.364706, 0, 1)
-
-[node name="Mouth" type="Area2D" parent="head"]
-position = Vector2(32, 32)
-collision_layer = 0
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="head/Mouth"]
-position = Vector2(16, 0)
-shape = SubResource("RectangleShape2D_a7i5v")
-
-[node name="Polygon2D" type="Polygon2D" parent="head/Mouth"]
-color = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(8, -8, 8, 8, 24, 8, 24, -8)
-
-[node name="SnakePart2" parent="." instance=ExtResource("2_q7avl")]
-position = Vector2(-128, 0)
-
-[node name="SnakePart3" parent="." instance=ExtResource("2_q7avl")]
-position = Vector2(-64, 0)
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.1
-one_shot = true
-autostart = true
-
-[connection signal="died" from="." to="." method="_on_died"]
-[connection signal="at_point" from="head" to="." method="_on_head_at_point"]
-[connection signal="animation_finished" from="head/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-[connection signal="area_entered" from="head/Mouth" to="." method="_on_mouth_area_entered"]
-[connection signal="body_entered" from="head/Mouth" to="." method="_on_mouth_body_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-
-[editable path="head"]
+position = Vector2(511, 319)
+script = ExtResource("1_cunfd")
