@@ -1,21 +1,22 @@
-[gd_scene load_steps=22 format=3 uid="uid://dhoe1ds3idav0"]
+[gd_scene load_steps=23 format=3 uid="uid://dhoe1ds3idav0"]
 
 [ext_resource type="Script" path="res://world/counting_world.gd" id="1_ugvj7"]
-[ext_resource type="Texture2D" uid="uid://bh8dc5sjsp0ip" path="res://world/assets/Mushroom_Tower_Bottom_SVG_Test.svg" id="3_uol80"]
-[ext_resource type="Texture2D" uid="uid://d10pq8i8aksph" path="res://world/assets/Slugworm_Test_SVG.svg" id="4_jy5qk"]
+[ext_resource type="Texture2D" uid="uid://kec7galqlvje" path="res://world/assets/prop1.png" id="5_ldakl"]
 [ext_resource type="Texture2D" uid="uid://dyea5swnyflwr" path="res://world/assets/biclops.svg" id="6_b2yjb"]
 [ext_resource type="Texture2D" uid="uid://dwaxf63ud6607" path="res://world/assets/cyclops.svg" id="7_8t41n"]
-[ext_resource type="Texture2D" uid="uid://cu2o3s5s4ffgq" path="res://world/assets/stack guy 2.svg" id="8_p3ulf"]
+[ext_resource type="Texture2D" uid="uid://cifrxmwoakecq" path="res://world/assets/prop2.png" id="8_mdbsl"]
 [ext_resource type="Texture2D" uid="uid://ds80xl85ry1rm" path="res://world/assets/Stack guy 1.svg" id="9_mfnxp"]
-[ext_resource type="Texture2D" uid="uid://7ih1p0dnoy6n" path="res://world/assets/red facility.svg" id="10_yaxrg"]
-[ext_resource type="Texture2D" uid="uid://dkw4727ai7fck" path="res://world/assets/blue guy.svg" id="11_nr4lx"]
+[ext_resource type="Texture2D" uid="uid://dnr60mnj7kxkh" path="res://world/assets/prop3.png" id="10_pil52"]
+[ext_resource type="Texture2D" uid="uid://b1v2fx5kw25rw" path="res://world/assets/prop8.png" id="11_xo63y"]
+[ext_resource type="Texture2D" uid="uid://888sont7xget" path="res://world/assets/prop9.png" id="12_es803"]
 [ext_resource type="PackedScene" uid="uid://dltiiq845ae1o" path="res://minigames/generics/MenuBar.tscn" id="12_khj6s"]
-[ext_resource type="Texture2D" uid="uid://dgodonf3udyfi" path="res://world/assets/bear.svg" id="13_m36cf"]
+[ext_resource type="Texture2D" uid="uid://cljoq1u3ged5n" path="res://world/assets/prop4.png" id="13_7snhg"]
 [ext_resource type="Texture2D" uid="uid://bpsnc3ruqhw5j" path="res://world/assets/road.svg" id="14_x5dn0"]
 [ext_resource type="PackedScene" uid="uid://cxo3k3r8250ry" path="res://world/minigame_structure.tscn" id="15_fav1c"]
-[ext_resource type="Texture2D" uid="uid://dfdfkha3b14kg" path="res://world/assets/tree4.svg" id="16_lqehr"]
+[ext_resource type="Texture2D" uid="uid://cmj2tfw7b37xx" path="res://world/assets/prop7.png" id="16_4pbd0"]
 [ext_resource type="Texture2D" uid="uid://d2nk20rqpkjlq" path="res://world/assets/tree2.svg" id="17_1cvup"]
 [ext_resource type="Texture2D" uid="uid://jv0u887nogx7" path="res://world/assets/planet6.png" id="18_456v0"]
+[ext_resource type="Texture2D" uid="uid://cspfj08dspcq6" path="res://world/assets/prop5.png" id="18_d1n27"]
 [ext_resource type="PackedScene" uid="uid://dbk0lrs3vdn38" path="res://world/building.tscn" id="19_der6q"]
 [ext_resource type="Script" path="res://world/building.gd" id="19_hp7a5"]
 [ext_resource type="Script" path="res://world/minigame_structure.gd" id="20_3uih5"]
@@ -36,20 +37,20 @@ scale = Vector2(0.1, 0.1)
 texture_normal = ExtResource("20_ic551")
 
 [node name="Amount0To9" parent="." instance=ExtResource("19_der6q")]
-offset_left = 645.0
-offset_top = 711.0
-offset_right = 1259.0
-offset_bottom = 1129.0
+offset_left = 643.0
+offset_top = 679.0
+offset_right = 1257.0
+offset_bottom = 1097.0
 scale = Vector2(0.4, 0.4)
-texture_normal = ExtResource("4_jy5qk")
+texture_normal = ExtResource("5_ldakl")
 minigame = "amount_0_to_9"
 world_part = "counting"
 
 [node name="NumberMatch" parent="." instance=ExtResource("19_der6q")]
-offset_left = 687.0
-offset_top = 799.0
-offset_right = 1170.0
-offset_bottom = 1526.0
+offset_left = 612.0
+offset_top = 794.0
+offset_right = 1095.0
+offset_bottom = 1521.0
 scale = Vector2(0.4, 0.4)
 texture_normal = ExtResource("6_b2yjb")
 flip_h = true
@@ -57,21 +58,22 @@ minigame = "match_0_to_9"
 world_part = "counting"
 
 [node name="NumberCatch" parent="." instance=ExtResource("19_der6q")]
-offset_left = 902.0
-offset_top = 748.0
-offset_right = 2153.0
-offset_bottom = 2117.0
+offset_left = 929.0
+offset_top = 762.0
+offset_right = 2180.0
+offset_bottom = 2131.0
 scale = Vector2(0.3, 0.3)
 texture_normal = ExtResource("7_8t41n")
 minigame = "number_catch_0_to_9"
 world_part = "counting"
 
 [node name="Amount0To50" parent="." instance=ExtResource("19_der6q")]
-offset_left = 780.0
-offset_top = 361.0
-offset_right = 984.0
-offset_bottom = 625.0
-texture_normal = ExtResource("8_p3ulf")
+offset_left = 672.0
+offset_top = 335.0
+offset_right = 1358.0
+offset_bottom = 827.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("8_mdbsl")
 minigame = "amount_0_to_50"
 world_part = "counting"
 
@@ -86,45 +88,43 @@ minigame = "make_amounts_1_to_999"
 world_part = "counting"
 
 [node name="Amount50To999" parent="." instance=ExtResource("19_der6q")]
-offset_left = 1511.0
-offset_top = 419.0
-offset_right = 1869.0
-offset_bottom = 909.0
+offset_left = 1461.0
+offset_top = 253.0
+offset_right = 2339.0
+offset_bottom = 927.0
 scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("3_uol80")
+texture_normal = ExtResource("10_pil52")
 minigame = "amount_50_to_999"
 world_part = "counting"
 
 [node name="NumLine0To9" parent="." instance=ExtResource("19_der6q")]
 offset_left = 15.0
-offset_top = 409.0
-offset_right = 1210.0
-offset_bottom = 1765.0
-scale = Vector2(0.2, 0.2)
-texture_normal = ExtResource("10_yaxrg")
-flip_h = true
-flip_v = true
+offset_top = 321.0
+offset_right = 587.0
+offset_bottom = 911.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("11_xo63y")
 minigame = "num_line_0_to_9"
 world_part = "counting"
 
 [node name="FallingNumbers0To9" parent="." instance=ExtResource("19_der6q")]
-offset_left = 106.0
-offset_top = 52.0
-offset_right = 1308.0
-offset_bottom = 1194.0
-scale = Vector2(0.2, 0.2)
-texture_normal = ExtResource("11_nr4lx")
+offset_left = 140.0
+offset_top = 4.0
+offset_right = 835.0
+offset_bottom = 904.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("12_es803")
 flip_h = true
 minigame = "falling_numbers_0_to_9"
 world_part = "counting"
 
 [node name="NumberBridge0To9" parent="." instance=ExtResource("19_der6q")]
-offset_left = 328.0
-offset_top = 163.0
-offset_right = 822.0
-offset_bottom = 781.0
+offset_left = 463.0
+offset_top = 272.0
+offset_right = 957.0
+offset_bottom = 890.0
 scale = Vector2(0.4, 0.4)
-texture_normal = ExtResource("13_m36cf")
+texture_normal = ExtResource("13_7snhg")
 flip_h = true
 minigame = "number_bridge_0_to_9"
 world_part = "counting"
@@ -136,26 +136,27 @@ centered = false
 offset = Vector2(100, 200)
 
 [node name="Snake1To50" parent="." instance=ExtResource("15_fav1c")]
-offset_left = 1028.0
-offset_top = 308.0
-offset_right = 1108.0
-offset_bottom = 533.0
-texture_normal = ExtResource("16_lqehr")
+offset_left = 1050.0
+offset_top = 382.0
+offset_right = 1480.0
+offset_bottom = 729.0
+scale = Vector2(0.6, 0.6)
+texture_normal = ExtResource("16_4pbd0")
 
 [node name="MakeAmounts1To50" parent="." instance=ExtResource("15_fav1c")]
-offset_left = 1048.0
-offset_top = 452.0
-offset_right = 1152.0
-offset_bottom = 678.0
+offset_left = 1009.0
+offset_top = 595.0
+offset_right = 1113.0
+offset_bottom = 821.0
 texture_normal = ExtResource("17_1cvup")
 
 [node name="NumberLine10To100" type="TextureButton" parent="."]
-offset_left = 564.0
-offset_top = 61.0
-offset_right = 1039.0
-offset_bottom = 526.0
-scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("18_456v0")
+offset_left = 456.0
+offset_top = 5.0
+offset_right = 1104.0
+offset_bottom = 851.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("18_d1n27")
 script = ExtResource("19_hp7a5")
 minigame = "num_line_10_to_100"
 world_part = "counting"
