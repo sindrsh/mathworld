@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5nt0lxl1ikjt"]
+
+[ext_resource type="Script" path="res://minigames/generics/puzzles/amounts_new/number_board.gd" id="1_2m3kr"]
+
+[node name="NumberBoard" type="Sprite2D"]
+script = ExtResource("1_2m3kr")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://by4c53vvyrb4n"]
+
+[ext_resource type="Script" path="res://minigames/generics/puzzles/amounts_new/increment_button.gd" id="1_wmbs5"]
+
+[node name="IncrementButton" type="Button"]
+script = ExtResource("1_wmbs5")
