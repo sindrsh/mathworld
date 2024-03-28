@@ -1,7 +1,7 @@
 extends "res://minigames/generics/bouncing_bubbles/bouncing_bubbles.gd"
 
 var score : = 0
-var ints := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+var ints := [0] #, 1, 2 #, 3, 4, 5, 6, 7, 8, 9]
 var music : AudioStreamMP3 = preload("res://minigames/generics/assets/game-music.mp3")
 var b_background : Texture2D = preload("res://minigames/counting/match_0_to_9/assets/bubbles empty 2.png")
 var nummber_symbol_b_texture := preload("res://minigames/counting/match_0_to_9/assets/bubbles empty 2.png")
@@ -108,12 +108,5 @@ func _bubbles_are_equal(bubble1 : String, bubble2 : String) -> bool:
 	if are_equal: score += 1
 	return are_equal
 
-
-func _on_game_ended(success):
-	for bubble in bubbles:
-		if bubble != null:
-			Dissolver.dissolveCircle(bubble.position, 64, 128)
-			bubble.queue_free()
-			await get_tree().create_timer(0.05).timeout
 			
 			

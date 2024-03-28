@@ -2,7 +2,7 @@ import inh;
 
 
 real s = 30;
-
+/*
 filldraw(scale(s)*unitsquare, p1);
 shipout("one.svg");
 
@@ -14,7 +14,7 @@ erase();
 filldraw(scale(10*s)*unitsquare, p100);
 shipout("hundred.svg");
 exit();
-
+*/
 void mk_ten_ones(){
   for(int i; i<10; ++i){
       filldraw(shift(0,i*s)*scale(s)*unitsquare, p1);
@@ -30,3 +30,15 @@ void mk_ten_tens(){
   shipout("ten_tens.svg");
   erase();
 }
+
+void mk_hundred_ones(){
+  for(int i; i<10; ++i){
+    for(int j; j<10; ++j){
+      filldraw(shift(j*s,i*s)*scale(s)*unitsquare, p1);
+    }
+  }
+  shipout("hundred_ones.svg");
+  erase();
+}
+
+mk_hundred_ones();

@@ -33,18 +33,7 @@ var numbers := {
 	3: hundreds
 }
 
-var one_texture = preload("res://minigames/generics/puzzles/amounts/assets/one.svg")
-var ten_texture = preload("res://minigames/generics/puzzles/amounts/assets/ten.svg")
-var hundred_texture = preload("res://minigames/generics/puzzles/amounts/assets/hundred.svg")
 
-var one_y: int = one_texture.get_height()
-var ten_x: int = ten_texture.get_width()
-
-var number_textures := {
-	1: one_texture,
-	2: ten_texture,
-	3: hundred_texture
-}
 
 var dx1 = 50
 var dy1 = 50
@@ -154,23 +143,22 @@ func _on_increment(_step: int, _place: int) -> void:
 
 
 func _add_number(_place: int) -> void:
-	var number: Sprite2D = number_scene.instantiate()
-	number.texture = number_textures[_place]
-	if number_positions[_place].is_empty():
-		print("m")
-		return
-	number.position = number_places[_place].position + number_positions[_place].pop_back()
+	var number: TextureButton = number_scene.instantiate()
+	number.place = _place
+	number.set_texture()
+	number.position += number_places[_place].position + number_positions[_place].pop_back()
+	
 	numbers[_place].push_back(number)
 	add_child(number)
 	number_board.one_up(_place)
 
 
 func _remove_number(_place: int) -> void:
-	var number: Sprite2D = numbers[_place].pop_back()
-	number_positions[_place].push_back(number.position - number_places[_place].position)
+	var number: TextureButton = numbers[_place].pop_back()
+	number_positions[_place].push_back(number.position - number_places[_place].position + number.texture_normal.get_size()/2.0)
 	number_board.one_down(_place)
 	number.queue_free()
-	
+
 
 func _on_ten(_place: int) -> void:
 	if _place == 3:
@@ -178,17 +166,20 @@ func _on_ten(_place: int) -> void:
 	for button in buttons:
 		button.disabled = true
 			
-	var number: Sprite2D = number_scene.instantiate()
-	number.texture = number_textures[_place]
+	var number: TextureButton = number_scene.instantiate()
+	number.place = _place
+	number.set_texture()
 	var vector_step : Vector2
 	if _place == 1:
-		number.position = number_places[_place + 1].position + number_positions[_place + 1][-1]	+ Vector2(0, 4.5*one_y)
-		vector_step = Vector2(0, -one_y)
+		vector_step = Vector2(0, -number.texture_normal.get_height())
+		number.position += number_places[_place + 1].position + number_positions[_place + 1][-1] + Vector2(0, -4.5*vector_step.y)
+		
 	if _place == 2:
-		number.position = number_places[_place + 1].position + number_positions[_place + 1][-1]	+ Vector2(4.5*ten_x, 0)
-		vector_step = Vector2(-ten_x, 0)
+		vector_step = Vector2(-number.texture_normal.get_width(), 0)
+		number.position += number_places[_place + 1].position + number_positions[_place + 1][-1] + Vector2(-4.5*vector_step.x, 0)
+		
 	add_child(number)
-	await get_tree().create_timer(0.2).timeout
+	await get_tree().create_timer(0.6).timeout
 	for i in range(9):
 		if _place == 1:
 			numbers[_place][i].target = number.position + (i+1)*vector_step

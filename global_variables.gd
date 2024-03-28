@@ -97,7 +97,7 @@ func get_game_index(game_array: Array, test_id: String):
 			index = i
 			break
 	if index == null:
-		print(test_id)
+		print("error: ", test_id)
 	assert(index != null)
 	return index
 

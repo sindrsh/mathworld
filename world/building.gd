@@ -9,7 +9,6 @@ extends TextureButton
 func _ready():
 	connect("mouse_entered", apply_outline)
 	connect("mouse_exited", remove_outline)
-	pass # Replace with function body.
 	
 
 func _pressed():

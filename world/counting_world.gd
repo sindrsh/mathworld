@@ -25,10 +25,7 @@ func _ready():
 	amount_minigames = [
 		$Amount0To9, 
 		$NumberMatch, 
-		$NumberCatch, 
 		$Amount0To50, 
-		$MakeAmounts1To50,
-		$Snake1To50,
 		$Amount50To999,
 		$MakeAmounts1To999,
 	]
@@ -37,7 +34,6 @@ func _ready():
 		$FallingNumbers0To9, 
 		$NumberBridge0To9,	
 		$NumberLine10To100,
-		$RunHill0To100
 	]
 	
 #	var save_game := FileAccess.open("user://savegame.save", FileAccess.READ)
@@ -56,12 +52,12 @@ func _ready():
 	add_child(development_board)
 	_show_map()
 
-func _is_completed(node : LevelIcon) -> bool:
+func _is_completed(node : TextureButton) -> bool:
 	if node.get("minigame"):
 		return node.get("minigame") in PlayerVariables.save_dict["minigames"]["counting"]
 	return false
 
-func _do_minigame_effect(node: LevelIcon) -> bool:
+func _do_minigame_effect(node: TextureButton) -> bool:
 	if node.get("minigame") == PlayerVariables.save_dict["minigames"]["lastCompletedMinigame"]:
 		node.play_effect()
 		

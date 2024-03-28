@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ciylhny54p0u7"]
+[gd_scene load_steps=7 format=3 uid="uid://ciylhny54p0u7"]
 
 [ext_resource type="Texture2D" uid="uid://bsrot707hw0mu" path="res://minigames/generics/assets/status-0.svg" id="1_i1832"]
 [ext_resource type="Texture2D" uid="uid://tshpe40how4c" path="res://minigames/generics/assets/status-1.svg" id="2_llkp6"]
 [ext_resource type="Texture2D" uid="uid://bklexuyhx01ln" path="res://minigames/generics/assets/status-2.svg" id="3_8o4k6"]
 [ext_resource type="Texture2D" uid="uid://hwyb4ani6nyw" path="res://minigames/generics/assets/status-3.svg" id="4_nqv87"]
+[ext_resource type="Script" path="res://minigames/generics/status_bar.gd" id="5_1ctli"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_htm6x"]
 animations = [{
@@ -28,3 +29,4 @@ animations = [{
 [node name="StatusBar" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_htm6x")
 frame = 3
+script = ExtResource("5_1ctli")

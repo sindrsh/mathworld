@@ -1,9 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://dhoe1ds3idav0"]
+[gd_scene load_steps=17 format=3 uid="uid://dhoe1ds3idav0"]
 
 [ext_resource type="Script" path="res://world/counting_world.gd" id="1_ugvj7"]
 [ext_resource type="Texture2D" uid="uid://kec7galqlvje" path="res://world/assets/prop1.png" id="5_ldakl"]
 [ext_resource type="Texture2D" uid="uid://dyea5swnyflwr" path="res://world/assets/biclops.svg" id="6_b2yjb"]
-[ext_resource type="Texture2D" uid="uid://dwaxf63ud6607" path="res://world/assets/cyclops.svg" id="7_8t41n"]
 [ext_resource type="Texture2D" uid="uid://cifrxmwoakecq" path="res://world/assets/prop2.png" id="8_mdbsl"]
 [ext_resource type="Texture2D" uid="uid://ds80xl85ry1rm" path="res://world/assets/Stack guy 1.svg" id="9_mfnxp"]
 [ext_resource type="Texture2D" uid="uid://dnr60mnj7kxkh" path="res://world/assets/prop3.png" id="10_pil52"]
@@ -12,14 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://dltiiq845ae1o" path="res://minigames/generics/MenuBar.tscn" id="12_khj6s"]
 [ext_resource type="Texture2D" uid="uid://cljoq1u3ged5n" path="res://world/assets/prop4.png" id="13_7snhg"]
 [ext_resource type="Texture2D" uid="uid://bpsnc3ruqhw5j" path="res://world/assets/road.svg" id="14_x5dn0"]
-[ext_resource type="PackedScene" uid="uid://cxo3k3r8250ry" path="res://world/minigame_structure.tscn" id="15_fav1c"]
-[ext_resource type="Texture2D" uid="uid://cmj2tfw7b37xx" path="res://world/assets/prop7.png" id="16_4pbd0"]
-[ext_resource type="Texture2D" uid="uid://d2nk20rqpkjlq" path="res://world/assets/tree2.svg" id="17_1cvup"]
-[ext_resource type="Texture2D" uid="uid://jv0u887nogx7" path="res://world/assets/planet6.png" id="18_456v0"]
 [ext_resource type="Texture2D" uid="uid://cspfj08dspcq6" path="res://world/assets/prop5.png" id="18_d1n27"]
 [ext_resource type="PackedScene" uid="uid://dbk0lrs3vdn38" path="res://world/building.tscn" id="19_der6q"]
 [ext_resource type="Script" path="res://world/building.gd" id="19_hp7a5"]
-[ext_resource type="Script" path="res://world/minigame_structure.gd" id="20_3uih5"]
 [ext_resource type="Texture2D" uid="uid://ct0njr045ypde" path="res://world/assets/Button_2.png" id="20_ic551"]
 [ext_resource type="Theme" uid="uid://cad5kstqpvlfe" path="res://assets/themes/default/default.tres" id="21_mhihp"]
 
@@ -57,16 +51,6 @@ flip_h = true
 minigame = "match_0_to_9"
 world_part = "counting"
 
-[node name="NumberCatch" parent="." instance=ExtResource("19_der6q")]
-offset_left = 929.0
-offset_top = 762.0
-offset_right = 2180.0
-offset_bottom = 2131.0
-scale = Vector2(0.3, 0.3)
-texture_normal = ExtResource("7_8t41n")
-minigame = "number_catch_0_to_9"
-world_part = "counting"
-
 [node name="Amount0To50" parent="." instance=ExtResource("19_der6q")]
 offset_left = 672.0
 offset_top = 335.0
@@ -74,7 +58,7 @@ offset_right = 1358.0
 offset_bottom = 827.0
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("8_mdbsl")
-minigame = "amount_0_to_50"
+minigame = "make_amounts_1_to_50"
 world_part = "counting"
 
 [node name="MakeAmounts1To999" parent="." instance=ExtResource("19_der6q")]
@@ -135,21 +119,6 @@ texture = ExtResource("14_x5dn0")
 centered = false
 offset = Vector2(100, 200)
 
-[node name="Snake1To50" parent="." instance=ExtResource("15_fav1c")]
-offset_left = 1050.0
-offset_top = 382.0
-offset_right = 1480.0
-offset_bottom = 729.0
-scale = Vector2(0.6, 0.6)
-texture_normal = ExtResource("16_4pbd0")
-
-[node name="MakeAmounts1To50" parent="." instance=ExtResource("15_fav1c")]
-offset_left = 1009.0
-offset_top = 595.0
-offset_right = 1113.0
-offset_bottom = 821.0
-texture_normal = ExtResource("17_1cvup")
-
 [node name="NumberLine10To100" type="TextureButton" parent="."]
 offset_left = 456.0
 offset_top = 5.0
@@ -160,15 +129,6 @@ texture_normal = ExtResource("18_d1n27")
 script = ExtResource("19_hp7a5")
 minigame = "num_line_10_to_100"
 world_part = "counting"
-
-[node name="RunHill0To100" type="TextureButton" parent="."]
-offset_left = 871.0
-offset_top = 71.0
-offset_right = 1346.0
-offset_bottom = 536.0
-scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("18_456v0")
-script = ExtResource("20_3uih5")
 
 [node name="ShowAllGames" type="Button" parent="."]
 offset_left = 1822.0

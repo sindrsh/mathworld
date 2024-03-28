@@ -2,9 +2,9 @@
 
 [ext_resource type="Material" uid="uid://8ajo6bma8ot6" path="res://shaders/outline.tres" id="1_ohsna"]
 [ext_resource type="Script" path="res://world/level.gd" id="3_1aqus"]
-[ext_resource type="Texture2D" uid="uid://cfx56hp06tgvm" path="res://world/assets/Slugworm_Test_SVG.svg" id="3_andt3"]
+[ext_resource type="Texture2D" uid="uid://d10pq8i8aksph" path="res://world/assets/Slugworm_Test_SVG.svg" id="3_andt3"]
 [ext_resource type="PackedScene" uid="uid://bb5ibsyatnfcq" path="res://components/clickable/clickable.tscn" id="4_t5atp"]
-[ext_resource type="Texture2D" uid="uid://igv2jyd73vqf" path="res://assets/confetti.png" id="5_qkhwq"]
+[ext_resource type="Texture2D" uid="uid://m2p0gy70p7n0" path="res://assets/confetti.png" id="5_qkhwq"]
 
 [sub_resource type="Animation" id="Animation_4gqv8"]
 length = 0.001

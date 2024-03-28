@@ -17,5 +17,3 @@ modulate = Color(1, 1, 1, 0.67451)
 position = Vector2(966, 544)
 scale = Vector2(1.38, 1.38)
 texture = ExtResource("2_wugm3")
-
-[connection signal="game_ended" from="." to="." method="_on_game_ended"]

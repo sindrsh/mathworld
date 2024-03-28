@@ -19,17 +19,13 @@ var menu_bar : Node2D = MenuBarScene.instantiate()
 var cheat_button := Button.new()
 var status_bar : AnimatedSprite2D
 var music_player := AudioStreamPlayer2D.new()
-var ending_slide_scene := preload("res://components/ending_slide/ending_slide.tscn")
-var ending_slide: EndingSlide
+
 
 func _ready():
 	
 	assert(menu_bar.get_node("HBoxContainer/MusicButton").toggled.connect(_on_music_button_toggled) == 0)
 	GlobalVariables.current_game_path = get_scene_file_path()
-	
-	ending_slide = ending_slide_scene.instantiate()
-	add_child(ending_slide)
-	
+		
 	_add_generics()
 	_add_specifics()
 	
@@ -37,7 +33,7 @@ func _ready():
 	add_child(music_player)
 	music_player.playing = true
 	
-	
+	print("test_id", id)
 	if GlobalVariables.world_parts.has(world_part):
 		game_index = GlobalVariables.get_game_index(GlobalVariables.world_parts[world_part][minigame_type], id)
 	cheat_button.text = "cheat"
@@ -91,7 +87,7 @@ func _end_game() -> void:
 	_stop_game()
 	_game_completed()
 	if status_bar:
-		ending_slide.slide_in(3 - status_bar.frame)
+		status_bar.moving = true
 	emit_signal("game_ended", true)
 	
 	# old ending code
@@ -100,8 +96,6 @@ func _end_game() -> void:
 
 func _end_game_with_failure():
 	_stop_game()
-	#if get_tree().change_scene_to_file("res://minigames/generics/FailureMessage.tscn") != OK:
-		#print("Failed changing scene")
 	emit_signal("game_ended", false)
 
 func _on_music_button_toggled(_button_pressed : bool) -> void:

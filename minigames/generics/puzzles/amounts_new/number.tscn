@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://minigames/generics/puzzles/amounts_new/number.gd" id="1_pg10f"]
 
-[node name="Number" type="Sprite2D"]
+[node name="Number" type="TextureButton"]
 script = ExtResource("1_pg10f")
