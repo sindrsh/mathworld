@@ -1,4 +1,4 @@
-extends Button
+extends TextureButton
 
 signal increment(_step: int, _place: int)
 var step : int

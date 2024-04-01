@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dbk0lrs3vdn38"]
 
-[ext_resource type="Script" path="res://world/building.gd" id="1_y4csk"]
+[ext_resource type="Script" path="res://worlds/counting/building.gd" id="1_y4csk"]
 
 [node name="Building" type="TextureButton"]
 script = ExtResource("1_y4csk")

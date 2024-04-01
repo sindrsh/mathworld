@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://by4c53vvyrb4n"]
+[gd_scene load_steps=4 format=3 uid="uid://by4c53vvyrb4n"]
 
+[ext_resource type="Texture2D" uid="uid://cyndhbad1qmww" path="res://minigames/generics/puzzles/amounts_new/assets/increment_button_normal.svg" id="1_0cvl5"]
 [ext_resource type="Script" path="res://minigames/generics/puzzles/amounts_new/increment_button.gd" id="1_wmbs5"]
+[ext_resource type="Texture2D" uid="uid://0nhqhta30gff" path="res://minigames/generics/puzzles/amounts_new/assets/increment_button_pressed.svg" id="2_viaht"]
 
-[node name="IncrementButton" type="Button"]
+[node name="IncrementButton" type="TextureButton"]
+texture_normal = ExtResource("1_0cvl5")
+texture_pressed = ExtResource("2_viaht")
 script = ExtResource("1_wmbs5")

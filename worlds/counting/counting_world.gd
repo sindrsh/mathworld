@@ -1,8 +1,7 @@
 extends Node2D
 
-var development_board : Node2D = preload("res://world/development_board.tscn").instantiate()
+var development_board : Node2D = preload("res://worlds/counting/development_board.tscn").instantiate()
 
-var effect_scene = preload("res://world/effect.tscn")
 
 var amount_minigames : Array
 var number_line_minigames : Array

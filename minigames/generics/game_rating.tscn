@@ -1,12 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://3q7kvwwotegq"]
+[gd_scene load_steps=7 format=3 uid="uid://3q7kvwwotegq"]
 
 [ext_resource type="Texture2D" uid="uid://hwyb4ani6nyw" path="res://minigames/generics/assets/status-3.svg" id="1_jxux1"]
+[ext_resource type="Script" path="res://minigames/generics/game_rating.gd" id="1_xq1ph"]
 [ext_resource type="Texture2D" uid="uid://bklexuyhx01ln" path="res://minigames/generics/assets/status-2.svg" id="2_1w2fq"]
+[ext_resource type="Texture2D" uid="uid://dayrtf3gfg51x" path="res://minigames/generics/assets/status-idle.svg" id="2_rg3w8"]
 [ext_resource type="Texture2D" uid="uid://tshpe40how4c" path="res://minigames/generics/assets/status-1.svg" id="3_tmulw"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_exl6i"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rg3w8")
+}, {
 "duration": 1.0,
 "texture": ExtResource("3_tmulw")
 }, {
@@ -28,6 +33,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_xq1ph")
 
 [node name="RatingIndicator" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_exl6i")

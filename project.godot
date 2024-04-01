@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="mthwrld_gd4"
-run/main_scene="res://world/counting_world.tscn"
+run/main_scene="res://worlds/counting/counting_world.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 boot_splash/bg_color=Color(1, 1, 1, 1)
 boot_splash/image="res://assets/logo.png"

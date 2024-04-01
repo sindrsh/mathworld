@@ -61,8 +61,8 @@ func _add_generics() -> void:
 
 func _physics_process(_delta):
 	if _end_game_condition(): 
-			await get_tree().create_timer(0.5).timeout
 			_end_game()
+
 
 func _mk_bubbles():
 	pass
@@ -70,7 +70,7 @@ func _mk_bubbles():
 
 func _on_bubble_pressed(_name : String) -> void:
 	if not bubble_container.get_node(_name):
-		print("wtd")
+		return
 	if _name == chosen_bubble:
 		bubble_container.get_node(_name).button.texture_normal = bubble_container.get_node(_name).not_chosen_texture		
 		chosen_bubble = ''

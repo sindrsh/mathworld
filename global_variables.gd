@@ -5,88 +5,76 @@ enum {INSIGHT, CALCULATION}
 
 var current_game_path : String
 
-var count_number_line_minigames := [	
-	{
-		"id": "num_line_0_to_9",
+var count_minigames:= {	
+	"num_line_0_to_9": {
 		"status": NOT_COMPLETED,
-		"branch": INSIGHT
-	},	
-	{
-		"id": "falling_numbers_0_to_9",
+		"branch": INSIGHT,
+		"score": 0
+		},	
+	"falling_numbers_0_to_9": {
 		"status": NOT_COMPLETED,
 		"branch": CALCULATION,
 		"score": 0
 	},
-	{
-		"id": "number_bridge_0_to_9",
+	"number_bridge_0_to_9": {
 		"status": NOT_COMPLETED,
 		"branch": CALCULATION,
 		"score": 0
 	},				
-	{
-		"id": "num_line_10_to_100",
+	"num_line_10_to_100": {
 		"status": NOT_COMPLETED,
-		"branch": INSIGHT
+		"branch": INSIGHT,
+		"score": 0
 	},		
-	{
-		"id": "run_hill",
+	"run_hill": {
 		"status": NOT_COMPLETED,
 		"branch": CALCULATION,
 		"score": 0
 	},	
-]
-
-var count_amount_minigames := [
-	{
-		"id": "amount_0_to_9",
-		"status": NOT_COMPLETED,
-		"branch": INSIGHT
-	},
-	{
-		"id": "match_0_to_9",
-		"status": NOT_COMPLETED,
-		"branch": CALCULATION,
-		"score": 0
-	},
-	{
-		"id": "number_catch_0_to_9",
-		"status": NOT_COMPLETED,
-		"branch": CALCULATION,
-		"score": 0
-	},
-	{
-		"id": "amount_0_to_50",
+	"amount_0_to_9": {
 		"status": NOT_COMPLETED,
 		"branch": INSIGHT,
+		"score": 0
 	},
-	{
-		"id": "make_amounts_1_to_50",
+	"match_0_to_9": {
 		"status": NOT_COMPLETED,
 		"branch": CALCULATION,
 		"score": 0
 	},
-	{
-		"id": "snake_1_to_50",
+	"number_catch_0_to_9": {
+		"status": NOT_COMPLETED,
+		"branch": CALCULATION,
+		"score": 0
+	},
+	"amount_0_to_50": {
+		"status": NOT_COMPLETED,
+		"branch": INSIGHT,
+		"score": 0
+	},
+	"make_amounts_1_to_50": {
+		"status": NOT_COMPLETED,
+		"branch": CALCULATION,
+		"score": 0
+	},
+	"snake_1_to_50": {
 		"status": NOT_COMPLETED,
 		"branch": CALCULATION,
 		"score": 0
 	},			
-	{
-		"id": "amount_50_to_999",
+	"amount_50_to_999": {
 		"status": NOT_COMPLETED,
-		"branch": INSIGHT
-	},	
-	{
-		"id": "make_amounts_1_to_999",
-		"status": NOT_COMPLETED,
-		"branch": CALCULATION,
+		"branch": INSIGHT,
 		"score": 0
 	},	
-]
-
+	"make_amounts_1_to_999": {
+		"status": NOT_COMPLETED,
+		"branch": CALCULATION,
+		"score": 0,
+	},	
+}
 
 var world_parts := {
-	"counting": [count_amount_minigames, count_number_line_minigames]
+	"counting": count_minigames
 }
 
 

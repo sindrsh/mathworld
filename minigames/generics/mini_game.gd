@@ -12,7 +12,6 @@ var minigame_type : int
 
 signal game_ended(success: bool)
 
-var game_index : int
 var MenuBarScene : PackedScene = load("res://minigames/generics/MenuBar.tscn")
 var status_bar_scene : PackedScene = load("res://minigames/generics/status_bar.tscn")
 var menu_bar : Node2D = MenuBarScene.instantiate()
@@ -33,9 +32,6 @@ func _ready():
 	add_child(music_player)
 	music_player.playing = true
 	
-	print("test_id", id)
-	if GlobalVariables.world_parts.has(world_part):
-		game_index = GlobalVariables.get_game_index(GlobalVariables.world_parts[world_part][minigame_type], id)
 	cheat_button.text = "cheat"
 	cheat_button.position = Vector2(1800, 1000)
 	cheat_button.pressed.connect(_end_game)
@@ -51,21 +47,24 @@ func _add_specifics() -> void:
 
 func _game_completed() -> void:
 	if GlobalVariables.world_parts.has(world_part):
-		var game_dict: Dictionary = GlobalVariables.world_parts[world_part][minigame_type][game_index]
+		var game_dict: Dictionary = GlobalVariables.world_parts[world_part][id]
 		game_dict["status"] = GlobalVariables.COMPLETED
 		if id not in PlayerVariables.save_dict["minigames"][world_part]:
-			
 			PlayerVariables.save_dict["minigames"][world_part].push_back(id) 
 			PlayerVariables.save_dict["minigames"]["lastCompletedMinigame"] = id
 			PlayerVariables.save_dict["minigames"]["effectPlayed"] = false
 		var save_game = FileAccess.open("user://savegame.save", FileAccess.WRITE)
 		var json_string = JSON.stringify(PlayerVariables.save_dict)
 		save_game.store_line(json_string)
-		if status_bar and game_dict.has("score"):
-			game_dict["score"] = status_bar.frame - 1
-			
-			
-	
+		if status_bar:
+			game_dict["score"] = status_bar.frame
+		else:
+			game_dict["score"] = 1
+		var development_board = load("res://worlds/counting/development_board.tscn").instantiate()
+		development_board.scale = Vector2(0.5,0.5)
+		development_board.position = Vector2(300, 300)
+		add_child(development_board)	
+				
 func _add_status_bar() -> void:
 	status_bar = status_bar_scene.instantiate()
 	status_bar.position = Vector2(1800, 500)
@@ -78,25 +77,19 @@ func _end_game_condition() -> bool:
 func _end_game_message():
 	return "Mini game completed!"
 
-
-func _stop_game() -> void:
-	call_deferred("set_physics_process", false)
-		
-		
 func _end_game() -> void:
-	_stop_game()
+	#call_deferred("set_physics_process", false)
+	set_physics_process(false)
 	_game_completed()
 	if status_bar:
 		status_bar.moving = true
 	emit_signal("game_ended", true)
 	
-	# old ending code
-	#if get_tree().change_scene_to_file("res://minigames/generics/SuccessMessage.tscn") != OK:
-	#	print("Failed changing scene")
 
 func _end_game_with_failure():
-	_stop_game()
+	call_deferred("set_physics_process", false)
 	emit_signal("game_ended", false)
+
 
 func _on_music_button_toggled(_button_pressed : bool) -> void:
 	music_player.playing = not _button_pressed

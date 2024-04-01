@@ -1,0 +1,109 @@
+[gd_scene load_steps=5 format=3 uid="uid://dex4hn7kdvs3m"]
+
+[ext_resource type="Script" path="res://minigames/generics/snake/snake.gd" id="1_e5mfa"]
+[ext_resource type="Script" path="res://minigames/generics/snake/snake_front.gd" id="2_hx7gl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8akn0"]
+size = Vector2(70, 70)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kqdnu"]
+bg_color = Color(0.413712, 0.679565, 0.341698, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="SnakeGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e5mfa")
+
+[node name="SnakeFront" type="Area2D" parent="."]
+visible = false
+script = ExtResource("2_hx7gl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SnakeFront"]
+shape = SubResource("RectangleShape2D_8akn0")
+
+[node name="Panel" type="Panel" parent="SnakeFront"]
+auto_translate_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FakeFront" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("2_hx7gl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FakeFront"]
+shape = SubResource("RectangleShape2D_8akn0")
+
+[node name="Panel" type="Panel" parent="FakeFront"]
+auto_translate_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SnakePart" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SnakePart"]
+shape = SubResource("RectangleShape2D_8akn0")
+
+[node name="Panel" type="Panel" parent="SnakePart"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kqdnu")
+
+[node name="FakePart" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FakePart"]
+shape = SubResource("RectangleShape2D_8akn0")
+
+[node name="Panel" type="Panel" parent="FakePart"]
+auto_translate_mode = 1
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kqdnu")

@@ -110,19 +110,18 @@ func _add_generics() -> void:
 
 func _add_buttons(digit_place: Sprite2D, place: int) -> void:
 	
-	var plus : Button = increment_button.instantiate()
-	plus.text = "+"
+	var plus : TextureButton = increment_button.instantiate()
 	plus.step = 1
 	plus.place = place
-	var minus : Button = increment_button.instantiate()
-	minus.text = "-"	
+	var minus : TextureButton = increment_button.instantiate()
 	minus.step = -1
 	minus.place = place
+	minus.flip_h = true
 	
 	plus.increment.connect(_on_increment)
 	minus.increment.connect(_on_increment)
-	plus.position = digit_place.position + Vector2(20, 200)
-	minus.position = digit_place.position + Vector2(-20-minus.size.x, 200)
+	plus.position = digit_place.position + Vector2(5, 250)
+	minus.position = digit_place.position + Vector2(-5-minus.texture_normal.get_width(), 250)
 	add_child(plus)
 	add_child(minus)
 	buttons.push_back(plus)
