@@ -1,10 +1,9 @@
 [gd_scene load_steps=22 format=3 uid="uid://bdp65nv8ttjmn"]
 
 [ext_resource type="Script" path="res://minigames/counting/falling_decimals_0_to_2/number.gd" id="1_4aak3"]
-[ext_resource type="Texture2D" uid="uid://ckd4t44e4ummu" path="res://minigames/counting/falling_numbers_0_to_9/assets/blue_baloon_minigame.png" id="2_a0qxr"]
-[ext_resource type="Texture2D" uid="uid://cw5jlwx55pd8g" path="res://minigames/counting/falling_numbers_0_to_9/assets/green_baloon_minigame.png" id="3_04vov"]
-[ext_resource type="Texture2D" uid="uid://bfh0ie1co0m42" path="res://minigames/counting/falling_numbers_0_to_9/assets/purple_baloon_minigame.png" id="4_xbeut"]
-[ext_resource type="Texture2D" uid="uid://cvi3vicpl6tth" path="res://minigames/counting/falling_numbers_0_to_9/assets/white_baloon_minigame.png" id="5_2kqsr"]
+[ext_resource type="Shader" path="res://assets/materials/texture_outline.gdshader" id="2_jssf2"]
+[ext_resource type="Texture2D" uid="uid://dskrj8xs5aom3" path="res://minigames/counting/falling_numbers_0_to_9/assets/horizontal_bee.png" id="2_yrab5"]
+[ext_resource type="Texture2D" uid="uid://b6jyxophbxicp" path="res://minigames/counting/falling_numbers_0_to_9/assets/vertical_bee.png" id="3_jk23d"]
 [ext_resource type="Texture2D" uid="uid://bxialyxlg0w64" path="res://minigames/counting/falling_numbers_0_to_9/assets/zero_white.svg" id="7_ic2yu"]
 [ext_resource type="Texture2D" uid="uid://cdpelcmm02yqa" path="res://minigames/counting/falling_numbers_0_to_9/assets/blue.png" id="7_ju4gm"]
 [ext_resource type="Texture2D" uid="uid://cedjhiyh6330u" path="res://minigames/counting/falling_numbers_0_to_9/assets/one_white.svg" id="8_ftfek"]
@@ -17,20 +16,19 @@
 [ext_resource type="Texture2D" uid="uid://cjpeuuptbk401" path="res://minigames/counting/falling_numbers_0_to_9/assets/eight_white.svg" id="15_qpkwc"]
 [ext_resource type="Texture2D" uid="uid://0t4s04settg0" path="res://minigames/counting/falling_numbers_0_to_9/assets/nine_white.svg" id="16_jtydg"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0x58q"]
+shader = ExtResource("2_jssf2")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 10.0
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_6ckqd"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_a0qxr")
+"texture": ExtResource("2_yrab5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_04vov")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_xbeut")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_2kqsr")
+"texture": ExtResource("3_jk23d")
 }],
 "loop": true,
 "name": &"default",
@@ -140,6 +138,7 @@ animations = [{
 script = ExtResource("1_4aak3")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_0x58q")
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_6ckqd")
 

@@ -21,8 +21,8 @@ var creature_start_pos : Vector2 = Vector2(80,750)
 var number : CharacterBody2D = preload("res://minigames/generics/cross_the_bridge/number.tscn").instantiate()
 var creature : CharacterBody2D = preload("res://minigames/generics/cross_the_bridge/creature.tscn").instantiate()
 var send_number_button := TextureButton.new()
-var send_number_texture : Texture2D = preload("res://minigames/generics/cross_the_bridge/assets/Go_button.png")
-var send_number_pressed : Texture2D = preload("res://minigames/generics/cross_the_bridge/assets/Go_dark_button.png")
+var send_number_texture : Texture2D = preload("res://minigames/generics/cross_the_bridge/assets/go_button_a.svg")
+var send_number_pressed : Texture2D = preload("res://minigames/generics/cross_the_bridge/assets/go_button_b.svg")
 var new_task_timer := Timer.new()
 var score_count := Node2D.new()
 var sound_effect := AudioStreamPlayer2D.new()
@@ -54,7 +54,6 @@ func _add_generics() -> void:
 	score_label.set_text_position(Vector2(0,-20))
 	score_count.add_child(score_label)
 	
-	send_number_button.scale = 0.2*Vector2(1,1)
 	send_number_button.texture_normal = send_number_texture
 	send_number_button.texture_pressed = send_number_pressed
 	

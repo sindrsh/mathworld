@@ -1,0 +1,223 @@
+[gd_scene load_steps=43 format=3 uid="uid://cfx4ymlda73hf"]
+
+[ext_resource type="Script" path="res://minigames/generics/puzzles/amounts_new/number_picture.gd" id="1_gdnuy"]
+[ext_resource type="Texture2D" uid="uid://d0ncb1ou32uw3" path="res://minigames/counting/make_amounts_1_to_999/assets/hundred1.svg" id="2_4s3q7"]
+[ext_resource type="Texture2D" uid="uid://0h87mh83ugrt" path="res://minigames/counting/make_amounts_1_to_999/assets/hundred2.svg" id="3_6rpk4"]
+[ext_resource type="Texture2D" uid="uid://6c6pjgjgqo36" path="res://minigames/counting/make_amounts_1_to_999/assets/hundred3.svg" id="4_pi5ca"]
+[ext_resource type="Texture2D" uid="uid://hbjlhlj8mmn" path="res://minigames/counting/make_amounts_1_to_999/assets/hundred4.svg" id="5_ethvv"]
+[ext_resource type="Texture2D" uid="uid://dgm7qtslt063d" path="res://minigames/counting/make_amounts_1_to_999/assets/hundred5.svg" id="6_vlksx"]
+[ext_resource type="Texture2D" uid="uid://blb37eu34ngw0" path="res://minigames/counting/make_amounts_1_to_999/assets/hundred6.svg" id="7_vs164"]
+[ext_resource type="Texture2D" uid="uid://bepk1m4i2jssd" path="res://minigames/counting/make_amounts_1_to_999/assets/hundred7.svg" id="8_taf8l"]
+[ext_resource type="Texture2D" uid="uid://dr0lmnusywbtd" path="res://minigames/counting/make_amounts_1_to_999/assets/hundred8.svg" id="9_1dsu6"]
+[ext_resource type="Texture2D" uid="uid://3mjr32irw26p" path="res://minigames/counting/make_amounts_1_to_999/assets/hundred9.svg" id="10_phbgm"]
+[ext_resource type="Texture2D" uid="uid://dka8yop1gdfsw" path="res://minigames/counting/make_amounts_1_to_999/assets/ten1.svg" id="11_s6ds8"]
+[ext_resource type="Texture2D" uid="uid://bskxvsisa54dg" path="res://minigames/counting/make_amounts_1_to_999/assets/ten2.svg" id="12_hhlo0"]
+[ext_resource type="Texture2D" uid="uid://c123j4vbqb0c7" path="res://minigames/counting/make_amounts_1_to_999/assets/ten3.svg" id="13_2hwor"]
+[ext_resource type="Texture2D" uid="uid://dhl0j71tdqq41" path="res://minigames/counting/make_amounts_1_to_999/assets/ten4.svg" id="14_8rsgh"]
+[ext_resource type="Texture2D" uid="uid://bnqml5njercn7" path="res://minigames/counting/make_amounts_1_to_999/assets/ten5.svg" id="15_iwwnk"]
+[ext_resource type="Texture2D" uid="uid://b4p6ucgjlf8hu" path="res://minigames/counting/make_amounts_1_to_999/assets/ten6.svg" id="16_60r5j"]
+[ext_resource type="Texture2D" uid="uid://blf13x64mdmcv" path="res://minigames/counting/make_amounts_1_to_999/assets/ten7.svg" id="17_waho0"]
+[ext_resource type="Texture2D" uid="uid://bbj8xysdctews" path="res://minigames/counting/make_amounts_1_to_999/assets/ten8.svg" id="18_b2th0"]
+[ext_resource type="Texture2D" uid="uid://bxij8f0bwg7iu" path="res://minigames/counting/make_amounts_1_to_999/assets/ten9.svg" id="19_xfy6n"]
+[ext_resource type="Texture2D" uid="uid://bd4pa30b84is4" path="res://minigames/counting/make_amounts_1_to_999/assets/one1.svg" id="20_cehep"]
+[ext_resource type="Texture2D" uid="uid://b7undhewo3cgb" path="res://minigames/counting/make_amounts_1_to_999/assets/one2.svg" id="21_te4ej"]
+[ext_resource type="Texture2D" uid="uid://dnhi7xqj4xu3d" path="res://minigames/counting/make_amounts_1_to_999/assets/one3.svg" id="22_ekbdo"]
+[ext_resource type="Texture2D" uid="uid://d0pay35f16yc1" path="res://minigames/counting/make_amounts_1_to_999/assets/one4.svg" id="23_uyqyx"]
+[ext_resource type="Texture2D" uid="uid://bfyxupvnic83q" path="res://minigames/counting/make_amounts_1_to_999/assets/one5.svg" id="24_7mynm"]
+[ext_resource type="Texture2D" uid="uid://fullyprvwb2b" path="res://minigames/counting/make_amounts_1_to_999/assets/one6.svg" id="25_e2w63"]
+[ext_resource type="Texture2D" uid="uid://bwx8l8d1qitk7" path="res://minigames/counting/make_amounts_1_to_999/assets/one7.svg" id="26_yeijx"]
+[ext_resource type="Texture2D" uid="uid://7jbgnpnbw1uf" path="res://minigames/counting/make_amounts_1_to_999/assets/one8.svg" id="27_kn53r"]
+[ext_resource type="Texture2D" uid="uid://b5pn8yc4ytjjp" path="res://minigames/counting/make_amounts_1_to_999/assets/one9.svg" id="28_t3amg"]
+[ext_resource type="Texture2D" uid="uid://c744xft2x8psw" path="res://minigames/generics/puzzles/amounts_new/assets/1_ones.svg" id="29_5koqe"]
+[ext_resource type="Texture2D" uid="uid://cos241kn302q0" path="res://minigames/generics/puzzles/amounts_new/assets/2_ones.svg" id="30_lyibv"]
+[ext_resource type="Texture2D" uid="uid://dwjepnado20ef" path="res://minigames/generics/puzzles/amounts_new/assets/3_ones.svg" id="31_0mw6i"]
+[ext_resource type="Texture2D" uid="uid://bkvjjkgtxbomb" path="res://minigames/generics/puzzles/amounts_new/assets/4_ones.svg" id="32_a3g1m"]
+[ext_resource type="Texture2D" uid="uid://ced7y80hm6fl3" path="res://minigames/generics/puzzles/amounts_new/assets/5_ones.svg" id="33_g310y"]
+[ext_resource type="Texture2D" uid="uid://c0efc2tkrfsy5" path="res://minigames/generics/puzzles/amounts_new/assets/6_ones.svg" id="34_18a5f"]
+[ext_resource type="Texture2D" uid="uid://citxeiydnoqa2" path="res://minigames/generics/puzzles/amounts_new/assets/7_ones.svg" id="35_nr14w"]
+[ext_resource type="Texture2D" uid="uid://1k078nea1mpn" path="res://minigames/generics/puzzles/amounts_new/assets/8_ones.svg" id="36_8df4c"]
+[ext_resource type="Texture2D" uid="uid://6gty60ihnab4" path="res://minigames/generics/puzzles/amounts_new/assets/9_ones.svg" id="37_4xuuk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ke6u"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dootg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_4s3q7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6rpk4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pi5ca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ethvv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_vlksx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_vs164")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_taf8l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_1dsu6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_phbgm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hq8bq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_s6ds8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_hhlo0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_2hwor")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_8rsgh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_iwwnk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_60r5j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_waho0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_b2th0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_xfy6n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_75241"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_cehep")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_te4ej")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_ekbdo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_uyqyx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_7mynm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_e2w63")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_yeijx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_kn53r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_t3amg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lijeu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_5koqe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_lyibv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_0mw6i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_a3g1m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_g310y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_18a5f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_nr14w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_8df4c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_4xuuk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="NumberPicture" type="Node2D"]
+script = ExtResource("1_gdnuy")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 700.0
+offset_bottom = 450.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8ke6u")
+
+[node name="Hundreds" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dootg")
+centered = false
+
+[node name="Tens" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hq8bq")
+centered = false
+
+[node name="Ones" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_75241")
+centered = false
+
+[node name="OnesAlt" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lijeu")
+centered = false

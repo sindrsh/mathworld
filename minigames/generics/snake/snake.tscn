@@ -1,10 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://dex4hn7kdvs3m"]
+[gd_scene load_steps=12 format=3 uid="uid://dex4hn7kdvs3m"]
 
 [ext_resource type="Script" path="res://minigames/generics/snake/snake.gd" id="1_e5mfa"]
-[ext_resource type="Script" path="res://minigames/generics/snake/snake_front.gd" id="2_hx7gl"]
+[ext_resource type="Texture2D" uid="uid://2xb7c5eko7br" path="res://minigames/generics/puzzles/amounts_new/assets/background.svg" id="2_mewdp"]
+[ext_resource type="Script" path="res://minigames/generics/snake/fruit.gd" id="3_xyswu"]
+[ext_resource type="Texture2D" uid="uid://dgjw1jwn8b0wi" path="res://minigames/generics/puzzles/amounts_new/assets/fruit.png" id="5_ylqhi"]
+[ext_resource type="Script" path="res://assets/global_scenes/text.gd" id="6_8j61p"]
+[ext_resource type="AudioStream" uid="uid://cr2a85i1p2has" path="res://minigames/generics/assets/correct.mp3" id="7_mrqex"]
+[ext_resource type="AudioStream" uid="uid://c741aog6bvu7i" path="res://minigames/generics/assets/failure.mp3" id="8_8cso5"]
+
+[sub_resource type="GDScript" id="GDScript_12xyq"]
+script/source = "extends Area2D
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8akn0"]
-size = Vector2(70, 70)
+size = Vector2(75, 75)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kqdnu"]
 bg_color = Color(0.413712, 0.679565, 0.341698, 1)
@@ -12,6 +30,9 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhfl0"]
+size = Vector2(70, 70)
 
 [node name="SnakeGame" type="Control"]
 layout_mode = 3
@@ -22,9 +43,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e5mfa")
 
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_mewdp")
+centered = false
+
 [node name="SnakeFront" type="Area2D" parent="."]
-visible = false
-script = ExtResource("2_hx7gl")
+monitoring = false
+monitorable = false
+script = SubResource("GDScript_12xyq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SnakeFront"]
 shape = SubResource("RectangleShape2D_8akn0")
@@ -44,9 +70,9 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="FakeFront" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("2_hx7gl")
+visible = false
+monitorable = false
+script = SubResource("GDScript_12xyq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FakeFront"]
 shape = SubResource("RectangleShape2D_8akn0")
@@ -67,6 +93,8 @@ grow_vertical = 2
 
 [node name="SnakePart" type="Area2D" parent="."]
 visible = false
+monitoring = false
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SnakePart"]
 shape = SubResource("RectangleShape2D_8akn0")
@@ -86,15 +114,14 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_kqdnu")
 
 [node name="FakePart" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 0
+visible = false
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FakePart"]
 shape = SubResource("RectangleShape2D_8akn0")
 
 [node name="Panel" type="Panel" parent="FakePart"]
 auto_translate_mode = 1
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -107,3 +134,29 @@ offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_kqdnu")
+
+[node name="Fruit" type="Area2D" parent="."]
+visible = false
+monitoring = false
+script = ExtResource("3_xyswu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fruit"]
+shape = SubResource("RectangleShape2D_dhfl0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Fruit"]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_ylqhi")
+
+[node name="Label" type="Label" parent="Fruit"]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("6_8j61p")
+
+[node name="CorrectSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_mrqex")
+
+[node name="IncorrectSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_8cso5")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2

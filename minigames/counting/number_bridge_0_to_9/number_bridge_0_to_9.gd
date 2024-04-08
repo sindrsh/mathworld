@@ -42,12 +42,12 @@ func _add_specifics():
 	plus_denom_btn.texture_normal = plus_texture
 	min_denom_btn.texture_normal = min_texture
 	
-	plus_num_btn.position = Vector2(300, 50)
-	min_num_btn.position = Vector2(150, 50)
+	plus_num_btn.position = Vector2(400, 50)
+	min_num_btn.position = Vector2(100, plus_num_btn.position.y)
 	plus_denom_btn.position = plus_num_btn.position + Vector2(0, 200)
-	min_denom_btn.position = min_num_btn.position + Vector2(0, 200)
+	min_denom_btn.position = min_num_btn.position + Vector2(0, plus_denom_btn.position.y)
 	
-	send_number_button.position = (plus_num_btn.position + min_num_btn.position)/2.0 + Vector2(0, 150)
+	send_number_button.position = (plus_num_btn.position + min_num_btn.position)/2.0 + Vector2(2, 3)
 	
 #	add_child(plus_denom_btn)
 	add_child(plus_num_btn)

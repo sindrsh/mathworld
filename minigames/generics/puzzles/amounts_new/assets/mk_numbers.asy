@@ -41,4 +41,14 @@ void mk_hundred_ones(){
   erase();
 }
 
-mk_hundred_ones();
+void mk_ones(){
+  real dxy = 10;
+  for(int i; i<9; ++i){
+      filldraw(shift(-(i % 2)*(s+dxy),(i # 2)*(s+dxy))*scale(s)*unitsquare, p1);
+      shipout(string(i+1) + "_ones.svg");
+  }
+
+  erase();
+}
+
+mk_ones();

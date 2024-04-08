@@ -26,13 +26,9 @@ func _on_num_selection(node):
 	if selected_number == null or not is_instance_valid(selected_number):
 		selected_number = node
 	else:
-		if selected_number.find_tick != true:
-			selected_number.get_node("Sprite2D").frame = 0
-		else:
-			selected_number.get_node("Sprite2D").frame = 2	
+		selected_number.remove_outline()
 		selected_number = node
-	node.get_node("Sprite2D").frame = 1
-
+	selected_number.apply_outline()
 	
 func _on_tick_selection(node):
 	node.get_node("Sprite2D").frame = 1
@@ -40,6 +36,7 @@ func _on_tick_selection(node):
 	if selected_number != null and is_instance_valid(selected_number):
 		selected_number.tick = node
 		selected_number.find_tick = true
+		selected_number.get_node("Sprite2D").frame = 1
 
 func _add_number():
 	var number = number_scene.instantiate()
@@ -64,14 +61,11 @@ func validate(area, tick = null):
 		if snapped(number.value, 0.1) == snapped(tick.value, 0.1):
 			score += 1
 			$ScoreBox/ScoreLabel.text = str(score)
-			number.get_node("Sprite2D").frame = 3
 		else: 
 			$NumberLine.frame += 1
 			rounds -= 1
-			number.get_node("Sprite2D").frame = 4
 	else:
 		rounds -= 1
-		number.get_node("Sprite2D").frame = 4
 	if score > 9:
 		$ScoreBox/ScoreLabel.position.x = 10
 	$RoundsBox/RoundsLabel.text = str(rounds)

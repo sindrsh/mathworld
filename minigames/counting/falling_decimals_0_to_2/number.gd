@@ -20,6 +20,7 @@ var hovered = false
 var is_exiting = false
 
 @onready var animation_player = get_node("AnimationPlayer")
+@onready var outline_material = preload("res://assets/materials/texture_border.tres")
 
 # NOTE: mk_operator and mk_number should be made a generic autoload function
 # as VideoPlayer.gd also use these functions
@@ -45,7 +46,7 @@ func _ready():
 	speed.y += speed_multiplier * get_parent().difficulty
 	
 	assert($TextureButton.pressed.connect(_on_pressed) == 0)
-	assert($ExitTimer.connect("timeout", Callable(self, "_on_timeout")) == 0)	
+	assert($ExitTimer.timeout.connect(_on_timeout) == 0)	
 
 
 func _process(delta):
@@ -72,3 +73,9 @@ func _on_animation_player_animation_finished(anim_name):
 
 func _on_pressed() -> void:
 	emit_signal("selected", self)
+
+func apply_outline():
+	$Sprite2D.material = outline_material
+
+func remove_outline():
+	$Sprite2D.material = null

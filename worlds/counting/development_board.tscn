@@ -1,9 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://drprymxpcl50r"]
+[gd_scene load_steps=15 format=3 uid="uid://drprymxpcl50r"]
 
-[ext_resource type="Texture2D" uid="uid://bl0d4l1isgfm5" path="res://worlds/counting/assets/window_bar.png" id="1_4qk73"]
 [ext_resource type="Script" path="res://worlds/counting/development_board.gd" id="1_fq4iu"]
 [ext_resource type="Texture2D" uid="uid://kyywynpaiuou" path="res://worlds/counting/assets/white_bar.png" id="2_c0dmi"]
-[ext_resource type="Texture2D" uid="uid://bmwq28ry03uta" path="res://worlds/counting/assets/icon_placeholder.png.png" id="3_cl7mx"]
+[ext_resource type="Texture2D" uid="uid://brfaljg3lnspy" path="res://worlds/counting/assets/background_progress.png" id="2_pdtqr"]
+[ext_resource type="Texture2D" uid="uid://dnng1hhjbnu4a" path="res://worlds/counting/assets/under_amounts.png" id="4_di2p3"]
 [ext_resource type="Texture2D" uid="uid://63hun2msx1os" path="res://worlds/counting/assets/planet1.png" id="4_gof7t"]
 [ext_resource type="Texture2D" uid="uid://b2tn7m273iim" path="res://worlds/counting/assets/planet3.png" id="5_cru00"]
 [ext_resource type="Texture2D" uid="uid://b12gbfakcqjym" path="res://worlds/counting/assets/planet4.png" id="6_xm7bm"]
@@ -11,6 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://jv0u887nogx7" path="res://worlds/counting/assets/planet6.png" id="8_miiny"]
 [ext_resource type="PackedScene" uid="uid://3q7kvwwotegq" path="res://minigames/generics/game_rating.tscn" id="9_6fyi2"]
 [ext_resource type="Texture2D" uid="uid://df6mtx23l27dp" path="res://worlds/counting/assets/purple_bar.png" id="10_j08fx"]
+[ext_resource type="Texture2D" uid="uid://b23ey64i2yle" path="res://worlds/counting/assets/calc_amounts.png" id="10_s4eas"]
+[ext_resource type="Texture2D" uid="uid://c1u60bn61w8q7" path="res://worlds/counting/assets/under_numberline.png" id="12_4bf6l"]
+[ext_resource type="Texture2D" uid="uid://su4vepqgs6ka" path="res://worlds/counting/assets/calc_numberline.png" id="14_e20t3"]
 
 [node name="DevelopmentBoard" type="Node2D"]
 script = ExtResource("1_fq4iu")
@@ -18,15 +21,15 @@ script = ExtResource("1_fq4iu")
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(5, 8)
 scale = Vector2(1.00897, 0.971996)
-texture = ExtResource("1_4qk73")
+texture = ExtResource("2_pdtqr")
 centered = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_left = 31.0
+offset_left = 75.0
 offset_top = 179.0
-offset_right = 779.0
-offset_bottom = 618.0
-theme_override_constants/separation = 180
+offset_right = 823.0
+offset_bottom = 719.0
+theme_override_constants/separation = 210
 
 [node name="AmountsInsights" type="Control" parent="VBoxContainer"]
 layout_mode = 2
@@ -39,13 +42,13 @@ centered = false
 [node name="Icon" type="Sprite2D" parent="VBoxContainer/AmountsInsights"]
 position = Vector2(56, 43)
 scale = Vector2(0.75, 0.819)
-texture = ExtResource("3_cl7mx")
+texture = ExtResource("4_di2p3")
 
 [node name="PurpleBarsContainer" type="HBoxContainer" parent="VBoxContainer/AmountsInsights"]
 layout_mode = 0
-offset_left = 150.0
+offset_left = 200.0
 offset_top = 15.0
-offset_right = 1070.0
+offset_right = 1120.0
 offset_bottom = 51.0
 theme_override_constants/separation = 230
 
@@ -100,13 +103,13 @@ centered = false
 [node name="Icon" type="Sprite2D" parent="VBoxContainer/AmountsCalculations"]
 position = Vector2(56, 43)
 scale = Vector2(0.75, 0.819)
-texture = ExtResource("3_cl7mx")
+texture = ExtResource("10_s4eas")
 
 [node name="PurpleBarsContainer" type="HBoxContainer" parent="VBoxContainer/AmountsCalculations"]
 layout_mode = 0
-offset_left = 150.0
+offset_left = 200.0
 offset_top = 15.0
-offset_right = 1070.0
+offset_right = 1120.0
 offset_bottom = 51.0
 theme_override_constants/separation = 100
 
@@ -138,13 +141,13 @@ centered = false
 [node name="Icon" type="Sprite2D" parent="VBoxContainer/NumberLineInsights"]
 position = Vector2(56, 43)
 scale = Vector2(0.75, 0.819)
-texture = ExtResource("3_cl7mx")
+texture = ExtResource("12_4bf6l")
 
 [node name="PurpleBarsContainer" type="HBoxContainer" parent="VBoxContainer/NumberLineInsights"]
 layout_mode = 0
-offset_left = 150.0
+offset_left = 200.0
 offset_top = 15.0
-offset_right = 1070.0
+offset_right = 1120.0
 offset_bottom = 51.0
 theme_override_constants/separation = 230
 
@@ -199,13 +202,13 @@ centered = false
 [node name="Icon" type="Sprite2D" parent="VBoxContainer/NumberLineCalculations"]
 position = Vector2(56, 43)
 scale = Vector2(0.75, 0.819)
-texture = ExtResource("3_cl7mx")
+texture = ExtResource("14_e20t3")
 
 [node name="PurpleBarsContainer" type="HBoxContainer" parent="VBoxContainer/NumberLineCalculations"]
 layout_mode = 0
-offset_left = 150.0
+offset_left = 200.0
 offset_top = 15.0
-offset_right = 1070.0
+offset_right = 1120.0
 offset_bottom = 51.0
 theme_override_constants/separation = 100
 
