@@ -38,44 +38,6 @@ script = ExtResource("1_ttqab")
 texture = ExtResource("2_8dfuk")
 centered = false
 
-[node name="ScoreBox" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 1800.0
-offset_top = 100.0
-offset_right = 1870.0
-offset_bottom = 170.0
-color = Color(0.278431, 0.462745, 0.317647, 1)
-
-[node name="ScoreLabel" type="Label" parent="ScoreBox"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="RoundsBox" type="ColorRect" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(0.701961, 0.0431373, 0.266667, 0.431373)
-
-[node name="RoundsLabel" type="Label" parent="RoundsBox"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="EndBox" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 255.0
-offset_top = 128.0
-offset_right = 378.0
-offset_bottom = 155.0
-color = Color(0, 0, 0, 1)
-
-[node name="OverLabel" type="Label" parent="EndBox"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "GAME OVER"
-
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_ajsij")
 
@@ -84,52 +46,6 @@ stream = ExtResource("3_qjww3")
 
 [node name="NumberTimer" type="Timer" parent="."]
 wait_time = 3.085
-
-[node name="RestartButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 257.0
-offset_top = 188.0
-offset_right = 332.0
-offset_bottom = 219.0
-text = "RESTART"
-
-[node name="RestartLabel" type="Label" parent="RestartButton"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="ScoreBoard" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 1800.0
-offset_top = 100.0
-offset_right = 1870.0
-offset_bottom = 170.0
-color = Color(0, 0.607843, 0.294118, 1)
-
-[node name="Line1" type="Label" parent="ScoreBoard"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="Line2" type="Label" parent="ScoreBoard"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="HighScore" type="Label" parent="ScoreBoard"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="ScoreBorder" type="ReferenceRect" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="RoundsBorder" type="ReferenceRect" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="DifficultyTimer" type="Timer" parent="."]
 wait_time = 15.0

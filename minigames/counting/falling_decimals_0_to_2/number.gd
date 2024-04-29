@@ -2,7 +2,6 @@ extends Node2D
 
 signal selected
 
-var op_scene = preload("res://minigames/counting/falling_decimals_0_to_2/operator.tscn")
 
 @export var speed_multiplier: int = 10
 
@@ -21,16 +20,6 @@ var is_exiting = false
 
 @onready var animation_player = get_node("AnimationPlayer")
 @onready var outline_material = preload("res://assets/materials/texture_border.tres")
-
-# NOTE: mk_operator and mk_number should be made a generic autoload function
-# as VideoPlayer.gd also use these functions
-func mk_operator(int_frame, pos):
-	var op = op_scene.instantiate()
-	op.scale = num_scale*Vector2(1, 1)
-	op.frame = int_frame
-	op.position = pos
-	add_child(op)
-	return op
 
 
 func _on_timeout():
@@ -58,7 +47,7 @@ func _process(delta):
 		else:
 			position.x = x2
 	else:
-		if position.y > get_parent().line_a.y-10:
+		if position.y > get_parent().line_a.y - 20:
 			if not is_exiting:
 				get_parent().validate($TickDetector, null)
 				is_exiting = true

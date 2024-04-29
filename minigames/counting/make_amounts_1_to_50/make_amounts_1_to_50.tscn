@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://1cct2ila2y1n" path="res://minigames/frac/frac_laser/assets/correct.mp3" id="3_ypcjm"]
 [ext_resource type="Texture2D" uid="uid://cknglenkrn4p4" path="res://minigames/generics/puzzles/amounts/assets/10board.svg" id="4_6238y"]
 [ext_resource type="Texture2D" uid="uid://lbin8cfbklbl" path="res://minigames/counting/make_amounts_1_to_999/assets/equal_sign.svg" id="5_mw3gj"]
-[ext_resource type="Texture2D" uid="uid://ciafra2cacnss" path="res://minigames/counting/make_amounts_1_to_999/assets/equal_sign_b.svg" id="6_4xcdj"]
+[ext_resource type="Texture2D" uid="uid://ckpl703i4cwhp" path="res://minigames/counting/make_amounts_1_to_50/assets/equal_sign_hover.svg" id="6_va7eq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4uc8a"]
 
@@ -34,4 +34,4 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture_normal = ExtResource("5_mw3gj")
-texture_hover = ExtResource("6_4xcdj")
+texture_hover = ExtResource("6_va7eq")

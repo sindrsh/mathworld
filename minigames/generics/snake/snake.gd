@@ -17,8 +17,9 @@ var input_keys := []
 var _entered_direction : Vector2
 var ints : Array
 var value : int
-var tile_size := 80
+var tile_size := 60
 var tile_positions : Array
+var tile_matrix : Array
 var fruit_positions : Array
 var first_key := true
 
@@ -31,12 +32,16 @@ func _ready() -> void:
 	randomize()
 	ints = range(9)
 	ints.shuffle()
-	add_child(number_picture)
-	number_picture.get_node("Panel").size = Vector2(200, 300)
 	
-	for i in range(1, 1920/tile_size):
-		for j in range(1, 1080/tile_size):
-			tile_positions.push_back(tile_size*Vector2(i, j))
+	
+	_set_number_picture_size(Vector2(180, 300))
+	add_child(number_picture)
+	
+	for i in range(1920/tile_size):
+		tile_matrix.push_back([])
+		for j in range(1080/tile_size):
+			tile_matrix[i].push_back(j)
+			tile_positions.push_back(tile_size*Vector2(i, j) + tile_size*Vector2(0.5, 0.5))
 	tile_positions.shuffle()
 	
 	for i in ints:
@@ -56,8 +61,8 @@ func _ready() -> void:
 		for fruit_position in fruit_positions:
 			if tile_position.distance_to(fruit_position) > distance:
 				distance = tile_position.distance_to(fruit_position)
-		if distance > 20*tile_size:
-			$SnakeFront.position = tile_position
+		if distance > tile_size:
+			$SnakeFront.position = tile_size*Vector2(0 + 0.5,10 + 0.5)# tile_position
 			$FakeFront.position = $SnakeFront.position
 			break
 	_add_part_to_snake()
@@ -135,5 +140,18 @@ func _mk_task() -> void:
 	number_picture.get_node("Tens").frame = (value % 100)/10
 	number_picture.get_node("OnesAlt").frame = value
 	number_picture.arrange()
+	number_picture.get_node("OnesAlt").position -= Vector2(55,70)
 
 
+func _set_number_picture_size(_size: Vector2) -> void:
+	number_picture.get_node("Panel").size = _size
+	var num_pic_area := Area2D.new()
+	num_pic_area.monitoring = false
+	var num_pic_collision_object := CollisionShape2D.new()
+	var num_pic_collision_shape := RectangleShape2D.new()
+	num_pic_collision_shape.size = _size
+	num_pic_collision_object.shape = num_pic_collision_shape
+	num_pic_area.position = _size/2.0
+	num_pic_area.add_child(num_pic_collision_object)
+	number_picture.add_child(num_pic_area)
+	

@@ -56,7 +56,7 @@ var count_minigames:= {
 		"branch": CALCULATION,
 		"score": 0
 	},
-	"snake_1_to_50": {
+	"snake_1_to_9": {
 		"status": NOT_COMPLETED,
 		"branch": CALCULATION,
 		"score": 0

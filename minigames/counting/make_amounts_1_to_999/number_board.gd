@@ -6,6 +6,7 @@ var value : int
 var texture_size : Vector2
 var digit_place : int
 var original_position : Vector2
+var placed := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,3 +20,5 @@ func _ready():
 func _process(_delta):
 	if movable_shape.active:
 		position = get_global_mouse_position() + movable_shape.mouse_offset + movable_shape.texture_size_div2
+	elif not placed:
+		position = original_position

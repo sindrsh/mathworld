@@ -35,8 +35,11 @@ func _on_tick_selection(node):
 	node.get_node("ColorTimer").start()
 	if selected_number != null and is_instance_valid(selected_number):
 		selected_number.tick = node
+		if not selected_number.find_tick:
+			selected_number.get_node("NumberSprite").position += Vector2(15, -20)
 		selected_number.find_tick = true
 		selected_number.get_node("Sprite2D").frame = 1
+
 
 func _add_number():
 	var number = number_scene.instantiate()
@@ -49,6 +52,7 @@ func _add_number():
 	var integer = rng.randi_range(0, 9)
 	number.value = integer
 	number.get_node("NumberSprite").frame = integer
+	number.get_node("NumberSprite").position += Vector2(-15, 5)
 	number.position = Vector2(line_a. x + rng.randi_range(0, line_b.x - line_a. x), 100)
 	number.add_to_group("numbers")
 	
@@ -60,30 +64,19 @@ func validate(area, tick = null):
 	if tick != null:
 		if snapped(number.value, 0.1) == snapped(tick.value, 0.1):
 			score += 1
-			$ScoreBox/ScoreLabel.text = str(score)
 		else: 
 			$NumberLine.frame += 1
 			rounds -= 1
 	else:
+		$NumberLine.frame += 1
 		rounds -= 1
-	if score > 9:
-		$ScoreBox/ScoreLabel.position.x = 10
-	$RoundsBox/RoundsLabel.text = str(rounds)
+		
 	if rounds == 0:
-		if high_score != null:
-			if score > high_score:
-				high_score = score
-		else: 
-			high_score = score
 		die()
 
 func _on_restart():
 	score = 0
 	rounds = 3
-	$RoundsBox/RoundsLabel.text = str(rounds)
-	$ScoreBox/ScoreLabel.text = str(score)
-	$EndBox.visible = false
-	$RestartButton.hide()
 	$NumberTimer.wait_time = 4
 	$NumberTimer.start()
 	$Music.play()
@@ -94,13 +87,10 @@ func die():
 		num.queue_free()  # calling queue free on another object is typically an antipattern, but there is no "script" for numbers so it's fine
 	
 	emit_signal("died")
-	$ScoreBoard/HighScore.text = str(high_score)
 	$NumberTimer.stop()
 	get_tree().call_group("numbers", "queue_free")
 	$Music.stop()
 	$GameOver.play()
-	$EndBox.show()
-	$RestartButton.show()
 	$NumberLine.self_modulate = Color(0, 0, 0, 0)  # we just make it invisible so that it's children are still visible
 	$NumberLine/BreakParticles.emitting = true
 
@@ -132,23 +122,9 @@ func _add_specifics():
 		tick.value = i
 		assert(tick.selected.connect(_on_tick_selection) == 0)
 	
-
-	$ScoreBox/ScoreLabel.text = str(score)
-	$ScoreBorder.position = $ScoreBox.position
-	$ScoreBorder.size = $ScoreBox.size
-	
-	$RoundsBox.size = $ScoreBox.size
-	$RoundsBox.position = $ScoreBox.position + Vector2(0, 150)
-	$RoundsBox/RoundsLabel.text = str(rounds)
-	$RoundsBorder.position = $RoundsBox.position
-	$RoundsBorder.size = $RoundsBox.size
-	
-	$ScoreBoard.position = $RoundsBox.position + Vector2(0, 150)
 	
 	assert($NumberTimer.connect("timeout", Callable(self, "_add_number")) == 0 )
 	$NumberTimer.start()
-	$EndBox.hide()
-	$RestartButton.hide()
 	$Music.play()
 	
 	
