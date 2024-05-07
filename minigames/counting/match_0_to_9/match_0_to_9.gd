@@ -1,7 +1,7 @@
 extends "res://minigames/generics/bouncing_bubbles/bouncing_bubbles.gd"
 
 var score : = 0
-var ints := [0 , 1, 2, 3, 4, 5, 6, 7, 8, 9]
+var ints := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 var music : AudioStreamMP3 = preload("res://minigames/generics/assets/game-music.mp3")
 var b_background : Texture2D = preload("res://minigames/counting/match_0_to_9/assets/bubbles empty 2.png")
 var nummber_symbol_b_texture := preload("res://minigames/counting/match_0_to_9/assets/bubbles empty 2.png")
@@ -102,6 +102,7 @@ func _mk_bubble_pair() -> void:
 	
 	bubbles.append(bubble_a)
 	bubbles.append(bubble_b)
+
 
 func _bubbles_are_equal(bubble1 : String, bubble2 : String) -> bool:
 	var are_equal : bool = bubble_container.get_node(bubble1).int_value[0] == bubble_container.get_node(bubble2).int_value[0]

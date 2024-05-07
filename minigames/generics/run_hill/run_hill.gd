@@ -5,7 +5,22 @@ var alternatives := []
 var start_value := 0
 var music : AudioStream = preload("res://minigames/generics/assets/highway-167255.mp3")
 
-# Called when the node enters the scene tree for the first time.
+
+func _add_generics() -> void:
+	
+	assert(lane.finished.connect(_on_lane_finished) == 0)
+	
+	var background := Sprite2D.new()
+	background.texture = preload("res://minigames/generics/run_hill/assets/background.png")
+	add_child(background)
+	background.scale = Vector2(1.8, 1.8)
+	background.centered = false
+	
+	for i in range(4):
+		var alternative = preload("res://minigames/generics/run_hill/alternative.tscn").instantiate()
+		alternatives.push_back(alternative)
+		add_child(alternative)
+
 func _add_specifics():
 	world_part = "counting"
 	id = "run_hill"
@@ -16,7 +31,7 @@ func _add_specifics():
 	
 	lane.tick_hit.connect(_on_obstacle_hit)
 	
-	alternatives = [$Alternative1, $Alternative2, $Alternative3, $Alternative4]
+	
 	var ints := [1, 2, 3, 4, 5, 6, 7, 8, 9]
 	for i in range(alternatives.size()):
 		assert(alternatives[i].chosen.connect(_alternative_chosen) == 0)
@@ -28,8 +43,9 @@ func _add_specifics():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if lane.moving:
-		lane.position.x -= lane.speed/1.4*delta
+	if is_instance_valid(lane):
+		if lane.moving:
+			lane.position.x -= lane.speed/1.4*delta
 
 
 func _mk_alternatives() -> void:
@@ -60,7 +76,7 @@ func _alternative_chosen(_name : String) -> void:
 	var obstacle: Area2D = lane.current_obstacle
 	var alt = get_node(_name)
 	if alt.value == obstacle.value:
-		obstacle.will_explode = false
+		obstacle.matches_alternative = true
 		
 	for alternative in alternatives:
 			if alternative != get_node(_name):
@@ -81,10 +97,15 @@ func _on_obstacle_hit(_obstacle: Area2D) -> void:
 		lane.current_obstacle = _obstacle.next_obstacle
 		_mk_new_alternatives()
 	
-	if _obstacle.will_explode:
+	if not _obstacle.matches_alternative:
 		if status_bar.frame == 0:
 			call_deferred("_end_game_with_failure")
+			lane.moving = false
+			lane.queue_free()
 		else:
 			status_bar.frame -= 1
-		print("kablamo")
-	
+
+
+func _on_lane_finished() -> void:
+	_end_game()
+

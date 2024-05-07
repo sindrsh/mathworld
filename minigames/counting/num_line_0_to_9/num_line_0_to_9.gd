@@ -3,7 +3,6 @@ extends MiniGame
 #explanation
 
 var bar_length : int
-var insight_button : TextureButton = preload("res://minigames/generics/insight_games/insight_achieved_button.tscn").instantiate()
 
 func _add_specifics():
 	world_part = "counting"
@@ -26,4 +25,3 @@ func _add_specifics():
 		bar.add_child(num_label)
 		add_child(bar)
 	
-	add_child(insight_button)

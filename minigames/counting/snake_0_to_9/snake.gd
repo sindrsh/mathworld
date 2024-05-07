@@ -1,4 +1,4 @@
-extends Control
+extends MiniGame
 
 var number_picture : Node2D = preload("res://minigames/generics/puzzles/amounts_new/number_picture.tscn").instantiate()
 var up = Vector2(0, -1)
@@ -24,7 +24,7 @@ var fruit_positions : Array
 var first_key := true
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func _add_generics() -> void:
 	$FakeFront.area_entered.connect(_on_area_entered)
 	$Timer.timeout.connect(_on_timeout)
 	snake_parts.push_back($SnakeFront)
@@ -133,6 +133,9 @@ func _on_area_entered(area: Area2D):
 
 
 func _mk_task() -> void:
+	if ints.is_empty():
+		_game_completed()
+		return
 	value = ints.pop_front() + 1
 	@warning_ignore("integer_division")
 	number_picture.get_node("Hundreds").frame = value/100

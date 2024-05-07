@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://dex4hn7kdvs3m"]
 
-[ext_resource type="Script" path="res://minigames/generics/snake/snake.gd" id="1_e5mfa"]
+[ext_resource type="Script" path="res://minigames/counting/snake_0_to_9/snake.gd" id="1_e5mfa"]
 [ext_resource type="Texture2D" uid="uid://2xb7c5eko7br" path="res://minigames/generics/puzzles/amounts_new/assets/background.svg" id="2_mewdp"]
-[ext_resource type="Script" path="res://minigames/generics/snake/fruit.gd" id="3_xyswu"]
+[ext_resource type="Script" path="res://minigames/counting/snake_0_to_9/fruit.gd" id="3_xyswu"]
 [ext_resource type="Texture2D" uid="uid://dgjw1jwn8b0wi" path="res://minigames/generics/puzzles/amounts_new/assets/fruit.png" id="5_ylqhi"]
 [ext_resource type="Script" path="res://assets/global_scenes/text.gd" id="6_8j61p"]
 [ext_resource type="AudioStream" uid="uid://cr2a85i1p2has" path="res://minigames/generics/assets/correct.mp3" id="7_mrqex"]

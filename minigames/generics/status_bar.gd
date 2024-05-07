@@ -1,5 +1,7 @@
 extends AnimatedSprite2D
 
+signal target_reached 
+
 var target := Vector2(950, 500)
 var moving := false
 var speed := 20.0
@@ -17,3 +19,4 @@ func _process(delta):
 		else:
 			position = target
 			moving = false
+			target_reached.emit()

@@ -10,7 +10,6 @@ var number_line_pos : Vector2 = Vector2(600, 100)
 var varying_objects : Array 
 var number_line : NumberLine
 
-var score_label : Text
 var max_score : int
 var score : int
 var correct_sound : AudioStream = preload("res://minigames/generics/cross_the_bridge/assets/correct.mp3")
@@ -24,7 +23,6 @@ var send_number_button := TextureButton.new()
 var send_number_texture : Texture2D = preload("res://minigames/generics/cross_the_bridge/assets/go_button_a.svg")
 var send_number_pressed : Texture2D = preload("res://minigames/generics/cross_the_bridge/assets/go_button_b.svg")
 var new_task_timer := Timer.new()
-var score_count := Node2D.new()
 var sound_effect := AudioStreamPlayer2D.new()
 var pickable_object := Sprite2D.new()
 var number_line_varies := false
@@ -48,11 +46,7 @@ func _add_generics() -> void:
 	
 	new_task_timer.wait_time = 0.4
 	var score_sprite := Sprite2D.new()	
-	score_count.add_child(score_sprite)
-	score_count.position = Vector2(1820, 164)
-	score_label = Text.new(30, "0")
-	score_label.set_text_position(Vector2(0,-20))
-	score_count.add_child(score_label)
+
 	
 	send_number_button.texture_normal = send_number_texture
 	send_number_button.texture_pressed = send_number_pressed
@@ -62,7 +56,6 @@ func _add_generics() -> void:
 	creature.position = creature_start_pos
 	pickable_object.position = creature_start_pos + Vector2(1700, 0)
 	
-	add_child(score_count)
 	add_child(send_number_button)
 	add_child(creature)
 	add_child(number)
@@ -121,7 +114,6 @@ func _on_number_arrival() -> void:
 		status_bar.frame -= 1
 		sound_effect.stream = incorrect_sound
 		_mk_task()
-	score_label.text = str(score)	
 	
 	sound_effect.play()
 	if score == max_score:

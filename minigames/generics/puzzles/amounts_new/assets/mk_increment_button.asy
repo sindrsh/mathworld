@@ -12,7 +12,9 @@ filldraw(shift(a-b*sqrt(3)/4,0)*t, white, white);
 shipout("increment_button_pressed.svg");
 erase();
 
-filldraw(scale(10)*unitcircle, magenta);
+filldraw(scale(10)*unitcircle, heavygreen);
 filldraw(shift(-a-b*sqrt(3)/4,-c/2)*scale(2a,c)*unitsquare, white, white);
 filldraw(shift(a-b*sqrt(3)/4,0)*t, white, white);
 shipout("increment_button_normal.svg");
+
+exit();

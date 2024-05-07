@@ -12,8 +12,13 @@ var hundred_place := Sprite2D.new()
 var hundred_place_texture: Texture2D = preload("res://minigames/generics/puzzles/amounts/assets/hundred_place_texture.svg")
 var increment_button: PackedScene = preload("res://minigames/generics/puzzles/amounts_new/increment_button.tscn")
 var number_scene: PackedScene = preload("res://minigames/generics/puzzles/amounts_new/number.tscn")
-
 var buttons : Array
+
+var ten_shift_allowed := {
+	1: true,
+	2: true,
+	3: false
+}
 
 var number_places := {
 	1: one_place,
@@ -87,25 +92,15 @@ func _add_generics() -> void:
 	background.centered = false
 	add_child(background)
 	
-	number_board.position = Vector2(900, 100)
-	number_board.choose_board_digits(3)
 	add_child(number_board)
 	
 	one_place.texture = one_place_texture
 	ten_place.texture = ten_place_texture
 	hundred_place.texture = hundred_place_texture
 	
-	
 	hundred_place.position = Vector2(400, 500)
 	ten_place.position = hundred_place.position + Vector2((ten_place.texture.get_width() +hundred_place.texture.get_width())/2.0 + place_sep, 0)
 	one_place.position = ten_place.position + Vector2((one_place.texture.get_width() + ten_place.texture.get_width())/2.0 + place_sep, 0)
-	add_child(one_place)
-	add_child(ten_place)
-	add_child(hundred_place)
-	
-	_add_buttons(one_place, 1)
-	_add_buttons(ten_place, 2)
-	_add_buttons(hundred_place, 3)
 
 
 func _add_buttons(digit_place: Sprite2D, place: int) -> void:
@@ -132,7 +127,7 @@ func _on_increment(_step: int, _place: int) -> void:
 	if _step == 1:
 		if number_board.digits[_place] < 9:
 			_add_number(_place)
-		else:
+		elif ten_shift_allowed[_place]:
 			_on_ten(_place)
 		
 	if _step == -1:

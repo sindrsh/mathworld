@@ -1,0 +1,105 @@
+[gd_scene load_steps=2 format=3 uid="uid://chukdp4kxa58n"]
+
+[ext_resource type="Script" path="res://worlds/counting/button.gd" id="1_cntba"]
+
+[node name="Minigames" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 300.0
+offset_right = 320.0
+offset_bottom = 308.0
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 3
+
+[node name="Button" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Amount 0 to 9"
+script = ExtResource("1_cntba")
+file_path = "res://minigames/counting/amount_0_to_9/amount_0_to_9.tscn"
+
+[node name="Button2" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Amount 0 to 99"
+script = ExtResource("1_cntba")
+file_path = "res://minigames/counting/amount_0_to_99/amount_0_to_99.tscn"
+
+[node name="Button3" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Amount 0 to 999"
+script = ExtResource("1_cntba")
+file_path = "res://minigames/counting/amount_0_to_999/amount_0_to_999.tscn"
+
+[node name="Button4" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Match 0 to 9"
+script = ExtResource("1_cntba")
+file_path = "res://minigames/counting/match_0_to_9/match_0_to_9.tscn"
+
+[node name="Button10" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Number line 0 to 9"
+script = ExtResource("1_cntba")
+file_path = "res://minigames/counting/num_line_0_to_9/num_line_0_to_9.tscn"
+
+[node name="Button5" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Falling numbers 0 to 9"
+script = ExtResource("1_cntba")
+file_path = "res://minigames/counting/falling_numbers_0_to_9/falling_numbers_0_to_9.tscn"
+
+[node name="Button6" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Snake 0 to 9"
+script = ExtResource("1_cntba")
+file_path = "res://minigames/counting/snake_0_to_9/snake_0_to_9.tscn"
+
+[node name="Button7" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Number bridge 0 to 9"
+script = ExtResource("1_cntba")
+file_path = "res://minigames/counting/number_bridge_0_to_9/number_bridge_0_to_9.tscn"
+
+[node name="Button8" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Number line 0 to 100"
+script = ExtResource("1_cntba")
+file_path = "res://minigames/counting/num_line_10_to_100/num_line_10_to_100.tscn"
+
+[node name="Button9" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Run hill 0 to 100"
+script = ExtResource("1_cntba")
+file_path = "res://minigames/counting/run_hill_0_to_100/run_hill_0_to_100.tscn"
+
+[node name="Button11" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Make amounts 1 to 99"
+script = ExtResource("1_cntba")
+file_path = "res://minigames/counting/make_amounts_1_to_99/make_amounts_1_to_99.tscn"
+
+[node name="Button12" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Make amounts 1 to 999"
+script = ExtResource("1_cntba")
+file_path = "res://minigames/counting/make_amounts_1_to_999/make_amounts_1_to_999.tscn"

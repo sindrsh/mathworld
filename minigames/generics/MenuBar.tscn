@@ -17,7 +17,7 @@ Button/styles/normal = SubResource("StyleBoxFlat_axd5k")
 [sub_resource type="Theme" id="Theme_71cqf"]
 Button/styles/normal = SubResource("StyleBoxFlat_axd5k")
 
-[node name="MenuBar" type="Node2D"]
+[node name="MenuBar" type="CanvasLayer"]
 script = ExtResource("1_qtc7x")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]

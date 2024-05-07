@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://d1kglna4gn3y"]
 
-[ext_resource type="Script" path="res://minigames/counting/make_amounts_1_to_999/number_board.gd" id="1_j34ks"]
+[ext_resource type="Script" path="res://minigames/generics/puzzles/amounts_new/make_amounts/number_board.gd" id="1_j34ks"]
 [ext_resource type="Texture2D" uid="uid://bqi67l4xl1xul" path="res://minigames/counting/make_amounts_1_to_999/assets/10a.svg" id="2_p7nv1"]
 [ext_resource type="Texture2D" uid="uid://cyt3ucee5jehu" path="res://minigames/counting/make_amounts_1_to_999/assets/20a.svg" id="3_jgopc"]
 [ext_resource type="Texture2D" uid="uid://3s0jf1fyqiqn" path="res://minigames/counting/make_amounts_1_to_999/assets/30a.svg" id="4_hagwg"]

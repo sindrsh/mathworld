@@ -1,5 +1,6 @@
 extends Node2D
 signal tick_hit(_tick: Tick)
+signal finished
 
 var tick_scene : PackedScene = preload("res://minigames/generics/run_hill/tick.tscn")
 var speed := 200.0
@@ -11,7 +12,7 @@ var current_obstacle : Area2D
 var ticks := []
 var moving_objects = Node2D.new()
 var moving := false
-
+var t := 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,34 +23,32 @@ func _ready():
 	$Path2D.position = graph.position
 	graph.default_color = Color(0, 0, 1)
 	
+	$Path2D.curve.clear_points()
 	for i in range(periods*n):
 		var point := amplitude*Vector2(dx*i, -_path_func(dx*i))
 		graph.add_point(point)
 		$Path2D.curve.add_point(point + Vector2(0, -32))
-		
 	add_child(graph)
 	_add_ticks()
 
 
 func _physics_process(delta):
+	t += delta
 	if moving:
-		# this took about an hour of math to figure out
-		# my calc teacher would be proud
 		var path_pos = $Path2D/PathFollow2D.get_progress()
 		$Path2D/PathFollow2D.set_progress(path_pos + speed * delta)
 		$Path2D/PathFollow2D/Sprite2D.rotation += PI * delta
 	else:
 		$Path2D/PathFollow2D.set_progress($Path2D/PathFollow2D.get_progress())
-	
+		
 	
 func _path_func(x: float) -> float:
 	return cos(x)
 
-# I assume this means the derivative of the path function?
-# I thought the derivative of cos(x) was -sin(x)?
-#      - firesquid
+
 func _path_func_der(x: float) -> float:
 	return sin(x)
+
 
 func _add_ticks() -> void:
 	var n := 2000
@@ -70,7 +69,6 @@ func _add_ticks() -> void:
 	for j in range(distances.size()):
 		if distances[j] >= i*ds:
 			var tick : Area2D = tick_scene.instantiate()
-			#assert(tick.hit.connect(_on_tick_hit) == 0)
 			var slope_angle := Vector2(1, _path_func_der(graph_points[j].x)).angle()
 			if (i % 10) < 5:
 				slope_angle = abs(slope_angle)
@@ -88,8 +86,15 @@ func _add_ticks() -> void:
 			if (i % 5) != 0:
 				text.hide()
 			i += 1
+			
+			if i == periods*10 + 1:
+				tick.monitoring = true
+				tick.monitorable = true
+				assert(tick.area_entered.connect(_on_last_tick_hit) == 0)
 			add_child(tick)
 			ticks.append(tick)
+			
+			
 	
 	var ints := [1, 2, 3, 4, 6, 7, 8, 9]
 	randomize()
@@ -109,15 +114,8 @@ func _add_ticks() -> void:
 		obstacles[k].next_obstacle = obstacles[k+1]
 
 
-"""""
-probably superflous
-func _on_tick_hit(_name : String) -> void:
-	var tck = get_node(_name)
-	tck.get_node("Text").show()
-	if tck.tick_is_obstacle:
-		emit_signal("make_new_alternatives", (tck.value/10)*10)
-"""
-
+func _on_last_tick_hit(_area : Area2D) -> void:
+	finished.emit()
 
 
 func _tick_hit(_tick: Tick):

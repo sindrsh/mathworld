@@ -14,7 +14,7 @@ signal game_ended(success: bool)
 
 var MenuBarScene : PackedScene = load("res://minigames/generics/MenuBar.tscn")
 var status_bar_scene : PackedScene = load("res://minigames/generics/status_bar.tscn")
-var menu_bar : Node2D = MenuBarScene.instantiate()
+var menu_bar : CanvasLayer = MenuBarScene.instantiate()
 var cheat_button := Button.new()
 var status_bar : AnimatedSprite2D
 var music_player := AudioStreamPlayer2D.new()
@@ -60,6 +60,10 @@ func _game_completed() -> void:
 			game_dict["score"] = status_bar.frame
 		else:
 			game_dict["score"] = 1
+		
+		if status_bar:
+			await status_bar.target_reached
+			await get_tree().create_timer(0.8).timeout
 		var development_board = load("res://worlds/counting/development_board.tscn").instantiate()
 		development_board.scale = Vector2(0.5,0.5)
 		development_board.position = Vector2(300, 300)

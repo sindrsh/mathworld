@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6ym6leapmgij"]
+
+[ext_resource type="Script" path="res://minigames/counting/run_hill_0_to_100/run_hill_0_to_100.gd" id="1_1y2jh"]
+
+[node name="RunHill0To100" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1y2jh")
