@@ -47,8 +47,16 @@ void mk_ones(){
       filldraw(shift(-(i % 2)*(s+dxy),(i # 2)*(s+dxy))*scale(s)*unitsquare, p1);
       shipout(string(i+1) + "_ones.svg");
   }
-
   erase();
 }
 
-mk_ones();
+void mk_tens(){
+  real dx = 10;
+  for(int i; i<9; ++i){
+      filldraw(shift(i*(s+dx),0)*scale(s,10*s)*unitsquare, p10);
+      shipout(string(i+1) + "_tens.svg");
+  }
+  erase();
+}
+
+mk_tens();

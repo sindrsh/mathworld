@@ -5,6 +5,5 @@ func _restart_game() -> void:
 
 
 func _go_to_menu() -> void:
-	if get_tree().change_scene_to_file("res://worlds/counting/minigames.tscn") != OK:
+	if get_tree().change_scene_to_file("res://worlds/counting/new_counting_world.tscn") != OK:
 		print("Could not change scene")
-

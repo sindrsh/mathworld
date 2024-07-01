@@ -1,7 +1,6 @@
 extends TextureButton
 
-@export var minigame : String
-@export var world_part : String
+@export var minigame_path : String
 
 @onready var outline_material = preload("res://assets/materials/counting_world_button_outline.tres")
 
@@ -12,9 +11,7 @@ func _ready():
 	
 
 func _pressed():
-	get_tree().change_scene_to_file(
-		GlobalVariables.get_typeless_minigame_path(world_part, minigame) + ".tscn"
-		)
+	get_tree().change_scene_to_file(minigame_path)
 
 func apply_outline():
 	material = outline_material

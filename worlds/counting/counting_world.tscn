@@ -37,8 +37,6 @@ offset_right = 1257.0
 offset_bottom = 1097.0
 scale = Vector2(0.4, 0.4)
 texture_normal = ExtResource("5_ldakl")
-minigame = "amount_0_to_9"
-world_part = "counting"
 
 [node name="NumberMatch" parent="." instance=ExtResource("19_der6q")]
 offset_left = 612.0
@@ -48,8 +46,6 @@ offset_bottom = 1521.0
 scale = Vector2(0.4, 0.4)
 texture_normal = ExtResource("6_b2yjb")
 flip_h = true
-minigame = "match_0_to_9"
-world_part = "counting"
 
 [node name="Amount0To50" parent="." instance=ExtResource("19_der6q")]
 offset_left = 672.0
@@ -58,8 +54,6 @@ offset_right = 1358.0
 offset_bottom = 827.0
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("8_mdbsl")
-minigame = "make_amounts_1_to_50"
-world_part = "counting"
 
 [node name="MakeAmounts1To999" parent="." instance=ExtResource("19_der6q")]
 offset_left = 1660.0
@@ -68,8 +62,6 @@ offset_right = 1867.0
 offset_bottom = 946.0
 scale = Vector2(0.7, 0.7)
 texture_normal = ExtResource("9_mfnxp")
-minigame = "make_amounts_1_to_999"
-world_part = "counting"
 
 [node name="Amount50To999" parent="." instance=ExtResource("19_der6q")]
 offset_left = 1461.0
@@ -78,8 +70,6 @@ offset_right = 2339.0
 offset_bottom = 927.0
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("10_pil52")
-minigame = "amount_50_to_999"
-world_part = "counting"
 
 [node name="NumLine0To9" parent="." instance=ExtResource("19_der6q")]
 offset_left = 15.0
@@ -88,8 +78,6 @@ offset_right = 587.0
 offset_bottom = 911.0
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("11_xo63y")
-minigame = "num_line_0_to_9"
-world_part = "counting"
 
 [node name="FallingNumbers0To9" parent="." instance=ExtResource("19_der6q")]
 offset_left = 140.0
@@ -99,8 +87,6 @@ offset_bottom = 904.0
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("12_es803")
 flip_h = true
-minigame = "falling_numbers_0_to_9"
-world_part = "counting"
 
 [node name="NumberBridge0To9" parent="." instance=ExtResource("19_der6q")]
 offset_left = 463.0
@@ -110,8 +96,6 @@ offset_bottom = 890.0
 scale = Vector2(0.4, 0.4)
 texture_normal = ExtResource("13_7snhg")
 flip_h = true
-minigame = "number_bridge_0_to_9"
-world_part = "counting"
 
 [node name="Roads" type="Sprite2D" parent="."]
 scale = Vector2(0.27, 0.27)
@@ -127,8 +111,6 @@ offset_bottom = 851.0
 scale = Vector2(0.3, 0.3)
 texture_normal = ExtResource("18_d1n27")
 script = ExtResource("19_hp7a5")
-minigame = "num_line_10_to_100"
-world_part = "counting"
 
 [node name="ShowAllGames" type="Button" parent="."]
 offset_left = 1822.0

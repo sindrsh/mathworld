@@ -15,7 +15,9 @@ var number_bar := Line2D.new()
 
 var num_symbol := Line2D.new()
 var denom_symbol := Line2D.new()
-var pickable_object_texture : Texture2D = preload("res://minigames/counting/number_bridge_0_to_9/assets/vegetable point.png")
+var pickable_object_texture : Texture2D = preload("res://minigames/counting/number_bridge_0_to_9/assets/carrot.png")
+var ints = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
 
 func _add_specifics():
 	world_part = "counting"
@@ -70,14 +72,15 @@ func _add_specifics():
 	
 	x_scale = 100
 	max_int = 9
-	max_score = 5
+	max_score = 8
 	
 	#$BridgeLeft.scale = Vector2(4, 2)
 	#$BridgeRight.scale = Vector2(4, 2)
 	$BridgeLeft.position = Vector2(60, 800)
 	$BridgePilarLeft.position = $BridgeLeft.position + Vector2(40,138)
 	$BridgePilarRight.position = $BridgeLeft.position + Vector2(1760,138)
-	
+	randomize()
+	ints.shuffle()
 	_mk_task()
 	
 	
@@ -118,6 +121,7 @@ func _min_denom_pressed():
 		_mk_num_line()
 
 func _correct_answer():
+	ints.push_front(answer)
 	return numerator == answer
 
 func _mk_num_line() -> void:
@@ -155,8 +159,7 @@ func _prepare_task() -> void:
 	
 	numerator = 0
 	
-	randomize()
-	answer = randi() % 9 + 1
+	answer = ints.pop_back()
 	number.position = number_line_pos + Vector2(0,-40)
 		
 	var bridge_left_length := 200.0

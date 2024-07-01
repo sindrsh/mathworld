@@ -10,4 +10,3 @@ func _on_pressed() -> void:
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED);
 		text = "FULLSCREEN"
-

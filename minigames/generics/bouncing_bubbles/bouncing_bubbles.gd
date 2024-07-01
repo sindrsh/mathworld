@@ -113,5 +113,3 @@ func _bubbles_are_equal(_bubble1 : String, _bubble2 : String) -> bool:
 
 func _end_game_condition() -> bool:
 	return bubble_container.get_child_count() == 0
-
-

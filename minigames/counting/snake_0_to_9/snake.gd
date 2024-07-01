@@ -11,17 +11,18 @@ var fake_parts := []
 var time_interval := 0.0
 var previous_positions = []
 var move_allowed := false
-var fake_move_allowed := true
 var fake = true
 var input_keys := []
 var _entered_direction : Vector2
 var ints : Array
 var value : int
-var tile_size := 60
+var tile_size := 56
 var tile_positions : Array
-var tile_matrix : Array
+var tile_matrix_index : Dictionary
 var fruit_positions : Array
 var first_key := true
+var mouse_is_pressed := false
+var prev_mouse_pos := Vector2(0, 0)
 
 # Called when the node enters the scene tree for the first time.
 func _add_generics() -> void:
@@ -38,33 +39,39 @@ func _add_generics() -> void:
 	add_child(number_picture)
 	
 	for i in range(1920/tile_size):
-		tile_matrix.push_back([])
 		for j in range(1080/tile_size):
-			tile_matrix[i].push_back(j)
-			tile_positions.push_back(tile_size*Vector2(i, j) + tile_size*Vector2(0.5, 0.5))
-	tile_positions.shuffle()
+			tile_matrix_index[tile_positions.size()] = Vector2i(i, j)
+			tile_positions.push_back(Vector2(8, 8) + tile_size*Vector2(i, j) + tile_size*Vector2(0.5, 0.5))
+			var panel := $Panel2.duplicate()
+			panel.position = tile_positions[-1] - tile_size*Vector2(0.5, 0.5)
+			add_child(panel)
+			var text := Label.new()
+			text.text = str(i)+ ',' + str(j) + ';' + str(tile_positions.size()-1)
+			panel.add_child(text)
+		
+	
+	var object_positions : Array
+	for i in range(tile_positions.size()):
+		if tile_matrix_index[i].x > 2 and tile_matrix_index[i].y > 4:
+			object_positions.push_back(tile_positions[i])
+	object_positions.shuffle()
 	
 	for i in ints:
 		var fruit : Area2D = $Fruit.duplicate()
 		fruit.value = i + 1
-		fruit.position = tile_positions.pop_back()
+		fruit.position = object_positions.pop_back()
 		fruit_positions.push_back(fruit.position)
 		fruit.visible = true
 		fruit.get_node("Label").set_new_text(str(i + 1))
 		fruit.get_node("Label").center_text()
 		add_child(fruit)
 	
+	
+	$SnakeFront.position = object_positions[0]
+	$FakeFront.position = $SnakeFront.position	
 	_mk_task()	
 	
-	for tile_position in tile_positions:
-		var distance: float
-		for fruit_position in fruit_positions:
-			if tile_position.distance_to(fruit_position) > distance:
-				distance = tile_position.distance_to(fruit_position)
-		if distance > tile_size:
-			$SnakeFront.position = tile_size*Vector2(0 + 0.5,10 + 0.5)# tile_position
-			$FakeFront.position = $SnakeFront.position
-			break
+
 	_add_part_to_snake()
 	_add_part_to_snake()		
 
@@ -83,12 +90,15 @@ func _on_timeout() -> void:
 					_entered_direction = up
 				KEY_DOWN:
 					_entered_direction = down
+				_:
+					_entered_direction = direction
 			if _entered_direction != -direction:
 				direction = _entered_direction
 			input_keys = []
 		for i in range(snake_parts.size()):
 			snake_parts[i].position = fake_parts[i].position
 		_move_fake_snake()
+		
 		
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed:
@@ -97,7 +107,23 @@ func _input(event: InputEvent) -> void:
 			$Timer.start()
 			first_key = false
 		input_keys.push_front(event.keycode)
+	if event is InputEventMouseButton:
+		mouse_is_pressed = ! mouse_is_pressed
 		
+	if event is InputEventMouseMotion and mouse_is_pressed:
+		var mouse_direction: Vector2 = event.position.direction_to(prev_mouse_pos)
+		var mouse_key_code : int = KEY_RIGHT
+		if abs(mouse_direction.x) > abs(mouse_direction.y):
+			if mouse_direction.x >= 0:
+				mouse_key_code = KEY_LEFT
+		else:
+			if mouse_direction.y >= 0:
+				mouse_key_code = KEY_UP
+			else:
+				mouse_key_code = KEY_DOWN
+	
+		input_keys.push_front(mouse_key_code)		
+		prev_mouse_pos = event.position
 
 func _add_part_to_snake() -> void:
 	var snake_part : Area2D = $SnakePart.duplicate()

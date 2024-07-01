@@ -14,4 +14,3 @@ func _add_specifics() -> void:
 	
 	_add_buttons(one_place, 1)
 	_add_buttons(ten_place, 2)
-

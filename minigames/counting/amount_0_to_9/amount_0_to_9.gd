@@ -12,4 +12,3 @@ func _add_specifics() -> void:
 	add_child(one_place)
 	number_board.choose_board_digits(1)
 	_add_buttons(one_place, 1)
-

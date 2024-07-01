@@ -27,5 +27,3 @@ func _add_specifics():
 	_mk_number(start_x, number_card1, 1)	
 	
 	_mk_task()
-
-

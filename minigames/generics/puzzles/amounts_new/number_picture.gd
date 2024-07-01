@@ -7,7 +7,7 @@ var size1 : float
 var start_x : float
 var size1alt : float
 
-# Called when the node enters the scene tree for the first time.
+
 func arrange():
 	size100 = _get_frame_size($Hundreds)
 	size10 = _get_frame_size($Tens)
@@ -21,6 +21,7 @@ func arrange():
 	$Tens.position = Vector2(start_x + size100 + dx, 20)
 	$Ones.position = Vector2(start_x + size100 + size10 + 2*dx, 20)
 	$OnesAlt.position = Vector2(start_x + size100 + size10 + 2*dx, 120)
+	
 	
 func _get_frame_size(animation : AnimatedSprite2D) -> float:
 	if animation.sprite_frames.get_frame_texture("default", animation.frame):

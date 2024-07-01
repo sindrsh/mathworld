@@ -69,5 +69,3 @@ func _correct_bullet(_name : String) -> bool:
 
 func _accomplished() -> bool:
 	return ints.is_empty()
-
-

@@ -6,7 +6,7 @@ func _add_specifics() -> void:
 	id = "make_amounts_1_to_50"
 	minigame_type = AMOUNT
 	
-	ints = Array(range(1, 50))
+	ints = Array(range(1, 100))
 	ints.shuffle()
 	
 	answer_board_sprite_texture = preload("res://minigames/generics/puzzles/amounts/assets/10board.svg")
@@ -26,4 +26,3 @@ func _add_specifics() -> void:
 	_mk_number(start_x, number_card1, 1)	
 	
 	_mk_task()
-

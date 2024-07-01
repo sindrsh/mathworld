@@ -1,0 +1,162 @@
+[gd_scene load_steps=12 format=3 uid="uid://4bvhqjs05ilc"]
+
+[ext_resource type="Script" path="res://minigames/counting/snake_0_to_9/snake.gd" id="1_y6xwn"]
+[ext_resource type="Texture2D" uid="uid://2xb7c5eko7br" path="res://minigames/generics/puzzles/amounts_new/assets/background.svg" id="2_tqfuy"]
+[ext_resource type="Script" path="res://minigames/counting/snake_0_to_9/fruit.gd" id="3_o730m"]
+[ext_resource type="Texture2D" uid="uid://dgjw1jwn8b0wi" path="res://minigames/generics/puzzles/amounts_new/assets/fruit.png" id="4_w2jrd"]
+[ext_resource type="Script" path="res://assets/global_scenes/text.gd" id="5_084lr"]
+[ext_resource type="AudioStream" uid="uid://cr2a85i1p2has" path="res://minigames/generics/assets/correct.mp3" id="6_uiaws"]
+[ext_resource type="AudioStream" uid="uid://c741aog6bvu7i" path="res://minigames/generics/assets/failure.mp3" id="7_kh3qr"]
+
+[sub_resource type="GDScript" id="GDScript_12xyq"]
+script/source = "extends Area2D
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8akn0"]
+size = Vector2(55, 55)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kqdnu"]
+bg_color = Color(0.413712, 0.679565, 0.341698, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhfl0"]
+size = Vector2(55, 55)
+
+[node name="SnakeGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y6xwn")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_tqfuy")
+centered = false
+
+[node name="SnakeFront" type="Area2D" parent="."]
+monitoring = false
+monitorable = false
+script = SubResource("GDScript_12xyq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SnakeFront"]
+shape = SubResource("RectangleShape2D_8akn0")
+
+[node name="Panel" type="Panel" parent="SnakeFront"]
+auto_translate_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FakeFront" type="Area2D" parent="."]
+visible = false
+monitorable = false
+script = SubResource("GDScript_12xyq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FakeFront"]
+shape = SubResource("RectangleShape2D_8akn0")
+
+[node name="Panel" type="Panel" parent="FakeFront"]
+auto_translate_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -40.0
+offset_right = 30.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SnakePart" type="Area2D" parent="."]
+visible = false
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SnakePart"]
+shape = SubResource("RectangleShape2D_8akn0")
+
+[node name="Panel" type="Panel" parent="SnakePart"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kqdnu")
+
+[node name="FakePart" type="Area2D" parent="."]
+visible = false
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FakePart"]
+shape = SubResource("RectangleShape2D_8akn0")
+
+[node name="Panel" type="Panel" parent="FakePart"]
+auto_translate_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kqdnu")
+
+[node name="Fruit" type="Area2D" parent="."]
+visible = false
+monitoring = false
+script = ExtResource("3_o730m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fruit"]
+shape = SubResource("RectangleShape2D_dhfl0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Fruit"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_w2jrd")
+
+[node name="Label" type="Label" parent="Fruit"]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("5_084lr")
+
+[node name="CorrectSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_uiaws")
+
+[node name="IncorrectSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_kh3qr")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2

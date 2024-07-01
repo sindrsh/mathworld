@@ -1,0 +1,226 @@
+[gd_scene load_steps=18 format=3 uid="uid://dcd2tg24gnout"]
+
+[ext_resource type="Script" path="res://minigames/counting/snake_10_to_99/snake.gd" id="1_8edal"]
+[ext_resource type="Texture2D" uid="uid://2xb7c5eko7br" path="res://minigames/generics/puzzles/amounts_new/assets/background.svg" id="2_6476b"]
+[ext_resource type="Script" path="res://minigames/counting/snake_0_to_9/fruit.gd" id="3_e0jw4"]
+[ext_resource type="Texture2D" uid="uid://dgjw1jwn8b0wi" path="res://minigames/generics/puzzles/amounts_new/assets/fruit.png" id="4_hpwho"]
+[ext_resource type="Script" path="res://assets/global_scenes/text.gd" id="5_umraq"]
+[ext_resource type="AudioStream" uid="uid://cr2a85i1p2has" path="res://minigames/generics/assets/correct.mp3" id="6_nbu52"]
+[ext_resource type="AudioStream" uid="uid://c741aog6bvu7i" path="res://minigames/generics/assets/failure.mp3" id="7_kjje1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m502e"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="GDScript" id="GDScript_12xyq"]
+script/source = "extends Area2D
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8akn0"]
+size = Vector2(55, 55)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kqdnu"]
+bg_color = Color(0.413712, 0.679565, 0.341698, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhfl0"]
+size = Vector2(55, 55)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ejc6w"]
+size = Vector2(10, 1080)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ujiag"]
+b = Vector2(0, 1080)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_7aj8q"]
+b = Vector2(1920, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_k11d1"]
+b = Vector2(1920, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdv7n"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[node name="SnakeGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8edal")
+
+[node name="Panel" type="Panel" parent="."]
+top_level = true
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_m502e")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_6476b")
+centered = false
+
+[node name="SnakeFront" type="Area2D" parent="."]
+monitoring = false
+monitorable = false
+script = SubResource("GDScript_12xyq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SnakeFront"]
+shape = SubResource("RectangleShape2D_8akn0")
+
+[node name="Panel" type="Panel" parent="SnakeFront"]
+auto_translate_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -28.0
+offset_right = 28.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FakeFront" type="Area2D" parent="."]
+visible = false
+monitorable = false
+script = SubResource("GDScript_12xyq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FakeFront"]
+shape = SubResource("RectangleShape2D_8akn0")
+
+[node name="Panel" type="Panel" parent="FakeFront"]
+auto_translate_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SnakePart" type="Area2D" parent="."]
+visible = false
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SnakePart"]
+shape = SubResource("RectangleShape2D_8akn0")
+
+[node name="Panel" type="Panel" parent="SnakePart"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -28.0
+offset_right = 28.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kqdnu")
+
+[node name="FakePart" type="Area2D" parent="."]
+visible = false
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FakePart"]
+shape = SubResource("RectangleShape2D_8akn0")
+
+[node name="Panel" type="Panel" parent="FakePart"]
+auto_translate_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kqdnu")
+
+[node name="Fruit" type="Area2D" parent="."]
+visible = false
+monitoring = false
+script = ExtResource("3_e0jw4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fruit"]
+shape = SubResource("RectangleShape2D_dhfl0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Fruit"]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_hpwho")
+
+[node name="Label" type="Label" parent="Fruit"]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("5_umraq")
+
+[node name="CorrectSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_nbu52")
+
+[node name="IncorrectSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_kjje1")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="Wall" type="Area2D" parent="."]
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+position = Vector2(-5, 540)
+shape = SubResource("RectangleShape2D_ejc6w")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall"]
+position = Vector2(1920, 0)
+shape = SubResource("SegmentShape2D_ujiag")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Wall"]
+shape = SubResource("SegmentShape2D_7aj8q")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Wall"]
+position = Vector2(0, 1080)
+shape = SubResource("SegmentShape2D_k11d1")
+
+[node name="Panel2" type="Panel" parent="."]
+visible = false
+custom_minimum_size = Vector2(56, 56)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qdv7n")

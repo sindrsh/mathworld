@@ -31,4 +31,3 @@ func _process(_delta):
 			position.y = temp_y
 		else:
 			position.y = y_limit
-

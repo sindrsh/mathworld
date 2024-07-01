@@ -108,4 +108,3 @@ func _on_obstacle_hit(_obstacle: Area2D) -> void:
 
 func _on_lane_finished() -> void:
 	_end_game()
-
