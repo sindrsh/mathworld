@@ -35,8 +35,6 @@ var creature_animation : AnimatedSprite2D
 
 func _add_generics() -> void:
 	
-	_add_status_bar()
-	
 	assert(creature.connect("move_completed", _on_creature_arrival) == 0)	
 	assert(send_number_button.connect("pressed", _send_number) == 0)
 	assert(number.connect("move_completed", _on_number_arrival) == 0)

@@ -5,6 +5,8 @@ enum {INSIGHT, CALCULATION}
 
 var current_game_path : String
 
+var completed_games = []
+
 var count_minigames:= {	
 	"num_line_0_to_9": {
 		"status": NOT_COMPLETED,
@@ -21,12 +23,12 @@ var count_minigames:= {
 		"branch": CALCULATION,
 		"score": 0
 	},				
-	"num_line_10_to_100": {
+	"num_line_0_to_100": {
 		"status": NOT_COMPLETED,
 		"branch": INSIGHT,
 		"score": 0
 	},		
-	"run_hill": {
+	"run_hill_0_to_100": {
 		"status": NOT_COMPLETED,
 		"branch": CALCULATION,
 		"score": 0
@@ -46,22 +48,27 @@ var count_minigames:= {
 		"branch": CALCULATION,
 		"score": 0
 	},
-	"amount_0_to_50": {
+	"amount_0_to_99": {
 		"status": NOT_COMPLETED,
 		"branch": INSIGHT,
 		"score": 0
 	},
-	"make_amounts_1_to_50": {
+	"make_amounts_1_to_99": {
 		"status": NOT_COMPLETED,
 		"branch": CALCULATION,
 		"score": 0
 	},
-	"snake_1_to_9": {
+	"snake_0_to_9": {
 		"status": NOT_COMPLETED,
 		"branch": CALCULATION,
 		"score": 0
-	},			
-	"amount_50_to_999": {
+	},
+	"snake_10_to_99": {
+		"status": NOT_COMPLETED,
+		"branch": CALCULATION,
+		"score": 0
+	},						
+	"amount_0_to_999": {
 		"status": NOT_COMPLETED,
 		"branch": INSIGHT,
 		"score": 0
@@ -90,8 +97,12 @@ func get_game_index(game_array: Array, test_id: String):
 	return index
 
 
-func get_game_dictionary(game_array: Array, test_id: String) -> Dictionary:
-	return game_array[get_game_index(game_array, test_id)]
+func get_game_dictionary(test_id: String) -> Dictionary:
+	var game_dict = {}
+	for world_part in world_parts.values():
+		if test_id in world_part:
+			return world_part[test_id]
+	return game_dict
 
 
 func get_typeless_minigame_path(world_part : String, minigame : String) -> String:

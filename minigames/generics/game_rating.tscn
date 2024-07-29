@@ -1,25 +1,25 @@
 [gd_scene load_steps=7 format=3 uid="uid://3q7kvwwotegq"]
 
-[ext_resource type="Texture2D" uid="uid://hwyb4ani6nyw" path="res://minigames/generics/assets/status-3.svg" id="1_jxux1"]
 [ext_resource type="Script" path="res://minigames/generics/game_rating.gd" id="1_xq1ph"]
-[ext_resource type="Texture2D" uid="uid://bklexuyhx01ln" path="res://minigames/generics/assets/status-2.svg" id="2_1w2fq"]
-[ext_resource type="Texture2D" uid="uid://dayrtf3gfg51x" path="res://minigames/generics/assets/status-idle.svg" id="2_rg3w8"]
-[ext_resource type="Texture2D" uid="uid://tshpe40how4c" path="res://minigames/generics/assets/status-1.svg" id="3_tmulw"]
+[ext_resource type="Texture2D" uid="uid://bnltcunfs1sh4" path="res://minigames/generics/assets/Point_0.png" id="2_owohd"]
+[ext_resource type="Texture2D" uid="uid://77ug7qxapudp" path="res://minigames/generics/assets/Point_1.png" id="3_62q1t"]
+[ext_resource type="Texture2D" uid="uid://b61eqox2263tb" path="res://minigames/generics/assets/Point_2.png" id="4_rfn2p"]
+[ext_resource type="Texture2D" uid="uid://cnak4jk65c0on" path="res://minigames/generics/assets/Point_3.png" id="5_veuq8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_exl6i"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_rg3w8")
+"texture": ExtResource("2_owohd")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_tmulw")
+"texture": ExtResource("3_62q1t")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_1w2fq")
+"texture": ExtResource("4_rfn2p")
 }, {
 "duration": 1.0,
-"texture": ExtResource("1_jxux1")
+"texture": ExtResource("5_veuq8")
 }],
 "loop": true,
 "name": &"default",
@@ -36,4 +36,5 @@ grow_vertical = 2
 script = ExtResource("1_xq1ph")
 
 [node name="RatingIndicator" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_exl6i")

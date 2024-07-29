@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://minigames/counting/make_amounts_1_to_99/make_amounts_1_to_99.gd" id="1_4fgk8"]
 
-[node name="MakeAmounts1To50" type="Control"]
+[node name="MakeAmounts1To99" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_4fgk8")

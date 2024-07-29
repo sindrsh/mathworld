@@ -1,12 +1,6 @@
 extends Node
 
 
-var save_dict := {
-	"minigames": {
-		"counting": [],
-		"lastCompletedMinigame": "",
-		"effectPlayed": true,
-	},
-}
+var mini_games: Dictionary
 
 var show_all_games = false

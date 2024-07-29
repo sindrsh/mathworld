@@ -1,12 +1,26 @@
-[gd_scene load_steps=18 format=3 uid="uid://dwoxp4ds7j65t"]
+[gd_scene load_steps=33 format=3 uid="uid://dwoxp4ds7j65t"]
 
 [ext_resource type="Script" path="res://minigames/counting/snake_0_to_9/snake.gd" id="1_lej0l"]
 [ext_resource type="Texture2D" uid="uid://2xb7c5eko7br" path="res://minigames/generics/puzzles/amounts_new/assets/background.svg" id="2_ekbi7"]
+[ext_resource type="Texture2D" uid="uid://gvm2l8exhvvs" path="res://minigames/generics/snake_minigame/assets/body_1.png" id="3_jxk3v"]
 [ext_resource type="Script" path="res://minigames/counting/snake_0_to_9/fruit.gd" id="3_llcr7"]
+[ext_resource type="Texture2D" uid="uid://bdjg4tvycl3g4" path="res://minigames/generics/snake_minigame/assets/body_2.png" id="4_177lk"]
 [ext_resource type="Texture2D" uid="uid://dgjw1jwn8b0wi" path="res://minigames/generics/puzzles/amounts_new/assets/fruit.png" id="4_bndeh"]
 [ext_resource type="Script" path="res://assets/global_scenes/text.gd" id="5_f6psa"]
+[ext_resource type="Texture2D" uid="uid://dba1phgcjnqnb" path="res://minigames/generics/snake_minigame/assets/body_3.png" id="5_y72ip"]
+[ext_resource type="Texture2D" uid="uid://dnpc6s4oomidh" path="res://minigames/generics/snake_minigame/assets/body_4.png" id="6_1y34f"]
 [ext_resource type="AudioStream" uid="uid://cr2a85i1p2has" path="res://minigames/generics/assets/correct.mp3" id="6_85q2q"]
+[ext_resource type="Texture2D" uid="uid://3mhsoodwdcbm" path="res://minigames/generics/snake_minigame/assets/body_5.png" id="7_5y2d4"]
 [ext_resource type="AudioStream" uid="uid://c741aog6bvu7i" path="res://minigames/generics/assets/failure.mp3" id="7_s5rvb"]
+[ext_resource type="Texture2D" uid="uid://dn3kuvvirsv72" path="res://minigames/generics/snake_minigame/assets/body_6.png" id="8_l7ibv"]
+[ext_resource type="Texture2D" uid="uid://3tdv46pet3qi" path="res://minigames/generics/snake_minigame/assets/tail_1.png" id="9_5adx5"]
+[ext_resource type="Texture2D" uid="uid://ujjiamx50cfb" path="res://minigames/generics/snake_minigame/assets/tail_2.png" id="10_locqw"]
+[ext_resource type="Texture2D" uid="uid://m8hgmoudadhg" path="res://minigames/generics/snake_minigame/assets/tail_3.png" id="11_cgl8j"]
+[ext_resource type="Texture2D" uid="uid://fdy76xyp8wva" path="res://minigames/generics/snake_minigame/assets/tail_4.png" id="12_oa4up"]
+[ext_resource type="Texture2D" uid="uid://cat3vtn5vv66f" path="res://minigames/generics/snake_minigame/assets/head_1.png" id="13_k15il"]
+[ext_resource type="Texture2D" uid="uid://cn7sxfv4xplnm" path="res://minigames/generics/snake_minigame/assets/head_2.png" id="14_r6cio"]
+[ext_resource type="Texture2D" uid="uid://co760eg6i2m6f" path="res://minigames/generics/snake_minigame/assets/head_3.png" id="15_g2bka"]
+[ext_resource type="Texture2D" uid="uid://fl83u7aotctg" path="res://minigames/generics/snake_minigame/assets/head_4.png" id="16_v4mw0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m502e"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -32,12 +46,70 @@ func _process(delta):
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8akn0"]
 size = Vector2(55, 55)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_fb5w3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_k15il")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_r6cio")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_g2bka")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_v4mw0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kqdnu"]
 bg_color = Color(0.413712, 0.679565, 0.341698, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hj8nh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_jxk3v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_177lk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_y72ip")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_1y34f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5y2d4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_l7ibv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_5adx5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_locqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_cgl8j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_oa4up")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dhfl0"]
 size = Vector2(55, 55)
@@ -53,16 +125,6 @@ b = Vector2(1920, 0)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_k11d1"]
 b = Vector2(1920, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdv7n"]
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
 
 [node name="SnakeGame" type="Control"]
 layout_mode = 3
@@ -95,6 +157,7 @@ shape = SubResource("RectangleShape2D_8akn0")
 
 [node name="Panel" type="Panel" parent="SnakeFront"]
 auto_translate_mode = 1
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -106,6 +169,9 @@ offset_right = 28.0
 offset_bottom = 28.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SnakeFront"]
+sprite_frames = SubResource("SpriteFrames_fb5w3")
 
 [node name="FakeFront" type="Area2D" parent="."]
 visible = false
@@ -122,10 +188,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -40.0
-offset_top = -40.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -28.0
+offset_top = -28.0
+offset_right = 28.0
+offset_bottom = 28.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -150,6 +216,9 @@ offset_bottom = 28.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_kqdnu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SnakePart"]
+sprite_frames = SubResource("SpriteFrames_hj8nh")
 
 [node name="FakePart" type="Area2D" parent="."]
 visible = false
@@ -216,11 +285,3 @@ shape = SubResource("SegmentShape2D_7aj8q")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Wall"]
 position = Vector2(0, 1080)
 shape = SubResource("SegmentShape2D_k11d1")
-
-[node name="Panel2" type="Panel" parent="."]
-visible = false
-custom_minimum_size = Vector2(56, 56)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_qdv7n")

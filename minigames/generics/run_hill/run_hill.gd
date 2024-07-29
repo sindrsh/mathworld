@@ -21,25 +21,6 @@ func _add_generics() -> void:
 		alternatives.push_back(alternative)
 		add_child(alternative)
 
-func _add_specifics():
-	world_part = "counting"
-	id = "run_hill"
-	minigame_type = NUMBER_LINE
-	
-	_add_status_bar()
-	status_bar.position.y -= 300
-	
-	lane.tick_hit.connect(_on_obstacle_hit)
-	
-	
-	var ints := [1, 2, 3, 4, 5, 6, 7, 8, 9]
-	for i in range(alternatives.size()):
-		assert(alternatives[i].chosen.connect(_alternative_chosen) == 0)
-				
-	add_child(lane)
-	_mk_alternatives()
-	music_player.stream = music
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -47,6 +28,9 @@ func _process(delta):
 		if lane.moving:
 			lane.position.x -= lane.speed/1.4*delta
 
+
+func _adjust_status_bar() -> void:
+	status_bar.position.y += 450
 
 func _mk_alternatives() -> void:
 	var ints = [1, 2, 3, 4, 5, 6, 7, 8, 9]

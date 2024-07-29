@@ -1,15 +1,4 @@
 extends Node2D
-const GameRating = preload("res://minigames/generics/game_rating.gd")
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	_update()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-	
 
 func get_status_indicator(id: String) -> Control:
 	for node in get_children():
@@ -21,9 +10,14 @@ func get_status_indicator(id: String) -> Control:
 	return null
 	
 
-func _update():
-	for id in GlobalVariables.count_minigames.keys():
+func update(new_mini_game: bool):
+	for id in GlobalVariables.completed_games:
 		for game_rating in get_tree().get_nodes_in_group("GameRatings"):
 			match game_rating.get("id"):
 				id:
-					game_rating.get_node("RatingIndicator").frame = GlobalVariables.count_minigames[id]["score"]
+					if GlobalVariables.count_minigames[id]["branch"] != GlobalVariables.INSIGHT:
+						game_rating.get_node("RatingIndicator").frame = GlobalVariables.count_minigames[id]["score"]
+					else:
+						if new_mini_game:
+							await get_tree().create_timer(0.5).timeout
+						game_rating.show()

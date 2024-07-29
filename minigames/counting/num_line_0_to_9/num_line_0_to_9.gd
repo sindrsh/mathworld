@@ -5,9 +5,7 @@ extends MiniGame
 var bar_length : int
 
 func _add_specifics():
-	world_part = "counting"
 	id = "num_line_0_to_9"
-	minigame_type = NUMBER_LINE
 	$Zero.position = Vector2(500, 500)
 	var num_label := Text.new(60, "0")
 	num_label.set_text_position(Vector2(bar_length, 50))

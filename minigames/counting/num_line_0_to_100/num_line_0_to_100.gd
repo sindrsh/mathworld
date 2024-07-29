@@ -13,9 +13,7 @@ func _add_specifics():
 	assert($RollFwdButton.pressed.connect(_roll_fwd_button_pressed) == 0)
 	assert($RollBckwdButton.pressed.connect(_roll_bckwd_button_pressed) == 0)
 	
-	world_part = "counting"
-	id = "num_line_0_to_9"
-	minigame_type = NUMBER_LINE
+	id = "num_line_0_to_100"
 	$NumberLine.position = Vector2(958, 500)
 	
 	
@@ -49,3 +47,7 @@ func _roll_bckwd_button_pressed() -> void:
 	$NumberLine.roll_ten_bckwd()	
 	$RollBckwdButton.disabled = true
 	tens_rolled -= 1
+
+
+func _adjust_insight_button() -> void:
+	insight_button.position.y += 50

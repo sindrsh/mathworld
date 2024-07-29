@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cn51ossytf2gp"]
+
+[ext_resource type="Texture2D" uid="uid://dj826cj0gn00r" path="res://minigames/generics/assets/badge.png" id="1_hymwa"]
+
+[node name="InsightButton" type="TextureButton"]
+offset_left = 1819.0
+offset_top = 545.0
+offset_right = 2391.0
+offset_bottom = 1145.0
+scale = Vector2(0.1, 0.1)
+texture_normal = ExtResource("1_hymwa")

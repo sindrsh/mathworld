@@ -50,13 +50,8 @@ var	representation_b = [
 var representation_b_chosen = preload("res://minigames/counting/match_0_to_9/assets/bubbles empty.png")
 
 func _add_specifics() -> void:
-	world_part = "counting"
 	id = "match_0_to_9"
-	minigame_type = AMOUNT
 	music_player.stream = music
-	
-	_add_status_bar()
-	
 	
 func _mk_bubbles() -> void:
 	for i in range(ints.size()):

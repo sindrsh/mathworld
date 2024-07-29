@@ -100,6 +100,10 @@ func _on_equal_sign_pressed() -> void:
 		equal_sign.texture_normal = equal_texture_correct
 	else:
 		equal_sign.texture_normal = equal_texture_incorrect
+		if status_bar.frame == 0:
+			_end_game_with_failure()
+		else:
+			status_bar.frame -= 1
 		
 	equal_sign.disabled = true	
 	await get_tree().create_timer(1).timeout

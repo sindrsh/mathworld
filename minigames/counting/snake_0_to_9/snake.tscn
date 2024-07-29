@@ -1,12 +1,18 @@
-[gd_scene load_steps=12 format=3 uid="uid://dex4hn7kdvs3m"]
+[gd_scene load_steps=19 format=3 uid="uid://dex4hn7kdvs3m"]
 
 [ext_resource type="Script" path="res://minigames/counting/snake_0_to_9/snake.gd" id="1_e5mfa"]
 [ext_resource type="Texture2D" uid="uid://2xb7c5eko7br" path="res://minigames/generics/puzzles/amounts_new/assets/background.svg" id="2_mewdp"]
+[ext_resource type="Texture2D" uid="uid://gvm2l8exhvvs" path="res://minigames/generics/snake_minigame/assets/body_1.png" id="3_dscoc"]
 [ext_resource type="Script" path="res://minigames/counting/snake_0_to_9/fruit.gd" id="3_xyswu"]
+[ext_resource type="Texture2D" uid="uid://bdjg4tvycl3g4" path="res://minigames/generics/snake_minigame/assets/body_2.png" id="4_t4rrm"]
+[ext_resource type="Texture2D" uid="uid://dba1phgcjnqnb" path="res://minigames/generics/snake_minigame/assets/body_3.png" id="5_oc8be"]
 [ext_resource type="Texture2D" uid="uid://dgjw1jwn8b0wi" path="res://minigames/generics/puzzles/amounts_new/assets/fruit.png" id="5_ylqhi"]
 [ext_resource type="Script" path="res://assets/global_scenes/text.gd" id="6_8j61p"]
+[ext_resource type="Texture2D" uid="uid://dnpc6s4oomidh" path="res://minigames/generics/snake_minigame/assets/body_4.png" id="6_hfy13"]
 [ext_resource type="AudioStream" uid="uid://cr2a85i1p2has" path="res://minigames/generics/assets/correct.mp3" id="7_mrqex"]
+[ext_resource type="Texture2D" uid="uid://3mhsoodwdcbm" path="res://minigames/generics/snake_minigame/assets/body_5.png" id="7_vxvk2"]
 [ext_resource type="AudioStream" uid="uid://c741aog6bvu7i" path="res://minigames/generics/assets/failure.mp3" id="8_8cso5"]
+[ext_resource type="Texture2D" uid="uid://dn3kuvvirsv72" path="res://minigames/generics/snake_minigame/assets/body_6.png" id="8_188yk"]
 
 [sub_resource type="GDScript" id="GDScript_12xyq"]
 script/source = "extends Area2D
@@ -30,6 +36,32 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e72mg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_dscoc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_t4rrm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_oc8be")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_hfy13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_vxvk2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_188yk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dhfl0"]
 size = Vector2(55, 55)
@@ -112,6 +144,9 @@ offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_kqdnu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SnakePart"]
+sprite_frames = SubResource("SpriteFrames_e72mg")
 
 [node name="FakePart" type="Area2D" parent="."]
 visible = false

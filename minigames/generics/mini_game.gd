@@ -6,18 +6,19 @@ enum {AMOUNT, NUMBER_LINE}
 
 # every child must set these three variables
 # in the _add_specifics function
-var world_part : String
 var id : String
-var minigame_type : int
+var game_dict: Dictionary
 
 signal game_ended(success: bool)
 
-var MenuBarScene : PackedScene = load("res://minigames/generics/MenuBar.tscn")
-var status_bar_scene : PackedScene = load("res://minigames/generics/status_bar.tscn")
+var MenuBarScene : PackedScene = preload("res://minigames/generics/MenuBar.tscn")
+var status_bar_scene : PackedScene = preload("res://minigames/generics/status_bar.tscn")
+var insight_button_scene: PackedScene = preload("res://minigames/generics/insight_button.tscn")
 var menu_bar : CanvasLayer = MenuBarScene.instantiate()
 var cheat_button := Button.new()
 var status_bar : AnimatedSprite2D
 var music_player := AudioStreamPlayer2D.new()
+var insight_button : TextureButton
 
 
 func _ready():
@@ -28,6 +29,15 @@ func _ready():
 	_add_generics()
 	_add_specifics()
 	
+	game_dict = GlobalVariables.get_game_dictionary(id)
+	if game_dict["branch"] == GlobalVariables.INSIGHT:
+		if id not in GlobalVariables.completed_games:
+			_add_insight_button()
+			_adjust_insight_button()
+	else:
+		_add_status_bar()
+		_adjust_status_bar()	
+	
 	add_child(menu_bar);
 	add_child(music_player)
 	music_player.playing = true
@@ -36,6 +46,8 @@ func _ready():
 	cheat_button.position = Vector2(1800, 1000)
 	cheat_button.pressed.connect(_end_game)
 	add_child(cheat_button)
+	cheat_button.top_level = true
+	
 	
 func _add_generics() -> void:
 	pass
@@ -45,34 +57,56 @@ func _add_specifics() -> void:
 	pass
 
 
+func _adjust_status_bar() -> void:
+	pass
+
+
+func _adjust_insight_button() -> void:
+	pass
+
+	
+
 func _game_completed() -> void:
-	if GlobalVariables.world_parts.has(world_part):
-		var game_dict: Dictionary = GlobalVariables.world_parts[world_part][id]
-		game_dict["status"] = GlobalVariables.COMPLETED
-		if id not in PlayerVariables.save_dict["minigames"][world_part]:
-			PlayerVariables.save_dict["minigames"][world_part].push_back(id) 
-			PlayerVariables.save_dict["minigames"]["lastCompletedMinigame"] = id
-			PlayerVariables.save_dict["minigames"]["effectPlayed"] = false
-		var save_game = FileAccess.open("user://savegame.save", FileAccess.WRITE)
-		var json_string = JSON.stringify(PlayerVariables.save_dict)
-		save_game.store_line(json_string)
-		if status_bar:
-			game_dict["score"] = status_bar.frame
-		else:
-			game_dict["score"] = 1
+	GlobalVariables.completed_games.push_back(id)
+	game_dict["status"] = GlobalVariables.COMPLETED
+	
+	if status_bar:
+		game_dict["score"] = status_bar.frame
+	else:
+		game_dict["score"] = 1
+	
+	PlayerVariables.mini_games[id] = game_dict["score"]	
+	var save_game = FileAccess.open("user://savegame.save", FileAccess.WRITE)
+	var json_string = JSON.stringify(PlayerVariables.mini_games)
+	save_game.store_line(json_string)
+	
+	if status_bar:
+		await status_bar.target_reached
+		await get_tree().create_timer(0.8).timeout
 		
-		if status_bar:
-			await status_bar.target_reached
-			await get_tree().create_timer(0.8).timeout
-		var development_board = load("res://worlds/counting/development_board.tscn").instantiate()
-		development_board.scale = Vector2(0.5,0.5)
-		development_board.position = Vector2(300, 300)
-		add_child(development_board)	
-				
+	var development_board = load("res://worlds/counting/development_board.tscn").instantiate()
+	development_board.scale = Vector2(0.5,0.5)
+	development_board.position = Vector2(300, 300)
+	add_child(development_board)	
+	development_board.update(true)	
+			
+			
 func _add_status_bar() -> void:
 	status_bar = status_bar_scene.instantiate()
 	status_bar.position = Vector2(1800, 500)
 	add_child(status_bar)
+
+
+func _add_insight_button() -> void:
+	insight_button = insight_button_scene.instantiate()
+	insight_button.pressed.connect(_insight_button_pressed)
+	add_child(insight_button)
+
+
+func _insight_button_pressed() -> void:
+	insight_button.hide()
+	_end_game()
+	
 	
 func _end_game_condition() -> bool:
 	return false

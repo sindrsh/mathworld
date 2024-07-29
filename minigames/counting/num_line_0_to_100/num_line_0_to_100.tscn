@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://ejrrjhngecu0"]
+
+[ext_resource type="Script" path="res://minigames/counting/num_line_0_to_100/num_line_0_to_100.gd" id="1_ve4mo"]
+[ext_resource type="Texture2D" uid="uid://cmo25v2kkxbay" path="res://minigames/counting/num_line_0_to_9/assets/background.svg" id="2_188ir"]
+[ext_resource type="Script" path="res://minigames/counting/num_line_0_to_100/number_line.gd" id="3_1qnhk"]
+[ext_resource type="Texture2D" uid="uid://cio5l1dydn7b1" path="res://minigames/counting/num_line_0_to_9/assets/bar.svg" id="4_qvdvq"]
+[ext_resource type="Texture2D" uid="uid://cffejba4v58fm" path="res://minigames/counting/num_line_0_to_9/assets/tick.svg" id="5_8jtjq"]
+[ext_resource type="Texture2D" uid="uid://driu627b5hxvg" path="res://minigames/counting/num_line_0_to_100/assets/roll.svg" id="6_wot4o"]
+
+[node name="NumLine0To100" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ve4mo")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_188ir")
+centered = false
+
+[node name="NumberLine" type="Node2D" parent="."]
+script = ExtResource("3_1qnhk")
+
+[node name="Bar" type="Sprite2D" parent="NumberLine"]
+visible = false
+texture = ExtResource("4_qvdvq")
+centered = false
+
+[node name="Zero" type="Sprite2D" parent="NumberLine"]
+texture = ExtResource("5_8jtjq")
+centered = false
+
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+layout_mode = 0
+offset_left = 977.0
+offset_top = 920.0
+offset_right = 1191.0
+offset_bottom = 971.0
+
+[node name="RollBckwdButton" type="TextureButton" parent="HSplitContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_wot4o")
+flip_h = true
+
+[node name="RollFwdButton" type="TextureButton" parent="HSplitContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_wot4o")

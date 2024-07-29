@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://dfw1rr56lbuk6"]
+[gd_scene load_steps=17 format=3 uid="uid://dfw1rr56lbuk6"]
 
 [ext_resource type="PackedScene" uid="uid://dbk0lrs3vdn38" path="res://worlds/counting/building.tscn" id="1_dish6"]
+[ext_resource type="Script" path="res://worlds/counting/new_counting_world.gd" id="1_q1v27"]
 [ext_resource type="Texture2D" uid="uid://b2mjrvijn6600" path="res://worlds/counting/assets/map rework_3.png" id="1_vx1y3"]
 [ext_resource type="Texture2D" uid="uid://kec7galqlvje" path="res://worlds/counting/assets/prop1.png" id="2_djukd"]
 [ext_resource type="Texture2D" uid="uid://cifrxmwoakecq" path="res://worlds/counting/assets/prop2.png" id="3_bvao5"]
@@ -19,6 +20,7 @@
 [node name="NewCountingWorld" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_q1v27")
 
 [node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("1_vx1y3")
@@ -36,17 +38,19 @@ texture_normal = ExtResource("2_djukd")
 minigame_path = "res://minigames/counting/amount_0_to_9/amount_0_to_9.tscn"
 
 [node name="Building2" parent="." instance=ExtResource("1_dish6")]
+visible = false
 z_index = 1
 layout_mode = 0
-offset_left = 718.0
-offset_top = 541.0
-offset_right = 1404.0
-offset_bottom = 1033.0
+offset_left = 942.0
+offset_top = 705.0
+offset_right = 1628.0
+offset_bottom = 1197.0
 scale = Vector2(0.4, 0.4)
 texture_normal = ExtResource("3_bvao5")
 minigame_path = "res://minigames/counting/amount_0_to_99/amount_0_to_99.tscn"
 
 [node name="Building3" parent="." instance=ExtResource("1_dish6")]
+visible = false
 z_index = 1
 layout_mode = 0
 offset_left = 1293.0
@@ -69,17 +73,19 @@ texture_normal = ExtResource("6_3b8yq")
 minigame_path = "res://minigames/counting/num_line_0_to_9/num_line_0_to_9.tscn"
 
 [node name="Building5" parent="." instance=ExtResource("1_dish6")]
+visible = false
 z_index = 1
 layout_mode = 0
-offset_left = 375.0
-offset_top = 377.0
-offset_right = 1253.0
-offset_bottom = 1157.0
+offset_left = 117.0
+offset_top = 197.0
+offset_right = 995.0
+offset_bottom = 977.0
 scale = Vector2(0.4, 0.4)
 texture_normal = ExtResource("7_g4plc")
 minigame_path = "res://minigames/counting/falling_numbers_0_to_9/falling_numbers_0_to_9.tscn"
 
 [node name="Building6" parent="." instance=ExtResource("1_dish6")]
+visible = false
 z_index = 1
 layout_mode = 0
 offset_left = 442.0
@@ -88,9 +94,10 @@ offset_right = 1320.0
 offset_bottom = 787.0
 scale = Vector2(0.35, 0.35)
 texture_normal = ExtResource("7_egpmc")
-minigame_path = "res://minigames/counting/num_line_10_to_100/num_line_10_to_100.tscn"
+minigame_path = "res://minigames/counting/num_line_0_to_100/num_line_0_to_100.tscn"
 
 [node name="Building7" parent="." instance=ExtResource("1_dish6")]
+visible = false
 z_index = 1
 layout_mode = 0
 offset_left = 671.0
@@ -102,6 +109,7 @@ texture_normal = ExtResource("9_aitba")
 minigame_path = "res://minigames/counting/run_hill_0_to_100/run_hill_0_to_100.tscn"
 
 [node name="Building8" parent="." instance=ExtResource("1_dish6")]
+visible = false
 z_index = 1
 layout_mode = 0
 offset_left = 471.0
@@ -113,6 +121,7 @@ texture_normal = ExtResource("5_ix5g3")
 minigame_path = "res://minigames/counting/match_0_to_9/match_0_to_9.tscn"
 
 [node name="Building9" parent="." instance=ExtResource("1_dish6")]
+visible = false
 z_index = 1
 layout_mode = 0
 offset_left = 711.0
@@ -124,6 +133,7 @@ texture_normal = ExtResource("9_b8wtg")
 minigame_path = "res://minigames/counting/snake_0_to_9/snake_0_to_9.tscn"
 
 [node name="Building13" parent="." instance=ExtResource("1_dish6")]
+visible = false
 z_index = 1
 layout_mode = 0
 offset_left = 1093.0
@@ -132,9 +142,10 @@ offset_right = 1971.0
 offset_bottom = 1311.0
 scale = Vector2(0.2, 0.2)
 texture_normal = ExtResource("12_tpd6q")
-minigame_path = "res://minigames/counting/snake_10_to_99/snake_0_to_9.tscn"
+minigame_path = "res://minigames/counting/snake_10_to_99/snake_10_to_99.tscn"
 
 [node name="Building10" parent="." instance=ExtResource("1_dish6")]
+visible = false
 z_index = 1
 layout_mode = 0
 offset_left = 1576.0
@@ -146,23 +157,25 @@ texture_normal = ExtResource("10_fri3p")
 minigame_path = "res://minigames/counting/make_amounts_1_to_999/make_amounts_1_to_999.tscn"
 
 [node name="Building11" parent="." instance=ExtResource("1_dish6")]
+visible = false
 z_index = 1
 layout_mode = 0
-offset_left = 960.0
-offset_top = 697.0
-offset_right = 2017.0
-offset_bottom = 1737.0
+offset_left = 723.0
+offset_top = 535.0
+offset_right = 1780.0
+offset_bottom = 1575.0
 scale = Vector2(0.2, 0.2)
 texture_normal = ExtResource("12_jjsuv")
 minigame_path = "res://minigames/counting/make_amounts_1_to_99/make_amounts_1_to_99.tscn"
 
 [node name="Building12" parent="." instance=ExtResource("1_dish6")]
+visible = false
 z_index = 1
 layout_mode = 0
-offset_left = 71.0
-offset_top = 160.0
-offset_right = 949.0
-offset_bottom = 963.0
+offset_left = 340.0
+offset_top = 386.0
+offset_right = 1218.0
+offset_bottom = 1189.0
 scale = Vector2(0.25, 0.25)
 texture_normal = ExtResource("12_r1suf")
 minigame_path = "res://minigames/counting/number_bridge_0_to_9/number_bridge_0_to_9.tscn"

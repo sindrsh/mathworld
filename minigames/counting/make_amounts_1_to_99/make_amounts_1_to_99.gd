@@ -2,9 +2,7 @@ extends "res://minigames/generics/puzzles/amounts_new/make_amounts/make_amounts.
 
 
 func _add_specifics() -> void:
-	world_part = "counting"
-	id = "make_amounts_1_to_50"
-	minigame_type = AMOUNT
+	id = "make_amounts_1_to_99"
 	
 	ints = Array(range(1, 100))
 	ints.shuffle()

@@ -97,9 +97,7 @@ func die():
 
 func _add_specifics():
 	
-	world_part = "counting"
 	id = "falling_numbers_0_to_9"
-	minigame_type = NUMBER_LINE
 	
 	var tex: Texture2D = $NumberLine.sprite_frames.get_frame_texture("default", 0)
 	line_b = Vector2(line_a.x + tex.get_width(), line_a.y)

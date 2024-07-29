@@ -78,7 +78,8 @@ func _add_generics() -> void:
 	_add_part_to_snake()
 	_add_part_to_snake()		
 
-
+func _add_specifics() -> void:
+	id = "snake_10_to_99"
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _on_timeout() -> void:

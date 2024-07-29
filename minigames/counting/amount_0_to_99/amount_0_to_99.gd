@@ -3,7 +3,6 @@ extends  "res://minigames/generics/puzzles/amounts_new/place_position.gd"
 #explanation
 
 func _add_specifics() -> void:
-	world_part = "counting"
 	id = "amount_0_to_99"
 	
 	number_board.position = Vector2(1100, 100)

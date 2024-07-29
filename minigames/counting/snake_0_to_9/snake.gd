@@ -31,7 +31,7 @@ func _add_generics() -> void:
 	snake_parts.push_back($SnakeFront)
 	fake_parts.push_back($FakeFront)
 	randomize()
-	ints = range(9)
+	ints = range(10)
 	ints.shuffle()
 	
 	
@@ -42,12 +42,6 @@ func _add_generics() -> void:
 		for j in range(1080/tile_size):
 			tile_matrix_index[tile_positions.size()] = Vector2i(i, j)
 			tile_positions.push_back(Vector2(8, 8) + tile_size*Vector2(i, j) + tile_size*Vector2(0.5, 0.5))
-			var panel := $Panel2.duplicate()
-			panel.position = tile_positions[-1] - tile_size*Vector2(0.5, 0.5)
-			add_child(panel)
-			var text := Label.new()
-			text.text = str(i)+ ',' + str(j) + ';' + str(tile_positions.size()-1)
-			panel.add_child(text)
 		
 	
 	var object_positions : Array
@@ -58,11 +52,11 @@ func _add_generics() -> void:
 	
 	for i in ints:
 		var fruit : Area2D = $Fruit.duplicate()
-		fruit.value = i + 1
+		fruit.value = i
 		fruit.position = object_positions.pop_back()
 		fruit_positions.push_back(fruit.position)
 		fruit.visible = true
-		fruit.get_node("Label").set_new_text(str(i + 1))
+		fruit.get_node("Label").set_new_text(str(i))
 		fruit.get_node("Label").center_text()
 		add_child(fruit)
 	
@@ -74,10 +68,12 @@ func _add_generics() -> void:
 
 	_add_part_to_snake()
 	_add_part_to_snake()		
+	snake_parts[-1].get_node("AnimatedSprite2D").frame = 6
 
 
+func _adjust_status_bar() -> void:
+	status_bar.position.x += 180
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _on_timeout() -> void:
 	if move_allowed:
 		if input_keys:
@@ -99,7 +95,22 @@ func _on_timeout() -> void:
 			snake_parts[i].position = fake_parts[i].position
 		_move_fake_snake()
 		
-		
+		for i in range(1, snake_parts.size() - 1):
+			_set_body_animation(i)
+			
+	_set_tale_animation()
+	
+	var head_direction: Vector2 = snake_parts[1].position.direction_to(snake_parts[0].position)
+	var head_animation: AnimatedSprite2D = snake_parts[0].get_node("AnimatedSprite2D")
+	if head_direction.is_equal_approx(right):
+		head_animation.frame = 0
+	if head_direction.is_equal_approx(left):
+		head_animation.frame = 1	
+	if head_direction.is_equal_approx(up):
+		head_animation.frame = 2
+	if head_direction.is_equal_approx(down):
+		head_animation.frame = 3	
+					
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed:
 		if first_key: 
@@ -125,6 +136,9 @@ func _input(event: InputEvent) -> void:
 		input_keys.push_front(mouse_key_code)		
 		prev_mouse_pos = event.position
 
+func _add_specifics() -> void:
+	id = "snake_0_to_9"
+
 func _add_part_to_snake() -> void:
 	var snake_part : Area2D = $SnakePart.duplicate()
 	snake_part.visible = true
@@ -147,22 +161,60 @@ func _move_fake_snake():
 func _on_area_entered(area: Area2D):
 	var sound : AudioStreamPlayer2D = $IncorrectSound
 	var is_crashing = true
-	if area.get("value"):
+	if area.get("value") != null:
 		if area.value == value:
 			is_crashing = false
 			area.call_deferred("queue_free")
 			_mk_task()
 			sound = $CorrectSound
 			call_deferred("_add_part_to_snake")
+			call_deferred("_set_tale_animation")
+			call_deferred("_set_body_animation", snake_parts.size() - 1)
 	sound.play()		
 	move_allowed = not is_crashing
 
+func _make_turns(p0: Vector2, p1: Vector2, p2: Vector2, snake_part: Area2D) -> void:
+	if p0.x < p1.x: 
+		if p2.y > p1.y:
+			snake_part.get_node("AnimatedSprite2D").frame = 3
+		if p2.y < p1.y: 
+			snake_part.get_node("AnimatedSprite2D").frame = 2
+	if p0.x > p1.x:
+		if p2.y < p1.y:
+			snake_part.get_node("AnimatedSprite2D").frame = 4
+		if p2.y > p1.y:
+			snake_part.get_node("AnimatedSprite2D").frame = 5		
+
+
+func _set_tale_animation() -> void:
+	var tale_animation: AnimatedSprite2D = snake_parts[-1].get_node("AnimatedSprite2D")
+	var tale_direction: Vector2 = snake_parts[-1].position.direction_to(snake_parts[-2].position)
+	if tale_direction.is_equal_approx(right):
+		tale_animation.frame = 6
+	if tale_direction.is_equal_approx(left):
+		tale_animation.frame = 7	
+	if tale_direction.is_equal_approx(up):
+		tale_animation.frame = 8
+	if tale_direction.is_equal_approx(down):
+		tale_animation.frame = 9
+
+func _set_body_animation(i: int) -> void:
+	var p0: Vector2 = snake_parts[i-1].position
+	var p1: Vector2 = snake_parts[i].position
+	var p2: Vector2 = snake_parts[i+1].position
+	if abs(p0.direction_to(p2)).is_equal_approx(right):
+		snake_parts[i].get_node("AnimatedSprite2D").frame = 0
+	if abs(p0.direction_to(p2)).is_equal_approx(down):
+		snake_parts[i].get_node("AnimatedSprite2D").frame = 1	
+	_make_turns(p0, p1, p2, snake_parts[i])
+	_make_turns(p2, p1, p0, snake_parts[i])	
 
 func _mk_task() -> void:
 	if ints.is_empty():
-		_game_completed()
+		$Timer.stop()
+		_end_game()
 		return
-	value = ints.pop_front() + 1
+	value = ints.pop_front()
 	@warning_ignore("integer_division")
 	number_picture.get_node("Hundreds").frame = value/100
 	@warning_ignore("integer_division")
@@ -170,7 +222,6 @@ func _mk_task() -> void:
 	number_picture.get_node("OnesAlt").frame = value
 	number_picture.arrange()
 	number_picture.get_node("OnesAlt").position -= Vector2(55,70)
-
 
 func _set_number_picture_size(_size: Vector2) -> void:
 	number_picture.get_node("Panel").size = _size

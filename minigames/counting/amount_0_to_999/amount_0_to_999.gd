@@ -4,9 +4,7 @@ extends  "res://minigames/generics/puzzles/amounts_new/place_position.gd"
 
 
 func _add_specifics() -> void:
-	world_part = "counting"
 	id = "amount_0_to_999"
-	
 	
 	number_board.position = Vector2(900, 100)
 	number_board.choose_board_digits(3)
