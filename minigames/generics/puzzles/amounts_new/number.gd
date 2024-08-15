@@ -70,5 +70,6 @@ func set_texture() -> void:
 		default_texture = hundred_texture
 	texture_normal = default_texture
 	position = -texture_normal.get_size()/2.0
+	z_index = 3-place
 			
 		

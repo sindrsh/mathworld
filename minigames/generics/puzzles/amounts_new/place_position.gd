@@ -124,6 +124,11 @@ func _add_buttons(digit_place: Sprite2D, place: int) -> void:
 
 func _on_increment(_step: int, _place: int) -> void:
 	
+	if _place != 3:
+		if number_board.digits[_place + 1] == 9:
+			ten_shift_allowed[_place] = false
+		else:
+			ten_shift_allowed[_place] = true
 	if _step == 1:
 		if number_board.digits[_place] < 9:
 			_add_number(_place)
@@ -194,3 +199,7 @@ func _on_ten(_place: int) -> void:
 		number_positions[2] = ten_positions.duplicate(true)
 	for button in buttons:
 		button.disabled = false
+
+
+func _add_rule() -> void:
+	pass
